@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import FAQAccordion from "../../components/faq/FAQAccordion";
 import HeroImageSection from "../../components/general/heroImageSection";
-import TermsAndConditionsHeader from "../../../public/assets/pngs/FooterResources/TermsAndConditions.jpg";
+import FAQ from "../../../public/assets/pngs/FooterResources/FAQ.jpeg";
 import faqImage from "../../../public/assets/pngs/FooterResources/faqImage.svg";
 
 const Faq = () => {
@@ -10,7 +10,7 @@ const Faq = () => {
     <Box sx={{ width: "100vw" }}>
       <HeroImageSection
         title="FAQ's"
-        imageSrc={TermsAndConditionsHeader}
+        imageSrc={FAQ}
         fullScreen={true}
         call={true}
         subText="Leveraging a diverse range of development technologies since our inception, we consistently align with the latest trends and evolving demands."

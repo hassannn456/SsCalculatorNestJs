@@ -24,14 +24,11 @@ const ProjectDetailData = [
   {
     id: 1,
     description:
-      "Now V Play is your gateway to a vibrant world of sports! Our platform makes it effortless for sports enthusiasts to discover and join local sports activities. Whether you’re an experienced athlete or seeking fun exercise, we offer a wide array of sports activities for everyone. What sets us apart? Now V Play isn’t just about finding games—it’s a comprehensive sports experience. Easily organize matches with friends, find fellow enthusiasts, and create a lively sports community.",
+      "We prioritize accuracy and reliability in our AI systems, recognizing their critical importance. While speed may be sacrificed, our flexible approach allows for informed tradeoffs. Our solution systematically reviews all relevant data, supported by a prompt engineering framework that empowers domain experts to contribute and run experiments. We also automate key principles from epistemology, intellectual humility, and statistics to enhance decision-making.",
     LogoPath: ConceptAi,
     technologies: [next, node, aws],
-    overview: `Now V Play is the ultimate destination for sports enthusiasts! Discover and join local sports activities effortlessly, catering to all skill levels. From organizing matches and booking venues seamlessly to enrolling in specialized academies and hiring skilled players, our platform offers a complete sports experience.
-
-    Showcase your talent and connect with potential hires through our innovative Talent Portal. For venue managers, our platform simplifies booking management and communication with clients, catering to both small-scale local venues and large sports complexes.
-    
-    Join Now V Play today to explore a world of sports excitement at your fingertips!`,
+    overview: `
+Our AI solution is designed with a strong emphasis on accuracy and reliability, recognizing their critical importance in high-stakes situations. While speed can be adjusted, we ensure that any tradeoffs between speed and accuracy are informed and deliberate. The system systematically reviews all relevant data, leveraging a prompt engineering framework that allows domain experts to contribute and conduct experiments. Additionally, our approach incorporates automated principles from epistemology, intellectual humility, and statistics to strengthen the decision-making process.`,
     screen1: ConceptAi,
     screen2: ConceptAi,
     screen3: ConceptAi,
@@ -50,14 +47,10 @@ const ProjectDetailData = [
   {
     id: 3,
     description:
-      "Now V Play is your gateway to a vibrant world of sports! Our platform makes it effortless for sports enthusiasts to discover and join local sports activities. Whether you’re an experienced athlete or seeking fun exercise, we offer a wide array of sports activities for everyone. What sets us apart? Now V Play isn’t just about finding games—it’s a comprehensive sports experience. Easily organize matches with friends, find fellow enthusiasts, and create a lively sports community.",
+      "At MULA Learning Portal, we are committed to transforming lives and alleviating poverty through innovative education. Our platform is designed to empower individuals by equipping them with essential financial skills and knowledge. Through engaging, gamified e-learning modules, users can learn to manage their finances, tackle debt, plan for the future, and achieve their financial goals. In addition to interactive learning, our portal provides valuable resources including daily tips, insightful blogs, and a library of over 300 e-books.",
     LogoPath: MulaX,
     technologies: [graphql, elephant, express],
-    overview: `Now V Play is the ultimate destination for sports enthusiasts! Discover and join local sports activities effortlessly, catering to all skill levels. From organizing matches and booking venues seamlessly to enrolling in specialized academies and hiring skilled players, our platform offers a complete sports experience.
-
-    Showcase your talent and connect with potential hires through our innovative Talent Portal. For venue managers, our platform simplifies booking management and communication with clients, catering to both small-scale local venues and large sports complexes.
-    
-    Join Now V Play today to explore a world of sports excitement at your fingertips!`,
+    overview: `MULA Learning Portal is dedicated to improving financial literacy and alleviating poverty through a comprehensive educational platform. Our portal offers a range of gamified e-learning modules that guide users in managing their finances, dealing with debt, planning for the future, and achieving their financial goals. Beyond interactive lessons, we provide additional resources such as daily financial tips, informative blogs, and a vast collection of over 300 e-books. These features are designed to support users in developing essential financial skills and making informed decisions to build a better future.`,
     screen1: MulaX,
     screen2: MulaX,
     screen3: MulaX,

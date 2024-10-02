@@ -61,7 +61,7 @@ const Services = () => {
       <AboutDescription
         description={
           filteredData.extraDescription
-            ? filteredData.extraDescription
+            ? filteredData.extraDescription[0]
             : filteredData.description
         }
         title="WHAT YOU GET"
@@ -78,9 +78,9 @@ const Services = () => {
 
       <ProcessInfo />
       <AboutDescription
-        description={filteredData.description}
+        description={filteredData.extraDescription[1]}
         title="WHAT YOU GOT"
-        image={filteredData.image}
+        image={filteredData.extraImage1}
         subtitle={
           filteredData.title === "UI Design"
             ? "UI/UX Design"

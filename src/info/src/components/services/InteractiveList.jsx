@@ -73,10 +73,34 @@ export default function InteractiveList({ activeTab, closeDrawers }) {
                         color: "#606060",
                       },
                       cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      // Added to ensure that transform on child elements doesn't affect layout
+                      position: "relative",
                     }}
                   >
-                    <ListItemText primary={name} sx={{ marginLeft: "-10px" }} />
-                    <ListItemIcon sx={{ marginRight: "-10px" }}>
+                    <ListItemText
+                      primary={name}
+                      sx={{
+                        transition: "transform 0.3s ease",
+                        transform:
+                          hoveredItem.listIndex === listIndex &&
+                          hoveredItem.itemIndex === itemIndex
+                            ? "translateX(-20px)"
+                            : "translateX(0)",
+                        marginRight: "16px",
+                      }}
+                    />
+                    <ListItemIcon
+                      sx={{
+                        transition: "transform 0.3s ease",
+                        transform:
+                          hoveredItem.listIndex === listIndex &&
+                          hoveredItem.itemIndex === itemIndex
+                            ? "translateX(20px)"
+                            : "translateX(0)",
+                      }}
+                    >
                       {hoveredItem.listIndex === listIndex &&
                       hoveredItem.itemIndex === itemIndex ? (
                         <ArrowCircleRightOutlinedIcon

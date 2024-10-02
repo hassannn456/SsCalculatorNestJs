@@ -121,6 +121,7 @@ const styles = {
   quickLinksContainer: {
     mt: { xs: "1rem", md: "0rem" },
     display: "flex",
+    gap: "0.5rem",
     flexDirection: "column",
     width: { xs: "100%", md: "22%" },
   },
@@ -437,7 +438,7 @@ const Footer = () => {
             </Typography>
             <Typography sx={styles.quickLinksHeading}>Hours</Typography>
             <Typography sx={styles.hours}>
-              6:30pm - 3:30am
+              6:00pm - 3:00am
               <br />
               Monday to Friday
             </Typography>

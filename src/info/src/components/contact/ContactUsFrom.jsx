@@ -47,9 +47,9 @@ const styles = {
   },
   textField: {
     width: "100%",
-    backgroundColor: "#ffffff",
+    // backgroundColor: "#ffffff",
     "& label.Mui-focused": {
-      color: "#378C92",
+      color: "#000000",
       width: "200px",
     },
     "& .MuiOutlinedInput-root": {
@@ -57,7 +57,10 @@ const styles = {
         borderColor: "lightgray",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#378C92",
+        borderColor: "#F8F8F8",
+      },
+      "& .MuiSelect-": {
+        color: "black",
       },
     },
   },
@@ -73,11 +76,12 @@ const styles = {
         borderColor: "#378C92",
         borderRadius: "10px",
       },
-    },
-    "& .MuiSelect-iconOutlined": {
-      color: "#378C92",
+      "& .MuiSelect-iconOutlined": {
+        color: "black",
+      },
     },
   },
+
   aboutBtnContainer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -123,7 +127,7 @@ const ContactUsFrom = () => {
 
   const sendEmail = (values) => {
     setLoading(true);
-
+    console.log(values);
     const params = {
       first_name: values.first_name,
       last_name: values.last_name,
@@ -135,19 +139,20 @@ const ContactUsFrom = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         params,
-        process.env.REACT_APP_KEY
+        import.meta.env.VITE_KEY
       )
       .then(() => {
-        formik.resetForm();
         setSnackbarMessage("Email successfully sent!");
         setSnackbarOpen(true);
 
         sendAutoReply(params.email, params.first_name);
+        formik.resetForm();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         setSnackbarMessage("Email sending failed!");
         setSnackbarOpen(true);
       })
@@ -166,10 +171,10 @@ const ContactUsFrom = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_AUTO_REPLY_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         autoReplyParams,
-        process.env.REACT_APP_KEY
+        import.meta.env.VITE_KEY
       )
       .then(() => {
         console.log("Auto-reply email sent successfully");
@@ -230,9 +235,14 @@ const ContactUsFrom = () => {
               inputProps={{
                 sx: {
                   width: { xs: "100%", md: "14rem" },
+
                   "&::placeholder": {
                     color: "gray",
                     opacity: 0.4,
+                  },
+                  "&:-webkit-autofill": {
+                    WebkitBoxShadow: "0 0 0 100px #F0F0F0 inset",
+                    WebkitTextFillColor: "#000000",
                   },
                 },
               }}
@@ -247,6 +257,7 @@ const ContactUsFrom = () => {
               Last name
             </Typography>
             <TextField
+              type=""
               size="small"
               name="last_name"
               placeholder="Last Name"
@@ -264,6 +275,10 @@ const ContactUsFrom = () => {
                   "&::placeholder": {
                     color: "gray",
                     opacity: 0.4,
+                  },
+                  "&:-webkit-autofill": {
+                    WebkitBoxShadow: "0 0 0 100px #F0F0F0 inset",
+                    WebkitTextFillColor: "black",
                   },
                 },
               }}
@@ -298,6 +313,10 @@ const ContactUsFrom = () => {
                   color: "gray",
                   opacity: 0.4,
                 },
+                "&:-webkit-autofill": {
+                  WebkitBoxShadow: "0 0 0 100px #F0F0F0 inset",
+                  WebkitTextFillColor: "black",
+                },
               },
             }}
           />
@@ -330,6 +349,10 @@ const ContactUsFrom = () => {
                   color: "gray",
                   opacity: 0.2,
                 },
+                "&:-webkit-autofill": {
+                  WebkitBoxShadow: "0 0 0 100px #F0F0F0 inset",
+                  WebkitTextFillColor: "black",
+                },
               },
             }}
           />
@@ -361,6 +384,10 @@ const ContactUsFrom = () => {
               style: {
                 color: "gray",
                 opacity: 0.4,
+              },
+              "&:-webkit-autofill": {
+                WebkitBoxShadow: "0 0 0 100px #F0F0F0 inset",
+                WebkitTextFillColor: "black",
               },
             }}
           >
@@ -396,6 +423,10 @@ const ContactUsFrom = () => {
                 "&::placeholder": {
                   color: "gray",
                   opacity: 0.5,
+                },
+                "&:-webkit-autofill": {
+                  WebkitBoxShadow: "0 0 0 100px #F0F0F0 inset",
+                  WebkitTextFillColor: "black",
                 },
               },
             }}

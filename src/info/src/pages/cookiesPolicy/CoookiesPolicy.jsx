@@ -1,22 +1,27 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import TermsAndConditionsHeader from "../../../public/assets/pngs/FooterResources/TermsAndConditions.jpg";
+import CookiesImage from "../../../public/assets/pngs/FooterResources/cookies.jpg";
 
 const CookiesPolicy = () => {
   return (
     <Box>
       <HeroImageSection
         title="Cookie Policy"
-        imageSrc={TermsAndConditionsHeader}
+        imageSrc={CookiesImage}
         fullScreen={true}
         call={true}
         subText="We use cookies to enhance your experience on our site. Learn more about how we use cookies and your choices."
       />
       <Box
         sx={{
-          paddingX: { xs: 2, md: "10rem" },
-          paddingY: { xs: 2, md: "2rem" },
+          paddingX: { xs: 2, md: "8rem" },
+          paddingY: { xs: 3, md: "3rem" },
+          backgroundColor: "#F9F9F9", // Light background for contrast
+          borderRadius: "8px", // Smooth corners
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+          maxWidth: "1200px", // Limits the box width for better readability
+          margin: "auto", // Centers the box horizontally
         }}
       >
         <Typography
@@ -26,6 +31,7 @@ const CookiesPolicy = () => {
             fontFamily: "Barlow",
             fontWeight: "600",
             mb: { xs: "1rem", md: "2rem" },
+            textAlign: "center", // Center align the header
           }}
         >
           Cookies Policy
@@ -34,10 +40,10 @@ const CookiesPolicy = () => {
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" }, // Slightly larger font size
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem", // More bottom margin for spacing
           }}
         >
           <strong>Introduction to Our Cookies Policy</strong>
@@ -51,10 +57,10 @@ const CookiesPolicy = () => {
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem",
           }}
         >
           <strong>What Are Cookies?</strong>
@@ -67,16 +73,18 @@ const CookiesPolicy = () => {
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem",
           }}
         >
           <strong>How We Use Cookies</strong>
           <br />
           We use cookies to enhance your experience on our website, including:
-          <ul>
+          <ul style={{ paddingLeft: "1.5rem", marginTop: "0.5rem" }}>
+            {" "}
+            {/* Slight padding for better spacing */}
             <li>Remembering your login information for future visits.</li>
             <li>Tracking your preferences and settings.</li>
             <li>
@@ -89,34 +97,31 @@ const CookiesPolicy = () => {
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem",
           }}
         >
           <strong>Types of Cookies We Use</strong>
           <br />
           Our website uses the following types of cookies:
-          <ul>
+          <ul style={{ paddingLeft: "1.5rem", marginTop: "0.5rem" }}>
             <li>
-              <strong>Essential Cookies:</strong> These cookies are necessary
-              for the website to function and cannot be switched off in our
-              systems.
+              <strong>Essential Cookies:</strong> Necessary for the website to
+              function.
             </li>
             <li>
-              <strong>Performance Cookies:</strong> These cookies help us
-              understand how visitors interact with our website, allowing us to
-              improve it.
+              <strong>Performance Cookies:</strong> Help us understand how
+              visitors interact with the site.
             </li>
             <li>
-              <strong>Functional Cookies:</strong> These cookies allow us to
-              remember choices you make and provide enhanced, more personalized
-              features.
+              <strong>Functional Cookies:</strong> Remember your choices to
+              provide personalized features.
             </li>
             <li>
-              <strong>Targeting Cookies:</strong> These cookies are used to
-              deliver advertisements more relevant to you and your interests.
+              <strong>Targeting Cookies:</strong> Deliver ads that are more
+              relevant to you.
             </li>
           </ul>
         </Typography>
@@ -124,53 +129,46 @@ const CookiesPolicy = () => {
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem",
           }}
         >
           <strong>Your Choices Regarding Cookies</strong>
           <br />
-          You can control and manage cookies through your browser settings. Most
-          browsers allow you to refuse or accept cookies, delete existing
-          cookies, or notify you when a cookie is being set. Please consult your
-          browser's help section for instructions.
-          <br />
-          Note that disabling cookies may affect the functionality of our
-          website and limit your ability to use certain features.
+          You can control cookies through your browser settings. Disabling
+          cookies may affect the functionality of our website and limit your
+          ability to use certain features.
         </Typography>
 
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem",
           }}
         >
           <strong>Changes to This Cookies Policy</strong>
           <br />
-          We may update this Cookies Policy from time to time. Any changes will
-          be posted on this page, and your continued use of our website will
-          constitute acceptance of the revised policy. Please review this policy
-          periodically to stay informed of any updates.
+          We may update this policy from time to time. Please review it
+          periodically to stay informed.
         </Typography>
 
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.8rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
-            lineHeight: "1.6",
-            mb: "1rem",
+            lineHeight: "1.7",
+            mb: "1.5rem",
           }}
         >
           <strong>Contact Us</strong>
           <br />
-          If you have any questions or concerns about our use of cookies, please
-          contact us at info@techietribe.com.
+          If you have any questions, please contact us at info@techietribe.com.
         </Typography>
       </Box>
     </Box>

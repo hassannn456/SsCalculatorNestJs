@@ -42,7 +42,7 @@ export default function SwipeableTemporaryDrawer({
       sx={{ display: "flex", position: "relative" }}
       onMouseLeave={handleMouseLeave}
     >
-      <MediaCard image={MediaCard1} />
+      <MediaCard image={MediaCard1} closeDrawers={closeDrawers} />
       <InteractiveList activeTab={activeTab} closeDrawers={closeDrawers} />
       <IconButton
         onClick={() => setState(false)}

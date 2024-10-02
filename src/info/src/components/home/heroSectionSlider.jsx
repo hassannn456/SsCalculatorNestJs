@@ -13,42 +13,13 @@ import SyntricAi from "../../../public/assets/pngs/heroSecionSlider/SyntricAI.sv
 import PrismX from "../../../public/assets/pngs/heroSecionSlider/PrismX.svg";
 
 const icons = [
-  {
-    title: MainStay,
-    width: 130,
-    height: 60,
-  },
-  {
-    title: MulaX,
-    width: 130,
-    height: 30,
-    marginTop: "6%",
-  },
-  {
-    title: Neufluence,
-    width: 130,
-    height: 60,
-  },
-  {
-    title: ConceptAi,
-    width: 130,
-    height: 50,
-  },
-  {
-    title: SpiritualData,
-    width: 130,
-    height: 60,
-  },
-  {
-    title: SyntricAi,
-    width: 130,
-    height: 60,
-  },
-  {
-    title: PrismX,
-    width: 130,
-    height: 60,
-  },
+  { title: MainStay, width: 130, height: 60 },
+  { title: MulaX, width: 130, height: 30, marginTop: "6%" },
+  { title: Neufluence, width: 130, height: 60 },
+  { title: ConceptAi, width: 130, height: 50 },
+  { title: SpiritualData, width: 130, height: 60 },
+  { title: SyntricAi, width: 130, height: 60 },
+  { title: PrismX, width: 130, height: 60 },
 ];
 
 const HeroSectionSlider = () => {
@@ -59,14 +30,14 @@ const HeroSectionSlider = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000, // Adjusted for a better experience on mobile
     pauseOnHover: false,
     cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
         },
       },
       {
@@ -76,9 +47,17 @@ const HeroSectionSlider = () => {
         },
       },
       {
-        breakpoint: 0,
+        breakpoint: 480,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -87,8 +66,9 @@ const HeroSectionSlider = () => {
   return (
     <Box
       sx={{
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
+        gap: { xs: 4, md: 10 },
         width: "100%",
         margin: "auto",
         backgroundColor: "transparent",
@@ -98,7 +78,7 @@ const HeroSectionSlider = () => {
       }}
     >
       <Box sx={{ width: "100%" }}>
-        <Slider {...settings} pauseOnFocus={true}>
+        <Slider {...settings}>
           {icons.map((icon, index) => (
             <Box
               key={index}
@@ -106,9 +86,8 @@ const HeroSectionSlider = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: '3.8rem',
+                height: "3.8rem",
                 willChange: "transform",
-
               }}
             >
               <img

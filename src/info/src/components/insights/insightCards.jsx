@@ -1,105 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Divider, TextField, Typography } from "@mui/material";
-
-import BlogImage1 from "../../../public/assets/pngs/insights/blog01.jpeg";
-import BlogImage2 from "../../../public/assets/pngs/insights/blog-2.png";
-import BlogImage3 from "../../../public/assets/pngs/insights/blog-3.png";
-import BlogImage4 from "../../../public/assets/pngs/insights/blog-4.png";
 import { useNavigate } from "react-router-dom";
-
-const cardData = [
-  {
-    image: BlogImage1,
-    heading:
-      "How Fair is Your AI? Exploring the Challenge of Defining ‘Fairness",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-  },
-  {
-    image: BlogImage2,
-    heading: "Impact of Chat GPT on the Telecom Industry",
-    content:
-      "The telecommunications industry is one that is constantly evolving and adapting to new technologies. ...",
-  },
-  {
-    image: BlogImage3,
-    heading: "The power of E-Commerce cloud computing – An Insight",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-  },
-  {
-    image: BlogImage4,
-    heading: "Impact of AI on changing World and Its Ethical Implications",
-    content:
-      "AI stands for Artificial Intelligence, which refers to the development of computer systems that can, ...",
-  },
-  {
-    image: BlogImage1,
-    heading:
-      "How Fair is Your AI? Exploring the Challenge of Defining ‘Fairness",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-  },
-  {
-    image: BlogImage2,
-    heading: "Impact of Chat GPT on the Telecom Industry",
-    content:
-      "The telecommunications industry is one that is constantly evolving and adapting to new technologies. ...",
-  },
-  {
-    image: BlogImage3,
-    heading: "The power of E-Commerce cloud computing – An Insight",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-  },
-  {
-    image: BlogImage4,
-    heading: "Impact of AI on changing World and Its Ethical Implications",
-    content:
-      "AI stands for Artificial Intelligence, which refers to the development of computer systems that can, ...",
-  },
-  {
-    image: BlogImage1,
-    heading:
-      "How Fair is Your AI? Exploring the Challenge of Defining ‘Fairness",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-  },
-  {
-    image: BlogImage2,
-    heading: "Impact of Chat GPT on the Telecom Industry",
-    content:
-      "The telecommunications industry is one that is constantly evolving and adapting to new technologies. ...",
-  },
-  {
-    image: BlogImage3,
-    heading: "The power of E-Commerce cloud computing – An Insight",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-  },
-  {
-    image: BlogImage4,
-    heading: "Impact of AI on changing World and Its Ethical Implications",
-    content:
-      "AI stands for Artificial Intelligence, which refers to the development of computer systems that can, ...",
-  },
-];
+import InsightData from "./insightData";
 
 const categories = [
-  "Application Testing",
   "Artificial Intelligence",
   "Blockchain",
-  "Branding",
   "Cloud",
-  "Digital Farming",
   "Digital Technology",
   "Electric World",
-  "IT Services",
   "Miscellaneous",
-  "Software Development",
   "Transportation",
-  "UI/UX",
-  "Workspace Relationships",
 ];
 
 const styles = {
@@ -111,7 +22,6 @@ const styles = {
     margin: "auto",
     alignItems: "center",
     width: { xs: "100%", lg: "70%" },
-    // gap: "1rem",
   },
   heading: {
     fontSize: "20px",
@@ -124,14 +34,12 @@ const styles = {
     textDecorationThickness: "2px",
     textUnderlineOffset: "4px",
   },
-
   subHeading: {
     fontSize: "18px",
     fontFamily: "Barlow",
     fontWeight: "600",
     color: "#313431",
   },
-
   cardContainer: {
     display: "flex",
     flexDirection: "row",
@@ -153,14 +61,12 @@ const styles = {
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
     },
   },
-
   blogContentContainer: {
     display: "flex",
     flexDirection: "column",
     padding: "20px",
     gap: "0.5rem",
   },
-
   blogHeading: {
     fontSize: "16px",
     fontFamily: "Barlow",
@@ -173,7 +79,6 @@ const styles = {
     fontWeight: "400",
     color: "#313431",
   },
-
   viewAllBtn: {
     mt: "2rem",
     color: "#ffffff",
@@ -196,18 +101,15 @@ const styles = {
       color: "#378C92",
       width: "300px",
     },
-
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderColor: "lightgray",
       },
-
       "&.Mui-focused fieldset": {
         borderColor: "#378C92",
       },
     },
   },
-
   blogHeadingRecent: {
     fontSize: "14px",
     fontFamily: "Barlow",
@@ -223,10 +125,12 @@ const styles = {
 
 const InsightCards = () => {
   const navigate = useNavigate();
+  const [blogsData, setBlogsData] = useState(InsightData); // Fixed useState
 
-  const handleCardClick = () => {
-    navigate(`/insight-details/`);
+  const handleCardClick = (id) => {
+    navigate(`/insight-details/${id}`);
   };
+
   return (
     <Box
       sx={{
@@ -240,8 +144,12 @@ const InsightCards = () => {
     >
       <Box sx={styles.mainContainer}>
         <Box sx={styles.cardContainer}>
-          {cardData.map((card, index) => (
-            <Box key={index} sx={styles.card} onClick={handleCardClick}>
+          {blogsData.map((card, index) => (
+            <Box
+              key={index}
+              sx={styles.card}
+              onClick={() => handleCardClick(card.id)}
+            >
               <Box
                 sx={{
                   width: "100%",
@@ -309,8 +217,10 @@ const InsightCards = () => {
           >
             Recent
           </Typography>
-          {cardData.map((data) => (
+          {InsightData.map((data, index) => (
             <Box
+              key={index} // Added missing key prop
+              onClick={() => handleCardClick(data.id)}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -336,8 +246,15 @@ const InsightCards = () => {
           >
             Categories
           </Typography>
-          {categories.map((data) => (
+          {categories.map((data, index) => (
             <Box
+              key={index}
+              onClick={() => {
+                const filter = InsightData.filter(
+                  (item) => item.category == data
+                );
+                setBlogsData(filter);
+              }}
               sx={{
                 display: "flex",
                 flexDirection: "column",

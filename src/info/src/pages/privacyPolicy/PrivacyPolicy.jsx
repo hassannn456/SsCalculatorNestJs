@@ -1,14 +1,14 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import TermsAndConditionsHeader from "../../../public/assets/pngs/FooterResources/TermsAndConditions.jpg";
+import PrivacyPolicyImage from "../../../public/assets/pngs/FooterResources/privacyPolicy.webp";
 
 const PrivacyPolicy = () => {
   return (
     <Box>
       <HeroImageSection
         title="Privacy Policy"
-        imageSrc={TermsAndConditionsHeader}
+        imageSrc={PrivacyPolicyImage}
         fullScreen={true}
         call={true}
         subText="Leveraging a diverse range of development technologies since our inception, we consistently align with the latest trends and evolving demands."

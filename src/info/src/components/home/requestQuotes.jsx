@@ -58,7 +58,6 @@ const styles = {
     lineHeight: "2",
     padding: { xs: "0", lg: "0 5rem 0 0" },
   },
-
   hqHeading: {
     fontSize: "24px",
     fontFamily: "Barlow",
@@ -67,7 +66,6 @@ const styles = {
     textAlign: { xs: "center", lg: "start" },
     mt: { xs: "1rem", lg: "4rem" },
   },
-
   hqContent: {
     mt: "1rem",
     display: "flex",
@@ -75,69 +73,48 @@ const styles = {
     alignItems: "center",
     justifyContent: { xs: "center", lg: "flex-start" },
   },
-
   contact: {
     fontSize: "16px",
     fontFamily: "Barlow",
     fontWeight: "400",
     color: "#313431",
     cursor: "pointer",
-
     "&:hover": {
       color: "#378C92",
     },
   },
-
   formHeading: {
     fontSize: "20px",
     fontFamily: "Barlow",
     fontWeight: "600",
     color: "#313431",
   },
-
   textField: {
     width: "100%",
-    backgroundColor: "#ffffff",
-    "& label.Mui-focused": {
-      color: "#378C92",
-      width: "200px",
-    },
 
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "lightgray",
+        borderColor: "gray",
       },
-
+      "&:hover fieldset": {
+        borderColor: "#378C92",
+      },
       "&.Mui-focused fieldset": {
         borderColor: "#378C92",
       },
-    },
-  },
-
-  selectField: {
-    width: "100%",
-    borderRadius: "10px",
-    "& .MuiOutlinedSelect-root": {
-      "& fieldset": {
-        borderColor: "#378C92",
-        borderRadius: "10px",
-      },
-
-      "&.Mui-focused fieldset": {
-        borderColor: "#378C92",
-        borderRadius: "10px",
+      input: {
+        "&:-webkit-autofill": {
+          WebkitBoxShadow: "0 0 0 100px #f0f0f0 inset",
+          WebkitTextFillColor: "#000",
+          color: "#000",
+        },
       },
     },
-    "& .MuiSelect-iconOutlined": {
-      color: "#378C92",
-    },
   },
-
   aboutBtnContainer: {
     display: "flex",
     justifyContent: "flex-end",
   },
-
   aboutBtn: {
     mt: "1.5rem",
     color: "#ffffff",
@@ -153,12 +130,6 @@ const styles = {
     "&&:hover": {
       backgroundColor: "#313431",
     },
-  },
-};
-
-const customStyles = {
-  autocompleteBackground: {
-    backgroundColor: "white",
   },
 };
 
@@ -196,19 +167,19 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         params,
-        process.env.REACT_APP_KEY
+        import.meta.env.VITE_KEY
       )
       .then(() => {
-        formik.resetForm();
         setSnackbarMessage("Email successfully sent!");
         setSnackbarOpen(true);
-
         sendAutoReply(params.email, params.first_name);
+        formik.resetForm();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         setSnackbarMessage("Email sending failed!");
         setSnackbarOpen(true);
       })
@@ -222,15 +193,15 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
       from_name: "TechieTribe",
       to_name: `${firstName}`,
       reply_to: recipientEmail,
-      message: `Hello ${firstName},\n\nThank you for reaching us out, your inquiry has been received and we sincerely appreciate your interest in our services. Our team is currently reviewing your message and we will get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our solutions and capabilities: www.thetechietribe.com\n\nBest Regards,\nTeam Techietribe`,
+      message: `Hello ${firstName},\n\nThank you for reaching out. Your inquiry has been received, and we appreciate your interest in our services. Our team is currently reviewing your message and will get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our solutions: www.thetechietribe.com\n\nBest Regards,\nTeam Techietribe`,
     };
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_AUTO_REPLY_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         autoReplyParams,
-        process.env.REACT_APP_KEY
+        import.meta.env.VITE_KEY
       )
       .then(() => {
         console.log("Auto-reply email sent successfully");
@@ -313,6 +284,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
             }}
           >
             <TextField
+              type="text"
               size="small"
               name="first_name"
               placeholder="First Name"
@@ -324,20 +296,9 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               }
               helperText={formik.touched.first_name && formik.errors.first_name}
               sx={styles.textField}
-              inputProps={{
-                sx: {
-                  "&::placeholder": {
-                    color: "gray",
-                    opacity: 0.4,
-                  },
-                },
-              }}
-              classes={{
-                listbox: customStyles.autocompleteBackground,
-                paper: customStyles.autocompleteBackground,
-              }}
             />
             <TextField
+              type="text"
               size="small"
               name="last_name"
               placeholder="Last Name"
@@ -349,14 +310,6 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               }
               helperText={formik.touched.last_name && formik.errors.last_name}
               sx={styles.textField}
-              inputProps={{
-                sx: {
-                  "&::placeholder": {
-                    color: "gray",
-                    opacity: 0.4,
-                  },
-                },
-              }}
             />
           </Box>
           <Box
@@ -378,14 +331,6 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
               sx={styles.textField}
-              inputProps={{
-                sx: {
-                  "&::placeholder": {
-                    color: "gray",
-                    opacity: 0.4,
-                  },
-                },
-              }}
             />
             <MuiTelInput
               size="small"
@@ -397,14 +342,6 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               helperText={formik.touched.number && formik.errors.number}
               sx={styles.textField}
               defaultCountry="PK"
-              inputProps={{
-                sx: {
-                  "&::placeholder": {
-                    color: "gray",
-                    opacity: 0.2,
-                  },
-                },
-              }}
             />
           </Box>
           <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
@@ -445,14 +382,6 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               error={formik.touched.message && Boolean(formik.errors.message)}
               helperText={formik.touched.message && formik.errors.message}
               sx={styles.textField}
-              inputProps={{
-                sx: {
-                  "&::placeholder": {
-                    color: "gray",
-                    opacity: 0.5,
-                  },
-                },
-              }}
             />
           </Box>
 
@@ -462,7 +391,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                 <CircularProgress sx={{ color: "#ffffff" }} size={24} />
               ) : (
                 "Submit"
-              )}{" "}
+              )}
             </Button>
           </Box>
         </Box>

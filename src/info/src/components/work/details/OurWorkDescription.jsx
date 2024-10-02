@@ -59,8 +59,8 @@ const OurWorkDescription = ({
             <Box
               sx={{
                 display: "flex",
-                width: "100%",
-                justifyContent: { xs: "space-between", md: "space-around" },
+                width: "70%",
+                justifyContent: { xs: "space-between", md: "space-between" },
                 //   alignItems: "center",
               }}
             >

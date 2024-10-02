@@ -210,10 +210,10 @@ const CareerForm = ({ bgColor, inPage = false }) => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        process.env.VITE_EMAILJS_SERVICE_ID,
+        process.env.VITE_EMAILJS_TEMPLATE_ID,
         params,
-        process.env.REACT_APP_KEY
+        process.env.VITE_KEY
       )
       .then(() => {
         formik.resetForm();
@@ -241,10 +241,10 @@ const CareerForm = ({ bgColor, inPage = false }) => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_AUTO_REPLY_TEMPLATE_ID,
+        process.env.VITE_EMAILJS_SERVICE_ID,
+        process.env.VITE_AUTO_REPLY_TEMPLATE_ID,
         autoReplyParams,
-        process.env.REACT_APP_KEY
+        process.env.VITE_KEY
       )
       .then(() => {
         console.log("Auto-reply email sent successfully");

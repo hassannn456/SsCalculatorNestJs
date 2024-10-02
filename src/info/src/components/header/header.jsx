@@ -173,8 +173,13 @@ const DrawerAppBar = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
+      if (location.pathname !== "/contact-us") {
+        setScrolled(window.scrollY > 0);
+      } else {
+        setScrolled(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -182,7 +187,7 @@ const DrawerAppBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     const path = location.pathname;
@@ -211,8 +216,7 @@ const DrawerAppBar = () => {
       setActiveTab("About");
       setScrolled(false);
     } else if (path === "/contact-us") {
-      setScrolled(true);
-
+      // setScrolled(false);
       setActiveTab("Contact");
     }
   }, [location.pathname]);
@@ -245,7 +249,7 @@ const DrawerAppBar = () => {
           alignItems: "center",
           padding: "0",
           width: "100%",
-          marginTop: "20px", // Add margin to avoid overlap with the fixed image
+          marginTop: "20px",
         }}
       >
         {navItems.map((item) => (
@@ -516,12 +520,13 @@ const DrawerAppBar = () => {
                   fontSize: "15px",
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
+                  mr: "1rem",
                   height: "40px",
                   transition: "color 0.3s ease",
                   "&:hover": {
                     color: "#378c92",
                   },
-                  borderRight: "1px solid gray",
+                  // borderRight: "1px solid gray",
                 }}
                 className="nav-btn"
                 onClick={() => {
@@ -532,7 +537,7 @@ const DrawerAppBar = () => {
               >
                 Careers
               </Button>
-
+              <Box sx={{ borderRight: "1px solid gray" }}></Box>
               <Button
                 sx={{
                   color: isActive("Contact") ? "#378C92" : "#ffffff",
@@ -541,6 +546,7 @@ const DrawerAppBar = () => {
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
+                  ml: "1rem",
                   transition: "color 0.3s ease",
                   "&:hover": {
                     color: "#378c92",
@@ -550,6 +556,7 @@ const DrawerAppBar = () => {
                 onClick={() => {
                   navigate("/contact-us");
                   setActiveTab("Contact");
+                  setScrolled(true);
                 }}
                 onMouseEnter={closeDrawers}
               >

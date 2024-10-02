@@ -121,6 +121,7 @@ const ContactForm = () => {
 
   const sendEmail = (values) => {
     setLoading(true);
+    console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID);
 
     const params = {
       first_name: values.first_name,
@@ -133,19 +134,20 @@ const ContactForm = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         params,
-        process.env.REACT_APP_KEY
+        import.meta.env.VITE_KEY
       )
       .then(() => {
-        formik.resetForm();
         setSnackbarMessage("Email successfully sent!");
         setSnackbarOpen(true);
 
         sendAutoReply(params.email, params.first_name);
+        formik.resetForm();
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Email sending failed:", error);
         setSnackbarMessage("Email sending failed!");
         setSnackbarOpen(true);
       })
@@ -153,7 +155,6 @@ const ContactForm = () => {
         setLoading(false);
       });
   };
-
   const sendAutoReply = (recipientEmail, firstName) => {
     const autoReplyParams = {
       from_name: "TechieTribe",
@@ -164,10 +165,10 @@ const ContactForm = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_AUTO_REPLY_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_AUTO_REPLY_TEMPLATE_ID,
         autoReplyParams,
-        process.env.REACT_APP_KEY
+        import.meta.env.VITE_KEY
       )
       .then(() => {
         console.log("Auto-reply email sent successfully");
@@ -197,7 +198,6 @@ const ContactForm = () => {
           backgroundColor: "#ffffff",
           borderRadius: "10px",
           height: "100%",
-
           width: { xs: "100%", md: "100%" },
           display: "flex",
           flexDirection: "column",
@@ -359,7 +359,7 @@ const ContactForm = () => {
               <CircularProgress sx={{ color: "#ffffff" }} size={24} />
             ) : (
               "Submit"
-            )}{" "}
+            )}
           </Button>
         </Box>
       </Box>
@@ -373,7 +373,11 @@ const ContactForm = () => {
         }}
         onClose={() => setSnackbarOpen(false)}
       >
-        <Alert severity="success">{snackbarMessage}</Alert>
+        <Alert
+          severity={snackbarMessage.includes("failed") ? "error" : "success"}
+        >
+          {snackbarMessage}
+        </Alert>
       </Snackbar>
     </Box>
   );

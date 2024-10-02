@@ -41,7 +41,7 @@ function App() {
               <Route path="/service" element={<Services />} />
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/services/:serviceName" element={<Services />} />
-              <Route path="/insight-details" element={<InsightDetails />} />
+              <Route path="/insight-details/:id" element={<InsightDetails />} />
               <Route path="/insights" element={<InsightsPage />} />
               <Route
                 path="/terms-and-conditions"
