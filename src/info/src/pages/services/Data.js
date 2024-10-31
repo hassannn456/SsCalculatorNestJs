@@ -1,146 +1,177 @@
-import WebDevelopmentImage from "../../../public/assets/pngs/services/WebDevImage.svg";
-import WebDevExtraImage from "../../../public/assets/pngs/services/WebDevExtraImage.svg";
-import webDevelopment from "../../../public/assets/pngs/webdevelopment.avif";
-import WebDevExtraImage1 from "../../../public/assets/pngs/services/webExtraImage1.svg";
+import WebDevelopmentImage from "/assets/pngs/services/WebDevImage.svg";
+import WebDevExtraImage from "/assets/pngs/services/WebDevExtraImage.svg";
+import webDevelopment from "/assets/pngs/webdevelopment.avif";
+import WebDevExtraImage1 from "/assets/pngs/services/webExtraImage1.svg";
 
-import MobileDevelopmentImage from "../../../public/assets/pngs/services/MobileAppDevelopment.svg";
-import mobileDevelopment from "../../../public/assets/pngs/services/mobileDevelopment.jpg";
-import MobileDevExtraImage from "../../../public/assets/pngs/services/MobileDevImage2.svg";
-import MobileDevExtraImage1 from "../../../public/assets/pngs/services/mobileExtraImage1.svg";
+import MobileDevelopmentImage from "/assets/pngs/services/MobileAppDevelopment.svg";
+import mobileDevelopment from "/assets/pngs/services/mobileDevelopment.webp";
+import MobileDevExtraImage from "/assets/pngs/services/MobileDevImage2.svg";
+import MobileDevExtraImage1 from "/assets/pngs/services/mobileExtraImage1.svg";
 
-import UIHeaderImage from "../../../public/assets/pngs/services/UIHeaderImage.avif";
-import UIDesignImage from "../../../public/assets/pngs/services/UIDesignImage.svg";
-import UIDesignExtraImage from "../../../public/assets/pngs/services/UIDesignExtraImage.svg";
-import UIDesignExtraImage1 from "../../../public/assets/pngs/services/UIExtraImage1.svg";
+import UIHeaderImage from "/assets/pngs/services/UIHeaderImage.avif";
+import UIDesignImage from "/assets/pngs/services/UIDesignImage.svg";
+import UIDesignExtraImage from "/assets/pngs/services/UIDesignExtraImage.svg";
+import UIDesignExtraImage1 from "/assets/pngs/services/UIExtraImage1.svg";
 
-import BlockchainHeaderImage from "../../../public/assets/pngs/services/BlockchainHeaderImage.jpg";
-import BlockchainImage from "../../../public/assets/pngs/services/BlockchainImage.svg";
-import BlockchainExtraImage from "../../../public/assets/pngs/services/BlockchainExtraImage.svg";
-import BlockchainExtraImage1 from "../../../public/assets/pngs/services/blockchainExtraImage1.svg";
-//qwerty
-import SEO from "../../../public/assets/pngs/services/seo.avif";
-import SEO1 from "../../../public/assets/pngs/services/seo1.png";
-import SEO2 from "../../../public/assets/pngs/services/seo2.png";
-import SEO3 from "../../../public/assets/pngs/services/seo3.svg";
+import BlockchainHeaderImage from "/assets/pngs/services/BlockchainHeaderImage.jpg";
+import BlockchainImage from "/assets/pngs/services/BlockchainImage.svg";
+import BlockchainExtraImage from "/assets/pngs/services/BlockchainExtraImage.svg";
+import BlockchainExtraImage1 from "/assets/pngs/services/blockchainExtraImage1.svg";
 
-import Content from "../../../public/assets/pngs/services/content.webp";
-import Content1 from "../../../public/assets/pngs/services/content1.png";
-import Content2 from "../../../public/assets/pngs/services/content2.png";
-import Content3 from "../../../public/assets/pngs/services/content3.svg";
+import SEO from "/assets/pngs/services/seo.avif";
+import SEO1 from "/assets/pngs/services/seo1.png";
+import SEO2 from "/assets/pngs/services/seo2.png";
+import SEO3 from "/assets/pngs/services/seo3.svg";
 
-import Social from "../../../public/assets/pngs/services/social.jpg";
-import Social1 from "../../../public/assets/pngs/services/social1.png";
-import Social2 from "../../../public/assets/pngs/services/social2.png";
-import Social3 from "../../../public/assets/pngs/services/social3.svg";
+import Content from "/assets/pngs/services/content.webp";
+import Content1 from "/assets/pngs/services/content1.png";
+import Content2 from "/assets/pngs/services/content2.png";
+import Content3 from "/assets/pngs/services/content3.svg";
 
-import Email from "../../../public/assets/pngs/services/email.avif";
-import Email1 from "../../../public/assets/pngs/services/email1.png";
-import Email2 from "../../../public/assets/pngs/services/email2.png";
-import Email3 from "../../../public/assets/pngs/services/email3.svg";
+import Social from "/assets/pngs/services/social.webp";
+import Social1 from "/assets/pngs/services/social1.png";
+import Social2 from "/assets/pngs/services/social2.png";
+import Social3 from "/assets/pngs/services/social3.svg";
 
+import Email from "/assets/pngs/services/email.avif";
+import Email1 from "/assets/pngs/services/email1.png";
+import Email2 from "/assets/pngs/services/email2.png";
+import Email3 from "/assets/pngs/services/email3.svg";
 const servicesData = [
   {
     title: "Web Development",
+    title1: "Innovative, Scalable Web Solutions",
+    title2: "Future-Proof Web Experiences for Growth",
+    title3: "Transforming Digital Presence with Custom Websites",
+    slug: "web-development",
     description:
-      "At TechieTribe, we excel at crafting state-of-the-art web applications tailored to meet the unique needs of your business. Our team of expert developers and designers merges innovative technology with user-centric design to deliver seamless, high-performance web experiences. From initial concept through to deployment, we ensure that every application is not only visually captivating but also intuitive, functional, and effective. Whether you're looking to develop a responsive website that adapts flawlessly across various devices or a dynamic web application with complex functionalities, we leverage the latest technologies and frameworks to achieve exceptional results.",
+      "At TechieTribe, our web development services transcend traditional websites, crafting immersive, next-gen web applications tailored to propel your business forward. We integrate advanced technologies like AI, machine learning, and cloud-native solutions into your site, ensuring scalability and unparalleled performance. Whether you're seeking responsive design, real-time functionalities, or custom APIs, we create future-proof web experiences that engage users and drive results.",
     headerImageSrc: webDevelopment,
     image: WebDevelopmentImage,
     extraDescription: [
-      "At TechieTribe, we recognize that a website is more than just an online presence—it's a powerful platform for connecting with your audience and advancing your business goals. Our web development team is dedicated to creating websites that are not only visually impressive but also provide a flawless user experience. By utilizing the latest technologies and frameworks, we build high-performance web applications tailored to your unique requirements, whether you're seeking a dynamic, feature-rich site or a sleek, responsive solution.",
-      "With TechieTribe, your web development project has evolved into a powerful digital platform that attracts visitors and drives conversions. Your new website not only enhances your brand’s credibility but also provides a user-friendly, engaging experience that keeps visitors coming back. Our expertise ensures that your website is not only visually appealing but also functional, scalable, and capable of supporting your business growth.",
+      "Our web development approach centers on creating dynamic, responsive platforms that leverage cutting-edge frameworks such as React, Next.js, and Vue.js. We prioritize performance, security, and seamless integration with third-party tools, ensuring your website is equipped to meet both current and future demands.",
+      "With TechieTribe’s web solutions, your business transforms its online presence into a scalable, user-friendly platform capable of driving conversions, improving user engagement, and streamlining operations. Our expert team delivers a strategic blend of innovation and practicality, empowering your digital growth.",
     ],
     extraImage: WebDevExtraImage,
     extraImage1: WebDevExtraImage1,
   },
   {
-    title: "Mobile Application",
+    title: "Mobile Application Development",
+    title1: "Next-Gen Mobile Solutions",
+    title2: "Seamless User Experiences Across Devices",
+    title3: "Empowering Businesses with Mobile Innovation",
+    slug: "mobile-application",
     description:
-      "At TechieTribe, we are experts at creating cutting-edge mobile apps that are customized to your company's specific requirements. Innovative technology and user-centric design are combined by our skilled team of developers and designers to produce fluid, high-performance mobile experiences. We make sure that every application is not only aesthetically pleasing but also intuitive, functional, and effective from conception to implementation. We employ the newest technologies and frameworks to provide outstanding results, whether you are wanting to create a cross-platform software that works on various devices or a native app for iOS or Android.",
+      "In today’s mobile-first world, TechieTribe excels at developing apps that deliver seamless user experiences across platforms. We specialize in both native iOS and Android development as well as cross-platform solutions using Flutter and React Native, ensuring your app performs flawlessly on any device. From social networking apps to enterprise-level platforms, we turn your vision into sleek, high-performance applications.",
     headerImageSrc: mobileDevelopment,
     image: MobileDevelopmentImage,
     extraDescription: [
-      "At TechieTribe, we understand that a mobile app is more than just a digital tool—it's a gateway to engaging your audience and driving your business forward. Our mobile development team is committed to creating apps that not only look stunning but also deliver a seamless user experience. We leverage the latest technologies and frameworks to build high-performance applications tailored to your specific needs, whether you're aiming for a native app for iOS and Android or a versatile cross-platform solution.",
-      "With TechieTribe, your business now boasts a custom-built mobile app that enhances user engagement and meets the evolving needs of your customers. You’ve gained more than just an app—your business now has a powerful tool that drives customer loyalty, streamlines operations, and opens up new growth opportunities in the mobile space. Our expertise ensures your app remains competitive and adaptable in today’s fast-paced digital landscape.",
+      "We build mobile apps that harness the power of modern technologies like augmented reality (AR), artificial intelligence (AI), and IoT to create captivating user experiences. Whether you're looking for intuitive UX/UI design, seamless API integration, or robust data security, we provide a complete mobile development solution tailored to your needs.",
+      "Your mobile app becomes more than just a digital tool—it’s an essential business asset. With TechieTribe, you’ll launch a mobile application that enhances customer engagement, simplifies complex operations, and opens new opportunities for growth in today’s fast-paced digital ecosystem.",
     ],
     extraImage: MobileDevExtraImage,
     extraImage1: MobileDevExtraImage1,
   },
   {
-    title: "UI Design",
-    headerImageSrc: UIHeaderImage,
+    title: "UI/UX Design",
+    title1: "Designing for Impact and Usability",
+    title2: "Transforming User Journeys with Intuitive Designs",
+    title3: "Creating Immersive and User-Centric Interfaces",
+    slug: "ui-design",
     description:
-      "At TechieTribe, we believe exceptional UI/UX design is key to creating impactful digital experiences. Our design team crafts interfaces that captivate and engage users while providing an intuitive journey. We focus on understanding your audience to translate insights into visually compelling and functional designs. Using cutting-edge principles and tools, we ensure your digital presence stands out and delivers an optimal user experience. Our user-centric approach combines aesthetics with functionality, with agile processes that adapt to your feedback. From wireframes to final designs, we rigorously test and refine to meet the highest standards of usability and performance.",
+      "At TechieTribe, we believe great design goes beyond aesthetics—it's about creating intuitive, user-centric experiences. Our UI/UX design services ensure that every interaction with your digital product is seamless, visually engaging, and optimized for conversion. We blend creativity with data-driven insights to design interfaces that are both beautiful and functional.",
+    headerImageSrc: UIHeaderImage,
     image: UIDesignImage,
-    extraImage: UIDesignExtraImage,
     extraDescription: [
-      "At TechieTribe, we understand that UI/UX design goes beyond aesthetics—it’s about crafting engaging and meaningful digital interactions. Our team is dedicated to turning your ideas into captivating user experiences that blend creativity with functionality, enhancing usability while reflecting your brand’s identity. We combine thorough user research with cutting-edge design methodologies to create intuitive, visually striking interfaces. Whether you need a sleek mobile app, a dynamic website, or a comprehensive digital platform, we use the latest tools to deliver both beautiful and effective designs.",
-      "With TechieTribe, your UI/UX design has transformed your digital presence, delivering a smooth, engaging, and visually cohesive experience to your users. You’ve seen increased customer satisfaction, improved user retention, and a higher conversion rate as a result of a well-optimized and user-centric interface. Our design solutions have helped your business stand out, providing a lasting impact on both functionality and aesthetics.",
+      "Our UI/UX design process is deeply rooted in user research, wireframing, and prototyping, allowing us to create intuitive designs that are not only visually appealing but also enhance usability. We utilize the latest design tools like Figma, Sketch, and Adobe XD to deliver modern, responsive designs that work across all platforms.",
+      "With TechieTribe, your digital interface transforms into a powerful tool that drives user satisfaction and engagement. We design experiences that resonate with your target audience, streamline navigation, and ultimately boost conversions and brand loyalty.",
     ],
+    extraImage: UIDesignExtraImage,
     extraImage1: UIDesignExtraImage1,
   },
   {
-    title: "Blockchain",
+    title: "Blockchain Development",
+    title1: "Secure and Transparent Blockchain Solutions",
+    title2: "Leveraging Decentralized Technology for Growth",
+    title3: "Building Trust with Advanced Blockchain Technologies",
+    slug: "blockchain",
     description:
-      "At TechieTribe, we recognize that blockchain technology is transformative for modern digital solutions. Our blockchain team is dedicated to creating robust and secure applications that harness the power of decentralized systems. We focus on understanding your business needs to deliver blockchain solutions that are both innovative and practical. Utilizing the latest blockchain frameworks and protocols, we ensure your project benefits from enhanced security, transparency, and efficiency. Our approach integrates advanced technology with strategic insight, allowing us to build scalable and reliable blockchain solutions tailored to your objectives.",
+      "Leverage the power of decentralized systems with TechieTribe’s blockchain development services. We create secure, transparent, and efficient blockchain-based solutions tailored to your business goals. Whether it's smart contracts, decentralized applications (dApps), or custom blockchain integrations, we help you harness the full potential of this transformative technology.",
     headerImageSrc: BlockchainHeaderImage,
     image: BlockchainImage,
-    extraImage: BlockchainExtraImage,
     extraDescription: [
-      "At TechieTribe, we understand that blockchain technology is more than just a buzzword—it’s a powerful tool for creating secure and transparent digital solutions. Our blockchain team is committed to transforming your concepts into robust and scalable applications that leverage the full potential of decentralized systems. We integrate deep industry knowledge with the latest blockchain technologies to develop solutions that enhance security, efficiency, and transparency. Whether you need a custom blockchain application, smart contract development, or a comprehensive decentralized platform, we utilize advanced tools and frameworks to deliver solutions that meet your specific needs.",
-      "With TechieTribe, your business has successfully embraced the future of technology through blockchain. You’ve unlocked enhanced security, operational efficiency, and a new level of transparency that sets you apart in your industry. Our blockchain solutions help you stay ahead of the curve, empowering your business to innovate, scale, and thrive in a rapidly evolving digital landscape.",
+      "Our blockchain solutions focus on enhancing data security, ensuring transparency, and automating business processes using smart contracts. We work with leading blockchain platforms such as Ethereum, Hyperledger, and Polkadot to deliver cutting-edge decentralized applications.",
+      "With TechieTribe, your business taps into the future of technology, gaining secure, scalable blockchain solutions that streamline operations and increase trust in your transactions. Our expertise ensures your blockchain initiatives are positioned for success in the ever-evolving digital landscape.",
     ],
+    extraImage: BlockchainExtraImage,
     extraImage1: BlockchainExtraImage1,
   },
   {
-    title: "SEO",
+    title: "Search Engine Optimization (SEO)",
+    title1: "Data-Driven SEO Strategies for Success",
+    title2: "Maximizing Visibility with Strategic SEO",
+    title3: "Improving Search Rankings with Proven Techniques",
+    slug: "seo",
     description:
-      "At TechieTribe, we offer comprehensive SEO services designed to enhance your online visibility and drive organic traffic to your website. Our expert team conducts thorough keyword research, optimizes on-page elements, creates engaging content, and builds high-quality backlinks to improve your search engine rankings. We also focus on technical SEO to ensure your site is fast, mobile-friendly, and easily crawlable by search engines. With a keen emphasis on local SEO and detailed reporting, we help your business achieve sustained digital growth and better conversion rates. Partner with TechieTribe to elevate your online presence and stay ahead in the competitive market.",
+      "Stay ahead of the competition with TechieTribe’s advanced SEO services. Our data-driven approach to search engine optimization helps businesses rank higher on Google and other search engines, driving organic traffic and conversions. We optimize your site architecture, content, and backlinks to ensure long-term growth and online visibility.",
     headerImageSrc: SEO,
     image: SEO1,
-    extraImage: SEO2,
     extraDescription: [
-      "By partnering with TechieTribe, you gain access to a team of SEO experts dedicated to helping your business achieve higher search engine rankings, increased organic traffic, and better conversion rates. Let us drive your digital growth with our tailored SEO solutions.",
-      "With TechieTribe, your SEO efforts have propelled your website to new heights. You now benefit from increased organic traffic, higher search engine rankings, and improved online visibility. Our strategies not only drive more potential customers to your site but also enhance your credibility and authority within your industry, helping you achieve sustainable long-term growth.",
+      "From local SEO to enterprise-level solutions, we use a full spectrum of SEO strategies, including technical SEO, content optimization, and link building, to help your site perform better in search rankings. Our team also provides regular reports and analytics so you can measure your success and refine strategies over time.",
+      "TechieTribe’s SEO services help your website achieve top rankings, bringing more organic traffic and improving your online authority. Our tailored SEO plans focus on maximizing your visibility and ensuring sustainable, long-term success in search engine results.",
     ],
+    extraImage: SEO2,
     extraImage1: SEO3,
   },
   {
     title: "Content Marketing",
+    title1: "Crafting High-Impact Content",
+    title2: "Engaging Audiences with Targeted Content",
+    title3: "Driving Brand Authority Through Compelling Content",
+    slug: "content-marketing",
     description:
-      "At TechieTribe, we provide expert content marketing services to help businesses build and strengthen their digital presence. Our offerings include crafting high-quality, relevant content, developing tailored marketing strategies, and optimizing content for search engines to ensure maximum visibility. Whether it’s blog posts, articles, or social media content, our team ensures that every piece aligns with your brand’s voice and goals.",
+      "TechieTribe’s content marketing services help businesses create, distribute, and optimize engaging content that resonates with their audience. From blog posts to video content, we craft high-quality, targeted content that boosts brand visibility, drives traffic, and enhances customer engagement across multiple platforms.",
     headerImageSrc: Content,
     image: Content1,
-    extraImage: Content2,
     extraDescription: [
-      "When you choose TechieTribe, you get a dedicated team of content marketing specialists who work closely with you to understand your business objectives and target audience. We create customized content marketing strategies designed to engage your audience, drive traffic, and enhance your brand’s credibility. Our approach also includes regular performance tracking, so you can see measurable results and make informed decisions to further your business growth.",
-      "With TechieTribe, you’ve experienced the power of effective content marketing. You’ve gained not only increased website traffic and brand awareness but also a loyal audience that trusts your expertise. By delivering valuable and engaging content, we help your business build lasting relationships with your customers and position your brand as a leader in your industry.",
+      "Our content marketing strategies are designed to tell your brand’s story in a way that captivates and converts. Whether it's long-form blog posts, social media content, or video marketing, we create compelling narratives that build trust and loyalty while supporting your overall digital marketing efforts.",
+      "With TechieTribe’s content marketing, your brand will gain increased recognition, a stronger digital presence, and meaningful connections with your audience. We ensure that every piece of content is optimized for maximum visibility, engagement, and conversion potential.",
     ],
+    extraImage: Content2,
     extraImage1: Content3,
   },
   {
-    title: "Social Media",
+    title: "Social Media Marketing",
+    title1: "Building Connections Through Social Media",
+    title2: "Driving Engagement with Data-Driven Social Strategies",
+    title3: "Amplifying Your Brand Across Social Channels",
+    slug: "social-media",
     description:
-      "At TechieTribe, we specialize in social media marketing to help businesses thrive in the digital landscape. Our services include creating engaging content, managing social media profiles, and developing strategies that foster brand awareness and audience engagement across platforms like Facebook, Instagram, LinkedIn, and Twitter. We tailor our approach to meet the unique needs of your business, ensuring that every post and campaign aligns with your goals and resonates with your target audience.",
+      "In today’s digital world, a strong social media presence is essential. At TechieTribe, we provide social media marketing services that help you build brand awareness, engage your audience, and drive conversions. From strategy development to content creation and analytics, we manage all aspects of your social media to ensure success across platforms.",
     headerImageSrc: Social,
     image: Social1,
-    extraImage: Social2,
     extraDescription: [
-      "When you partner with TechieTribe, you get a team of social media marketing experts who understand the nuances of each platform and the best practices to drive results. We develop customized strategies to boost your online presence, increase follower growth, and spark meaningful interactions with your audience. In addition, we offer data-driven insights and performance reports, so you can monitor your social media campaigns and make strategic adjustments to maximize your impact.",
-      "With TechieTribe, you’ve unlocked the true potential of social media marketing. You now have a stronger online presence, a growing community of loyal followers, and increased engagement that translates into brand loyalty and business growth. Our expertise ensures your brand remains relevant, visible, and connected to your audience, helping you build long-term success through social media.",
+      "We specialize in creating engaging social media campaigns that resonate with your audience. By utilizing platforms like Instagram, Facebook, LinkedIn, and Twitter, we help you reach new customers, foster brand loyalty, and achieve measurable growth. Our team stays on top of trends to keep your social media strategy fresh and effective.",
+      "With TechieTribe’s social media expertise, your business gains a consistent and impactful presence across all major platforms, fostering real connections with your target audience. Our strategies are data-driven, ensuring continuous improvement and maximum ROI on every post and campaign.",
     ],
+    extraImage: Social2,
     extraImage1: Social3,
   },
   {
     title: "Email Marketing",
+    title1: "Personalized Email Campaigns for Conversion",
+    title2: "Boosting Retention with Strategic Email Marketing",
+    title3: "Engaging Customers Through Targeted Email Strategies",
+    slug: "email-marketing",
     description:
-      "At TechieTribe, we provide specialized email marketing services to help businesses connect directly with their audience. Our services include creating personalized, engaging email campaigns, managing subscriber lists, and optimizing email content for higher open and click-through rates. Whether it’s newsletters, promotional emails, or automated drip campaigns, our goal is to ensure that your emails not only reach your audience but also drive meaningful action.",
+      "Boost customer retention and conversion rates with TechieTribe’s targeted email marketing services. We design and execute email campaigns that deliver personalized content directly to your audience’s inbox, increasing engagement and driving results. From newsletters to automated workflows, we craft email strategies that align with your business goals.",
     headerImageSrc: Email,
     image: Email1,
-    extraImage: Email2,
     extraDescription: [
-      "When you work with TechieTribe, you get a team of email marketing experts dedicated to crafting targeted campaigns that resonate with your subscribers. We create tailored strategies based on your business goals, designing emails that capture attention and encourage engagement. With our data-driven approach, you’ll receive insights into campaign performance, including delivery rates, open rates, and conversions, helping you refine your strategy for even better results.",
-      "With TechieTribe, your email marketing efforts have transformed into a powerful tool for customer engagement and retention. You’ve experienced higher subscriber interaction, improved customer loyalty, and increased conversions. Our email marketing solutions help you build lasting relationships with your audience, delivering the right message at the right time and turning leads into loyal customers.",
+      "Our email marketing strategies focus on building meaningful relationships with your audience. We create visually appealing emails with strong calls to action, using automation tools like MailChimp and HubSpot to streamline and optimize your campaigns for maximum impact.",
+      "With TechieTribe’s email marketing solutions, your business will experience improved engagement and higher conversion rates. Our tailored campaigns ensure that your messages reach the right audience at the right time, providing measurable results that support your overall marketing efforts.",
     ],
+    extraImage: Email2,
     extraImage1: Email3,
   },
 ];

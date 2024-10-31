@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Box, Typography } from "@mui/material";
 // import HeroImageSection from "../../components/general/heroImageSection";
 import HeroSectionConatct from "./HeroSectionConatct";
-import ContactHeader from "../../../public/assets/pngs/ContactUs/ContactHeader.png";
+import ContactHeader from "/assets/pngs/ContactUs/ContactHeader.png";
 import ContactUsForm from "../../components/contact/ContactUsFrom.jsx";
-import ContactBg from "../../../public/assets/pngs/ContactUs/ContactBG.png";
+import ContactBg from "/assets/pngs/ContactUs/ContactBG.png";
 import TextComponent from "../../components/contact/TextComponent";
 import ItemBox from "./ItemBox";
 

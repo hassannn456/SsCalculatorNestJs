@@ -13,8 +13,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-import fieldImage from "../../../public/assets/pngs/footer/footer-shape.png";
-import whiteLogo from "../../../public/assets/pngs/header/WhiteLogo.png";
+import fieldImage from "/assets/pngs/footer/footer-shape.png";
+import whiteLogo from "/assets/pngs/header/WhiteLogo.png";
 import { RefContext } from "./../../context/RefContext";
 import { useNavigate } from "react-router-dom";
 
@@ -235,7 +235,7 @@ const Footer = () => {
     {
       name: "Services",
       onClick: () => {
-        navigate("/services/Web_Development");
+        navigate("/services/web-development");
       },
     },
     {

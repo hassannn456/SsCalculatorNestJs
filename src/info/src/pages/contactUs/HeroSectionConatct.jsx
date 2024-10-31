@@ -8,7 +8,7 @@ import {
   Box,
 } from "@mui/material";
 import React from "react";
-import backgroundImage from "../../../public/assets/pngs/about/About-Us.jpg";
+import backgroundImage from "/assets/pngs/about/About-Us.jpg";
 import { Link, useNavigate } from "react-router-dom";
 
 const fadeInBottom = keyframes`
@@ -22,12 +22,12 @@ const fadeInBottom = keyframes`
   }
 `;
 
-const StyledHeader = styled(Grid)(({ theme, fullScreen, contact }) => ({
+const StyledHeader = styled(Grid)(({ theme, fullscreen, contact }) => ({
   backgroundSize: contact ? "contain" : "cover", // Scale down the image if contact is true
   backgroundRepeat: "no-repeat",
   backgroundColor: contact ? "#378c92" : "#ffffff",
   position: "relative",
-  minHeight: fullScreen ? "100vh" : "64vh",
+  minHeight: fullscreen ? "100vh" : "64vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -43,7 +43,7 @@ const StyledHeader = styled(Grid)(({ theme, fullScreen, contact }) => ({
   },
   [theme.breakpoints.down("sm")]: {
     backgroundPosition: "center",
-    minHeight: fullScreen ? "100vh" : "55vh",
+    minHeight: fullscreen ? "100vh" : "55vh",
   },
 }));
 
@@ -56,10 +56,10 @@ const StyledHeaderItem = styled(Grid)(() => ({
 const HeroSectionConatct = ({
   imageSrc = backgroundImage,
   title,
-  fullScreen = false,
+  fullscreen = undefined,
   call = false,
   subText,
-  contact = false,
+  contact = undefined,
 }) => {
   const navigate = useNavigate();
   return (
@@ -72,12 +72,12 @@ const HeroSectionConatct = ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      fullScreen={fullScreen}
+      fullscreen={fullscreen}
       contact={contact}
     >
       <StyledHeaderItem
         item
-        px={{ xs: fullScreen ? 2 : 4, sm: 8 }}
+        px={{ xs: fullscreen ? 2 : 4, sm: 8 }}
         sx={{
           display: "flex",
           flexDirection: "column",

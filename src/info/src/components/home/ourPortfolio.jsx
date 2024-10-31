@@ -1,13 +1,22 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Box, Button, Divider, Tooltip, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import {
+  Box,
+  Button,
+  Divider,
+  Fade,
+  Tooltip,
+  Typography,
+  Zoom,
+} from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import EastIcon from "@mui/icons-material/East";
-import MainStay from "../../../public/assets/pngs/portfolio/MainStay.png";
-import MulaX from "../../../public/assets/pngs/heroSecionSlider/MulaX.png";
-import Neufluence from "../../../public/assets/pngs/portfolio/Neufluence.png";
-import SpiritualData from "../../../public/assets/pngs/portfolio/Spiritual Data.png";
-import SyntricAi from "../../../public/assets/pngs/portfolio/SyntricAI.png";
+import MainStay from "/assets/pngs/portfolio/MainStay.png";
+import MulaX from "/assets/pngs/heroSecionSlider/MulaX.png";
+import Neufluence from "/assets/pngs/portfolio/Neufluence.png";
+import SpiritualData from "/assets/pngs/portfolio/Spiritual Data.png";
+import SyntricAi from "/assets/pngs/portfolio/SyntricAI.png";
+import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 
 const styles = {
@@ -54,7 +63,7 @@ const styles = {
     color: "#ffffff",
     textTransform: "none",
     backgroundColor: "#378C92",
-    fontSize: { md: "18px", sm: "18px", xs: "14px" },
+    fontSize: { md: "18px", sm: "18px", xs: "10px" },
     height: "40px",
     padding: { xs: "20px", md: "25px 30px" },
     transition: "background-color 0.3s ease",
@@ -76,282 +85,319 @@ const styles = {
 // eslint-disable-next-line react/prop-types
 const OurPortfolio = ({ scrollToBottom }) => {
   const navigate = useNavigate();
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
   return (
-    <Box sx={{ backgroundColor: "#ffffff" }}>
-      <Box sx={styles.mainContainer}>
-        <Box sx={styles.ourPortfolioSection}>
-          <Typography sx={styles.heading}>OUR PORTFOLIO</Typography>
-          <Typography sx={styles.subHeading}>
-            Explore a Fusion of Innovation, Expertise, and Passion in Our
-            Portfolio.
-          </Typography>
-          <Box sx={styles.aboutBtnContainer}>
-            <Button
-              onClick={() => navigate("/contact-us")}
-              sx={styles.aboutBtn}
-            >
-              Schedule Consultation
-            </Button>
-          </Box>
-        </Box>
-        <Box sx={styles.projectsContainer}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", lg: "row" },
-              gap: "2rem",
-              height: "50%",
-              alignItems: "center",
-            }}
-          >
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ display: { xs: "none", lg: "flex" } }}
-            />
-            <Tooltip
-              placement="top"
-              title="Mainstay"
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: "#378C92",
-                    fontSize: "16px",
-                    padding: "10px",
-                    "& .MuiTooltip-arrow": {
-                      color: "#378C92",
-                    },
-                  },
-                },
-              }}
-            >
-              <img
-                src={MainStay}
-                alt="main-stay"
-                onClick={() => navigate("/projectDetail/2/MainStay")}
-                style={{ cursor: "pointer", width: "150px", height: "40px" }}
-              />
-            </Tooltip>
-            <Divider
-              flexItem
-              sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
-            />
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ display: { xs: "none", lg: "flex" } }}
-            />
-            <Tooltip
-              title="Mula X"
-              placement="top"
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: "#378C92",
-                    fontSize: "16px",
-                    padding: "10px",
-                    "& .MuiTooltip-arrow": {
-                      color: "#378C92",
-                    },
-                  },
-                },
-              }}
-            >
-              <img
-                src={MulaX}
-                onClick={() => navigate("/projectDetail/3/Mula")}
-                alt="mula-x"
-                style={{ cursor: "pointer", width: "150px", height: "40px" }}
-              />
-            </Tooltip>
-            <Divider
-              flexItem
-              sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
-            />
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ display: { xs: "none", lg: "flex" } }}
-            />
-            <Tooltip
-              placement="top"
-              title="Neufluence"
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: "#378C92",
-                    fontSize: "16px",
-                    padding: "10px",
-                    "& .MuiTooltip-arrow": {
-                      color: "#378C92",
-                    },
-                  },
-                },
-              }}
-            >
-              <img
-                src={Neufluence}
-                onClick={() => navigate("/projectDetail/4/Neufluence")}
-                alt="neufluence"
-                style={{ cursor: "pointer", width: "150px", height: "40px" }}
-              />
-            </Tooltip>
-            <Divider
-              flexItem
-              sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
-            />
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", lg: "flex" },
-              gap: "1rem",
-              alignItems: "center",
-            }}
-          >
-            <FiberManualRecordIcon
-              sx={{ color: "#378C92", fontSize: "12px", ml: "-0.3rem" }}
-            />
-            <Divider flexItem sx={{ width: "175px" }} />
-            <FiberManualRecordIcon
-              sx={{ color: "#313431", fontSize: "12px", ml: "-0.3rem" }}
-            />
-            <Divider flexItem sx={{ width: "175px" }} />
-            <FiberManualRecordIcon
-              sx={{ color: "#378C92", fontSize: "12px", ml: "-0.3rem" }}
-            />
-            <Divider flexItem sx={{ width: "175px" }} />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              mt: { xs: "1rem", lg: "0rem" },
-              gap: "2rem",
-              height: "50%",
-              alignItems: "center",
-              flexDirection: { xs: "column", lg: "row" },
-            }}
-          >
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ display: { xs: "none", lg: "flex" } }}
-            />
-            <Tooltip
-              placement="top"
-              title="Spiritual Data"
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: "#378C92",
-                    fontSize: "16px",
-                    padding: "10px",
-                    "& .MuiTooltip-arrow": {
-                      color: "#378C92",
-                    },
-                  },
-                },
-              }}
-            >
-              <img
-                src={SpiritualData}
-                onClick={() => navigate("/projectDetail/5/SpiritualData")}
-                alt="spiritual-data"
-                style={{ cursor: "pointer", width: "150px", height: "40px" }}
-              />
-            </Tooltip>
-            <Divider
-              flexItem
-              sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
-            />
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ display: { xs: "none", lg: "flex" } }}
-            />
-            <Tooltip
-              placement="top"
-              title="Syntric AI"
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: "#378C92",
-                    fontSize: "16px",
-                    padding: "10px",
-                    "& .MuiTooltip-arrow": {
-                      color: "#378C92",
-                    },
-                  },
-                },
-              }}
-            >
-              <img
-                src={SyntricAi}
-                onClick={() => navigate("/projectDetail/6/Syntric-AI")}
-                alt="syntric-ai"
-                style={{ cursor: "pointer", width: "150px", height: "40px" }}
-              />
-            </Tooltip>
-            <Divider
-              flexItem
-              sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
-            />
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ display: { xs: "none", lg: "flex" } }}
-            />
-            <Tooltip
-              placement="top"
-              title="Explore More"
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: "#378C92",
-                    fontSize: "16px",
-                    padding: "10px",
-                    "& .MuiTooltip-arrow": {
-                      color: "#378C92",
-                    },
-                  },
-                },
-              }}
-            >
-              <Box
-                onClick={() => {
-                  navigate("/our-work");
-                }}
-                sx={{
-                  width: "150px",
-                  height: "40px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  cursor: "pointer",
-                }}
-              >
-                <Typography
+    <Box
+      sx={{ backgroundColor: "#ffffff", p: { xs: "40px 0px", lg: "0px 0px" } }}
+      ref={ref}
+    >
+      {inView && (
+        <Zoom in={slideIn} timeout={1800}>
+          <Fade in={slideIn} timeout={1800}>
+            <Box sx={styles.mainContainer}>
+              <Box sx={styles.ourPortfolioSection}>
+                <Typography sx={styles.heading}>OUR PORTFOLIO</Typography>
+                <Typography sx={styles.subHeading}>
+                  Explore a Fusion of Innovation, Expertise, and Passion in Our
+                  Portfolio.
+                </Typography>
+                <Box sx={styles.aboutBtnContainer}>
+                  <Button
+                    onClick={() => navigate("/contact-us")}
+                    sx={styles.aboutBtn}
+                  >
+                    Schedule Consultation
+                  </Button>
+                </Box>
+              </Box>
+              <Box sx={styles.projectsContainer}>
+                <Box
                   sx={{
-                    color: "#378C92",
-                    fontSize: "20px",
-                    fontWeight: "500",
-                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: { xs: "column", lg: "row" },
+                    gap: "2rem",
+                    height: "50%",
+                    alignItems: "center",
                   }}
                 >
-                  Explore More
-                </Typography>
-                <EastIcon
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", lg: "flex" } }}
+                  />
+                  <Tooltip
+                    placement="top"
+                    title="Mainstay"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#378C92",
+                          fontSize: "16px",
+                          padding: "10px",
+                          "& .MuiTooltip-arrow": {
+                            color: "#378C92",
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <img
+                      src={MainStay}
+                      alt="main-stay"
+                      onClick={() => navigate("/projectDetail/2/MainStay")}
+                      style={{
+                        cursor: "pointer",
+                        width: "150px",
+                        height: "40px",
+                      }}
+                    />
+                  </Tooltip>
+                  <Divider
+                    flexItem
+                    sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
+                  />
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", lg: "flex" } }}
+                  />
+                  <Tooltip
+                    title="Mula X"
+                    placement="top"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#378C92",
+                          fontSize: "16px",
+                          padding: "10px",
+                          "& .MuiTooltip-arrow": {
+                            color: "#378C92",
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <img
+                      src={MulaX}
+                      onClick={() => navigate("/projectDetail/3/Mula")}
+                      alt="mula-x"
+                      style={{
+                        cursor: "pointer",
+                        width: "150px",
+                        height: "40px",
+                      }}
+                    />
+                  </Tooltip>
+                  <Divider
+                    flexItem
+                    sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
+                  />
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", lg: "flex" } }}
+                  />
+                  <Tooltip
+                    placement="top"
+                    title="Neufluence"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#378C92",
+                          fontSize: "16px",
+                          padding: "10px",
+                          "& .MuiTooltip-arrow": {
+                            color: "#378C92",
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <img
+                      src={Neufluence}
+                      onClick={() => navigate("/projectDetail/4/Neufluence")}
+                      alt="neufluence"
+                      style={{
+                        cursor: "pointer",
+                        width: "150px",
+                        height: "40px",
+                      }}
+                    />
+                  </Tooltip>
+                  <Divider
+                    flexItem
+                    sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
+                  />
+                </Box>
+                <Box
                   sx={{
-                    color: "#378C92",
-                    fontSize: "20px",
-                    fontWeight: "500",
+                    display: { xs: "none", lg: "flex" },
+                    gap: "1rem",
+                    alignItems: "center",
                   }}
-                />
+                >
+                  <FiberManualRecordIcon
+                    sx={{ color: "#378C92", fontSize: "12px", ml: "-0.3rem" }}
+                  />
+                  <Divider flexItem sx={{ width: "175px" }} />
+                  <FiberManualRecordIcon
+                    sx={{ color: "#313431", fontSize: "12px", ml: "-0.3rem" }}
+                  />
+                  <Divider flexItem sx={{ width: "175px" }} />
+                  <FiberManualRecordIcon
+                    sx={{ color: "#378C92", fontSize: "12px", ml: "-0.3rem" }}
+                  />
+                  <Divider flexItem sx={{ width: "175px" }} />
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    mt: { xs: "1rem", lg: "0rem" },
+                    gap: "2rem",
+                    height: "50%",
+                    alignItems: "center",
+                    flexDirection: { xs: "column", lg: "row" },
+                  }}
+                >
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", lg: "flex" } }}
+                  />
+                  <Tooltip
+                    placement="top"
+                    title="Spiritual Data"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#378C92",
+                          fontSize: "16px",
+                          padding: "10px",
+                          "& .MuiTooltip-arrow": {
+                            color: "#378C92",
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <img
+                      src={SpiritualData}
+                      onClick={() => navigate("/projectDetail/5/SpiritualData")}
+                      alt="spiritual-data"
+                      style={{
+                        cursor: "pointer",
+                        width: "150px",
+                        height: "40px",
+                      }}
+                    />
+                  </Tooltip>
+                  <Divider
+                    flexItem
+                    sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
+                  />
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", lg: "flex" } }}
+                  />
+                  <Tooltip
+                    placement="top"
+                    title="Syntric AI"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#378C92",
+                          fontSize: "16px",
+                          padding: "10px",
+                          "& .MuiTooltip-arrow": {
+                            color: "#378C92",
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <img
+                      src={SyntricAi}
+                      onClick={() => navigate("/projectDetail/6/Syntric-AI")}
+                      alt="syntric-ai"
+                      style={{
+                        cursor: "pointer",
+                        width: "150px",
+                        height: "40px",
+                      }}
+                    />
+                  </Tooltip>
+                  <Divider
+                    flexItem
+                    sx={{ width: "100%", display: { xs: "flex", lg: "none" } }}
+                  />
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", lg: "flex" } }}
+                  />
+                  <Tooltip
+                    placement="top"
+                    title="Explore More"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          bgcolor: "#378C92",
+                          fontSize: "16px",
+                          padding: "10px",
+                          "& .MuiTooltip-arrow": {
+                            color: "#378C92",
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    <Box
+                      onClick={() => {
+                        navigate("/our-work");
+                      }}
+                      sx={{
+                        width: "150px",
+                        height: "40px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: "#378C92",
+                          fontSize: "20px",
+                          fontWeight: "500",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Explore More
+                      </Typography>
+                      <EastIcon
+                        sx={{
+                          color: "#378C92",
+                          fontSize: "20px",
+                          fontWeight: "500",
+                        }}
+                      />
+                    </Box>
+                  </Tooltip>
+                </Box>
               </Box>
-            </Tooltip>
-          </Box>
-        </Box>
-      </Box>
+            </Box>
+          </Fade>
+        </Zoom>
+      )}
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import Angular from "./../../../../public/assets/pngs/technologies/Angular.png";
+import Angular from "/assets/pngs/technologies/Angular.png";
 import ProjectDetailData from "./../../../pages/ourWork/ProjectDetailData";
 
 const TechnologyBar = ({ images }) => {

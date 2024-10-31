@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import HeroImageSection from "./../../../components/general/heroImageSection";
-import Image from "./../../../../public/assets/pngs/webdevelopment.avif";
+import Image from "/assets/pngs/webdevelopment.avif";
 import OurWorkDescription from "./../../../components/work/details/OurWorkDescription";
 import AboutDescription from "./../../../components/services/AboutDescription";
 import TechnologyBar from "./../../../components/work/details/TechnologyBar";

@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import InsightData from "../insights/insightData";
 
 export default function MediaCard({ image, closeDrawers }) {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function MediaCard({ image, closeDrawers }) {
       sx={{
         maxWidth: 345,
         bgcolor: "#f0f3f6",
-        height: { lg: "70vh", md: "50vh" },
+        height: { lg: "75vh", md: "50vh" },
       }}
     >
       <Typography
@@ -24,14 +25,15 @@ export default function MediaCard({ image, closeDrawers }) {
         variant="h5"
         component="div"
       >
-        Technologies
+       Artificial Intelligence
       </Typography>
       <CardMedia style={{ height: 200 }} image={image} alt="green iguana" />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Robot technology involves designing and operating automated machines
-          for various tasks. Advancements in AI are enhancing robots'
-          capabilities and applications.
+          Artificial intelligence (AI) has rapidly transformed various
+          industries, from healthcare to finance, and is becoming increasingly
+          ubiquitous in our daily lives. However, one critical issue that often
+          arises with AI is fairness.
         </Typography>
       </CardContent>
       <CardActions>
@@ -39,7 +41,7 @@ export default function MediaCard({ image, closeDrawers }) {
           size="small"
           sx={{ color: "orange" }}
           onClick={() => {
-            navigate("/insight-details/1");
+            navigate(`/insight-details/${InsightData[0].id}`);
             closeDrawers(false);
           }}
         >

@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import PrivacyPolicyImage from "../../../public/assets/pngs/FooterResources/privacyPolicy.webp";
+import PrivacyPolicyImage from "/assets/pngs/FooterResources/privacyPolicy.webp";
 
 const PrivacyPolicy = () => {
   return (

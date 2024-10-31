@@ -11,42 +11,51 @@ const AboutDescription = ({
   bgColor,
 }) => {
   return (
-    <Box
-      sx={{
-        padding: { xs: "2rem", md: "2rem" },
-        backgroundColor: bgColor ? bgColor : "white",
-        display: "flex",
-        flexDirection: {
-          md: inverted ? "row-reverse" : "row",
-          xs: "column",
-        },
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
+    <Box sx={{ backgroundColor: bgColor ? bgColor : "white" }}>
       <Box
         sx={{
+          px: { xs: "2rem", md: "2rem" },
+          py: { xs: "2rem", md: "4rem" },
           display: "flex",
-          justifyContent: "center",
+          flexDirection: {
+            md: inverted ? "row-reverse" : "row",
+            xs: "column",
+          },
+          justifyContent: "space-between",
+          width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
           alignItems: "center",
-          width: { xs: "100%", md: "50%" },
-          height: "30%",
-          maxHeight: "20%",
+          margin: "auto",
         }}
       >
-        <img
-          src={image}
-          style={{ width: "70%", height: "auto", objectFit: "fill" }}
-        />
-      </Box>
-      <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-        <SectionHeader
-          title={title}
-          description={description}
-          subtitle={subtitle}
-          justify={true}
-        />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: { xs: "100%", md: "50%" },
+            height: "30%",
+            maxHeight: "20%",
+          }}
+        >
+          <img
+            src={image}
+            style={{
+              width: "100%",
+              height: "auto",
+              objectFit: "fill",
+              paddingLeft: "50px",
+              paddingRight: "50px",
+            }}
+          />
+        </Box>
+        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+          <SectionHeader
+            title={title}
+            description={description}
+            subtitle={subtitle}
+            justify={true}
+          />
+        </Box>
       </Box>
     </Box>
   );

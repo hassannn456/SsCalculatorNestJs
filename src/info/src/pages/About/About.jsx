@@ -1,20 +1,22 @@
 import React from "react";
 import { Box } from "@mui/material";
 import HeroImageSection from "./../../components/general/heroImageSection";
-import AboutBg from "../../../public/assets/pngs/work-header.jpeg";
+import AboutBg from "/assets/pngs/work-header.jpeg";
 import AboutDescription1 from "./../../components/services/AboutDescription";
 import Process from "./../../components/about/Process";
 import EngagementPlan from "./../../components/home/engagementPlan";
 import HeaderText from "../../components/general/HeaderText";
-import AboutUsCard from "../../components/about/AboutUsCard";
+import AboutUsCardNew from "../../components/about/AboutUsCardNew";
 import RequestQuote from "../../components/home/requestQuotes";
 import Testimonials from "../../components/services/Testimonials";
-import Header from "../../../public/assets/pngs/about/AboutHeader.svg";
-import ExtraHeader from "../../../public/assets/pngs/about/AboutExtraHeader.svg";
+import Header from "/assets/pngs/about/AboutHeaderSec.png";
+import ExtraHeader from "/assets/pngs/about/businessSuccess.png";
+import AboutBG from "/assets/pngs/about-bg.jpg";
+
 const About = () => {
   return (
     <Box>
-      <HeroImageSection title="About Us" imageSrc={AboutBg} overlay={true} />
+      <HeroImageSection title="About Us" imageSrc={AboutBG} overlay={true} />
       <HeaderText />
       <AboutDescription1
         image={Header}
@@ -26,7 +28,7 @@ const About = () => {
                 on engineering excellence, TechieTribe is helping companies to
                 achieve their digital transformation goals in a way that is both
                 efficient and effective.`}
-        bgColor={"#f0f3f6"}
+        bgColor={"rgb(55 140 146 / 10%)"}
       />
       <AboutDescription1
         image={ExtraHeader}
@@ -38,7 +40,7 @@ const About = () => {
         inverted={true}
       />
       {/* <Leadership /> */}
-      <AboutUsCard />
+      <AboutUsCardNew />
       <Process />
       <Testimonials />
       <RequestQuote bgColor={"#ffffff"} inPage={true} />

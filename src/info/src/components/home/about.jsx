@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { Box, Divider, Tooltip, Typography } from "@mui/material";
+import { Box, Divider, Tooltip, Typography, Slide, Zoom } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
-import AboutImage from "../../../public/assets/pngs/about/About1.jpeg";
-import AboutImage_1 from "../../../public/assets/pngs/about/About2.jpeg";
-import Signature from "../../../public/assets/pngs/about/Signature.png";
+import { useInView } from "react-intersection-observer";
+import AboutImage from "/assets/pngs/about/About1.jpeg";
+import AboutImage_1 from "/assets/pngs/about/About2.jpeg";
+import Signature from "/assets/pngs/about/Signature.png";
 
 const styles = {
   mainContainer: {
@@ -99,109 +100,141 @@ const styles = {
 };
 
 const About = () => {
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
   return (
-    <Box sx={{ backgroundColor: "#ffffff" }}>
-      <Box sx={styles.mainContainer}>
-        <Box
-          sx={{
-            width: {
-              xs: "100%",
-              md: "50%",
-              padding: "0px 2rem 0px 0px",
-            },
-            mt: { xs: "2rem", md: "0rem" },
-          }}
-        >
-          <Typography sx={styles.heading}>WHO WE ARE</Typography>
-          <Typography sx={styles.subHeading}>
-            Customized IT Solutions, Management & Support.
-          </Typography>
-          <Typography sx={styles.aboutContent}>
-            Boost innovation with top-tier tech teams. Our platform connects you
-            with skilled professionals to meet all your software development
-            requirements.
-          </Typography>
-          <Divider sx={{ mt: "2rem" }} />
-          <Box sx={styles.signatureContainer}>
-            <Box>
-              <img
-                style={{
-                  marginLeft: "-7.5rem",
-                  marginTop: "-2rem",
-                  width: "350px",
+    <Box sx={{ backgroundColor: "#ffffff", pt: { xs: "40px", md: "0px" } }}>
+      <Zoom in={slideIn} timeout={1000}>
+        <Box sx={styles.mainContainer} ref={ref}>
+          {inView && (
+            <>
+              <Slide in={slideIn} direction="left" timeout={1800}>
+                <Box
+                  sx={{
+                    width: {
+                      xs: "100%",
+                      md: "50%",
+                      padding: "0px 2rem 0px 0px",
+                    },
+                    my: { xs: "2rem", md: "0rem" },
+                  }}
+                >
+                  <Typography sx={styles.heading}>WHO WE ARE</Typography>
+                  <Typography sx={styles.subHeading}>
+                    Customized IT Solutions, Management & Support.
+                  </Typography>
+                  <Typography sx={styles.aboutContent}>
+                    Boost innovation with top-tier tech teams. Our platform
+                    connects you with skilled professionals to meet all your
+                    software development requirements.
+                  </Typography>
+                  <Divider sx={{ mt: "2rem" }} />
+                  <Box sx={styles.signatureContainer}>
+                    <Box>
+                      <img
+                        style={{
+                          marginLeft: "-7.5rem",
+                          marginTop: "-2rem",
+                          width: "350px",
+                        }}
+                        src={Signature}
+                        alt="signature"
+                      />
+                      <Typography sx={styles.ceoName}>
+                        Hassan Chaudhary
+                      </Typography>
+                      <Typography sx={styles.ceoRole}>
+                        CEO, Techietribe
+                      </Typography>
+                    </Box>
+                    <Divider
+                      orientation={"vertical"}
+                      flexItem
+                      sx={styles.verticalDivider}
+                    />
+                    <Box
+                      sx={{
+                        padding: { xs: "10px 0px", md: "10px 0px 10px 40px" },
+                      }}
+                    >
+                      <Typography sx={styles.call}>
+                        Call to ask any question
+                      </Typography>
+                      <Typography sx={styles.number}>
+                        <a href="tel:+923004561162">+92 300 456 1162</a>
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Slide>
+              <Box
+                sx={{
+                  width: {
+                    xs: "100%",
+                    md: "50%",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    position: "relative",
+                  },
                 }}
-                src={Signature}
-                alt="signature"
-              />
-              <Typography sx={styles.ceoName}>Hassan Chaudhary</Typography>
-              <Typography sx={styles.ceoRole}>CEO, Techietribe</Typography>
-            </Box>
-            <Divider
-              orientation={"vertical"}
-              flexItem
-              sx={styles.verticalDivider}
-            />
-            <Box sx={{ padding: { xs: "10px 0px", md: "10px 0px 10px 40px" } }}>
-              <Typography sx={styles.call}>Call to ask any question</Typography>
-              <Typography sx={styles.number}>
-                <a href="tel:+923004561162">+92 300 456 1162</a>
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            width: {
-              xs: "100%",
-              md: "50%",
-              display: "flex",
-              justifyContent: "flex-end",
-              position: "relative",
-            },
-          }}
-        >
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Tooltip placement="top" title="Coming Soon" arrow>
-              <Box sx={styles.arrowIconContainer}>
-                <PlayArrowRoundedIcon
-                  sx={{ fontSize: "40px", color: "#ffffff" }}
-                />
+              >
+                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                  <Tooltip placement="top" title="Coming Soon" arrow>
+                    <Box sx={styles.arrowIconContainer}>
+                      <PlayArrowRoundedIcon
+                        sx={{ fontSize: "40px", color: "#ffffff" }}
+                      />
+                    </Box>
+                  </Tooltip>
+
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      marginTop: "12.5rem",
+                      left: -20,
+                      border: "8px solid #ffffff",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <img
+                      src={AboutImage_1}
+                      alt="about"
+                      style={{
+                        borderRadius: "10px",
+                      }}
+                    />
+                  </Box>
+
+                  <img src={AboutImage} alt="about" />
+                </Box>
               </Box>
-            </Tooltip>
-
-            <Box
-              sx={{
-                position: "absolute",
-                marginTop: "12.5rem",
-                left: -20,
-                border: "8px solid #ffffff",
-                borderRadius: "10px",
-              }}
-            >
-              <img
-                src={AboutImage_1}
-                alt="about"
-                style={{
-                  borderRadius: "10px",
-                }}
-              />
-            </Box>
-
-            <img src={AboutImage} alt="about" />
-          </Box>
+              <Slide in={slideIn} direction="right" timeout={1800}>
+                <Box
+                  sx={{
+                    display: { xs: "flex", md: "none" },
+                  }}
+                >
+                  <img
+                    src={AboutImage}
+                    alt="about"
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </Box>
+              </Slide>
+            </>
+          )}
         </Box>
-        <Box
-          sx={{
-            display: { xs: "flex", md: "none" },
-          }}
-        >
-          <img
-            src={AboutImage}
-            alt="about"
-            style={{ objectFit: "contain", width: "100%", height: "100%" }}
-          />
-        </Box>
-      </Box>
+      </Zoom>
     </Box>
   );
 };

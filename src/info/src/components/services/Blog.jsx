@@ -4,8 +4,8 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MediaCard from "./MediaCard";
-import MediaCard1 from "./../../../public/assets/pngs/services/mediaCards/mediaCard1.jpg";
 import InteractiveList from "./InteractiveList";
+import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
 
 export default function SwipeableTemporaryDrawer({
   state,
@@ -42,7 +42,7 @@ export default function SwipeableTemporaryDrawer({
       sx={{ display: "flex", position: "relative" }}
       onMouseLeave={handleMouseLeave}
     >
-      <MediaCard image={MediaCard1} closeDrawers={closeDrawers} />
+      <MediaCard image={BlogImage1} closeDrawers={closeDrawers} />
       <InteractiveList activeTab={activeTab} closeDrawers={closeDrawers} />
       <IconButton
         onClick={() => setState(false)}

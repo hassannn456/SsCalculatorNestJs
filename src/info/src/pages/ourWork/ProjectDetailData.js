@@ -1,25 +1,25 @@
-import ConceptAi from "./../../../public/assets/pngs/heroSecionSlider/Concept Ai.png";
-import MainStay from "./../../../public/assets/pngs/heroSecionSlider/MainStay.png";
-import MulaX from "./../../../public/assets/pngs/heroSecionSlider/MulaX.png";
-import Neufluence from "./../../../public/assets/pngs/heroSecionSlider/Neufluence.png";
-import Spiritual from "./../../../public/assets/pngs/heroSecionSlider/Spiritual Data.png";
-import SyntricAI from "./../../../public/assets/pngs/heroSecionSlider/SyntricAI.png";
-import PrismX from "./../../../public/assets/pngs/heroSecionSlider/prismx.webp";
+import ConceptAi from "/assets/pngs/heroSecionSlider/Concept Ai.png";
+import MainStay from "/assets/pngs/heroSecionSlider/MainStay.png";
+import MulaX from "/assets/pngs/heroSecionSlider/MulaX.png";
+import Neufluence from "/assets/pngs/heroSecionSlider/Neufluence.png";
+import Spiritual from "/assets/pngs/heroSecionSlider/Spiritual Data.png";
+import SyntricAI from "/assets/pngs/heroSecionSlider/SyntricAI.png";
+import PrismX from "/assets/pngs/heroSecionSlider/prismx.webp";
 
 //logos
-import next from "./../../../public/assets/pngs/TechCardPngs/nextJs.png";
-import node from "./../../../public/assets/pngs/TechCardPngs/nodeJs.png";
-import aws from "./../../../public/assets/pngs/TechCardPngs/aws.png";
-import typescript from "./../../../public/assets/pngs/TechCardPngs/typescript.png";
-import react from "./../../../public/assets/pngs/TechCardPngs/react.png";
-import mui from "./../../../public/assets/pngs/TechCardPngs/mui.png";
-import graphql from "./../../../public/assets/pngs/TechCardPngs/graphql.png";
-import elephant from "./../../../public/assets/pngs/TechCardPngs/elephant.png";
-import express from "./../../../public/assets/pngs/TechCardPngs/express.png";
-import firebase from "./../../../public/assets/pngs/TechCardPngs/firebase.png";
-import python from "./../../../public/assets/pngs/TechCardPngs/python.webp";
-import fastapi from "./../../../public/assets/pngs/TechCardPngs/FastAPI.png";
-import js from "./../../../public/assets/pngs/TechCardPngs/js.png";
+import next from "/assets/pngs/TechCardPngs/nextJs.png";
+import node from "/assets/pngs/TechCardPngs/nodeJs.png";
+import aws from "/assets/pngs/TechCardPngs/aws.png";
+import typescript from "/assets/pngs/TechCardPngs/typescript.png";
+import react from "/assets/pngs/TechCardPngs/react.png";
+import mui from "/assets/pngs/TechCardPngs/mui.png";
+import graphql from "/assets/pngs/TechCardPngs/graphql.png";
+import elephant from "/assets/pngs/TechCardPngs/elephant.png";
+import express from "/assets/pngs/TechCardPngs/express.png";
+import firebase from "/assets/pngs/TechCardPngs/firebase.png";
+import python from "/assets/pngs/TechCardPngs/python.webp";
+import fastapi from "/assets/pngs/TechCardPngs/FastAPI.png";
+import js from "/assets/pngs/TechCardPngs/js.png";
 const ProjectDetailData = [
   {
     id: 1,

@@ -11,8 +11,8 @@ import {
   CardMedia,
 } from "@mui/material";
 import HeroImageSection from "../../../components/general/heroImageSection";
-import webDevelopment from "../../../../public/assets/pngs/webdevelopment.avif";
-import BlogImage1 from "../../../../public/assets/pngs/insights/blog01.jpeg";
+import webDevelopment from "/assets/pngs/webdevelopment.avif";
+import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate, useParams } from "react-router-dom";
@@ -80,7 +80,7 @@ const scaleInStyle = (delay) => ({
 
 const InsightDetails = () => {
   const { id } = useParams();
-  const data = InsightData.find((item) => item.id === parseInt(id));
+  const data = InsightData.find((item) => item.id === id);
   const navigate = useNavigate();
 
   if (!data) {

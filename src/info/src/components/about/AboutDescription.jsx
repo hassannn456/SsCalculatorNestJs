@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
-import Header from "../../../public/assets/pngs/about/AboutHeader.jpg";
+import Header from "/assets/pngs/about/AboutHeader.jpg";
 import SectionHeader from "../general/SectionHeader";
 
 const AboutDescription = () => {
@@ -34,6 +34,7 @@ const AboutDescription = () => {
             <Box sx={styles.dividerContainer}>
               <Divider sx={styles.divider} />
             </Box> */}
+
             <SectionHeader
               title={"About Us"}
               subtitle={"We are increasing Business Success"}
@@ -45,6 +46,7 @@ const AboutDescription = () => {
                 efficient and effective.`}
               justify={true}
             />
+
             <Box sx={styles.descriptionTextContainer}>
               {/* <Typography sx={styles.descriptionText}>
                 TechieTribe is a leading software house that specializes in

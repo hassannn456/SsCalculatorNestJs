@@ -7,9 +7,10 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import React from "react";
-import backgroundImage from "../../../public/assets/pngs/about/About-Us.jpg";
+import React, { useState, useEffect } from "react";
+import backgroundImage from "/assets/pngs/about/About-Us.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import { Slide } from "@mui/material";
 
 const fadeInBottom = keyframes`
   0% {
@@ -22,12 +23,12 @@ const fadeInBottom = keyframes`
   }
 `;
 
-const StyledHeader = styled(Grid)(({ theme, fullScreen, contact }) => ({
-  backgroundSize: contact ? "contain" : "cover", // Scale down the image if contact is true
+const StyledHeader = styled(Grid)(({ theme, fullscreen, contact }) => ({
+  backgroundSize: contact ? "contain" : "cover",
   backgroundRepeat: "no-repeat",
   backgroundColor: contact ? "#378c92" : "#ffffff",
   position: "relative",
-  minHeight: fullScreen ? "100vh" : "64vh",
+  minHeight: fullscreen ? "100vh" : "64vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -43,7 +44,7 @@ const StyledHeader = styled(Grid)(({ theme, fullScreen, contact }) => ({
   },
   [theme.breakpoints.down("sm")]: {
     backgroundPosition: "center",
-    minHeight: fullScreen ? "100vh" : "55vh",
+    minHeight: fullscreen ? "100vh" : "55vh",
   },
 }));
 
@@ -56,12 +57,18 @@ const StyledHeaderItem = styled(Grid)(() => ({
 const TitleHeader = ({
   imageSrc = backgroundImage,
   title = "Latest Posts",
-  fullScreen = false,
+  fullscreen = undefined,
   call = false,
   subText,
-  contact = false,
+  contact = undefined,
 }) => {
   const navigate = useNavigate();
+
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+
   return (
     <StyledHeader
       item
@@ -72,12 +79,12 @@ const TitleHeader = ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      fullScreen={fullScreen}
+      fullscreen={fullscreen}
       contact={contact}
     >
       <StyledHeaderItem
         item
-        px={{ xs: fullScreen ? 2 : 4, sm: 8 }}
+        px={{ xs: fullscreen ? 2 : 4, sm: 8 }}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -86,21 +93,23 @@ const TitleHeader = ({
           textAlign: "center",
         }}
       >
-        <Typography
-          sx={{
-            fontSize: {
-              xs: fullScreen ? "30px" : "20px",
-              sm: fullScreen ? "65px" : "36px",
-            },
-            fontWeight: "bold",
-            lineHeight: "3rem",
-            mt: fullScreen ? 10 : 5,
-            textTransform: "uppercase",
-            textShadow: "2px 2px 2px rgba(0, 0, 0, 0.2)",
-          }}
-        >
-          {title}
-        </Typography>
+        <Slide in={slideIn} direction="right" timeout={1800}>
+          <Typography
+            sx={{
+              fontSize: {
+                xs: fullscreen ? "30px" : "20px",
+                sm: fullscreen ? "65px" : "36px",
+              },
+              fontWeight: "bold",
+              lineHeight: "3rem",
+              mt: fullscreen ? 10 : 5,
+              textTransform: "uppercase",
+              textShadow: "2px 2px 2px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            {title}
+          </Typography>
+        </Slide>
         {subText && (
           <Box sx={{ mt: { xs: "1rem", md: "2rem" } }}>
             <Typography
@@ -150,7 +159,7 @@ const TitleHeader = ({
               border: "1px solid #ffffff",
               padding: { xs: "0.7rem", md: "0.9rem" },
               mt: "2rem",
-              mb: fullScreen ? 8 : 5,
+              mb: fullscreen ? 8 : 5,
             }}
             onClick={() => navigate("/contact-us")}
           >

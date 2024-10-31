@@ -11,16 +11,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ReactIcon from "../../../public/assets/pngs/technologies/React.png";
-import Angular from "../../../public/assets/pngs/technologies/Angular.png";
-import NextIcon from "../../../public/assets/pngs/technologies/Next.png";
-import Vue from "../../../public/assets/pngs/technologies/Vue.png";
-import AWS from "../../../public/assets/pngs/technologies/AWS.png";
-import AWSAmplify from "../../../public/assets/pngs/technologies/AWS-Amplify.png";
-import Rails from "../../../public/assets/pngs/technologies/Rails.png";
-import GoogleCloud from "../../../public/assets/pngs/technologies/Google-Cloud.png";
-import Laravel from "../../../public/assets/pngs/technologies/Laravel.png";
-import PostGres from "../../../public/assets/pngs/technologies/PostGres.png";
+import ReactIcon from "/assets/pngs/technologies/React.png";
+import Angular from "/assets/pngs/technologies/Angular.png";
+import NextIcon from "/assets/pngs/technologies/Next.png";
+import Vue from "/assets/pngs/technologies/Vue.png";
+import AWS from "/assets/pngs/technologies/AWS.png";
+import AWSAmplify from "/assets/pngs/technologies/AWS-Amplify.png";
+import Rails from "/assets/pngs/technologies/Rails.png";
+import GoogleCloud from "/assets/pngs/technologies/Google-Cloud.png";
+import Laravel from "/assets/pngs/technologies/Laravel.png";
+import PostGres from "/assets/pngs/technologies/PostGres.png";
 
 const icons = [
   ReactIcon,
@@ -59,7 +59,7 @@ const styles = {
 const TechnologyIndex = () => {
   return (
     <>
-      <style jsx global>{`
+      <style jsx={undefined} global={undefined}>{`
         .swiper-button-prev,
         .swiper-button-next {
           width: 44px; /* Change these values to adjust the size */
@@ -72,7 +72,7 @@ const TechnologyIndex = () => {
         }
       `}</style>
       <Box sx={styles.mainContainer}>
-        <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
+        <Typography sx={styles.heading}>TECHNOLOGIES WE USE</Typography>
         <Box
           sx={{
             display: "flex",
@@ -89,13 +89,14 @@ const TechnologyIndex = () => {
             <Swiper
               spaceBetween={0}
               slidesPerView={7}
-              speed={800}
+              speed={5000}
               loop={true}
               navigation={true}
-              // autoplay={{
-              //   delay: 0,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: true,
+              }}
               modules={[Pagination, Navigation, Autoplay]}
               breakpoints={{
                 0: {
