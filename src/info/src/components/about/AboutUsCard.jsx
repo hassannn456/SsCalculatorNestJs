@@ -1,5 +1,6 @@
-import { CardMedia, Grid, Typography } from "@mui/material";
-import image from "../../../public/assets/pngs/about/AboutUsCardImage.jpg";
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
+// import image from "/assets/pngs/about/AboutUsCardImage.jpg";
+import image from "/assets/pngs/about/smartmockups_m2cc99af.png";
 
 const AboutUsCard = () => {
   return (
@@ -10,7 +11,7 @@ const AboutUsCard = () => {
           " url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.png)",
         backgroundPosition: "100% -10%",
         backgroundRepeat: "no-repeat",
-        backgroundColor: "#f0f3f6",
+        backgroundColor: "rgb(240, 243, 246)",
         textAlign: "center",
         display: "block",
         justifyContent: "left",

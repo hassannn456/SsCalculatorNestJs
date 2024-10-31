@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-import consultationBg from "../../../public/assets/pngs/about/consultationBg.jpg";
+import consultationBg from "/assets/pngs/about/consultationBg.jpg";
 import { useNavigate } from "react-router-dom";
 
 const styles = {

@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@mui/material";
 import LeadershipAvatars from "./LeadershipAvatars";
-import Planning1 from "../../../public/assets/pngs/about/Planning1.jpg";
-import Planning2 from "../../../public/assets/pngs/about/Planning2.jpg";
-import Planning3 from "../../../public/assets/pngs/about/Planning3.svg";
+import Planning1 from "/assets/pngs/about/Planning1.jpg";
+import Planning2 from "/assets/pngs/about/Planning2.jpg";
+import Planning3 from "/assets/pngs/about/Planning3.svg";
 import SectionHeader from "../general/SectionHeader";
 
 const Process = () => {

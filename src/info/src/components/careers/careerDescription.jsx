@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
-import CareerPic from "../../../public/assets/pngs/careers/reel-color.webp";
+import CareerPic from "/assets/pngs/careers/reel-color.webp";
 import SectionHeader from "../general/SectionHeader";
 
 const CareerDescription = () => {

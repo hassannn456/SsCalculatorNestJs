@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 
-import Experienced from "../../../public/assets/pngs/careers/experienced-professionals.webp";
-import Internship from "../../../public/assets/pngs/careers/internship.webp";
-import Graduates from "../../../public/assets/pngs/careers/graduates.webp";
+import Experienced from "/assets/pngs/careers/experienced-professionals.webp";
+import Internship from "/assets/pngs/careers/internship.webp";
+import Graduates from "/assets/pngs/careers/graduates.webp";
 
 const CareerTracksImages = () => {
   return (

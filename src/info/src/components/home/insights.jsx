@@ -1,12 +1,14 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, Slide, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import BlogImage1 from "../../../public/assets/pngs/insights/blog01.jpeg";
-import BlogImage2 from "../../../public/assets/pngs/insights/blog-2.png";
-import BlogImage3 from "../../../public/assets/pngs/insights/blog-3.png";
-import BlogImage4 from "../../../public/assets/pngs/insights/blog-4.png";
+import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
+import BlogImage2 from "/assets/pngs/insights/blog-2.png";
+import BlogImage3 from "/assets/pngs/insights/blog-3.png";
+import BlogImage4 from "/assets/pngs/insights/blog-4.png";
 import SectionHeader from "../general/SectionHeader";
+import InsightData from "../insights/insightData";
+import { useInView } from "react-intersection-observer";
 
 const cardData = [
   {
@@ -45,9 +47,10 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    padding: { xs: "20px 15px", lg: "80px 0px" },
-    backgroundColor: "#ffffff",
+    padding: { xs: "20px 15px 60px 15px", lg: "40px 0px" },
+    // backgroundColor: "#ffffff",
     margin: "auto",
+    // backgroundColor: "transparent",
     alignItems: "center",
     width: { sm: "100%", md: "60rem", lg: "80rem", xl: "90rem" },
   },
@@ -86,6 +89,7 @@ const styles = {
     border: "1px solid #E5E5E5",
     borderRadius: "1rem",
     overflow: "hidden",
+    backgroundColor: "white",
     cursor: "pointer",
     "&:hover": {
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
@@ -132,42 +136,75 @@ const styles = {
 const Insights = () => {
   const navigate = useNavigate();
 
-  const handleCardClick = () => {
-    navigate(`/insight-details/`);
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const handleCardClick = (id) => {
+    navigate(`/insight-details/${id}`);
   };
 
   return (
-    <Box sx={{ backgroundColor: "#ffffff" }}>
-      <Box sx={styles.mainContainer}>
-        <SectionHeader title={"INSIGHTS"} subtitle={"News And Articles"} />
-        <Box sx={styles.cardContainer}>
-          {cardData.map((card) => (
-            <Box key={card.id} sx={styles.card} onClick={handleCardClick}>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "150px",
-                  overflow: "hidden",
-                  borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
-                }}
-              >
-                <img
-                  src={card.image}
-                  alt={`blog-image-${card.id}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "fill",
-                  }}
-                />
-              </Box>
-              <Box sx={styles.blogContentContainer}>
-                <Typography sx={styles.blogHeading}>{card.heading}</Typography>
-                <Typography sx={styles.blogContent}>{card.content}</Typography>
-              </Box>
-            </Box>
-          ))}
-        </Box>
+    <Box
+      sx={{
+        backgroundColor: "transparent",
+        backgroundImage: 'url("/assets/pngs/bg-map.png")',
+        backgroundSize: "contain",
+        backgroundPosition: "right",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Box sx={styles.mainContainer} ref={ref}>
+        <SectionHeader
+          title={"INSIGHTS"}
+          subtitle={"News And Articles"}
+          description="Explore our latest insights, uncovering how technology transforms industries—from AI fairness to innovations in e-commerce and telecom."
+          width={true}
+        />
+        {inView && (
+          <Box sx={styles.cardContainer}>
+            {InsightData?.slice(0, 4)?.map((card, index) => (
+              <Slide in={slideIn} timeout={1800} key={index} direction={"down"}>
+                <Box
+                  key={card.id}
+                  sx={styles.card}
+                  onClick={() => handleCardClick(card.id)}
+                >
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: "150px",
+                      overflow: "hidden",
+                      borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
+                    }}
+                  >
+                    <img
+                      src={card.image}
+                      alt={`blog-image-${card.id}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "fill",
+                      }}
+                    />
+                  </Box>
+                  <Box sx={styles.blogContentContainer}>
+                    <Typography sx={styles.blogHeading}>
+                      {card.heading}
+                    </Typography>
+                    <Typography sx={styles.blogContent}>
+                      {card.content}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Slide>
+            ))}
+          </Box>
+        )}
       </Box>
     </Box>
   );

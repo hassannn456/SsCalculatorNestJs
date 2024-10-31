@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import { Stack, Typography } from "@mui/material";
 
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,8 +9,8 @@ import { Stack, Typography } from "@mui/material";
 // import "swiper/css/pagination";
 // import "swiper/css/scrollbar";
 
-import TestimonialImage1 from "../../../public/assets/pngs/testimonials/Testimonial1.png";
-import TestimonialImage2 from "../../../public/assets/pngs/testimonials/Testimonial2.png";
+import TestimonialImage1 from "/assets/pngs/testimonials/Testimonial1.png";
+import TestimonialImage2 from "/assets/pngs/testimonials/Testimonial2.png";
 
 const data = [
   {

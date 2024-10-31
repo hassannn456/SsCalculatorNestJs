@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { Box, Button, Card, Typography } from "@mui/material";
+import { Box, Button, Card, Typography, Slide } from "@mui/material";
 import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
 import { CheckBox } from "@mui/icons-material";
 import ProjectsIndex from "./projectsIndex";
 import { useNavigate } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 
 const styles = {
   mainContainer: {
@@ -13,7 +14,7 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     padding: { xs: "40px 15px", lg: "80px 0px" },
-    backgroundColor: "#f0f3f6",
+    // backgroundColor: "rgb(55 140 146 / 10%)",
     alignItems: "center",
     margin: "auto",
     width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
@@ -166,11 +167,19 @@ const data = [
 
 const EngagementPlan = ({ projectIndex = true }) => {
   const navigate = useNavigate();
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
   return (
     <Box
       sx={{
         backgroundColor: "#ffffff",
-        paddingY: projectIndex ? { xs: "9rem", md: 0 } : 0,
+        paddingTop: projectIndex ? { xs: "3rem", md: 0 } : 0,
       }}
     >
       {projectIndex && (
@@ -181,153 +190,165 @@ const EngagementPlan = ({ projectIndex = true }) => {
       )}
       <Box
         sx={{
-          backgroundColor: "#f0f3f6",
-          paddingY: projectIndex ? { xs: "4rem", md: "2rem" } : 0,
+          backgroundColor: "rgb(240, 243, 246)",
+          paddingY: projectIndex ? { xs: "3rem", md: "0rem" } : 0,
           mt: projectIndex ? "-2rem" : 0,
+          // backgroundImage: 'url("/assets/pngs/bg-shape-green.png")',
+          // backgroundSize: "fit",
+          // backgroundPosition: "start",
+          // backgroundRepeat: "no-repeat",
         }}
       >
-        <Box sx={styles.mainContainer}>
+        <Box sx={styles.mainContainer} ref={ref}>
           <Typography sx={styles.heading}>ENGAGEMENT PLAN</Typography>
 
           <Typography sx={styles.subHeading}>
             Share your ideas. We'll make them real. Pick your plan and let's
             start!
           </Typography>
-
-          <Box
-            sx={{
-              display: "flex",
-              gap: { xs: "0rem", lg: "2rem" },
-              width: "100%",
-              flexDirection: { xs: "column", md: "row" },
-            }}
-          >
-            <Card sx={styles.cardContainer}>
-              <Box sx={{ display: "flex", gap: "1rem", mb: "1rem" }}>
-                <Box sx={styles.iconContainer} className="icon">
-                  <MonetizationOnRoundedIcon
-                    sx={{ fontSize: "35px", color: "#378C92" }}
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Typography sx={styles.cardTopText} className="text">
-                    For Projects
-                  </Typography>
-                  <Typography sx={styles.cardHeading} className="text">
-                    Fixed Price
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Typography sx={styles.cardTagline} className="text">
-                On time. Within budget. As per expectations
-              </Typography>
-
-              {data.slice(0, 4).map((item) => (
-                <Box
-                  key={item.id}
-                  sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
-                >
-                  <CheckBox
-                    sx={{
-                      color: "#378C92",
-                      borderRadius: "10px",
-                      fontSize: "17px",
-                    }}
-                    className="text"
-                  />
-                  <Typography sx={styles.cardData} className="text">
-                    {item.content}
-                  </Typography>
-                </Box>
-              ))}
-
-              <Button
-                className="quoteBtn"
-                sx={styles.quoteBtn}
-                onClick={() => navigate("/contact-us")}
-              >
-                Get A Quote
-              </Button>
-            </Card>
-            <Card sx={styles.cardContainer}>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Box sx={{ display: "flex", gap: "1rem", mb: "1rem" }}>
-                  <Box sx={styles.iconContainer} className="icon">
-                    <Person2RoundedIcon
-                      sx={{ fontSize: "35px", color: "#378C92" }}
-                    />
+          {inView && (
+            <Box
+              sx={{
+                display: "flex",
+                gap: { xs: "0rem", lg: "2rem" },
+                width: "100%",
+                flexDirection: { xs: "column", md: "row" },
+              }}
+            >
+              {" "}
+              <Slide direction="left" in={slideIn} timeout={1800}>
+                <Card sx={styles.cardContainer}>
+                  <Box sx={{ display: "flex", gap: "1rem", mb: "1rem" }}>
+                    <Box sx={styles.iconContainer} className="icon">
+                      <MonetizationOnRoundedIcon
+                        sx={{ fontSize: "35px", color: "#378C92" }}
+                      />
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Typography sx={styles.cardTopText} className="text">
+                        For Projects
+                      </Typography>
+                      <Typography sx={styles.cardHeading} className="text">
+                        Fixed Price
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                    }}
+
+                  <Typography sx={styles.cardTagline} className="text">
+                    On time. Within budget. As per expectations
+                  </Typography>
+
+                  {data.slice(0, 4).map((item) => (
+                    <Box
+                      key={item.id}
+                      sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
+                    >
+                      <CheckBox
+                        sx={{
+                          color: "#378C92",
+                          borderRadius: "10px",
+                          fontSize: "17px",
+                        }}
+                        className="text"
+                      />
+                      <Typography sx={styles.cardData} className="text">
+                        {item.content}
+                      </Typography>
+                    </Box>
+                  ))}
+
+                  <Button
+                    className="quoteBtn"
+                    sx={styles.quoteBtn}
+                    onClick={() => navigate("/contact-us")}
                   >
-                    <Typography sx={styles.cardTopText} className="text">
-                      For Dedicated Teams
-                    </Typography>
-                    <Typography sx={styles.cardHeading} className="text">
-                      IT Experts
+                    Get A Quote
+                  </Button>
+                </Card>
+              </Slide>{" "}
+              <Slide direction="right" in={slideIn} timeout={1800}>
+                <Card sx={styles.cardContainer}>
+                  <Box
+                    sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <Box sx={{ display: "flex", gap: "1rem", mb: "1rem" }}>
+                      <Box sx={styles.iconContainer} className="icon">
+                        <Person2RoundedIcon
+                          sx={{ fontSize: "35px", color: "#378C92" }}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Typography sx={styles.cardTopText} className="text">
+                          For Dedicated Teams
+                        </Typography>
+                        <Typography sx={styles.cardHeading} className="text">
+                          IT Experts
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Typography
+                      sx={{
+                        display: { xs: "none", md: "flex" },
+                        backgroundColor: "#f0f3f6",
+                        fontSize: "16px",
+                        color: "#313431",
+                        borderRadius: "12px",
+                        padding: "5px 25px",
+                        height: "max-content",
+                        fontWeight: "00",
+                      }}
+                      className="popular"
+                    >
+                      Popular
                     </Typography>
                   </Box>
-                </Box>
-                <Typography
-                  sx={{
-                    display: { xs: "none", md: "flex" },
-                    backgroundColor: "#f0f3f6",
-                    fontSize: "16px",
-                    color: "#313431",
-                    borderRadius: "12px",
-                    padding: "5px 25px",
-                    height: "max-content",
-                    fontWeight: "00",
-                  }}
-                  className="popular"
-                >
-                  Popular
-                </Typography>
-              </Box>
 
-              <Typography sx={styles.cardTagline} className="text">
-                High-performing, on-demand teams of IT Experts
-              </Typography>
-
-              {data.slice(4, 8).map((item) => (
-                <Box
-                  key={item.id}
-                  sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
-                >
-                  <CheckBox
-                    sx={{
-                      color: "#378C92",
-                      borderRadius: "10px",
-                      fontSize: "17px",
-                    }}
-                    className="text"
-                  />
-                  <Typography sx={styles.cardData} className="text">
-                    {item.content}
+                  <Typography sx={styles.cardTagline} className="text">
+                    High-performing, on-demand teams of IT Experts
                   </Typography>
-                </Box>
-              ))}
 
-              <Button
-                className="quoteBtn"
-                sx={styles.quoteBtn}
-                onClick={() => navigate("/contact-us")}
-              >
-                Get A Quote
-              </Button>
-            </Card>
-          </Box>
+                  {data.slice(4, 8).map((item) => (
+                    <Box
+                      key={item.id}
+                      sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
+                    >
+                      <CheckBox
+                        sx={{
+                          color: "#378C92",
+                          borderRadius: "10px",
+                          fontSize: "17px",
+                        }}
+                        className="text"
+                      />
+                      <Typography sx={styles.cardData} className="text">
+                        {item.content}
+                      </Typography>
+                    </Box>
+                  ))}
+
+                  <Button
+                    className="quoteBtn"
+                    sx={styles.quoteBtn}
+                    onClick={() => navigate("/contact-us")}
+                  >
+                    Get A Quote
+                  </Button>
+                </Card>
+              </Slide>
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>

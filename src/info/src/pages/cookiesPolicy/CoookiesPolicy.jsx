@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import CookiesImage from "../../../public/assets/pngs/FooterResources/cookies.jpg";
+import CookiesImage from "/assets/pngs/FooterResources/cookies.jpg";
 
 const CookiesPolicy = () => {
   return (

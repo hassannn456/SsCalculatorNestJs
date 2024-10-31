@@ -17,8 +17,8 @@ import {
   Collapse,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import MainLogo from "../../../public/assets/pngs/header/Header_Logo.png";
-import WhiteLogo from "../../../public/assets/pngs/header/WhiteLogo.png";
+import MainLogo from "/assets/pngs/header/Header_Logo.png";
+import WhiteLogo from "/assets/pngs/header/WhiteLogo.png";
 
 import SwipeableTemporaryDrawer from "../services/Blog";
 
@@ -65,7 +65,7 @@ const DrawerAppBar = () => {
         {
           name: "Web Development",
           onClick: () => {
-            navigate("/services/Web_Development");
+            navigate("/services/web-development");
             setMobileServicesOpen((prev) => !prev);
 
             setMobileOpen(false);
@@ -74,7 +74,7 @@ const DrawerAppBar = () => {
         {
           name: "Mobile Application",
           onClick: () => {
-            navigate("/services/Mobile_Application");
+            navigate("/services/mobile-application");
             setMobileServicesOpen((prev) => !prev);
 
             setMobileOpen(false);
@@ -83,7 +83,7 @@ const DrawerAppBar = () => {
         {
           name: "UI Design",
           onClick: () => {
-            navigate("/services/UI_Design");
+            navigate("/services/ui_design");
             setMobileServicesOpen((prev) => !prev);
             setMobileOpen(false);
           },
@@ -91,7 +91,7 @@ const DrawerAppBar = () => {
         {
           name: "Blockchain",
           onClick: () => {
-            navigate("/services/Blockchain");
+            navigate("/services/blockchain");
             setMobileServicesOpen((prev) => !prev);
 
             setMobileOpen(false);
@@ -100,7 +100,7 @@ const DrawerAppBar = () => {
         {
           name: "SEO",
           onClick: () => {
-            navigate("/services/SEO");
+            navigate("/services/seo");
             setMobileServicesOpen((prev) => !prev);
             setMobileOpen(false);
           },
@@ -108,7 +108,7 @@ const DrawerAppBar = () => {
         {
           name: "Email Marketing",
           onClick: () => {
-            navigate("/services/Email_Marketing");
+            navigate("/services/email_marketing");
             setMobileServicesOpen((prev) => !prev);
             setMobileOpen(false);
           },
@@ -116,7 +116,7 @@ const DrawerAppBar = () => {
         {
           name: "Content Marketing",
           onClick: () => {
-            navigate("/services/Content_Marketing");
+            navigate("/services/content_marketing");
             setMobileServicesOpen((prev) => !prev);
             setMobileOpen(false);
           },
@@ -124,7 +124,7 @@ const DrawerAppBar = () => {
         {
           name: "Social Media",
           onClick: () => {
-            navigate("/services/Social_Media");
+            navigate("/services/social_media");
             setMobileServicesOpen((prev) => !prev);
             setMobileOpen(false);
           },

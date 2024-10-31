@@ -1,17 +1,17 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import { Box, Slide, Typography } from "@mui/material";
+import { Box, Zoom, Slide, Typography } from "@mui/material";
 import CallMadeTwoToneIcon from "@mui/icons-material/CallMadeTwoTone";
-
-import WebDevIcon from "../../../public/assets/pngs/services/WebDevelopment.png";
-import MobileAppIcon from "../../../public/assets/pngs/services/MobileApp.png";
-import AppManagementSystem from "../../../public/assets/pngs/services/AppManagementSystem.png";
-import SoftwareInnovation from "../../../public/assets/pngs/services/SoftwareInnovation.png";
-import WebDevImage from "../../../public/assets/pngs/services/WebDevImage.png";
-import MobileDevImage from "../../../public/assets/pngs/services/MobileDevImage.png";
-import UIUXImage from "../../../public/assets/pngs/services/UIImage1.png";
-import BlockchainImage from "../../../public/assets/pngs/services/BlockchainImage.png";
+import { useInView } from "react-intersection-observer";
+import WebDevIcon from "/assets/pngs/services/WebDevelopment.png";
+import MobileAppIcon from "/assets/pngs/services/MobileApp.png";
+import UIUX from "/assets/pngs/services/UIUX.png";
+import SoftwareInnovation from "/assets/pngs/services/SoftwareInnovation.png";
+import WebDevImage from "/assets/pngs/services/WebDevImage.png";
+import MobileDevImage from "/assets/pngs/services/MobileDevImage.png";
+import UIUXImage from "/assets/pngs/services/UIImage1.png";
+import BlockchainImage from "/assets/pngs/services/BlockchainImage.png";
 
 const styles = {
   mainContainer: {
@@ -21,6 +21,17 @@ const styles = {
     padding: { xs: "20px 15px", lg: "80px" },
     backgroundColor: "#ffffff",
     alignItems: "center",
+  },
+  cardParent: {
+    "&:nth-of-type(2n)": {
+      mt: { xs: "0rem", md: "5rem" },
+    },
+    "&:nth-of-type(4n)": {
+      mt: { xs: "0rem", md: "5rem" },
+    },
+    "&:hover": {
+      transform: "translateY(-10px)",
+    },
   },
   heading: {
     fontSize: "20px",
@@ -60,10 +71,10 @@ const styles = {
     height: "400px",
     transition: "transform 0.3s ease",
     position: "relative",
-    "&:nth-child(2n)": {
+    "&:nth-of-type(2n)": {
       mt: { xs: "0rem", md: "5rem" },
     },
-    "&:nth-child(4n)": {
+    "&:nth-of-type(4n)": {
       mt: { xs: "0rem", md: "5rem" },
     },
     "&:hover": {
@@ -131,6 +142,26 @@ const Services = () => {
   const mainIconRef = useRef(null);
   const arrowIconRef = useRef(null);
   const contentRef = useRef(null);
+  const [sldIn, setSldIn] = useState(false);
+  const [slideIn, setSlideIn] = useState([false, false, false, false]);
+
+  useEffect(() => {
+    setSldIn(true);
+    setSlideIn([true, false, false, false]);
+    setTimeout(() => {
+      setSlideIn([true, true, false, false]);
+    }, 1000);
+    setTimeout(() => {
+      setSlideIn([true, true, true, false]);
+    }, 1500);
+    setTimeout(() => {
+      setSlideIn([true, true, true, true]);
+    }, 2000);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -158,14 +189,14 @@ const Services = () => {
       backgroundImage: MobileDevImage,
     },
     {
-      icon: SoftwareInnovation,
+      icon: UIUX,
       heading: "UI/UX Design",
       content:
         "Enhance user engagement and satisfaction with captivating UI/UX designs. We focus on creating seamless user experiences through intuitive interfaces and visually appealing designs.",
       backgroundImage: UIUXImage,
     },
     {
-      icon: AppManagementSystem,
+      icon: SoftwareInnovation,
       heading: "Blockchain",
       content:
         "Explore the potential of blockchain technology for secure and transparent transactions. Our blockchain experts provide innovative solutions for decentralized applications and smart contracts.",
@@ -174,108 +205,123 @@ const Services = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: "#ffffff" }}>
-      <Box sx={styles.mainContainer}>
-        <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
-        <Typography sx={styles.subHeading}>
-          We provide truly prominent IT solutions.
-        </Typography>
-        <Box sx={styles.cardContainer}>
-          {cardData.map((card, index) => (
-            <Box
-              key={index}
-              sx={{
-                ...styles.card,
-                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
-                justifyContent:
-                  hoveredIndex === index ? "space-between" : "flex-end",
-              }}
-              onMouseEnter={() => handleHover(index)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Box
-                sx={{
-                  ...styles.backgroundImage,
-                  backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
-                }}
-              />
-              {hoveredIndex === index && (
-                <Box sx={styles.iconContainer}>
-                  <Box ref={mainIconRef}>
-                    <Slide
-                      direction="right"
-                      in
-                      timeout={500}
-                      container={mainIconRef.current}
-                    >
-                      <Box sx={styles.icon}>
-                        <img
-                          src={card.icon}
-                          alt="icon"
-                          style={{ width: "50px", height: "45px" }}
-                        />
+    <Box sx={{ backgroundColor: "#ffffff" }} ref={ref}>
+      {inView && (
+        <Box sx={styles.mainContainer}>
+          <Slide in={sldIn} direction="right" timeout={1800}>
+            <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
+          </Slide>
+          <Slide in={sldIn} direction="left" timeout={1800}>
+            <Typography sx={styles.subHeading}>
+              We provide truly prominent IT solutions.
+            </Typography>
+          </Slide>{" "}
+          <Box sx={styles.cardContainer}>
+            {cardData.map((card, index) => (
+              <Slide
+                in={!!slideIn[index]}
+                direction="up"
+                timeout={1800}
+                key={index}
+              >
+                <Box sx={{ ...styles.cardParent }}>
+                  <Box
+                    key={index}
+                    sx={{
+                      ...styles.card,
+                      backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
+                      justifyContent:
+                        hoveredIndex === index ? "space-between" : "flex-end",
+                    }}
+                    onMouseEnter={() => handleHover(index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Box
+                      sx={{
+                        ...styles.backgroundImage,
+                        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
+                      }}
+                    />
+                    {hoveredIndex === index && (
+                      <Box sx={styles.iconContainer}>
+                        <Box ref={mainIconRef}>
+                          <Slide
+                            direction="right"
+                            in
+                            timeout={500}
+                            container={mainIconRef.current}
+                          >
+                            <Box sx={styles.icon}>
+                              <img
+                                src={card.icon}
+                                alt="icon"
+                                style={{ width: "50px", height: "45px" }}
+                              />
+                            </Box>
+                          </Slide>
+                        </Box>
+                        <Box ref={arrowIconRef}>
+                          <Slide
+                            direction="left"
+                            in
+                            timeout={500}
+                            container={arrowIconRef.current}
+                          >
+                            <CallMadeTwoToneIcon
+                              sx={{
+                                fontSize: "40px",
+                                cursor: "pointer",
+                                color: "#ffffff",
+                              }}
+                            />
+                          </Slide>
+                        </Box>
                       </Box>
-                    </Slide>
-                  </Box>
-                  <Box ref={arrowIconRef}>
-                    <Slide
-                      direction="left"
-                      in
-                      timeout={500}
-                      container={arrowIconRef.current}
-                    >
-                      <CallMadeTwoToneIcon
-                        sx={{
-                          fontSize: "40px",
-                          cursor: "pointer",
-                          color: "#ffffff",
-                        }}
-                      />
-                    </Slide>
-                  </Box>
-                </Box>
-              )}
+                    )}
 
-              {hoveredIndex === index ? (
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <Slide
-                    direction="right"
-                    in
-                    timeout={500}
-                    container={contentRef.current}
-                  >
-                    <Box sx={styles.headingContainer}>
-                      <Box sx={styles.headingLine} />
-                      <Typography
-                        sx={{ ...styles.cardHeading, fontSize: "20px" }}
-                      >
-                        {card.heading}
-                      </Typography>
-                    </Box>
-                  </Slide>
-                  <Slide
-                    direction="up"
-                    in
-                    timeout={500}
-                    container={contentRef.current}
-                  >
-                    <Typography sx={styles.cardContent}>
-                      {card.content}
-                    </Typography>
-                  </Slide>
+                    {hoveredIndex === index ? (
+                      <Box sx={{ display: "flex", flexDirection: "column" }}>
+                        <Slide
+                          direction="right"
+                          in
+                          timeout={500}
+                          container={contentRef.current}
+                        >
+                          <Box sx={styles.headingContainer}>
+                            <Box sx={styles.headingLine} />
+                            <Typography
+                              sx={{ ...styles.cardHeading, fontSize: "20px" }}
+                            >
+                              {card.heading}
+                            </Typography>
+                          </Box>
+                        </Slide>
+                        <Slide
+                          direction="up"
+                          in
+                          timeout={500}
+                          container={contentRef.current}
+                        >
+                          <Typography sx={styles.cardContent}>
+                            {card.content}
+                          </Typography>
+                        </Slide>
+                      </Box>
+                    ) : (
+                      <Box sx={styles.headingContainer}>
+                        <Box sx={styles.headingLine} />
+                        <Typography sx={styles.cardHeading}>
+                          {card.heading}
+                        </Typography>
+                      </Box>
+                    )}
+                  </Box>
                 </Box>
-              ) : (
-                <Box sx={styles.headingContainer}>
-                  <Box sx={styles.headingLine} />
-                  <Typography sx={styles.cardHeading}>
-                    {card.heading}
-                  </Typography>
-                </Box>
-              )}
-            </Box>
-          ))}
+              </Slide>
+            ))}
+          </Box>
         </Box>
-      </Box>
+      )}
     </Box>
   );
 };

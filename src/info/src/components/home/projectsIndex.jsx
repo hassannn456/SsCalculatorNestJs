@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Box, Divider, Typography } from "@mui/material";
 
-import Counter1 from "../../../public/assets/pngs/projectsIndex/counter-1.png";
-import Counter2 from "../../../public/assets/pngs/projectsIndex/counter-2.png";
-import Counter3 from "../../../public/assets/pngs/projectsIndex/counter-3.png";
+import Counter1 from "/assets/pngs/projectsIndex/counter-1.png";
+import Counter2 from "/assets/pngs/projectsIndex/counter-2.png";
+import Counter3 from "/assets/pngs/projectsIndex/counter-3.png";
 import zIndex from "@mui/material/styles/zIndex";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 
 const styles = {
   mainContainer: {
@@ -20,8 +22,8 @@ const styles = {
     gap: "1rem",
     borderRadius: "20px",
     border: "1px solid lightgray",
-    position: 'relative',
-    zIndex: 10
+    position: "relative",
+    zIndex: 10,
   },
   number: {
     fontSize: "40px",
@@ -61,6 +63,14 @@ const projectsData = [
 ];
 
 const ProjectsIndex = () => {
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
   return (
     <Box sx={styles.mainContainer}>
       {projectsData.map((project, index) => (
@@ -73,13 +83,16 @@ const ProjectsIndex = () => {
               alignItems: "center",
               gap: "1rem",
             }}
+            ref={ref}
           >
             <Box sx={styles.imageContainer}>
               <img src={project.image} alt="counter" />
             </Box>
             <Box>
               <Typography sx={styles.number}>
-                {project.number}
+                {inView && (
+                  <CountUp isCounting end={project.number} duration={3.2} />
+                )}
                 {project.name === "CUSTOMER SATISFACTION" && "%"}
               </Typography>
               <Typography sx={styles.cardName}>{project.name}</Typography>

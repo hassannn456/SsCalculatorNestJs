@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-import defaultAvatar from "../../../public/assets/pngs/about/avatar.png";
+import defaultAvatar from "/assets/pngs/about/avatar.png";
 
 const styles = {
   mainContainer: {
@@ -33,7 +33,6 @@ const LeadershipAvatars = ({ imageSrc, title, position }) => {
         src={imageSrc ? imageSrc : defaultAvatar}
         style={styles.avatarImage}
         alt="avatar"
-        
       />
       <Typography sx={styles.titleText}>{title ? title : "N/A"}</Typography>
       <Typography sx={styles.positionText}>

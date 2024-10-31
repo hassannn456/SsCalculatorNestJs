@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Grid, Typography, CardMedia, Container } from "@mui/material";
-import selectIcon from "../../../public/assets/pngs/about/select (2).svg";
-import TargetIcon from "../../../public/assets/pngs/about/target.svg";
-import ChooseIcon from "../../../public/assets/pngs/about/choose.svg";
-import worldIcon from "../../../public/assets/pngs/about/earth-asia.svg";
+import selectIcon from "/assets/pngs/about/select (2).svg";
+import TargetIcon from "/assets/pngs/about/target.svg";
+import ChooseIcon from "/assets/pngs/about/choose.svg";
+import worldIcon from "/assets/pngs/about/earth-asia.svg";
 
 const ProcessInfo = () => {
   const gridItems = [
@@ -104,7 +104,7 @@ const ProcessInfo = () => {
           ))}
         </Grid>
       </Container>
-      <style jsx global>{`
+      <style jsx="true" global="true">{`
         @keyframes beat {
           0% {
             -webkit-transform: scale(1);

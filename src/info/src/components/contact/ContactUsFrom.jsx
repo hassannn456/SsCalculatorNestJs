@@ -163,7 +163,7 @@ const ContactUsFrom = () => {
 
   const sendAutoReply = (recipientEmail, firstName) => {
     const autoReplyParams = {
-      from_name: "TechieTribe",
+      from_name: "Techietribe",
       to_name: `${firstName}`,
       reply_to: recipientEmail,
       message: `Hello ${firstName},\n\nThank you for reaching out. Your inquiry has been received, and we sincerely appreciate your interest in our services. Our team is currently reviewing your message and will get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our solutions and capabilities: www.thetechietribe.com\n\nBest Regards,\nTeam Techietribe`,
@@ -172,7 +172,7 @@ const ContactUsFrom = () => {
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_AUTO_REPLY_TEMPLATE_ID,
         autoReplyParams,
         import.meta.env.VITE_KEY
       )

@@ -42,7 +42,7 @@ export default function InteractiveList({ activeTab, closeDrawers }) {
   };
 
   const handleClick = (page) => {
-    let newStr = page.replace(/ /g, "_");
+    let newStr = page.toLowerCase().replace(/ /g, "-");
     navigate(`/services/${newStr}`);
     activeTab("Services");
     closeDrawers();

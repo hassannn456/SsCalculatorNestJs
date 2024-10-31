@@ -1,4 +1,4 @@
-import { Box, Typography, Container, CardMedia } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
@@ -7,17 +7,18 @@ import "swiper/css/autoplay";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import Support from "./../../../public/assets/pngs/services/carousel/Support.png";
-import Frontend from "./../../../public/assets/pngs/services/carousel/Frontend.png";
-import Backend from "./../../../public/assets/pngs/services/carousel/Backend.png";
-import FullStack from "./../../../public/assets/pngs/services/carousel/fullstack.png";
-import Experience from "./../../../public/assets/pngs/services/carousel/Experience.png";
-import QA from "./../../../public/assets/pngs/services/carousel/QA.png";
+import Support from "/assets/pngs/services/carousel/Support.png";
+import Frontend from "/assets/pngs/services/carousel/Frontend.png";
+import Backend from "/assets/pngs/services/carousel/Backend.png";
+import FullStack from "/assets/pngs/services/carousel/fullstack.png";
+import Experience from "/assets/pngs/services/carousel/Experience.png";
+import QA from "/assets/pngs/services/carousel/QA.png";
 import CustomCard from "./CustomCard";
 import SectionIntro from "../general/SectionHeader";
+
 function CarouselContent() {
   const list = [
     {
@@ -63,22 +64,34 @@ function CarouselContent() {
 
   return (
     <Container
-      maxWidth={"100%"}
       sx={{
-        paddingX: "2rem",
+        backgroundImage:
+          "url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.png)",
+        backgroundPosition: "100% -10%",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "rgb(240, 243, 246)",
+        textAlign: "center",
+        justifyContent: "left",
+        overflow: "hidden",
+        position: "relative",
+        padding: "2rem",
+        px: { lg: 10, md: 5, sm: 3, xs: 2 },
+        py: { lg: 2, md: 10, sm: 8, xs: 5 },
+        pb: { lg: 2, xs: 0 },
       }}
+      maxWidth={"100%"}
     >
       <SectionIntro title={"Area of Expertise"} subtitle={"Why Choose Us"} />
       <div className="city-swiper-container">
         <Swiper
-          slidesPerView={4}
+          slidesPerView={3}
           slidesPerGroup={1}
-          spaceBetween={10}
+          spaceBetween={20}
           freeMode={true}
-          pagination={{
-            clickable: true,
-            dynamicBullets: false,
-          }}
+          // pagination={{
+          //   clickable: true,
+          //   dynamicBullets: false,
+          // }}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
@@ -123,62 +136,40 @@ function CarouselContent() {
             <SwiperSlide key={index}>
               <Box
                 sx={{
-                  position: "relative",
-
-                  "&:hover .banner-content::before, &:hover .banner-content::after":
-                    {
-                      width: "100%",
-                    },
-                  "&:hover .banner-content::after": {
-                    right: 0,
-                  },
-                  "&:hover .banner-content::before": {
-                    left: 0,
-                  },
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+                  transition: "transform 0.2s, box-shadow 0.2s",
                   "&:hover": {
-                    boxShadow: "0px 10px 20px 0px rgba(0,0,0,.05)",
+                    transform: "scale(1.03)",
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
                   },
                 }}
               >
-                <Box
-                  sx={{
-                    position: "relative",
-
-                    "&::after": {
-                      position: "absolute",
-                      width: "100%",
-                      height: "100%",
-                      top: 0,
-                      left: 0,
-                      zIndex: 1,
-                      transition: "all .35s",
-                    },
-                  }}
-                >
-                  <CustomCard
-                    url={item.src}
-                    title={item.title}
-                    description={item.description}
-                  />
-                </Box>
+                <CustomCard
+                  url={item.src}
+                  title={item.title}
+                  description={item.description}
+                />
               </Box>
             </SwiperSlide>
           ))}
         </Swiper>
         <div ref={prevRef} className="city-custom-prev">
-          <ArrowBackIcon />
+          <ArrowBackIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)" }} />
         </div>
         <div ref={nextRef} className="city-custom-next">
-          <ArrowForwardIcon />
+          <ArrowForwardIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)" }} />
         </div>
         <style>
           {`
               .city-custom-prev, .city-custom-next {
-                display: none !important;
+                color: rgba(28, 154, 192, 0.85); /* Slightly lighter background */
+                height: 40px;
+                width: 40px;
               }
               span.swiper-pagination-bullet {
-                width: 12px;
-                height: 12px;
+                width: 10px;
+                height: 10px;
                 background: #3d3939;
               }
               span.swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -188,111 +179,19 @@ function CarouselContent() {
                 margin-top: 16px;
                 margin-bottom: 5rem;
               }
-              .citySliderBox:hover .navigateLink {
-                top: 0 !important;
-                opacity: 1 !important;
-              }
-              .citySliderBox:hover .CityName {
-                color: black !important;
-              }
-              .citySliderBox {
-                position: relative !important;
-              }
-              .city-swiper-container .swiper-wrapper {
-                column-gap: 25px;
-              }
-              .city-swiper-container {
-                position: relative !important;
-              }
-              .city-swiper-container .swiper-slide {
-                margin-right: 0px !important;
-               
-              }
-              .city-swiper-container .swiper-slide-next {
-                background-color: #f0f3f6;
-                transition: background-color 0.6s;
-              
-              }
-              .sliderSvg {
-                transform-origin: center;
-                transition: transform 0.5s ease-in-out;
-              }
-              .sliderBox:hover .sliderSvg {
-                animation: scaleInOut 0.8s infinite alternate;
-              }
-              @keyframes scaleInOut {
-                0% {
-                  transform: scale(0.7);
-                }
-                100% {
-                  transform: scale(1);
-                }
-              }
-              .sliderBox {
-                cursor: pointer;
-                padding-left: 10px;
-                padding-right: 10px;
-                padding-bottom: 28px;
-                padding-top: 40px;
-              }
-              .sliderSvg {
-                fill: #1c9ac0;
-                margin-left: 42px;
-              }
-              .city-swiper-container .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-                display: block;
-              }
-              .city-custom-next,
-              .city-custom-prev {
+              .city-custom-prev, .city-custom-next {
                 position: absolute;
                 top: 50%;
-                transform: translateY(-50%);
-                z-index: 1;
+                z-index: 10;
                 cursor: pointer;
                 color: white;
-                background: #dee2e8;
-                height: 45px;
-                width: 45px;
-                margin: auto;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-            
-                transition: background-color 0.6s;
+                border-radius: 50%;
               }
-              .city-custom-prev {
-                left: 29px;
-              }
-              .city-custom-next {
-                right: 29px;
-              }
-              .city-swiper-container {
-                overflow: hidden;
-              }
-              .mySwiper .swiper-slide {
-                transition: transform 0.8s ease-in-out;
-              }
-              @media only screen and (max-width: 900px) {
-                .sliderSvg {
-                  margin-left: 0px;
-                  margin: auto;
-                  display: flex;
-                }
-              }
-              @media only screen and (max-width: 720px) {
-                .sliderSvg {
-                  margin-left: 0px;
-                  margin: auto;
-                  display: flex;
-                }
-               
-              }
-              @media only screen and (max-width: 500px) {
-                .city-custom-prev,
-                .city-custom-next {
-                  display: none;
-                }
-              }
+              .city-custom-prev { left: 10px; }
+              .city-custom-next { right: 10px; }
             `}
         </style>
       </div>

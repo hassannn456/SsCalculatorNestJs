@@ -13,7 +13,7 @@ import RequestQuote from "../../components/home/requestQuotes";
 const Services = () => {
   const { serviceName } = useParams();
   let newStr = serviceName.replace(/_/g, " ");
-  const filteredData = servicesData.find((service) => service.title === newStr);
+  const filteredData = servicesData.find((service) => service.slug === newStr);
 
   if (!filteredData) {
     return (
@@ -53,9 +53,10 @@ const Services = () => {
         subtitle={
           filteredData.title === "UI Design"
             ? "UI/UX Design"
-            : filteredData.title
+            : filteredData.title1
         }
-        bgColor={"#f0f3f6"}
+        // bgColor={"rgb(55 140 146 / 10%)"}
+        bgColor={"rgb(240, 243, 246)"}
       />
 
       <AboutDescription
@@ -72,11 +73,10 @@ const Services = () => {
         subtitle={
           filteredData.title === "UI Design"
             ? "UI/UX Design"
-            : filteredData.title
+            : filteredData.title2
         }
       />
 
-      <ProcessInfo />
       <AboutDescription
         description={filteredData.extraDescription[1]}
         title="WHAT YOU GOT"
@@ -84,10 +84,12 @@ const Services = () => {
         subtitle={
           filteredData.title === "UI Design"
             ? "UI/UX Design"
-            : filteredData.title
+            : filteredData.title3
         }
-        bgColor={"#f0f3f6"}
+        bgColor={"rgb(240, 243, 246)"}
       />
+
+      <ProcessInfo />
 
       {/* <Box
         sx={{
@@ -102,6 +104,7 @@ const Services = () => {
           <StatsCounter />
         </Box>
       </Box> */}
+
       <Box sx={{ width: "100vw", backgroundColor: "#f0f3f6" }}>
         <CarouselContent />
       </Box>

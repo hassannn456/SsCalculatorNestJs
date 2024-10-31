@@ -1,6 +1,6 @@
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import CareersBg from "../../../public/assets/pngs/careers/careers-hero.jpeg";
+import CareersBg from "/assets/pngs/careers/careers-hero.jpeg";
 import CareerDescription from "../../components/careers/careerDescription";
 import CareerTracks from "../../components/careers/career-tracks";
 import CareerTracksImages from "../../components/careers/careerTracksImages";
@@ -15,7 +15,7 @@ const CareersPage = () => {
         title="Careers"
         imageSrc={CareersBg}
         overlay={true}
-        fullScreen={true}
+        fullscreen={true | undefined}
         call={true}
         subText="Join our dynamic team where innovation meets opportunity. At the heart of everything we do is a commitment to personal growth, professional excellence, and making a meaningful impact."
       />

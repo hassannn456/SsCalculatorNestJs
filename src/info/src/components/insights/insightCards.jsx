@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Divider, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InsightData from "./insightData";
+import { Margin } from "@mui/icons-material";
 
 const categories = [
   "Artificial Intelligence",
@@ -15,11 +16,8 @@ const categories = [
 
 const styles = {
   mainContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
     backgroundColor: "#ffffff",
-    margin: "auto",
+    marginLeft: 0,
     alignItems: "center",
     width: { xs: "100%", lg: "70%" },
   },
@@ -48,6 +46,7 @@ const styles = {
     flexWrap: "wrap",
     gap: "3.3rem",
     width: "100%",
+    margin: "auto",
   },
   card: {
     display: "flex",
@@ -56,6 +55,7 @@ const styles = {
     height: "360px",
     border: "1px solid #E5E5E5",
     borderRadius: "1rem",
+    cursor: "pointer",
     overflow: "hidden",
     "&:hover": {
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
@@ -125,10 +125,22 @@ const styles = {
 
 const InsightCards = () => {
   const navigate = useNavigate();
-  const [blogsData, setBlogsData] = useState(InsightData); // Fixed useState
+  const [blogsData, setBlogsData] = useState(InsightData);
 
   const handleCardClick = (id) => {
     navigate(`/insight-details/${id}`);
+  };
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value.toLowerCase();
+
+    const filteredData = InsightData.filter(
+      (item) =>
+        item.heading.toLowerCase().includes(query) ||
+        item.content.toLowerCase().includes(query)
+    );
+
+    setBlogsData(filteredData);
   };
 
   return (
@@ -142,52 +154,81 @@ const InsightCards = () => {
         padding: { xs: "20px 15px", lg: "80px" },
       }}
     >
-      <Box sx={styles.mainContainer}>
-        <Box sx={styles.cardContainer}>
-          {blogsData.map((card, index) => (
-            <Box
-              key={index}
-              sx={styles.card}
-              onClick={() => handleCardClick(card.id)}
-            >
+      <Box
+        sx={{
+          ...styles.mainContainer,
+          justifyContent: blogsData.length === 0 ? "flex-start" : "center",
+        }}
+      >
+        {blogsData.length === 0 ? (
+          <Typography
+            sx={{
+              fontSize: "24px",
+              fontFamily: "Barlow",
+              fontWeight: "500",
+              color: "#313431",
+              marginTop: "2rem",
+              textAlign: "center",
+            }}
+          >
+            No Data Found
+          </Typography>
+        ) : (
+          <Box
+            sx={{
+              ...styles.cardContainer,
+            }}
+          >
+            {blogsData.map((card, index) => (
               <Box
-                sx={{
-                  width: "100%",
-                  height: "250px",
-                  overflow: "hidden",
-                  borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
-                }}
+                key={index}
+                sx={styles.card}
+                onClick={() => handleCardClick(card.id)}
               >
-                <img
-                  src={card.image}
-                  alt={`blog-image-${index}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "fill",
-                  }}
-                />
-              </Box>
-              <Divider sx={{ width: "100%", backgroundColor: "lightgray" }} />
-              <Box sx={styles.blogContentContainer}>
-                <Typography sx={styles.blogHeading}>{card.heading}</Typography>
-                <Typography sx={styles.blogContent}>{card.content}</Typography>
-                <Typography
+                <Box
                   sx={{
-                    fontSize: "20px",
-                    fontFamily: "Barlow",
-                    fontWeight: "500",
-                    color: "#378C92",
-                    cursor: "pointer",
+                    width: "100%",
+                    height: "250px",
+                    overflow: "hidden",
+                    borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
                   }}
                 >
-                  Read More
-                </Typography>
+                  <img
+                    src={card.image}
+                    alt={`blog-image-${index}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "fill",
+                    }}
+                  />
+                </Box>
+                <Divider sx={{ width: "100%", backgroundColor: "lightgray" }} />
+                <Box sx={styles.blogContentContainer}>
+                  <Typography sx={styles.blogHeading}>
+                    {card.heading}
+                  </Typography>
+                  <Typography sx={styles.blogContent}>
+                    {card.content}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "20px",
+                      fontFamily: "Barlow",
+                      fontWeight: "500",
+                      color: "#378C92",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Read More
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
-          ))}
-        </Box>
+            ))}
+          </Box>
+        )}
       </Box>
+
       <Box
         sx={{
           width: { xs: "100%", lg: "30%" },
@@ -197,6 +238,7 @@ const InsightCards = () => {
           size="medium"
           placeholder="Search"
           sx={styles.textField}
+          onChange={handleSearchChange}
           inputProps={{
             sx: {
               "&::placeholder": {

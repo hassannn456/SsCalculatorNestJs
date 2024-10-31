@@ -4,14 +4,14 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-// import HeroSectionVideo from "../../../public/assets/video/HeroSectionVideo.mp4";
-import Video2 from "../../../public/assets/video/video2.mp4";
+// import HeroSectionVideo from "/assets/video/HeroSectionVideo.mp4";
+import Video2 from "/assets/video/video2.mp4";
 import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {
   mainContainer: {
     width: "100%",
-    height: "100vh",
+    height: { xs: "80vh", md: "100vh" },
     position: "relative",
   },
   videoContainer: {
@@ -29,7 +29,7 @@ const styles = {
     top: 0,
     left: 0,
     width: "100%",
-    height: "100vh",
+    height: "100%",
     background:
       "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%)",
   },
@@ -37,7 +37,7 @@ const styles = {
   textContainer: {
     width: "100%",
     position: "absolute",
-    top: { xs: "40%", md: "30%", lg: "30%" },
+    top: { xs: "35%", md: "30%", lg: "30%" },
     left: "50%",
     transform: "translate(-50%, 0)",
   },

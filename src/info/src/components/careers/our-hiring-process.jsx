@@ -2,10 +2,10 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 
 import SectionHeader from "../general/SectionHeader";
-import Apply from "../../../public/assets/pngs/careers/hiring-process1.svg";
-import Review from "../../../public/assets/pngs/careers/hiring-process2.svg";
-import Interviews from "../../../public/assets/pngs/careers/hiring-process3.svg";
-import Onboarding from "../../../public/assets/pngs/careers/hiring-process4.svg";
+import Apply from "/assets/pngs/careers/hiring-process1.svg";
+import Review from "/assets/pngs/careers/hiring-process2.svg";
+import Interviews from "/assets/pngs/careers/hiring-process3.svg";
+import Onboarding from "/assets/pngs/careers/hiring-process4.svg";
 
 const HiringProcess = () => {
   const steps = [
@@ -94,7 +94,6 @@ const HiringProcess = () => {
                 fontWeight: 500,
                 color: "#161c26",
                 fontSize: "30px",
-                fontWeight: 600,
               }}
             >
               {step.title}

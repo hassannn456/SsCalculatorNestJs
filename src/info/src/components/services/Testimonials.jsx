@@ -2,14 +2,14 @@ import React from "react";
 import { Box } from "@mui/material";
 import SectionIntro from "../general/SectionHeader";
 import TestimonialSlider from "./TestimonialSlider";
-import bgMap2 from "../../../public/assets/pngs/bg-map.png";
+import bgMap2 from "/assets/pngs/bg-map.png";
 
 const Testimonials = () => {
   return (
     <Box
       component="section"
       sx={{
-        backgroundColor: "#f0f3f6",
+        backgroundColor: "rgb(240, 243, 246)",
         backgroundImage: `url(${bgMap2})`,
         backgroundPosition: "top left",
         backgroundRepeat: "no-repeat",

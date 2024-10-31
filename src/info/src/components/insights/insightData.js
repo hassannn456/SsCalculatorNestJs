@@ -1,19 +1,21 @@
-import BlogImage1 from "../../../public/assets/pngs/insights/blog01.jpeg";
-import BlogImage2 from "../../../public/assets/pngs/insights/blog-2.png";
-import BlogImage3 from "../../../public/assets/pngs/insights/blog-3.png";
-import BlogImage4 from "../../../public/assets/pngs/insights/blog-4.png";
-import BlogImage5 from "../../../public/assets/pngs/insights/blog-5.png";
-import BlogImage6 from "../../../public/assets/pngs/insights/blog-6.png";
-import BlogImage7 from "../../../public/assets/pngs/insights/blog-7.png";
-import BlogImage8 from "../../../public/assets/pngs/insights/blog-8.png";
-import BlogImage9 from "../../../public/assets/pngs/insights/blog-9.png";
-import BlogImage10 from "../../../public/assets/pngs/insights/blog-10.jpg";
-import BlogImage11 from "../../../public/assets/pngs/insights/blog-11.png";
-import BlogImage12 from "../../../public/assets/pngs/insights/blog-12.jpg";
+import { v4 as uuidv4 } from "uuid";
+
+import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
+import BlogImage2 from "/assets/pngs/insights/blog-2.png";
+import BlogImage3 from "/assets/pngs/insights/blog-3.png";
+import BlogImage4 from "/assets/pngs/insights/blog-4.png";
+import BlogImage5 from "/assets/pngs/insights/blog-5.png";
+import BlogImage6 from "/assets/pngs/insights/blog-6.png";
+import BlogImage7 from "/assets/pngs/insights/blog-7.png";
+import BlogImage8 from "/assets/pngs/insights/blog-8.png";
+import BlogImage9 from "/assets/pngs/insights/blog-9.png";
+import BlogImage10 from "/assets/pngs/insights/blog-10.jpg";
+import BlogImage11 from "/assets/pngs/insights/blog-11.png";
+import BlogImage12 from "/assets/pngs/insights/blog-12.jpg";
 
 const InsightData = [
   {
-    id: 1,
+    id: uuidv4(),
     image: BlogImage1,
     category: "Artificial Intelligence",
     heading:
@@ -58,7 +60,7 @@ const InsightData = [
     ],
   },
   {
-    id: 2,
+    id: uuidv4(),
     image: BlogImage2,
     heading: "Impact of Chat GPT on the Telecom Industry",
     category: "Miscellaneous",
@@ -97,7 +99,7 @@ const InsightData = [
     ],
   },
   {
-    id: 3,
+    id: uuidv4(),
     image: BlogImage3,
     heading: "The Power of E-Commerce Cloud Computing – An Insight",
     category: "Cloud",
@@ -158,7 +160,7 @@ const InsightData = [
     ],
   },
   {
-    id: 4,
+    id: uuidv4(),
     image: BlogImage4,
     heading: "How Mobile App Development is Shaping E-Commerce",
     category: "Artificial Intelligence",
@@ -200,7 +202,7 @@ const InsightData = [
     ],
   },
   {
-    id: 5,
+    id: uuidv4(),
     image: BlogImage5,
     heading: "An Insight into New Opportunities in e-Mobility",
     category: "Miscellaneous",
@@ -259,7 +261,7 @@ const InsightData = [
     ],
   },
   {
-    id: 6,
+    id: uuidv4(),
     image: BlogImage6,
     heading: "Benefits of Smart Parking – An Insight!",
     category: "Artificial Intelligence",
@@ -309,7 +311,7 @@ const InsightData = [
     ],
   },
   {
-    id: 7,
+    id: uuidv4(),
     image: BlogImage7,
     category: "Transportation",
     heading:
@@ -374,7 +376,7 @@ const InsightData = [
   },
 
   {
-    id: 8,
+    id: uuidv4(),
     image: BlogImage8,
     heading: "Tips to Use Drones for Insurance Inspections",
     category: "Digital Technology",
@@ -439,7 +441,7 @@ const InsightData = [
   },
 
   {
-    id: 9,
+    id: uuidv4(),
     image: BlogImage9,
     heading: "AI in Telecommunications: Challenges and Opportunities",
     content:
@@ -506,7 +508,7 @@ const InsightData = [
   },
 
   {
-    id: 10,
+    id: uuidv4(),
     image: BlogImage10,
     category: "Transportation",
     heading: "Latest Trends in Shipping Decarbonization",
@@ -561,7 +563,7 @@ const InsightData = [
     ],
   },
   {
-    id: 11,
+    id: uuidv4(),
     image: BlogImage11,
     heading: "Understanding Blockchain technology – The Basic",
     category: "Blockchain",
@@ -615,7 +617,7 @@ const InsightData = [
   },
 
   {
-    id: 12,
+    id: uuidv4(),
     image: BlogImage12,
     heading:
       "Six Principles for Developing and Operating Electric Vehicle Charging Infrastructure",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -11,10 +11,12 @@ import {
   CircularProgress,
   Snackbar,
   Alert,
+  Slide,
 } from "@mui/material";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import RoomIcon from "@mui/icons-material/Room";
 import { MuiTelInput } from "mui-tel-input";
+import { useInView } from "react-intersection-observer";
 
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
@@ -29,7 +31,7 @@ const styles = {
     display: "flex",
     flexDirection: { xs: "column", md: "row" },
     justifyContent: "center",
-    padding: { xs: "20px 15px", lg: "80px 0px" },
+    padding: { xs: "40px 15px", lg: "80px 0px" },
     margin: "auto",
     width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
   },
@@ -46,8 +48,10 @@ const styles = {
   subHeading: {
     fontSize: { xs: "20px", md: "40px" },
     fontFamily: "Barlow",
-    fontWeight: "600",
+    fontWeight: "700",
     color: "#313431",
+    width: "85%",
+    lineHeight: "50px",
   },
   aboutContent: {
     fontSize: "14px",
@@ -94,7 +98,7 @@ const styles = {
 
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "gray",
+        borderColor: "#f0f3f6",
       },
       "&:hover fieldset": {
         borderColor: "#378C92",
@@ -137,6 +141,14 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [slideIn, setSlideIn] = useState(false);
+  useEffect(() => {
+    setSlideIn(true);
+  }, []);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -212,189 +224,219 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
   };
 
   return (
-    <Box sx={{ backgroundColor: bgColor ? bgColor : "#f0f3f6" }}>
+    <Box
+      sx={{ backgroundColor: bgColor ? bgColor : "rgb(240, 243, 246)" }}
+      ref={ref}
+    >
       <Box
         sx={{
           ...(inPage
-            ? { ...styles.mainContainer, width: "100%", padding: "2rem" }
+            ? { ...styles.mainContainer, padding: "2rem" }
             : styles.mainContainer),
         }}
       >
-        <Box
-          sx={{
-            width: { xs: "100%", md: "50%" },
-            mt: { xs: "2rem", md: "0rem" },
-          }}
-        >
-          <Typography sx={styles.heading}>REQUEST A QUOTE</Typography>
-          <Typography sx={styles.subHeading}>
-            Unlock Innovation with Advanced Technologies
-          </Typography>
-          <Typography sx={styles.aboutContent}>
-            At Techietribe, we harness the power of cutting-edge programming
-            technologies to craft tailored solutions that meet your unique
-            needs. With expertise across a spectrum of programming languages and
-            technologies, our team delivers robust systems, websites, and
-            applications, empowering your business for success.
-          </Typography>
-          <Box sx={{ mt: { xs: 0, md: "-1rem" } }}>
-            <Typography sx={styles.hqHeading}>Headquarters</Typography>
-            <Box sx={styles.hqContent}>
-              <LocalPhoneRoundedIcon
-                sx={{ color: "#313431", fontSize: "16px" }}
-              />
-              <Typography sx={styles.contact}>
-                <a href="tel:+923004561162">+92 300 456 1162</a>
-              </Typography>
-            </Box>
-            <Box sx={styles.hqContent}>
-              <RoomIcon sx={{ color: "#313431", fontSize: "16px" }} />
-              <Typography sx={styles.contact}>
-                <a
-                  href="https://www.google.com/maps?q=Lahore,%20Pakistan"
-                  target="_blank"
-                  rel="noopener noreferrer"
+        {inView && (
+          <>
+            <Slide in={slideIn} direction="right" timeout={1800}>
+              {/* <Fade in={slideIn} timeout={1800}> */}
+              <Box
+                sx={{
+                  width: { xs: "100%", md: "50%" },
+                  mt: { xs: "0rem", md: "0rem" },
+                }}
+              >
+                <Typography sx={styles.heading}>REQUEST A QUOTE</Typography>
+                <Typography sx={styles.subHeading}>
+                  Unlock Innovation with Advanced Technologies
+                </Typography>
+                <Typography sx={styles.aboutContent}>
+                  At Techietribe, we harness the power of cutting-edge
+                  programming technologies to craft tailored solutions that meet
+                  your unique needs. With expertise across a spectrum of
+                  programming languages and technologies, our team delivers
+                  robust systems, websites, and applications, empowering your
+                  business for success.
+                </Typography>
+                <Box sx={{ mt: { xs: 0, md: "-1rem" } }}>
+                  <Typography sx={styles.hqHeading}>Headquarters</Typography>
+                  <Box sx={styles.hqContent}>
+                    <LocalPhoneRoundedIcon
+                      sx={{ color: "#313431", fontSize: "16px" }}
+                    />
+                    <Typography sx={styles.contact}>
+                      <a href="tel:+923004561162">+92 300 456 1162</a>
+                    </Typography>
+                  </Box>
+                  <Box sx={styles.hqContent}>
+                    <RoomIcon sx={{ color: "#313431", fontSize: "16px" }} />
+                    <Typography sx={styles.contact}>
+                      <a
+                        href="https://www.google.com/maps?q=Lahore,%20Pakistan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Lahore, Pakistan
+                      </a>
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+              {/* </Fade> */}
+            </Slide>
+            <Slide in={slideIn} direction="left" timeout={1800}>
+              <Box
+                component="form"
+                onSubmit={formik.handleSubmit}
+                sx={{
+                  border: "1px solid lightgray",
+                  borderRadius: "1rem",
+                  width: { xs: "100%", md: "50%" },
+                  mt: { xs: "2rem", md: "0rem" },
+                  padding: "20px",
+                  backgroundColor: "#ffffff",
+                }}
+              >
+                <Typography sx={styles.formHeading}>
+                  Get in touch with us
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "1rem",
+                    width: "100%",
+                    mt: "1rem",
+                    flexDirection: { xs: "column", md: "row" },
+                  }}
                 >
-                  Lahore, Pakistan
-                </a>
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-        <Box
-          component="form"
-          onSubmit={formik.handleSubmit}
-          sx={{
-            border: "1px solid lightgray",
-            borderRadius: "1rem",
-            width: { xs: "100%", md: "50%" },
-            mt: { xs: "2rem", md: "0rem" },
-            padding: "20px",
-            backgroundColor: "#ffffff",
-          }}
-        >
-          <Typography sx={styles.formHeading}>Get in touch with us</Typography>
-          <Box
-            sx={{
-              display: "flex",
-              gap: "1rem",
-              width: "100%",
-              mt: "1rem",
-              flexDirection: { xs: "column", md: "row" },
-            }}
-          >
-            <TextField
-              type="text"
-              size="small"
-              name="first_name"
-              placeholder="First Name"
-              value={formik.values.first_name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={
-                formik.touched.first_name && Boolean(formik.errors.first_name)
-              }
-              helperText={formik.touched.first_name && formik.errors.first_name}
-              sx={styles.textField}
-            />
-            <TextField
-              type="text"
-              size="small"
-              name="last_name"
-              placeholder="Last Name"
-              value={formik.values.last_name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={
-                formik.touched.last_name && Boolean(formik.errors.last_name)
-              }
-              helperText={formik.touched.last_name && formik.errors.last_name}
-              sx={styles.textField}
-            />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              gap: "1rem",
-              width: "100%",
-              mt: "1.5rem",
-              flexDirection: { xs: "column", md: "row" },
-            }}
-          >
-            <TextField
-              size="small"
-              name="email"
-              placeholder="Email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
-              sx={styles.textField}
-            />
-            <MuiTelInput
-              size="small"
-              name="number"
-              value={formik.values.number}
-              onChange={(newValue) => formik.setFieldValue("number", newValue)}
-              onBlur={formik.handleBlur}
-              error={formik.touched.number && Boolean(formik.errors.number)}
-              helperText={formik.touched.number && formik.errors.number}
-              sx={styles.textField}
-              defaultCountry="PK"
-            />
-          </Box>
-          <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
-            <TextField
-              size="small"
-              name="select"
-              id="select"
-              label="How did you hear about us?"
-              value={formik.values.select}
-              select
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.select && Boolean(formik.errors.select)}
-              helperText={formik.touched.select && formik.errors.select}
-              sx={styles.textField}
-              InputLabelProps={{
-                style: {
-                  color: "gray",
-                  opacity: 0.4,
-                },
-              }}
-            >
-              <MenuItem value="facebook">Facebook</MenuItem>
-              <MenuItem value="instagram">Instagram</MenuItem>
-              <MenuItem value="linkedin">LinkedIn</MenuItem>
-            </TextField>
-          </Box>
+                  <TextField
+                    type="text"
+                    size="small"
+                    name="first_name"
+                    placeholder="First Name"
+                    value={formik.values.first_name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={
+                      formik.touched.first_name &&
+                      Boolean(formik.errors.first_name)
+                    }
+                    helperText={
+                      formik.touched.first_name && formik.errors.first_name
+                    }
+                    sx={styles.textField}
+                  />
+                  <TextField
+                    type="text"
+                    size="small"
+                    name="last_name"
+                    placeholder="Last Name"
+                    value={formik.values.last_name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={
+                      formik.touched.last_name &&
+                      Boolean(formik.errors.last_name)
+                    }
+                    helperText={
+                      formik.touched.last_name && formik.errors.last_name
+                    }
+                    sx={styles.textField}
+                  />
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "1rem",
+                    width: "100%",
+                    mt: "1.5rem",
+                    flexDirection: { xs: "column", md: "row" },
+                  }}
+                >
+                  <TextField
+                    size="small"
+                    name="email"
+                    placeholder="Email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                    sx={styles.textField}
+                  />
+                  <MuiTelInput
+                    size="small"
+                    name="number"
+                    value={formik.values.number}
+                    onChange={(newValue) =>
+                      formik.setFieldValue("number", newValue)
+                    }
+                    onBlur={formik.handleBlur}
+                    error={
+                      formik.touched.number && Boolean(formik.errors.number)
+                    }
+                    helperText={formik.touched.number && formik.errors.number}
+                    sx={styles.textField}
+                    defaultCountry="PK"
+                  />
+                </Box>
+                <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
+                  <TextField
+                    size="small"
+                    name="select"
+                    id="select"
+                    label="How did you hear about us?"
+                    value={formik.values.select}
+                    select
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={
+                      formik.touched.select && Boolean(formik.errors.select)
+                    }
+                    helperText={formik.touched.select && formik.errors.select}
+                    sx={styles.textField}
+                    InputLabelProps={{
+                      style: {
+                        color: "gray",
+                        opacity: 0.4,
+                      },
+                    }}
+                  >
+                    <MenuItem value="facebook">Facebook</MenuItem>
+                    <MenuItem value="instagram">Instagram</MenuItem>
+                    <MenuItem value="linkedin">LinkedIn</MenuItem>
+                  </TextField>
+                </Box>
 
-          <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
-            <TextField
-              name="message"
-              placeholder="Message"
-              multiline
-              rows={4}
-              value={formik.values.message}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.message && Boolean(formik.errors.message)}
-              helperText={formik.touched.message && formik.errors.message}
-              sx={styles.textField}
-            />
-          </Box>
+                <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
+                  <TextField
+                    name="message"
+                    placeholder="Message"
+                    multiline
+                    rows={4}
+                    value={formik.values.message}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={
+                      formik.touched.message && Boolean(formik.errors.message)
+                    }
+                    helperText={formik.touched.message && formik.errors.message}
+                    sx={styles.textField}
+                  />
+                </Box>
 
-          <Box sx={styles.aboutBtnContainer}>
-            <Button type="submit" sx={styles.aboutBtn}>
-              {loading ? (
-                <CircularProgress sx={{ color: "#ffffff" }} size={24} />
-              ) : (
-                "Submit"
-              )}
-            </Button>
-          </Box>
-        </Box>
+                <Box sx={styles.aboutBtnContainer}>
+                  <Button type="submit" sx={styles.aboutBtn}>
+                    {loading ? (
+                      <CircularProgress sx={{ color: "#ffffff" }} size={24} />
+                    ) : (
+                      "Submit"
+                    )}
+                  </Button>
+                </Box>
+              </Box>
+            </Slide>
+          </>
+        )}
       </Box>
       <Snackbar
         sx={{ mb: "1rem" }}

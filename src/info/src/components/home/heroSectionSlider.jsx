@@ -4,13 +4,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import ConceptAi from "../../../public/assets/pngs/heroSecionSlider/Concept Ai.svg";
-import MainStay from "../../../public/assets/pngs/heroSecionSlider/MainStay.svg";
-import MulaX from "../../../public/assets/pngs/heroSecionSlider/MulaX.svg";
-import Neufluence from "../../../public/assets/pngs/heroSecionSlider/Neufluence.svg";
-import SpiritualData from "../../../public/assets/pngs/heroSecionSlider/Spiritual Data.svg";
-import SyntricAi from "../../../public/assets/pngs/heroSecionSlider/SyntricAI.svg";
-import PrismX from "../../../public/assets/pngs/heroSecionSlider/PrismX.svg";
+import ConceptAi from "/assets/pngs/heroSecionSlider/Concept Ai.svg";
+import MainStay from "/assets/pngs/heroSecionSlider/MainStay.svg";
+import MulaX from "/assets/pngs/heroSecionSlider/MulaX.svg";
+import Neufluence from "/assets/pngs/heroSecionSlider/Neufluence.svg";
+import SpiritualData from "/assets/pngs/heroSecionSlider/Spiritual Data.svg";
+import SyntricAi from "/assets/pngs/heroSecionSlider/SyntricAI.svg";
+import PrismX from "/assets/pngs/heroSecionSlider/PrismX.svg";
 
 const icons = [
   { title: MainStay, width: 130, height: 60 },
@@ -30,7 +30,7 @@ const HeroSectionSlider = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // Adjusted for a better experience on mobile
+    autoplaySpeed: 2000,
     pauseOnHover: false,
     cssEase: "linear",
     responsive: [
@@ -73,7 +73,7 @@ const HeroSectionSlider = () => {
         margin: "auto",
         backgroundColor: "transparent",
         alignItems: "center",
-        mb: { xs: "0rem", lg: "2rem" },
+        mb: { xs: "1rem", lg: "2rem" },
         overflow: "hidden",
       }}
     >

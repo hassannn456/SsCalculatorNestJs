@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import TermsAndConditionsHeader from "../../../public/assets/pngs/FooterResources/termsAndCondition1.webp";
+import TermsAndConditionsHeader from "/assets/pngs/FooterResources/termsAndCondition1.webp";
 
 const TermsAndConditions = () => {
   return (
