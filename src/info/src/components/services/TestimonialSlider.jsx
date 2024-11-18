@@ -73,7 +73,7 @@ const TestimonialSlider = () => {
           }}
           loop={true}
           speed={800}
-          pagination={{ clickable: true }} // Enable pagination dots
+          pagination={{ clickable: true }}
           breakpoints={{
             0: { slidesPerView: 1 },
             600: { slidesPerView: 1 },

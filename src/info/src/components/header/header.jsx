@@ -216,7 +216,6 @@ const DrawerAppBar = () => {
       setActiveTab("About");
       setScrolled(false);
     } else if (path === "/contact-us") {
-      // setScrolled(false);
       setActiveTab("Contact");
     }
   }, [location.pathname]);
@@ -233,10 +232,10 @@ const DrawerAppBar = () => {
     >
       <Box
         sx={{
-          top: 0, // Stick it to the top
-          backgroundColor: "#f5f5f5", // Background color to match the drawer
-          zIndex: 1, // Ensure it stays above other content
-          paddingBottom: "16px", // Ensure there's space below the image
+          top: 0,
+          backgroundColor: "#f5f5f5",
+          zIndex: 1,
+          paddingBottom: "16px",
         }}
       >
         <img src={MainLogo} width={180} alt="Main Logo" />
@@ -526,7 +525,6 @@ const DrawerAppBar = () => {
                   "&:hover": {
                     color: "#378c92",
                   },
-                  // borderRight: "1px solid gray",
                 }}
                 className="nav-btn"
                 onClick={() => {

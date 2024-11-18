@@ -15,17 +15,17 @@ export default function MediaCard({ image, closeDrawers }) {
       sx={{
         maxWidth: 345,
         bgcolor: "#f0f3f6",
-        height: { lg: "75vh", md: "50vh" },
+        pb: "15px",
       }}
     >
       <Typography
         mt={"3rem"}
-        p={"1rem"}
+        p="1rem"
         gutterBottom
         variant="h5"
         component="div"
       >
-       Artificial Intelligence
+        Artificial Intelligence
       </Typography>
       <CardMedia style={{ height: 200 }} image={image} alt="green iguana" />
       <CardContent>

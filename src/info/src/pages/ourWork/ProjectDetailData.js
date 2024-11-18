@@ -6,7 +6,6 @@ import Spiritual from "/assets/pngs/heroSecionSlider/Spiritual Data.png";
 import SyntricAI from "/assets/pngs/heroSecionSlider/SyntricAI.png";
 import PrismX from "/assets/pngs/heroSecionSlider/prismx.webp";
 
-//logos
 import next from "/assets/pngs/TechCardPngs/nextJs.png";
 import node from "/assets/pngs/TechCardPngs/nodeJs.png";
 import aws from "/assets/pngs/TechCardPngs/aws.png";

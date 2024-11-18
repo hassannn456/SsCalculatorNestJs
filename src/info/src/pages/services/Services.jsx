@@ -55,7 +55,6 @@ const Services = () => {
             ? "UI/UX Design"
             : filteredData.title1
         }
-        // bgColor={"rgb(55 140 146 / 10%)"}
         bgColor={"rgb(240, 243, 246)"}
       />
 
@@ -90,20 +89,6 @@ const Services = () => {
       />
 
       <ProcessInfo />
-
-      {/* <Box
-        sx={{
-          width: "100%",
-          backgroundColor: "#ffffff",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-          <StatsCounter />
-        </Box>
-      </Box> */}
 
       <Box sx={{ width: "100vw", backgroundColor: "#f0f3f6" }}>
         <CarouselContent />

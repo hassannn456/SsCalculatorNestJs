@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import { Box, Divider, TextField, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  Box,
+  Divider,
+  TextField,
+  Typography,
+  Pagination,
+  Stack,
+  PaginationItem,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InsightData from "./insightData";
-import { Margin } from "@mui/icons-material";
 
 const categories = [
+  // "All Insights",
   "Artificial Intelligence",
   "Blockchain",
   "Cloud",
@@ -41,7 +50,7 @@ const styles = {
   cardContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "3.3rem",
@@ -54,7 +63,7 @@ const styles = {
     width: { sm: "calc(50% - 1.65rem)", md: "400px" },
     height: "360px",
     border: "1px solid #E5E5E5",
-    borderRadius: "1rem",
+    borderRadius: "0.5rem",
     cursor: "pointer",
     overflow: "hidden",
     "&:hover": {
@@ -124,8 +133,17 @@ const styles = {
 };
 
 const InsightCards = () => {
+  const [page, setPage] = useState(0);
+  const [currentCategory, setCurrentCategory] = useState(null);
   const navigate = useNavigate();
   const [blogsData, setBlogsData] = useState(InsightData);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 300,
+      behavior: "smooth",
+    });
+  }, [page]);
 
   const handleCardClick = (id) => {
     navigate(`/insight-details/${id}`);
@@ -133,7 +151,7 @@ const InsightCards = () => {
 
   const handleSearchChange = (event) => {
     const query = event.target.value.toLowerCase();
-
+    setCurrentCategory(null);
     const filteredData = InsightData.filter(
       (item) =>
         item.heading.toLowerCase().includes(query) ||
@@ -141,6 +159,17 @@ const InsightCards = () => {
     );
 
     setBlogsData(filteredData);
+  };
+
+  const handlePagination = (e, value) => {
+    const val = +e.target.textContent;
+    setPage(val - 1);
+  };
+  const handlePrev = () => {
+    setPage(page - 1);
+  };
+  const handleNext = () => {
+    setPage(page + 1);
   };
 
   return (
@@ -174,58 +203,94 @@ const InsightCards = () => {
             No Data Found
           </Typography>
         ) : (
-          <Box
-            sx={{
-              ...styles.cardContainer,
-            }}
-          >
-            {blogsData.map((card, index) => (
-              <Box
-                key={index}
-                sx={styles.card}
-                onClick={() => handleCardClick(card.id)}
-              >
+          <>
+            <Box
+              sx={{
+                ...styles.cardContainer,
+              }}
+            >
+              {blogsData.slice(page * 8, page * 8 + 8)?.map((card, index) => (
                 <Box
-                  sx={{
-                    width: "100%",
-                    height: "250px",
-                    overflow: "hidden",
-                    borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
-                  }}
+                  key={index}
+                  sx={styles.card}
+                  onClick={() => handleCardClick(card.id)}
                 >
-                  <img
-                    src={card.image}
-                    alt={`blog-image-${index}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "fill",
-                    }}
-                  />
-                </Box>
-                <Divider sx={{ width: "100%", backgroundColor: "lightgray" }} />
-                <Box sx={styles.blogContentContainer}>
-                  <Typography sx={styles.blogHeading}>
-                    {card.heading}
-                  </Typography>
-                  <Typography sx={styles.blogContent}>
-                    {card.content}
-                  </Typography>
-                  <Typography
+                  <Box
                     sx={{
-                      fontSize: "20px",
-                      fontFamily: "Barlow",
-                      fontWeight: "500",
-                      color: "#378C92",
-                      cursor: "pointer",
+                      width: "100%",
+                      height: "250px",
+                      overflow: "hidden",
+                      borderRadius: { xs: "0", md: "0rem 0rem 0 0" },
                     }}
                   >
-                    Read More
-                  </Typography>
+                    <img
+                      src={card.image}
+                      alt={`blog-image-${index}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+                  <Divider
+                    sx={{ width: "100%", backgroundColor: "lightgray" }}
+                  />
+                  <Box sx={styles.blogContentContainer}>
+                    <Typography sx={styles.blogHeading}>
+                      {card.heading}
+                    </Typography>
+                    <Typography sx={styles.blogContent}>
+                      {card.content}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "20px",
+                        fontFamily: "Barlow",
+                        fontWeight: "500",
+                        color: "#378C92",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Read More
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-            ))}
-          </Box>
+              ))}
+            </Box>
+            <Box
+              sx={{
+                mt: "50px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Stack spacing={2}>
+                <Pagination
+                  count={
+                    blogsData.length === 0 ? 0 : Math.ceil(blogsData.length / 8)
+                  }
+                  shape="rounded"
+                  page={page + 1}
+                  onChange={handlePagination}
+                  renderItem={(item) => (
+                    <PaginationItem
+                      {...item}
+                      onClick={(e) => {
+                        if (item.type === "previous") {
+                          handlePrev();
+                        } else if (item.type === "next") {
+                          handleNext();
+                        } else {
+                          handlePagination(e);
+                        }
+                      }}
+                    />
+                  )}
+                />
+              </Stack>
+            </Box>
+          </>
         )}
       </Box>
 
@@ -261,7 +326,7 @@ const InsightCards = () => {
           </Typography>
           {InsightData.map((data, index) => (
             <Box
-              key={index} // Added missing key prop
+              key={index}
               onClick={() => handleCardClick(data.id)}
               sx={{
                 display: "flex",
@@ -292,10 +357,21 @@ const InsightCards = () => {
             <Box
               key={index}
               onClick={() => {
-                const filter = InsightData.filter(
-                  (item) => item.category == data
-                );
+                setCurrentCategory(data);
+                const filter = InsightData.filter((item) => {
+                  return item.category == data;
+                });
+                setPage(0);
+                // {
+                //   data == "All Insights"
+                //     ? setBlogsData(InsightData)
+                //     : setBlogsData(filter);
+                // }
                 setBlogsData(filter);
+                window.scrollTo({
+                  top: 300,
+                  behavior: "smooth",
+                });
               }}
               sx={{
                 display: "flex",
@@ -304,7 +380,47 @@ const InsightCards = () => {
                 mt: "0.5rem",
               }}
             >
-              <Typography sx={styles.blogHeadingRecent}>{data}</Typography>
+              {data == currentCategory ? (
+                <Box
+                  sx={{
+                    color: "green",
+                    width: "fit-content",
+                    border: "1px solid green",
+                    padding: "2px 5px",
+                    borderRadius: "5px",
+                    display: "flex",
+                    gap: "20px",
+                  }}
+                >
+                  <Typography
+                    sx={{ ...styles.blogHeadingRecent, width: "fit-content" }}
+                  >
+                    {data}
+                  </Typography>
+                  <CloseIcon
+                    onClick={(e) => {
+                      window.scrollTo({
+                        top: 300,
+                        behavior: "smooth",
+                      });
+                      e.stopPropagation();
+                      setCurrentCategory(null);
+                      setBlogsData(InsightData);
+                    }}
+                    sx={{
+                      ":hover": {
+                        cursor: "pointer",
+                      },
+                    }}
+                  />
+                </Box>
+              ) : (
+                <Typography
+                  sx={{ ...styles.blogHeadingRecent, padding: "2px 5px" }}
+                >
+                  {data}
+                </Typography>
+              )}
             </Box>
           ))}
         </Box>

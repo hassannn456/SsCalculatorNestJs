@@ -40,7 +40,6 @@ const Home = () => {
       <Box ref={insightsRef}>
         <Insights />
       </Box>
-      {/* <Testimonials /> */}
       <Box ref={footerRef}>
         <RequestQuote />
       </Box>

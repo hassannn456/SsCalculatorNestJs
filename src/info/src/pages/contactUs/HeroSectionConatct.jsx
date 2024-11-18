@@ -23,7 +23,7 @@ const fadeInBottom = keyframes`
 `;
 
 const StyledHeader = styled(Grid)(({ theme, fullscreen, contact }) => ({
-  backgroundSize: contact ? "contain" : "cover", // Scale down the image if contact is true
+  backgroundSize: contact ? "contain" : "cover",
   backgroundRepeat: "no-repeat",
   backgroundColor: contact ? "#378c92" : "#ffffff",
   position: "relative",
@@ -37,9 +37,6 @@ const StyledHeader = styled(Grid)(({ theme, fullscreen, contact }) => ({
     position: "absolute",
     width: "100%",
     height: "100%",
-    // background:
-    //   "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))",
-    // zIndex: 1,
   },
   [theme.breakpoints.down("sm")]: {
     backgroundPosition: "center",

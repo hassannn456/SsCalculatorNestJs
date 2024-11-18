@@ -11,7 +11,6 @@ const styles = {
   scrollToTopBtn: {
     borderRadius: "50%",
     padding: "10px",
-    // border: "1px solid #378C92",
     cursor: "pointer",
     position: "fixed",
     bottom: { xs: "70px", md: "50px" },

@@ -88,10 +88,6 @@ function CarouselContent() {
           slidesPerGroup={1}
           spaceBetween={20}
           freeMode={true}
-          // pagination={{
-          //   clickable: true,
-          //   dynamicBullets: false,
-          // }}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
@@ -121,13 +117,17 @@ function CarouselContent() {
             },
           }}
           onInit={(swiper) => {
-            setTimeout(() => {
+            if (
+              swiper.params.navigation &&
+              prevRef.current &&
+              nextRef.current
+            ) {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
               swiper.navigation.destroy();
               swiper.navigation.init();
               swiper.navigation.update();
-            });
+            }
           }}
           modules={[FreeMode, Pagination, Navigation, Autoplay]}
           className="mySwiper"
@@ -163,7 +163,7 @@ function CarouselContent() {
         <style>
           {`
               .city-custom-prev, .city-custom-next {
-                color: rgba(28, 154, 192, 0.85); /* Slightly lighter background */
+                color: rgba(28, 154, 192, 0.85);
                 height: 40px;
                 width: 40px;
               }

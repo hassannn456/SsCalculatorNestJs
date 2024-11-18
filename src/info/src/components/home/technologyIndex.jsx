@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import * as React from "react";
 
-import { Box, Typography } from "@mui/material";
+import { Box, CardMedia, Typography } from "@mui/material";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -40,7 +40,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    padding: { xs: "20px 15px", lg: "60px 80px 0 80px" },
+    padding: { xs: "20px 10px", lg: "60px 80px 0 80px" },
     backgroundColor: "#ffffff",
     alignItems: "center",
   },
@@ -59,15 +59,15 @@ const styles = {
 const TechnologyIndex = () => {
   return (
     <>
-      <style jsx={undefined} global={undefined}>{`
+      <style jsx={true | undefined} global={true | undefined}>{`
         .swiper-button-prev,
         .swiper-button-next {
-          width: 44px; /* Change these values to adjust the size */
+          width: 44px;
           color: blue green;
         }
         .swiper-button-prev:after,
         .swiper-button-next:after {
-          font-size: 24px; /* This changes the size of the arrows */
+          font-size: 24px;
           color: blue green;
         }
       `}</style>
@@ -78,8 +78,7 @@ const TechnologyIndex = () => {
             display: "flex",
             flexDirection: "column",
             width: { xs: "100%", md: "63rem", lg: "82rem", xl: "90rem" },
-            // margin: "auto",
-            padding: { xs: "40px 15px", lg: "30px 0px 0px" },
+            padding: { xs: "40px 0px", lg: "30px 0px 0px" },
             justifyContent: "center",
             backgroundColor: "#ffffff",
             alignItems: "center",
@@ -100,16 +99,16 @@ const TechnologyIndex = () => {
               modules={[Pagination, Navigation, Autoplay]}
               breakpoints={{
                 0: {
-                  slidesPerView: 1,
+                  slidesPerView: 4,
                 },
                 400: {
-                  slidesPerView: 2,
+                  slidesPerView: 4,
                 },
                 600: {
-                  slidesPerView: 3,
+                  slidesPerView: 5,
                 },
                 800: {
-                  slidesPerView: 4,
+                  slidesPerView: 5,
                 },
                 1200: {
                   slidesPerView: 6,
@@ -122,22 +121,24 @@ const TechnologyIndex = () => {
                     sx={{
                       display: "flex",
                       justifyContent: "center",
-                      gap: "1rem",
+                      gap: "0.5rem",
                       alignItems: "center",
                       height: "72.5px",
                     }}
                   >
                     {icon === NextIcon ? (
-                      <img
-                        src={icon}
+                      <CardMedia
+                        component="img"
+                        image={icon}
                         alt={`Technology icon ${index}`}
-                        style={{ width: "50px", height: "50px" }}
+                        sx={{ height: { xs: "30px", lg: "50px" }, width: { xs: "30px", lg: "50px" }, objectFit: "contain" }}
                       />
                     ) : (
-                      <img
-                        src={icon}
+                      <CardMedia
+                        component="img"
+                        image={icon}
                         alt={`Technology icon ${index}`}
-                        style={{ height: "50px" }}
+                        sx={{ height: { xs: "30px", lg: "50px" }, width: { xs: "30px", lg: "50px" }, objectFit: "contain" }}
                       />
                     )}
                   </Box>

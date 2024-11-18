@@ -1,5 +1,4 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
-// import image from "/assets/pngs/about/AboutUsCardImage.jpg";
 import image from "/assets/pngs/about/mk-5-removebg-preview.png";
 import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 
@@ -14,7 +13,6 @@ const AboutUsCardNew = () => {
         backgroundRepeat: "no-repeat",
         backgroundColor: "rgb(240, 243, 246)",
         textAlign: "center",
-        // display: "block",
         justifyContent: "left",
         overflow: "hidden",
         position: "relative",
@@ -93,59 +91,6 @@ const AboutUsCardNew = () => {
           competitive market.
         </Typography>
       </Grid>
-      {/* <Grid
-        item
-        direction="column"
-        sx={{
-          display: "block",
-          position: { md: "absolute", sm: "relative" },
-          left: { md: "70%", sm: "0" },
-          top: { md: "15%", sm: "0" },
-          width: "100%",
-          height: "auto",
-          bgcolor: "#fff",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          padding: "16px",
-          p: { lg: 10, md: 5, sm: 10, xs: 2 },
-          borderRadius: "5px",
-          overflow: "hidden",
-        }}
-      >
-        <Typography
-          variant="h5"
-          sx={{
-            fontSize: { md: "46px", sm: "40px", xs: "20px" },
-            fontWeight: "800",
-            lineHeight: "1.2",
-            textAlign: "left",
-            color: "#11161f",
-            mb: 5,
-            fontFamily: "Barlow",
-          }}
-        >
-          Leading Innovators in Web and Mobile Development
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            color: "grey",
-            textAlign: "left",
-            lineHeight: "1.5",
-            overflow: "hidden",
-            display: "-webkit-box",
-            WebkitLineClamp: 6,
-            WebkitBoxOrient: "vertical",
-            fontSize: { md: "16px", sm: "16px", xs: "12px" },
-          }}
-        >
-          Techietribe is not just another software house, we are your partners
-          in innovation. Specializing in cutting-edge web and mobile
-          development, we turn visionary ideas into functional, user-friendly
-          applications. Our team combines expertise and creativity to deliver
-          top-notch digital solutions, ensuring your business stands out in a
-          competitive market.
-        </Typography>
-      </Grid> */}
     </Grid>
   );
 };

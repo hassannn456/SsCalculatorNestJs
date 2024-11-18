@@ -17,11 +17,11 @@ const CookiesPolicy = () => {
         sx={{
           paddingX: { xs: 2, md: "8rem" },
           paddingY: { xs: 3, md: "3rem" },
-          backgroundColor: "#F9F9F9", // Light background for contrast
-          borderRadius: "8px", // Smooth corners
-          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
-          maxWidth: "1200px", // Limits the box width for better readability
-          margin: "auto", // Centers the box horizontally
+          backgroundColor: "#F9F9F9",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+          maxWidth: "1200px",
+          margin: "auto", 
         }}
       >
         <Typography
@@ -31,7 +31,7 @@ const CookiesPolicy = () => {
             fontFamily: "Barlow",
             fontWeight: "600",
             mb: { xs: "1rem", md: "2rem" },
-            textAlign: "center", // Center align the header
+            textAlign: "center", 
           }}
         >
           Cookies Policy
@@ -40,10 +40,10 @@ const CookiesPolicy = () => {
         <Typography
           sx={{
             color: "#000000",
-            fontSize: { xs: "0.9rem", md: "1.1rem" }, // Slightly larger font size
+            fontSize: { xs: "0.9rem", md: "1.1rem" },
             fontFamily: "Barlow",
             lineHeight: "1.7",
-            mb: "1.5rem", // More bottom margin for spacing
+            mb: "1.5rem",
           }}
         >
           <strong>Introduction to Our Cookies Policy</strong>
@@ -84,7 +84,6 @@ const CookiesPolicy = () => {
           We use cookies to enhance your experience on our website, including:
           <ul style={{ paddingLeft: "1.5rem", marginTop: "0.5rem" }}>
             {" "}
-            {/* Slight padding for better spacing */}
             <li>Remembering your login information for future visits.</li>
             <li>Tracking your preferences and settings.</li>
             <li>

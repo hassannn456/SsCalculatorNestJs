@@ -2,21 +2,13 @@ import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import {
-  Box,
-  TextField,
-  Typography,
-  MenuItem,
-  Button,
-  CircularProgress,
-  Snackbar,
-  Alert,
-  Slide,
-} from "@mui/material";
+import { Box, TextField, Typography, MenuItem, Button, CircularProgress, Snackbar, Alert, Slide, } from "@mui/material";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import RoomIcon from "@mui/icons-material/Room";
 import { MuiTelInput } from "mui-tel-input";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "@mui/material";
+import { motion } from 'framer-motion';
 
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
@@ -34,6 +26,8 @@ const styles = {
     padding: { xs: "40px 15px", lg: "80px 0px" },
     margin: "auto",
     width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
+    position: "relative",
+    zIndex: 100
   },
   heading: {
     fontSize: "20px",
@@ -137,7 +131,61 @@ const styles = {
   },
 };
 
+const cardVariants = {
+  offscreen: {
+    y: -10,
+    opacity: 0,
+  },
+  onscreen: (index) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 2.5,
+      ease: "easeOut",
+      delay: index * 0.2
+    },
+  }),
+};
+
+const cardVariantsLeft = {
+  offscreen: {
+    marginLeft: "-100px",
+    opacity: 0,
+  },
+  onscreen: {
+    marginLeft: "0px",
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 0.5,
+      ease: "easeOut"
+    },
+  },
+};
+const cardVariantsRight = {
+  offscreen: {
+    marginLeft: "100px",
+    opacity: 0,
+  },
+  onscreen: {
+    marginLeft: "0px",
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 0.5,
+    },
+  },
+};
+
 const RequestQuote = ({ bgColor, inPage = false }) => {
+  const isMobile = useMediaQuery("(max-width: 600px)");
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
@@ -152,12 +200,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
 
   const formik = useFormik({
     initialValues: {
-      first_name: "",
-      last_name: "",
-      email: "",
-      number: "",
-      select: "",
-      message: "",
+      first_name: "", last_name: "", email: "", number: "", select: "", message: "",
     },
     validationSchema,
     onSubmit: (values) => {
@@ -225,26 +268,35 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
 
   return (
     <Box
-      sx={{ backgroundColor: bgColor ? bgColor : "rgb(240, 243, 246)" }}
-      ref={ref}
+      sx={{
+        backgroundColor: bgColor ? bgColor : "rgb(240, 243, 246)",
+        overflow: "hidden",
+        position: "relative"
+      }}
     >
       <Box
         sx={{
           ...(inPage
-            ? { ...styles.mainContainer, padding: "2rem" }
+            ? { ...styles.mainContainer, padding: "2rem", }
             : styles.mainContainer),
-        }}
+        }} ref={ref}
+
       >
-        {inView && (
+        {isMobile ? (
           <>
-            <Slide in={slideIn} direction="right" timeout={1800}>
-              {/* <Fade in={slideIn} timeout={1800}> */}
-              <Box
-                sx={{
-                  width: { xs: "100%", md: "50%" },
-                  mt: { xs: "0rem", md: "0rem" },
-                }}
-              >
+            <motion.div
+              className="card-container"
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariantsLeft}
+              transition={{ type: "spring", stiffness: 100 }}
+            >                <Box
+              sx={{
+                width: { xs: "100%", md: "50%" },
+                mt: { xs: "0rem", md: "0rem" },
+              }}
+            >
                 <Typography sx={styles.heading}>REQUEST A QUOTE</Typography>
                 <Typography sx={styles.subHeading}>
                   Unlock Innovation with Advanced Technologies
@@ -281,21 +333,26 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                   </Box>
                 </Box>
               </Box>
-              {/* </Fade> */}
-            </Slide>
-            <Slide in={slideIn} direction="left" timeout={1800}>
-              <Box
-                component="form"
-                onSubmit={formik.handleSubmit}
-                sx={{
-                  border: "1px solid lightgray",
-                  borderRadius: "1rem",
-                  width: { xs: "100%", md: "50%" },
-                  mt: { xs: "2rem", md: "0rem" },
-                  padding: "20px",
-                  backgroundColor: "#ffffff",
-                }}
-              >
+            </motion.div>
+            <motion.div
+              className="card-container"
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              variants={cardVariantsRight}
+              transition={{ type: "spring", stiffness: 100 }}
+            >                <Box
+              component="form"
+              onSubmit={formik.handleSubmit}
+              sx={{
+                border: "1px solid lightgray",
+                borderRadius: "1rem",
+                width: { xs: "100%", md: "50%" },
+                mt: { xs: "2rem", md: "0rem" },
+                padding: "20px",
+                backgroundColor: "#ffffff",
+              }}
+            >
                 <Typography sx={styles.formHeading}>
                   Get in touch with us
                 </Typography>
@@ -434,8 +491,247 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                   </Button>
                 </Box>
               </Box>
-            </Slide>
+            </motion.div>
           </>
+        ) : (
+          inView && (
+            <>
+              <Box
+                sx={{
+                  width: { xs: "100%", md: "50%" },
+                  mt: { xs: "0rem", md: "0rem" },
+                }}
+              >
+                <motion.div
+                  className="card-container"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.4 }}
+                  variants={cardVariants}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  custom={1}
+                >
+                  <Typography sx={styles.heading}>REQUEST A QUOTE</Typography>
+                </motion.div>
+                <motion.div
+                  className="card-container"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.4 }}
+                  variants={cardVariants}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  custom={2}
+                >
+                  <Typography sx={styles.subHeading}>
+                    Unlock Innovation with Advanced Technologies
+                  </Typography>
+                </motion.div>
+                <motion.div
+                  className="card-container"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.4 }}
+                  variants={cardVariants}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  custom={3}
+                >
+                  <Typography sx={styles.aboutContent}>
+                    At Techietribe, we harness the power of cutting-edge
+                    programming technologies to craft tailored solutions that meet
+                    your unique needs. With expertise across a spectrum of
+                    programming languages and technologies, our team delivers
+                    robust systems, websites, and applications, empowering your
+                    business for success.
+                  </Typography>
+                </motion.div>
+                <motion.div
+                  className="card-container"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.4 }}
+                  variants={cardVariants}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  custom={4}
+                >
+                  <Box sx={{ mt: { xs: 0, md: "-1rem" } }}>
+                    <Typography sx={styles.hqHeading}>Headquarters</Typography>
+                    <Box sx={styles.hqContent}>
+                      <LocalPhoneRoundedIcon
+                        sx={{ color: "#313431", fontSize: "16px" }}
+                      />
+                      <Typography sx={styles.contact}>
+                        <a href="tel:+923004561162">+92 300 456 1162</a>
+                      </Typography>
+                    </Box>
+                    <Box sx={styles.hqContent}>
+                      <RoomIcon sx={{ color: "#313431", fontSize: "16px" }} />
+                      <Typography sx={styles.contact}>
+                        <a
+                          href="https://www.google.com/maps?q=Lahore,%20Pakistan"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Lahore, Pakistan
+                        </a>
+                      </Typography>
+                    </Box>
+                  </Box>
+                </motion.div>
+              </Box>
+              <Slide in={slideIn} direction="left" timeout={1800}>
+                <Box
+                  component="form"
+                  onSubmit={formik.handleSubmit}
+                  sx={{
+                    border: "1px solid lightgray",
+                    borderRadius: "1rem",
+                    width: { xs: "100%", md: "50%" },
+                    mt: { xs: "2rem", md: "0rem" },
+                    padding: "20px",
+                    backgroundColor: "#ffffff",
+                  }}
+                >
+                  <Typography sx={styles.formHeading}>
+                    Get in touch with us
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: "1rem",
+                      width: "100%",
+                      mt: "1rem",
+                      flexDirection: { xs: "column", md: "row" },
+                    }}
+                  >
+                    <TextField
+                      type="text"
+                      size="small"
+                      name="first_name"
+                      placeholder="First Name"
+                      value={formik.values.first_name}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.first_name &&
+                        Boolean(formik.errors.first_name)
+                      }
+                      helperText={
+                        formik.touched.first_name && formik.errors.first_name
+                      }
+                      sx={styles.textField}
+                    />
+                    <TextField
+                      type="text"
+                      size="small"
+                      name="last_name"
+                      placeholder="Last Name"
+                      value={formik.values.last_name}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.last_name &&
+                        Boolean(formik.errors.last_name)
+                      }
+                      helperText={
+                        formik.touched.last_name && formik.errors.last_name
+                      }
+                      sx={styles.textField}
+                    />
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: "1rem",
+                      width: "100%",
+                      mt: "1.5rem",
+                      flexDirection: { xs: "column", md: "row" },
+                    }}
+                  >
+                    <TextField
+                      size="small"
+                      name="email"
+                      placeholder="Email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.email && Boolean(formik.errors.email)}
+                      helperText={formik.touched.email && formik.errors.email}
+                      sx={styles.textField}
+                    />
+                    <MuiTelInput
+                      size="small"
+                      name="number"
+                      value={formik.values.number}
+                      onChange={(newValue) =>
+                        formik.setFieldValue("number", newValue)
+                      }
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.number && Boolean(formik.errors.number)
+                      }
+                      helperText={formik.touched.number && formik.errors.number}
+                      sx={styles.textField}
+                      defaultCountry="PK"
+                    />
+                  </Box>
+                  <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
+                    <TextField
+                      size="small"
+                      name="select"
+                      id="select"
+                      label="How did you hear about us?"
+                      value={formik.values.select}
+                      select
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.select && Boolean(formik.errors.select)
+                      }
+                      helperText={formik.touched.select && formik.errors.select}
+                      sx={styles.textField}
+                      InputLabelProps={{
+                        style: {
+                          color: "gray",
+                          opacity: 0.4,
+                        },
+                      }}
+                    >
+                      <MenuItem value="facebook">Facebook</MenuItem>
+                      <MenuItem value="instagram">Instagram</MenuItem>
+                      <MenuItem value="linkedin">LinkedIn</MenuItem>
+                    </TextField>
+                  </Box>
+
+                  <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
+                    <TextField
+                      name="message"
+                      placeholder="Message"
+                      multiline
+                      rows={4}
+                      value={formik.values.message}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.message && Boolean(formik.errors.message)
+                      }
+                      helperText={formik.touched.message && formik.errors.message}
+                      sx={styles.textField}
+                    />
+                  </Box>
+
+                  <Box sx={styles.aboutBtnContainer}>
+                    <Button type="submit" sx={styles.aboutBtn}>
+                      {loading ? (
+                        <CircularProgress sx={{ color: "#ffffff" }} size={24} />
+                      ) : (
+                        "Submit"
+                      )}
+                    </Button>
+                  </Box>
+                </Box>
+              </Slide>
+            </>
+          )
         )}
       </Box>
       <Snackbar
@@ -450,6 +746,13 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
       >
         <Alert severity="success">{snackbarMessage}</Alert>
       </Snackbar>
+      <Box sx={{ position: "absolute", top: "-393px", right: "-750px", zIndex: 0 }}>
+        <img src="/public/assets/pngs/shape5.png" alt="" style={{
+          height: "1500px",
+          width: "1500px",
+          opacity: 0.07,
+        }} />
+      </Box>
     </Box>
   );
 };

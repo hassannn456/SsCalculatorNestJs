@@ -75,7 +75,6 @@ export default function InteractiveList({ activeTab, closeDrawers }) {
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
-                      // Added to ensure that transform on child elements doesn't affect layout
                       position: "relative",
                     }}
                   >

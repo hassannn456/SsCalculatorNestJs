@@ -17,13 +17,11 @@ const SectionIntro = ({
         component="section"
         sx={{
           width: "100%",
-          // py: "2rem",
         }}
       >
         <Typography
           style={{
             fontSize: "14px",
-            // lineHeight: "32px",
             fontFamily: "Barlow",
             color: "#378C92",
             textAlign: justify ? "left" : "center",
@@ -41,7 +39,6 @@ const SectionIntro = ({
             color: subtitleColor ? subtitleColor : "#161c26",
             textAlign: justify ? "left" : "center",
             fontWeight: "700",
-            // marginTop: "10px",
             letterSpacing: "-1px",
           }}
         >

@@ -10,7 +10,6 @@ const tabsdata = [
     logo1: "/assets/pngs/TechCardPngs/nextJs.png",
     logo2: "/assets/pngs/TechCardPngs/nodeJs.png",
     logo3: "/assets/pngs/TechCardPngs/aws.png",
-    //hd
 
     tags: [
       "Retail & E-Commerce",

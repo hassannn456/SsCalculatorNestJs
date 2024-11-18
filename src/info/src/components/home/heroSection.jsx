@@ -4,8 +4,7 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-// import HeroSectionVideo from "/assets/video/HeroSectionVideo.mp4";
-import Video2 from "/assets/video/video2.mp4";
+import Video2 from "/assets/video/video4.mp4";
 import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {

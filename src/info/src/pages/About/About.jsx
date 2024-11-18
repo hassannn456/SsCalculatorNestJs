@@ -28,7 +28,7 @@ const About = () => {
                 on engineering excellence, TechieTribe is helping companies to
                 achieve their digital transformation goals in a way that is both
                 efficient and effective.`}
-        bgColor={"rgb(55 140 146 / 10%)"}
+        bgColor={"rgb(240, 243, 246)"}
       />
       <AboutDescription1
         image={ExtraHeader}
@@ -39,13 +39,11 @@ const About = () => {
         `}
         inverted={true}
       />
-      {/* <Leadership /> */}
       <AboutUsCardNew />
       <Process />
       <Testimonials />
       <RequestQuote bgColor={"#ffffff"} inPage={true} />
       <EngagementPlan projectIndex={false} />
-      {/* <Consultation /> */}
     </Box>
   );
 };

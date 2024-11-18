@@ -47,7 +47,6 @@ const styles = {
   },
   textField: {
     width: "100%",
-    // backgroundColor: "#ffffff",
     "& label.Mui-focused": {
       color: "#000000",
       width: "200px",
@@ -288,7 +287,6 @@ const ContactUsFrom = () => {
         <Box
           sx={{
             display: "flex",
-            // gap: "1rem",
             width: "100%",
             mt: "1.5rem",
             flexDirection: "column",
@@ -324,7 +322,6 @@ const ContactUsFrom = () => {
         <Box
           sx={{
             display: "flex",
-            // gap: "1rem",
             width: "100%",
             mt: "1.5rem",
             flexDirection: "column",

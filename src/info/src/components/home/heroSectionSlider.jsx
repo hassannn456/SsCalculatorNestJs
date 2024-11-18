@@ -14,12 +14,12 @@ import PrismX from "/assets/pngs/heroSecionSlider/PrismX.svg";
 
 const icons = [
   { title: MainStay, width: 130, height: 60 },
-  { title: MulaX, width: 130, height: 30, marginTop: "6%" },
-  { title: Neufluence, width: 130, height: 60 },
-  { title: ConceptAi, width: 130, height: 50 },
+  { title: MulaX, width: 110, height: 50, marginTop: "18px" },
+  { title: Neufluence, width: 130, height: 60, marginTop: "8px" },
+  { title: ConceptAi, width: 100, height: 60 },
   { title: SpiritualData, width: 130, height: 60 },
   { title: SyntricAi, width: 130, height: 60 },
-  { title: PrismX, width: 130, height: 60 },
+  { title: PrismX, width: 90, height: 60 },
 ];
 
 const HeroSectionSlider = () => {
@@ -56,8 +56,8 @@ const HeroSectionSlider = () => {
       {
         breakpoint: 320,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
@@ -68,7 +68,7 @@ const HeroSectionSlider = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: { xs: 4, md: 10 },
+        gap: { xs: 4, sm: 6, md: 10 },
         width: "100%",
         margin: "auto",
         backgroundColor: "transparent",
@@ -88,15 +88,17 @@ const HeroSectionSlider = () => {
                 alignItems: "center",
                 height: "3.8rem",
                 willChange: "transform",
+                // m: "auto",
               }}
             >
               <img
                 src={icon.title}
                 alt={`Technology icon ${index}`}
                 style={{
-                  marginTop: icon.marginTop || "0",
+                  paddingTop: icon.marginTop || "0",
                   width: icon.width,
                   height: icon.height,
+                  margin: "auto",
                 }}
               />
             </Box>

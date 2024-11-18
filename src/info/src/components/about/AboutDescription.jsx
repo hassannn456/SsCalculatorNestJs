@@ -22,18 +22,11 @@ const AboutDescription = () => {
           <Box sx={styles.imageContainer}>
             <img
               src={Header}
-              // layout="responsive"
               style={{ width: "100%", height: "100%" }}
               alt="AboutImage"
             />
           </Box>
           <Box sx={styles.textContainer}>
-            {/* <Typography sx={styles.titleText}>
-              We are increasing Business Success
-            </Typography>
-            <Box sx={styles.dividerContainer}>
-              <Divider sx={styles.divider} />
-            </Box> */}
 
             <SectionHeader
               title={"About Us"}
@@ -48,14 +41,6 @@ const AboutDescription = () => {
             />
 
             <Box sx={styles.descriptionTextContainer}>
-              {/* <Typography sx={styles.descriptionText}>
-                TechieTribe is a leading software house that specializes in
-                providing customized solutions for businesses seeking to drive
-                digital transformation. With its innovative approach and focus
-                on engineering excellence, TechieTribe is helping companies to
-                achieve their digital transformation goals in a way that is both
-                efficient and effective.
-              </Typography> */}
             </Box>
           </Box>
         </Box>

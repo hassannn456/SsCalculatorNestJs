@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Box, Slide, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
-import BlogImage2 from "/assets/pngs/insights/blog-2.png";
-import BlogImage3 from "/assets/pngs/insights/blog-3.png";
-import BlogImage4 from "/assets/pngs/insights/blog-4.png";
+import BlogImage2 from "/assets/pngs/insights/blog-2.jpg";
+import BlogImage3 from "/assets/pngs/insights/blog-3.jpg";
+import BlogImage4 from "/public/assets/pngs/insights/blog-4.jpg";
 import SectionHeader from "../general/SectionHeader";
 import InsightData from "../insights/insightData";
 import { useInView } from "react-intersection-observer";
+import { motion } from 'framer-motion';
 
 const cardData = [
   {
@@ -48,9 +49,7 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     padding: { xs: "20px 15px 60px 15px", lg: "40px 0px" },
-    // backgroundColor: "#ffffff",
     margin: "auto",
-    // backgroundColor: "transparent",
     alignItems: "center",
     width: { sm: "100%", md: "60rem", lg: "80rem", xl: "90rem" },
   },
@@ -133,6 +132,40 @@ const styles = {
   },
 };
 
+
+const cardVariantsLeft = {
+  offscreen: {
+    x: "-100px",
+    opacity: 0,
+  },
+  onscreen: {
+    x: "0px",
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 0.5,
+      ease: "easeOut"
+    },
+  },
+};
+const cardVariantsRight = {
+  offscreen: {
+    x: "100px",
+    opacity: 0,
+  },
+  onscreen: {
+    x: "0px",
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 0.5,
+    },
+  },
+};
 const Insights = () => {
   const navigate = useNavigate();
 
@@ -142,7 +175,7 @@ const Insights = () => {
   }, []);
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 1,
   });
   const handleCardClick = (id) => {
     navigate(`/insight-details/${id}`);
@@ -158,17 +191,25 @@ const Insights = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Box sx={styles.mainContainer} ref={ref}>
+      <Box sx={styles.mainContainer}>
         <SectionHeader
-          title={"INSIGHTS"}
-          subtitle={"News And Articles"}
+          title="INSIGHTS"
+          subtitle="News And Articles"
           description="Explore our latest insights, uncovering how technology transforms industries—from AI fairness to innovations in e-commerce and telecom."
           width={true}
         />
-        {inView && (
-          <Box sx={styles.cardContainer}>
-            {InsightData?.slice(0, 4)?.map((card, index) => (
-              <Slide in={slideIn} timeout={1800} key={index} direction={"down"}>
+        <Box sx={styles.cardContainer} ref={ref}>
+          {inView &&
+            InsightData?.slice(0, 4)?.map((card, index) => (
+              <motion.div
+                key={index}
+                className="card-container"
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={index % 2 == 0 ? cardVariantsRight : cardVariantsLeft}
+                transition={{ type: "spring", stiffness: 100 }}
+              >
                 <Box
                   key={card.id}
                   sx={styles.card}
@@ -188,7 +229,7 @@ const Insights = () => {
                       style={{
                         width: "100%",
                         height: "100%",
-                        objectFit: "fill",
+                        objectFit: "cover",
                       }}
                     />
                   </Box>
@@ -201,10 +242,9 @@ const Insights = () => {
                     </Typography>
                   </Box>
                 </Box>
-              </Slide>
+              </motion.div>
             ))}
-          </Box>
-        )}
+        </Box>
       </Box>
     </Box>
   );

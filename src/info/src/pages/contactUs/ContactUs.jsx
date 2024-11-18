@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Typography } from "@mui/material";
-// import HeroImageSection from "../../components/general/heroImageSection";
 import HeroSectionConatct from "./HeroSectionConatct";
 import ContactHeader from "/assets/pngs/ContactUs/ContactHeader.png";
 import ContactUsForm from "../../components/contact/ContactUsFrom.jsx";

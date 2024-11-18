@@ -124,7 +124,7 @@ const TechExpertCards = ({ selectedTab, onTabChange }) => {
                 }}
               >
                 <img
-                  src={item.path} // Ensure that the path matches the actual file name and extension
+                  src={item.path}
                   alt={item.label}
                   style={{ cursor: "pointer", width: "140px", height: "50px" }}
                 />
@@ -190,17 +190,17 @@ const TechExpertCards = ({ selectedTab, onTabChange }) => {
                   }}
                 >
                   <img
-                    src={item.logo1} // Ensure that the path matches the actual file name and extension
+                    src={item.logo1}
                     alt={item.label}
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
                   />
                   <img
-                    src={item.logo2} // Ensure that the path matches the actual file name and extension
+                    src={item.logo2}
                     alt={item.label}
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
                   />
                   <img
-                    src={item.logo3} // Ensure that the path matches the actual file name and extension
+                    src={item.logo3}
                     alt={item.label}
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
                   />

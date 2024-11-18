@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import HeroImageSection from "../../../components/general/heroImageSection";
 import webDevelopment from "/assets/pngs/webdevelopment.avif";
-import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
+import BlogImage1 from "/assets/pngs/insights/blog01.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate, useParams } from "react-router-dom";
@@ -117,10 +117,15 @@ const InsightDetails = () => {
       <Container sx={{ padding: { xs: "1rem", md: "3rem" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={8}>
-            <Box>
+            <Box sx={{ width: "100%", height: { xs: "auto", md: "500px" } }}>
               <img
                 src={data.image || BlogImage1}
-                style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
                 alt={data.title}
               />
             </Box>

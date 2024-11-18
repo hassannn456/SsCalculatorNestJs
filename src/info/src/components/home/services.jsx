@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Box, Zoom, Slide, Typography } from "@mui/material";
 import CallMadeTwoToneIcon from "@mui/icons-material/CallMadeTwoTone";
-import { useInView } from "react-intersection-observer";
 import WebDevIcon from "/assets/pngs/services/WebDevelopment.png";
 import MobileAppIcon from "/assets/pngs/services/MobileApp.png";
 import UIUX from "/assets/pngs/services/UIUX.png";
@@ -12,15 +11,22 @@ import WebDevImage from "/assets/pngs/services/WebDevImage.png";
 import MobileDevImage from "/assets/pngs/services/MobileDevImage.png";
 import UIUXImage from "/assets/pngs/services/UIImage1.png";
 import BlockchainImage from "/assets/pngs/services/BlockchainImage.png";
+import { motion } from 'framer-motion';
+import { useMediaQuery } from "@mui/material";
+import { useInView } from "react-intersection-observer";
+
 
 const styles = {
   mainContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    padding: { xs: "20px 15px", lg: "80px" },
-    backgroundColor: "#ffffff",
+    padding: { xs: "20px 15px", lg: "60px 80px" },
+    // backgroundColor: "#ffffff",
+    width: "100%",
     alignItems: "center",
+    position: "relative",
+    zIndex: 100
   },
   cardParent: {
     "&:nth-of-type(2n)": {
@@ -56,7 +62,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
-    mt: "3rem",
+    mt: { xs: "3rem", lg: "2rem" },
     gap: "26px",
     width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
   },
@@ -66,7 +72,7 @@ const styles = {
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
     borderRadius: "10px",
     padding: "30px",
-    width: { xs: "100%", md: "280px", lg: "300px" },
+    width: { xs: "300px", md: "280px", lg: "300px" },
     borderTop: "8px solid #378C92",
     height: "400px",
     transition: "transform 0.3s ease",
@@ -138,12 +144,67 @@ const styles = {
   },
 };
 
+const cardVariantsLeft = {
+  offscreen: {
+    marginLeft: "-100px",
+    opacity: 0,
+  },
+  onscreen: {
+    marginLeft: "0px",
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 0.5,
+      ease: "easeOut"
+    },
+  },
+};
+const cardVariantsRight = {
+  offscreen: {
+    marginLeft: "100px",
+    opacity: 0,
+  },
+  onscreen: {
+    marginLeft: "0px",
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 50,
+      duration: 0.5,
+    },
+  },
+};
+
+const cardVariantsBottom = {
+  offscreen: {
+    y: 200,
+    opacity: 0,
+  },
+
+  onscreen: (index) => (
+    {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        stiffness: 100,
+        delay: index * 0.2,
+      },
+    }
+  ),
+};
+
 const Services = () => {
   const mainIconRef = useRef(null);
   const arrowIconRef = useRef(null);
   const contentRef = useRef(null);
   const [sldIn, setSldIn] = useState(false);
   const [slideIn, setSlideIn] = useState([false, false, false, false]);
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     setSldIn(true);
@@ -205,123 +266,250 @@ const Services = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: "#ffffff" }} ref={ref}>
-      {inView && (
-        <Box sx={styles.mainContainer}>
-          <Slide in={sldIn} direction="right" timeout={1800}>
-            <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
-          </Slide>
-          <Slide in={sldIn} direction="left" timeout={1800}>
-            <Typography sx={styles.subHeading}>
-              We provide truly prominent IT solutions.
-            </Typography>
-          </Slide>{" "}
-          <Box sx={styles.cardContainer}>
-            {cardData.map((card, index) => (
-              <Slide
-                in={!!slideIn[index]}
-                direction="up"
-                timeout={1800}
-                key={index}
-              >
-                <Box sx={{ ...styles.cardParent }}>
-                  <Box
-                    key={index}
-                    sx={{
-                      ...styles.card,
-                      backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
-                      justifyContent:
-                        hoveredIndex === index ? "space-between" : "flex-end",
-                    }}
-                    onMouseEnter={() => handleHover(index)}
-                    onMouseLeave={handleMouseLeave}
-                  >
+    <Box sx={{
+      overflow: "hidden",
+      position: "relative"
+    }} ref={ref}>
+      <Box sx={styles.mainContainer}>
+        <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
+        <Typography sx={styles.subHeading}>
+          We provide truly prominent IT solutions.
+        </Typography>
+        {" "}
+        <Box sx={styles.cardContainer}>
+          {
+            isMobile ? (
+              cardData.map((card, index) => (
+                <motion.div
+                  key={index}
+                  className="card-container"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.4 }}
+                  variants={index % 2 == 0 ? cardVariantsRight : cardVariantsLeft}
+                  transition={{ type: "spring", stiffness: 100 }}
+                >
+
+                  <Box sx={{ ...styles.cardParent }}>
                     <Box
+                      key={index}
                       sx={{
-                        ...styles.backgroundImage,
+                        ...styles.card,
                         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
+                        justifyContent:
+                          hoveredIndex === index ? "space-between" : "flex-end",
                       }}
-                    />
-                    {hoveredIndex === index && (
-                      <Box sx={styles.iconContainer}>
-                        <Box ref={mainIconRef}>
+                      onMouseEnter={() => handleHover(index)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <Box
+                        sx={{
+                          ...styles.backgroundImage,
+                          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
+                        }}
+                      />
+                      {hoveredIndex === index && (
+                        <Box sx={styles.iconContainer}>
+                          <Box ref={mainIconRef}>
+                            <Slide
+                              direction="right"
+                              in
+                              timeout={500}
+                              container={mainIconRef.current}
+                            >
+                              <Box sx={styles.icon}>
+                                <img
+                                  src={card.icon}
+                                  alt="icon"
+                                  style={{ width: "50px", height: "45px" }}
+                                />
+                              </Box>
+                            </Slide>
+                          </Box>
+                          <Box ref={arrowIconRef}>
+                            <Slide
+                              direction="left"
+                              in
+                              timeout={500}
+                              container={arrowIconRef.current}
+                            >
+                              <CallMadeTwoToneIcon
+                                sx={{
+                                  fontSize: "40px",
+                                  cursor: "pointer",
+                                  color: "#ffffff",
+                                }}
+                              />
+                            </Slide>
+                          </Box>
+                        </Box>
+                      )}
+
+                      {hoveredIndex === index ? (
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
                           <Slide
                             direction="right"
                             in
                             timeout={500}
-                            container={mainIconRef.current}
+                            container={contentRef.current}
                           >
-                            <Box sx={styles.icon}>
-                              <img
-                                src={card.icon}
-                                alt="icon"
-                                style={{ width: "50px", height: "45px" }}
-                              />
+                            <Box sx={styles.headingContainer}>
+                              <Box sx={styles.headingLine} />
+                              <Typography
+                                sx={{ ...styles.cardHeading, fontSize: "20px" }}
+                              >
+                                {card.heading}
+                              </Typography>
                             </Box>
                           </Slide>
-                        </Box>
-                        <Box ref={arrowIconRef}>
                           <Slide
-                            direction="left"
+                            direction="up"
                             in
                             timeout={500}
-                            container={arrowIconRef.current}
+                            container={contentRef.current}
                           >
-                            <CallMadeTwoToneIcon
-                              sx={{
-                                fontSize: "40px",
-                                cursor: "pointer",
-                                color: "#ffffff",
-                              }}
-                            />
+                            <Typography sx={styles.cardContent}>
+                              {card.content}
+                            </Typography>
                           </Slide>
                         </Box>
-                      </Box>
-                    )}
-
-                    {hoveredIndex === index ? (
-                      <Box sx={{ display: "flex", flexDirection: "column" }}>
-                        <Slide
-                          direction="right"
-                          in
-                          timeout={500}
-                          container={contentRef.current}
-                        >
-                          <Box sx={styles.headingContainer}>
-                            <Box sx={styles.headingLine} />
-                            <Typography
-                              sx={{ ...styles.cardHeading, fontSize: "20px" }}
-                            >
-                              {card.heading}
-                            </Typography>
-                          </Box>
-                        </Slide>
-                        <Slide
-                          direction="up"
-                          in
-                          timeout={500}
-                          container={contentRef.current}
-                        >
-                          <Typography sx={styles.cardContent}>
-                            {card.content}
+                      ) : (
+                        <Box sx={styles.headingContainer}>
+                          <Box sx={styles.headingLine} />
+                          <Typography sx={styles.cardHeading}>
+                            {card.heading}
                           </Typography>
-                        </Slide>
-                      </Box>
-                    ) : (
-                      <Box sx={styles.headingContainer}>
-                        <Box sx={styles.headingLine} />
-                        <Typography sx={styles.cardHeading}>
-                          {card.heading}
-                        </Typography>
-                      </Box>
-                    )}
+                        </Box>
+                      )}
+                    </Box>
                   </Box>
-                </Box>
-              </Slide>
-            ))}
-          </Box>
+                </motion.div>
+              ))
+            ) : (
+              cardData.map((card, index) => (
+                <motion.div
+                  key={index}
+                  className="card-container"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0 }}
+                  variants={cardVariantsBottom}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  custom={index}
+                >
+                  <Box sx={{ ...styles.cardParent, mt: index % 2 == 0 ? "0rem" : "5rem" }}>
+                    <Box
+                      key={index}
+                      sx={{
+                        ...styles.card,
+                        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
+                        justifyContent:
+                          hoveredIndex === index ? "space-between" : "flex-end",
+                      }}
+                      onMouseEnter={() => handleHover(index)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <Box
+                        sx={{
+                          ...styles.backgroundImage,
+                          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
+                        }}
+                      />
+                      {hoveredIndex === index && (
+                        <Box sx={styles.iconContainer}>
+                          <Box ref={mainIconRef}>
+                            <Slide
+                              direction="right"
+                              in
+                              timeout={500}
+                              container={mainIconRef.current}
+                            >
+                              <Box sx={styles.icon}>
+                                <img
+                                  src={card.icon}
+                                  alt="icon"
+                                  style={{ width: "50px", height: "45px" }}
+                                />
+                              </Box>
+                            </Slide>
+                          </Box>
+                          <Box ref={arrowIconRef}>
+                            <Slide
+                              direction="left"
+                              in
+                              timeout={500}
+                              container={arrowIconRef.current}
+                            >
+                              <CallMadeTwoToneIcon
+                                sx={{
+                                  fontSize: "40px",
+                                  cursor: "pointer",
+                                  color: "#ffffff",
+                                }}
+                              />
+                            </Slide>
+                          </Box>
+                        </Box>
+                      )}
+
+                      {hoveredIndex === index ? (
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
+                          <Slide
+                            direction="right"
+                            in
+                            timeout={500}
+                            container={contentRef.current}
+                          >
+                            <Box sx={styles.headingContainer}>
+                              <Box sx={styles.headingLine} />
+                              <Typography
+                                sx={{ ...styles.cardHeading, fontSize: "20px" }}
+                              >
+                                {card.heading}
+                              </Typography>
+                            </Box>
+                          </Slide>
+                          <Slide
+                            direction="up"
+                            in
+                            timeout={500}
+                            container={contentRef.current}
+                          >
+                            <Typography sx={styles.cardContent}>
+                              {card.content}
+                            </Typography>
+                          </Slide>
+                        </Box>
+                      ) : (
+                        <Box sx={styles.headingContainer}>
+                          <Box sx={styles.headingLine} />
+                          <Typography sx={styles.cardHeading}>
+                            {card.heading}
+                          </Typography>
+                        </Box>
+                      )}
+                    </Box>
+                  </Box>
+                </motion.div>
+              ))
+            )
+          }
+
+
         </Box>
-      )}
+      </Box>
+      <Box sx={{
+        position: "absolute",
+        top: "37px",
+        right: "-125px"
+      }}>
+        <img src="/assets/pngs/shape3.png" alt="bgImg" style={{
+          objectFit: "contain",
+          width: "450px",
+          height: "450px",
+          opacity: 0.5
+        }} />
+      </Box>
     </Box>
   );
 };

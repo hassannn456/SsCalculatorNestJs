@@ -1,5 +1,4 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
-// import image from "/assets/pngs/about/AboutUsCardImage.jpg";
 import image from "/assets/pngs/about/smartmockups_m2cc99af.png";
 
 const AboutUsCard = () => {

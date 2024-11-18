@@ -61,7 +61,6 @@ const OurWorkDescription = ({
                 display: "flex",
                 width: "70%",
                 justifyContent: { xs: "space-between", md: "space-between" },
-                //   alignItems: "center",
               }}
             >
               <Box>
