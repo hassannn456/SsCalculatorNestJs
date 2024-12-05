@@ -115,7 +115,7 @@ const cardVariants = {
       damping: 50,
       duration: 2.5,
       ease: "easeOut",
-      delay: index * 0.2
+      delay: index * 0.1
     },
   }),
 };

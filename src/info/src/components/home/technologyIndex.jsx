@@ -88,14 +88,17 @@ const TechnologyIndex = () => {
             <Swiper
               spaceBetween={0}
               slidesPerView={7}
+              slidesPerGroup={1}
               speed={5000}
               loop={true}
               navigation={true}
               autoplay={{
-                delay: 0,
+                // delay: 0,
                 disableOnInteraction: false,
                 reverseDirection: true,
               }}
+              cssMode={true}
+              autoplayDisableOnInteraction={false}
               modules={[Pagination, Navigation, Autoplay]}
               breakpoints={{
                 0: {

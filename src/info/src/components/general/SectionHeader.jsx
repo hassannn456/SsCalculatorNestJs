@@ -1,8 +1,26 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Typography, Container } from "@mui/material";
-import backgroundImage from "/assets/pngs/earth-moon.png";
+import { motion } from 'framer-motion';
+const cardVariantsBottom = {
+  offscreen: {
+    y: 50,
+    opacity: 0,
+  },
 
+  onscreen: (index) => (
+    {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        stiffness: 100,
+        delay: index * 0.3,
+      },
+    }
+  ),
+};
 const SectionIntro = ({
   title,
   subtitle,
@@ -17,49 +35,82 @@ const SectionIntro = ({
         component="section"
         sx={{
           width: "100%",
+          my: 3
         }}
       >
-        <Typography
-          style={{
-            fontSize: "14px",
-            fontFamily: "Barlow",
-            color: "#378C92",
-            textAlign: justify ? "left" : "center",
-            fontWeight: "600",
-            letterSpacing: "3px",
-          }}
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={1}
         >
-          {title}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "43px",
-            lineHeight: { xs: "48px", md: "58px" },
-            fontFamily: "Barlow",
-            color: subtitleColor ? subtitleColor : "#161c26",
-            textAlign: justify ? "left" : "center",
-            fontWeight: "700",
-            letterSpacing: "-1px",
-          }}
+          <Typography
+            style={{
+              fontSize: "16px",
+              fontWeight: "600",
+              lineHeight: "18px",
+              fontFamily: "Barlow",
+              color: "#378C92",
+              letterSpacing: "3px",
+              textAlign: justify ? "left" : "center",
+            }}
+          >
+            {title}
+          </Typography>
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={2}
         >
-          {subtitle}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            fontSize: justify ? "17px" : "16px",
-            lineHeight: "20px",
-            fontFamily: "sans-serif",
-            color: "#797f89",
-            textAlign: justify ? "left" : "center",
-            fontWeight: "400",
-            marginTop: "18px",
-            m: "auto",
-            width: width ? { xs: "100%", sm: "90%", md: "70%" } : "100%",
-          }}
+          <Typography
+            sx={{
+              fontSize: "42px",
+              fontWeight: "700",
+              lineHeight: { xs: "44px", md: "45px" },
+              fontFamily: "Barlow",
+              color: subtitleColor ? subtitleColor : "#161c26",
+              textAlign: justify ? "left" : "center",
+              letterSpacing: "-1px",
+              my: 3
+            }}
+          >
+            {subtitle}
+          </Typography>
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={3}
         >
-          {description}
-        </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontSize: justify ? "16px" : "15px",
+              fontWeight: "400",
+              lineHeight: "22px",
+              fontFamily: "sans-serif",
+              color: "#797f89",
+              textAlign: justify ? "left" : "center",
+              marginTop: "18px",
+              m: "auto",
+              width: width ? { xs: "100%", sm: "90%", md: "70%" } : "100%",
+            }}
+          >
+            {description}
+          </Typography>
+        </motion.div>
       </Box>
     </Container>
   );

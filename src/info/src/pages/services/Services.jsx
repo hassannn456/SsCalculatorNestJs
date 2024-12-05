@@ -40,23 +40,27 @@ const Services = () => {
           filteredData.title === "UI Design"
             ? "UI/UX Design"
             : filteredData.title === "SEO"
-            ? "Search Engine Optimization"
-            : filteredData.title
+              ? "Search Engine Optimization"
+              : filteredData.title
         }
       />
       <HeaderText />
-
-      <AboutDescription
-        description={filteredData.description}
-        title="WE PROVIDE"
-        image={filteredData.image}
-        subtitle={
-          filteredData.title === "UI Design"
-            ? "UI/UX Design"
-            : filteredData.title1
-        }
-        bgColor={"rgb(240, 243, 246)"}
-      />
+      <Box sx={{ position: "relative", overflow: "hidden" }}>
+        <AboutDescription
+          description={filteredData.description}
+          title="WE PROVIDE"
+          image={filteredData.image}
+          subtitle={
+            filteredData.title === "UI Design"
+              ? "UI/UX Design"
+              : filteredData.title1
+          }
+          bgColor={"rgb(240, 243, 246)"}
+        />
+        <Box sx={{ position: "absolute", top: -10, left: 0 }}>
+          <img src="/assets/pngs/shape-8.png" alt="img" style={{ opacity: 0.4 }} />
+        </Box>
+      </Box>
 
       <AboutDescription
         description={
@@ -75,25 +79,30 @@ const Services = () => {
             : filteredData.title2
         }
       />
-
-      <AboutDescription
-        description={filteredData.extraDescription[1]}
-        title="WHAT YOU GOT"
-        image={filteredData.extraImage1}
-        subtitle={
-          filteredData.title === "UI Design"
-            ? "UI/UX Design"
-            : filteredData.title3
-        }
-        bgColor={"rgb(240, 243, 246)"}
-      />
-
+      <Box sx={{ position: "relative", overflow: "hidden" }}>
+        <AboutDescription
+          description={filteredData.extraDescription[1]}
+          title="WHAT YOU GOT"
+          image={filteredData.extraImage1}
+          subtitle={
+            filteredData.title === "UI Design"
+              ? "UI/UX Design"
+              : filteredData.title3
+          }
+          bgColor={"rgb(240, 243, 246)"}
+        />
+        <Box sx={{ position: "absolute", top: -200, right: 0 }}>
+          <img src="/assets/pngs/shape5.png" alt="img" style={{ objectFit: "contain" }} />
+        </Box>
+        <Box sx={{ position: "absolute", top: 0, left: 0, rotate: "180deg" }}>
+          <img src="/assets/pngs/bg-pattern.png" alt="img" style={{ objectFit: "contain" }} />
+        </Box>
+      </Box>
       <ProcessInfo />
-
       <Box sx={{ width: "100vw", backgroundColor: "#f0f3f6" }}>
         <CarouselContent />
       </Box>
-      <RequestQuote bgColor={"#ffffff"} inPage={true} />
+      <RequestQuote bgColor={"#ffffff"} inPage={false} />
       <Consultation />
     </Box>
   );

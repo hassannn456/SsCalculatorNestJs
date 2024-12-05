@@ -2,46 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
-import BlogImage2 from "/assets/pngs/insights/blog-2.jpg";
-import BlogImage3 from "/assets/pngs/insights/blog-3.jpg";
-import BlogImage4 from "/public/assets/pngs/insights/blog-4.jpg";
 import SectionHeader from "../general/SectionHeader";
 import InsightData from "../insights/insightData";
-import { useInView } from "react-intersection-observer";
 import { motion } from 'framer-motion';
-
-const cardData = [
-  {
-    image: BlogImage1,
-    heading:
-      "How Fair is Your AI? Exploring the Challenge of Defining ‘Fairness",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-    id: 1,
-  },
-  {
-    image: BlogImage2,
-    heading: "Impact of Chat GPT on the Telecom Industry",
-    content:
-      "The telecommunications industry is one that is constantly evolving and adapting to new technologies. ...",
-    id: 2,
-  },
-  {
-    image: BlogImage3,
-    heading: "The power of E-Commerce cloud computing – An Insight",
-    content:
-      "Artificial intelligence (AI) has rapidly transformed various industries, from healthcare to finance, ...",
-    id: 3,
-  },
-  {
-    image: BlogImage4,
-    heading: "Impact of AI on changing World and Its Ethical Implications",
-    content:
-      "AI stands for Artificial Intelligence, which refers to the development of computer systems that can, ...",
-    id: 4,
-  },
-];
 
 const styles = {
   mainContainer: {
@@ -132,31 +95,33 @@ const styles = {
   },
 };
 
-
 const cardVariantsLeft = {
   offscreen: {
-    x: "-100px",
+    // x: "100px",
+    scale: 0.9,
     opacity: 0,
   },
   onscreen: {
-    x: "0px",
+    // x: "0px",
+    scale: 1,
     opacity: 1,
     transition: {
       type: "spring",
       stiffness: 100,
       damping: 50,
-      duration: 0.5,
+      duration: 0.3,
       ease: "easeOut"
     },
   },
 };
 const cardVariantsRight = {
   offscreen: {
-    x: "100px",
+    // x: "-100px",
+    scale: 0.9,
     opacity: 0,
   },
   onscreen: {
-    x: "0px",
+    scale: 1,
     opacity: 1,
     transition: {
       type: "spring",
@@ -166,17 +131,10 @@ const cardVariantsRight = {
     },
   },
 };
+
 const Insights = () => {
   const navigate = useNavigate();
 
-  const [slideIn, setSlideIn] = useState(false);
-  useEffect(() => {
-    setSlideIn(true);
-  }, []);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 1,
-  });
   const handleCardClick = (id) => {
     navigate(`/insight-details/${id}`);
   };
@@ -189,6 +147,7 @@ const Insights = () => {
         backgroundSize: "contain",
         backgroundPosition: "right",
         backgroundRepeat: "no-repeat",
+        overflow: "hidden"
       }}
     >
       <Box sx={styles.mainContainer}>
@@ -198,52 +157,51 @@ const Insights = () => {
           description="Explore our latest insights, uncovering how technology transforms industries—from AI fairness to innovations in e-commerce and telecom."
           width={true}
         />
-        <Box sx={styles.cardContainer} ref={ref}>
-          {inView &&
-            InsightData?.slice(0, 4)?.map((card, index) => (
-              <motion.div
-                key={index}
-                className="card-container"
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={index % 2 == 0 ? cardVariantsRight : cardVariantsLeft}
-                transition={{ type: "spring", stiffness: 100 }}
+        <Box sx={styles.cardContainer}>
+          {InsightData?.slice(0, 4)?.map((card, index) => (
+            <motion.div
+              key={index}
+              className="card-container"
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={index % 2 == 0 ? cardVariantsRight : cardVariantsLeft}
+              transition={{ type: "spring", stiffness: 100 }}
+            >
+              <Box
+                key={card.id}
+                sx={styles.card}
+                onClick={() => handleCardClick(card.id)}
               >
                 <Box
-                  key={card.id}
-                  sx={styles.card}
-                  onClick={() => handleCardClick(card.id)}
+                  sx={{
+                    width: "100%",
+                    height: "150px",
+                    overflow: "hidden",
+                    borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
+                  }}
                 >
-                  <Box
-                    sx={{
+                  <img
+                    src={card.image}
+                    alt={`blog-image-${card.id}`}
+                    style={{
                       width: "100%",
-                      height: "150px",
-                      overflow: "hidden",
-                      borderRadius: { xs: "0", md: "1rem 1rem 0 0" },
+                      height: "100%",
+                      objectFit: "cover",
                     }}
-                  >
-                    <img
-                      src={card.image}
-                      alt={`blog-image-${card.id}`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </Box>
-                  <Box sx={styles.blogContentContainer}>
-                    <Typography sx={styles.blogHeading}>
-                      {card.heading}
-                    </Typography>
-                    <Typography sx={styles.blogContent}>
-                      {card.content}
-                    </Typography>
-                  </Box>
+                  />
                 </Box>
-              </motion.div>
-            ))}
+                <Box sx={styles.blogContentContainer}>
+                  <Typography sx={styles.blogHeading}>
+                    {card.heading}
+                  </Typography>
+                  <Typography sx={styles.blogContent}>
+                    {card.content}
+                  </Typography>
+                </Box>
+              </Box>
+            </motion.div>
+          ))}
         </Box>
       </Box>
     </Box>

@@ -19,7 +19,7 @@ const styles = {
     alignItems: "center",
     margin: "auto",
     width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
-    // background: "url('/public/assets/pngs/shape4.png')",
+    // background: "url('/assets/pngs/shape4.png')",
     // backgroundRepeat: "no-repeat",
     // backgroundPosition: "top left",
     // backgroundSize: "496px 450px",
@@ -554,7 +554,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
           )}
         </Box>
         <Box sx={{ position: "absolute", top: 0, right: 0, zIndex: -1 }}>
-          <img src="https://sbtechnosoft.com/repairzone/images/pattern-bg.png" alt="arrow" height="100%" width="100%" style={{ objectFit: "contain" }} />
+          <img src="/assets/pngs/bg-pattern.png" alt="arrow" height="100%" width="100%" style={{ objectFit: "contain" }} />
         </Box>
       </Box>
     </Box>

@@ -1,22 +1,22 @@
 import WebDevelopmentImage from "/assets/pngs/services/WebDevImage.svg";
-import WebDevExtraImage from "/assets/pngs/services/WebDevExtraImage.svg";
+import WebDevExtraImage from "/assets/pngs/services/WebDevExtraImage.png";
 import webDevelopment from "/assets/pngs/webdevelopment.avif";
-import WebDevExtraImage1 from "/assets/pngs/services/webExtraImage1.svg";
+import WebDevExtraImage1 from "/assets/pngs/services/webExtraImage1.png";
 
-import MobileDevelopmentImage from "/assets/pngs/services/MobileAppDevelopment.svg";
+import MobileDevelopmentImage from "/assets/pngs/services/MobileAppDevelopment.png";
 import mobileDevelopment from "/assets/pngs/services/mobileDevelopment.webp";
-import MobileDevExtraImage from "/assets/pngs/services/MobileDevImage2.svg";
-import MobileDevExtraImage1 from "/assets/pngs/services/mobileExtraImage1.svg";
+import MobileDevExtraImage from "/assets/pngs/services/MobileDevImage2.png";
+import MobileDevExtraImage1 from "/assets/pngs/services/mobileExtraImage1.png";
 
 import UIHeaderImage from "/assets/pngs/services/UIHeaderImage.avif";
-import UIDesignImage from "/assets/pngs/services/UIDesignImage.svg";
-import UIDesignExtraImage from "/assets/pngs/services/UIDesignExtraImage.svg";
-import UIDesignExtraImage1 from "/assets/pngs/services/UIExtraImage1.svg";
+import UIDesignImage from "/assets/pngs/services/UIDesignImage.png";
+import UIDesignExtraImage from "/assets/pngs/services/UIDesignExtraImage.png";
+import UIDesignExtraImage1 from "/assets/pngs/services/UIExtraImage1.png";
 
 import BlockchainHeaderImage from "/assets/pngs/services/BlockchainHeaderImage.jpg";
 import BlockchainImage from "/assets/pngs/services/BlockchainImage.svg";
-import BlockchainExtraImage from "/assets/pngs/services/BlockchainExtraImage.svg";
-import BlockchainExtraImage1 from "/assets/pngs/services/blockchainExtraImage1.svg";
+import BlockchainExtraImage from "/assets/pngs/services/BlockchainExtraImage.png";
+import BlockchainExtraImage1 from "/assets/pngs/services/blockchainExtraImage1.png";
 
 import SEO from "/assets/pngs/services/seo.avif";
 import SEO1 from "/assets/pngs/services/seo1.png";
@@ -37,6 +37,7 @@ import Email from "/assets/pngs/services/email.avif";
 import Email1 from "/assets/pngs/services/email1.png";
 import Email2 from "/assets/pngs/services/email2.png";
 import Email3 from "/assets/pngs/services/email3.svg";
+
 const servicesData = [
   {
     title: "Web Development",

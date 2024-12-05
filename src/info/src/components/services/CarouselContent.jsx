@@ -4,7 +4,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -59,9 +59,9 @@ function CarouselContent() {
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(0);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-
   return (
     <Container
       sx={{
@@ -96,6 +96,7 @@ function CarouselContent() {
             delay: 3000,
             disableOnInteraction: false,
           }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           loop={true}
           speed={800}
           breakpoints={{
@@ -112,7 +113,7 @@ function CarouselContent() {
               slidesPerGroup: 1,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               slidesPerGroup: 1,
             },
           }}
@@ -128,31 +129,49 @@ function CarouselContent() {
               swiper.navigation.init();
               swiper.navigation.update();
             }
+
           }}
           modules={[FreeMode, Pagination, Navigation, Autoplay]}
           className="mySwiper"
         >
-          {list.map((item, index) => (
-            <SwiperSlide key={index}>
+          {list.map((item, index) => {
+            let rotation = "rotateY(90deg)";
+            if (index === activeIndex) {
+              rotation = "rotateY(60deg)";
+            } else if (index === (activeIndex + 1) % list.length) {
+              rotation = "rotateY(0deg)";
+            } else if (index === (activeIndex + 2) % list.length) {
+              rotation = "rotateY(-59deg)";
+            }
+            return <SwiperSlide key={index}>
               <Box
                 sx={{
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                  "&:hover": {
-                    transform: "scale(1.03)",
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
-                  },
+                  perspective: "2000px",
                 }}
               >
-                <CustomCard
-                  url={item.src}
-                  title={item.title}
-                  description={item.description}
-                />
+                <Box
+                  sx={{
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+                    transition: "transform 0.2s, box-shadow 0.2s",
+                    perspective: "1400px",
+                    transform: rotation,
+                    // index ? 'transform: "rotateY(65deg)",' : 'transform: "rotateY(65deg)",',
+                    "&:hover": {
+                      // transform: "scale(1.03)",
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                    },
+                  }}
+                >
+                  <CustomCard
+                    url={item.src}
+                    title={item.title}
+                    description={item.description}
+                  />
+                </Box>
               </Box>
             </SwiperSlide>
-          ))}
+          })}
         </Swiper>
         <div ref={prevRef} className="city-custom-prev">
           <ArrowBackIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)" }} />

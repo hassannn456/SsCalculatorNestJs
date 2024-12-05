@@ -13,7 +13,6 @@ import UIUXImage from "/assets/pngs/services/UIImage1.png";
 import BlockchainImage from "/assets/pngs/services/BlockchainImage.png";
 import { motion } from 'framer-motion';
 import { useMediaQuery } from "@mui/material";
-import { useInView } from "react-intersection-observer";
 
 
 const styles = {
@@ -180,7 +179,7 @@ const cardVariantsRight = {
 
 const cardVariantsBottom = {
   offscreen: {
-    y: 200,
+    y: 50,
     opacity: 0,
   },
 
@@ -192,37 +191,16 @@ const cardVariantsBottom = {
         type: "spring",
         damping: 50,
         stiffness: 100,
-        delay: index * 0.2,
+        delay: index * 0.3,
       },
     }
   ),
 };
-
 const Services = () => {
   const mainIconRef = useRef(null);
   const arrowIconRef = useRef(null);
   const contentRef = useRef(null);
-  const [sldIn, setSldIn] = useState(false);
-  const [slideIn, setSlideIn] = useState([false, false, false, false]);
   const isMobile = useMediaQuery("(max-width: 600px)");
-
-  useEffect(() => {
-    setSldIn(true);
-    setSlideIn([true, false, false, false]);
-    setTimeout(() => {
-      setSlideIn([true, true, false, false]);
-    }, 1000);
-    setTimeout(() => {
-      setSlideIn([true, true, true, false]);
-    }, 1500);
-    setTimeout(() => {
-      setSlideIn([true, true, true, true]);
-    }, 2000);
-  }, []);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -269,7 +247,7 @@ const Services = () => {
     <Box sx={{
       overflow: "hidden",
       position: "relative"
-    }} ref={ref}>
+    }}>
       <Box sx={styles.mainContainer}>
         <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
         <Typography sx={styles.subHeading}>
@@ -392,7 +370,7 @@ const Services = () => {
                   className="card-container"
                   initial="offscreen"
                   whileInView="onscreen"
-                  viewport={{ once: true, amount: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   variants={cardVariantsBottom}
                   transition={{ type: "spring", stiffness: 100 }}
                   custom={index}

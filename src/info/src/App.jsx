@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { RefProvider } from "./context/RefContext";
 import Home from "./pages/Home/Home";

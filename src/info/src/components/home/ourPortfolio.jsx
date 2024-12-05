@@ -95,8 +95,8 @@ const cardVariant = {
       type: "spring",
       stiffness: 100,
       damping: 40,
-      duration: 0.6,
-      delay: index * 0.2,
+      duration: 0.4,
+      delay: index * 0.1,
     },
   }),
 };

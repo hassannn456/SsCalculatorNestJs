@@ -34,7 +34,7 @@ const Loader = () => {
               }}
             >
               <img
-                src="/public/assets/pngs/bg-gif.gif"
+                src="/assets/pngs/bg-gif.gif"
                 alt="logo"
                 width="100%"
                 height="100%"

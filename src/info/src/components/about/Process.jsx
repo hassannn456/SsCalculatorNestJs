@@ -5,6 +5,27 @@ import Planning1 from "/assets/pngs/about/Planning1.jpg";
 import Planning2 from "/assets/pngs/about/Planning2.jpg";
 import Planning3 from "/assets/pngs/about/Planning3.svg";
 import SectionHeader from "../general/SectionHeader";
+import { motion } from 'framer-motion';
+
+const cardVariantsBottom = {
+  offscreen: {
+    y: 50,
+    opacity: 0,
+  },
+
+  onscreen: (index) => (
+    {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        stiffness: 100,
+        delay: index * 0.1,
+      },
+    }
+  ),
+};
 
 const Process = () => {
   return (
@@ -14,10 +35,50 @@ const Process = () => {
         subtitle={"Together, we make change happen!"}
       />
       <Box sx={styles.avatars}>
-        <LeadershipAvatars title="Discovery" imageSrc={Planning1} />
-        <LeadershipAvatars title="Planning" imageSrc={Planning2} />
-        <LeadershipAvatars title="Execute" imageSrc={Planning3} />
-        <LeadershipAvatars title="Deliver" imageSrc={Planning1} />
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={3}
+        >
+          <LeadershipAvatars title="Discovery" imageSrc={Planning1} />
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={4}
+        >
+          <LeadershipAvatars title="Planning" imageSrc={Planning2} />
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={5}
+        >
+          <LeadershipAvatars title="Execute" imageSrc={Planning3} />
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={6}
+        >
+          <LeadershipAvatars title="Deliver" imageSrc={Planning1} />
+        </motion.div>
       </Box>
     </Box>
   );

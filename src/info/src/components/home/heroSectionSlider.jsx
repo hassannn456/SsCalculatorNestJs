@@ -26,11 +26,11 @@ const HeroSectionSlider = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 7000,
+    speed: 5000,
+    autoplaySpeed: 0,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
     pauseOnHover: false,
     cssEase: "linear",
     responsive: [

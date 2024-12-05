@@ -34,7 +34,7 @@ const ProcessInfo = () => {
   ];
 
   return (
-    <Box sx={{ width: "100vw", backgroundColor: "#ffffff" }}>
+    <Box sx={{ width: "100vw" }}>
       <Container
         maxWidth="lg"
         sx={{ pt: "2.5rem", pb: "4rem", backgroundColor: "#ffffff" }}

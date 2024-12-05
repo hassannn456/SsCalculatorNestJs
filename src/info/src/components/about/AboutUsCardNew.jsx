@@ -1,7 +1,47 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import image from "/assets/pngs/about/mk-5-removebg-preview.png";
-import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
+import { motion } from 'framer-motion';
 
+
+const cardVariantsBottom = {
+  offscreen: {
+    y: 50,
+    opacity: 0,
+  },
+
+  onscreen: (index) => (
+    {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        stiffness: 100,
+        delay: index * 0.3,
+      },
+    }
+  ),
+};
+
+const cardVariants = {
+  offscreen: {
+    scale: 1.2,
+    opacity: 0,
+  },
+
+  onscreen: (index) => (
+    {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        damping: 50,
+        stiffness: 100,
+        delay: index * 0.3,
+      },
+    }
+  ),
+};
 const AboutUsCardNew = () => {
   return (
     <Grid
@@ -23,17 +63,27 @@ const AboutUsCardNew = () => {
       rowSpacing={1}
     >
       <Grid item xs={12} sm={12} md={6} sx={{ position: "relative" }}>
-        <CardMedia
-          component="img"
-          height="auto"
-          image={image}
-          alt="ok"
-          sx={{
-            cursor: "pointer",
-            maxWidth: "100%",
-            borderRadius: "5px",
-          }}
-        />
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariants}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={1}
+        >
+          <CardMedia
+            component="img"
+            height="auto"
+            image={image}
+            alt="ok"
+            sx={{
+              cursor: "pointer",
+              maxWidth: "100%",
+              borderRadius: "5px",
+            }}
+          />
+        </motion.div>
       </Grid>
       <Grid
         item
@@ -42,54 +92,88 @@ const AboutUsCardNew = () => {
         md={6}
         sx={{ position: "relative", my: "auto" }}
       >
-        <Typography
-          variant="h5"
-          sx={{
-            fontSize: { md: "20px", sm: "17px", xs: "12px" },
-            fontWeight: "800",
-            lineHeight: "1.2",
-            textAlign: "left",
-            color: "#11161f",
-            mb: 5,
-            fontFamily: "Barlow",
-          }}
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={1}
         >
-          Contact Us
-        </Typography>
-        <Typography
-          variant="h5"
-          sx={{
-            fontSize: { md: "46px", sm: "40px", xs: "20px" },
-            fontWeight: "800",
-            lineHeight: "1.2",
-            textAlign: "left",
-            color: "#11161f",
-            mb: 5,
-            fontFamily: "Barlow",
-          }}
+          <Typography
+            variant="h5"
+            sx={{
+              fontSize: { md: "16px", sm: "13px", xs: "12px" },
+              fontWeight: "600",
+              lineHeight: "18px",
+              textAlign: "left",
+              fontFamily: "Barlow",
+              textTransform: "capitalize",
+              // fontSize: "16px",
+              // fontWeight: "600",
+              // lineHeight: "18px",
+              color: "#378C92",
+              letterSpacing: "3px",
+            }}
+          >
+            CONTACT US
+          </Typography>
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={2}
         >
-          Leading Innovators in Web and Mobile Development
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            color: "grey",
-            textAlign: "left",
-            lineHeight: "1.5",
-            overflow: "hidden",
-            display: "-webkit-box",
-            WebkitLineClamp: 6,
-            WebkitBoxOrient: "vertical",
-            fontSize: { md: "16px", sm: "16px", xs: "12px" },
-          }}
+          <Typography
+            variant="h5"
+            sx={{
+              fontSize: { md: "42px", sm: "40px", xs: "20px" },
+              fontWeight: "800",
+              lineHeight: { xs: "44px", md: "46px" },
+              textAlign: "left",
+              color: "#11161f",
+              my: 3,
+              fontFamily: "Barlow",
+            }}
+          >
+            Leading Innovators in Web and Mobile Development
+          </Typography>
+        </motion.div>
+        <motion.div
+          className="card-container"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariantsBottom}
+          transition={{ type: "spring", stiffness: 100 }}
+          custom={3}
         >
-          Techietribe is not just another software house, we are your partners
-          in innovation. Specializing in cutting-edge web and mobile
-          development, we turn visionary ideas into functional, user-friendly
-          applications. Our team combines expertise and creativity to deliver
-          top-notch digital solutions, ensuring your business stands out in a
-          competitive market.
-        </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              color: "grey",
+              textAlign: "left",
+              lineHeight: "22px",
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 6,
+              WebkitBoxOrient: "vertical",
+              fontSize: { md: "16px", sm: "16px", xs: "12px" },
+            }}
+          >
+            Techietribe is not just another software house, we are your partners
+            in innovation. Specializing in cutting-edge web and mobile
+            development, we turn visionary ideas into functional, user-friendly
+            applications. Our team combines expertise and creativity to deliver
+            top-notch digital solutions, ensuring your business stands out in a
+            competitive market.
+          </Typography>
+        </motion.div>
       </Grid>
     </Grid>
   );

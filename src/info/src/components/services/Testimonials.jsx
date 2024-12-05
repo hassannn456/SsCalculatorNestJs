@@ -13,7 +13,7 @@ const Testimonials = () => {
         backgroundImage: `url(${bgMap2})`,
         backgroundPosition: "top left",
         backgroundRepeat: "no-repeat",
-        pt: 10,
+        py: 5,
       }}
     >
       <Box>
