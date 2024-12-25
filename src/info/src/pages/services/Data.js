@@ -1,4 +1,4 @@
-import WebDevelopmentImage from "/assets/pngs/services/WebDevImage.svg";
+import WebDevelopmentImage from "/assets/pngs/services/WebDev.png";
 import WebDevExtraImage from "/assets/pngs/services/WebDevExtraImage.png";
 import webDevelopment from "/assets/pngs/webdevelopment.avif";
 import WebDevExtraImage1 from "/assets/pngs/services/webExtraImage1.png";
