@@ -115,7 +115,7 @@ const TitleHeader = ({
             <Typography
               sx={{
                 color: "#ffffff",
-                fontSize: { xs: "15px", md: "22px" },
+                fontSize: { xs: "12px", md: "18px" },
                 maxWidth: "100%",
                 fontWeight: "400",
               }}
@@ -160,6 +160,7 @@ const TitleHeader = ({
               padding: { xs: "0.7rem", md: "0.9rem" },
               mt: "2rem",
               mb: fullscreen ? 8 : 5,
+              borderRadius: "7px"
             }}
             onClick={() => navigate("/contact-us")}
           >

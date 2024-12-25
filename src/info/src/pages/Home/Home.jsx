@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Services from "./../../components/home/services";
 import HeroSection from "./../../components/home/heroSection";
 import About from "./../../components/home/about";
@@ -9,38 +9,28 @@ import RequestQuote from "./../../components/home/requestQuotes";
 import { Box } from "@mui/material";
 import OurPortfolio from "../../components/home/ourPortfolio";
 import "./Home.css";
-import { RefContext } from "../../context/RefContext";
 import ScrollToTopButton from "./../../components/general/scrollToTopBtn";
 
-const Home = () => {
-  const {
-    homeRef,
-    scrollToBottom,
-    servicesRef,
-    aboutRef,
-    footerRef,
-    insightsRef,
-  } = useContext(RefContext);
-
+const Home = ({ video }) => {
   return (
     <>
       <ScrollToTopButton />
-      <Box ref={homeRef}>
-        <HeroSection scrollToBottom={scrollToBottom} />
+      <Box>
+        <HeroSection video={video} />
       </Box>
       <TechnologyIndex />
-      <Box ref={servicesRef}>
+      <Box>
         <Services />
       </Box>
-      <OurPortfolio scrollToBottom={scrollToBottom} />
-      <Box ref={aboutRef}>
+      <OurPortfolio />
+      <Box>
         <About />
       </Box>
-      <EngagementPlan scrollToBottom={scrollToBottom} />
-      <Box ref={insightsRef}>
+      <EngagementPlan />
+      <Box>
         <Insights />
       </Box>
-      <Box ref={footerRef}>
+      <Box>
         <RequestQuote />
       </Box>
     </>

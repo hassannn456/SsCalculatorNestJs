@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { styled } from '@mui/material/styles';
 import {
   Box,
   TextField,
@@ -32,6 +34,18 @@ const validationSchema = Yup.object().shape({
       return true;
     }),
 });
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
 
 const styles = {
   mainContainer: {
@@ -111,12 +125,10 @@ const styles = {
       color: "#378C92",
       width: "200px",
     },
-
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderColor: "lightgray",
       },
-
       "&.Mui-focused fieldset": {
         borderColor: "#378C92",
       },
@@ -471,22 +483,45 @@ const CareerForm = ({ bgColor, inPage = false }) => {
               fontSize: "14px",
               fontFamily: "Barlow",
               fontWeight: "500",
-              color: "#313431",
+              color: formik.errors.resume ? "#d32f2f" : "#313431",
               mt: "1.5rem",
+              mb: "0.5rem"
             }}
           >
             Attach Resume (PDF Only)
           </Typography>
-
-          <TextField
-            type="file"
-            name="resume"
-            onChange={handleFileChange}
-            error={formik.touched.resume && Boolean(formik.errors.resume)}
-            helperText={formik.touched.resume && formik.errors.resume}
-            sx={{ ...styles.textField }}
-          />
-
+          <Button
+            component="label"
+            variant="contained"
+            sx={{
+              ...styles.textField,
+              padding: "10px 20px",
+              borderRadius: "4px",
+              backgroundColor: "#ffffff",
+              color: "#000000",
+              border: formik.errors.resume ? "1px solid #d32f2f" : "1px solid lightgray",
+              boxShadow: "none",
+              width: { xs: "100%", sm: "50%", md: "40%", lg: "25%" },
+              "&:hover": {
+                backgroundColor: "transparent",
+                border: "1px solid #646464",
+                boxShadow: "none"
+              },
+              fontSize: "10px",
+              fontWeight: "600"
+            }}
+            startIcon={<CloudUploadIcon />}
+          >
+            Upload files
+            <VisuallyHiddenInput
+              type="file"
+              name="resume"
+              onChange={handleFileChange}
+              error={formik.touched.resume && Boolean(formik.errors.resume)}
+              helperText={formik.touched.resume && formik.errors.resume}
+              sx={{ display: "none" }}
+            />
+          </Button>
           <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
             <TextField
               name="message"

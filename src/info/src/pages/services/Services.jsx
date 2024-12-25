@@ -91,10 +91,10 @@ const Services = () => {
           }
           bgColor={"rgb(240, 243, 246)"}
         />
-        <Box sx={{ position: "absolute", top: -200, right: 0 }}>
+        <Box sx={{ position: "absolute", top: -200, right: 0, zIndex: 2 }}>
           <img src="/assets/pngs/shape5.png" alt="img" style={{ objectFit: "contain" }} />
         </Box>
-        <Box sx={{ position: "absolute", top: 0, left: 0, rotate: "180deg" }}>
+        <Box sx={{ position: "absolute", top: 0, left: 0, rotate: "180deg", zIndex: 3 }}>
           <img src="/assets/pngs/bg-pattern.png" alt="img" style={{ objectFit: "contain" }} />
         </Box>
       </Box>

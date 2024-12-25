@@ -15,7 +15,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import fieldImage from "/assets/pngs/footer/footer-shape.png";
 import whiteLogo from "/assets/pngs/header/WhiteLogo.png";
-import { RefContext } from "./../../context/RefContext";
+// import { RefContext } from "./../../context/RefContext";
 import { useNavigate } from "react-router-dom";
 
 const styles = {
@@ -222,13 +222,13 @@ const styles = {
 
 const Footer = () => {
   const navigate = useNavigate();
-  const {
-    scrollToServices,
-    scrollToAbout,
-    scrollToBottom,
-    scrollToHome,
-    scrollToInsights,
-  } = useContext(RefContext);
+  // const {
+  //   scrollToServices,
+  //   scrollToAbout,
+  //   scrollToBottom,
+  //   scrollToHome,
+  //   scrollToInsights,
+  // } = useContext(RefContext);
 
   const quickLinksArray = [
     { name: "Home", onClick: () => navigate("/") },
@@ -348,7 +348,6 @@ const Footer = () => {
                 value={email}
                 onChange={handleChange}
                 error={!!error}
-                // helperText={error}
               />
               <Button sx={styles.subscribeBtn} type="submit">
                 Subscribe

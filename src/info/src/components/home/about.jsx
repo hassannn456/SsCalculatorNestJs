@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-// import "./styles.css"
 import { Box, Divider, Tooltip, Typography, Slide, Zoom } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { useInView } from "react-intersection-observer";
@@ -16,7 +15,6 @@ const styles = {
     flexDirection: { xs: "column-reverse", md: "row" },
     justifyContent: "center",
     padding: { xs: "20px 15px", lg: "80px 0px 160px 0" },
-    // backgroundColor: "#ffffff",
     margin: "auto",
     width: { xs: "100%", md: "60rem", lg: "80rem", xl: "90rem" },
     gap: "1rem",

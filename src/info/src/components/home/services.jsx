@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
-import { Box, Zoom, Slide, Typography } from "@mui/material";
+import { Box, Slide, Typography } from "@mui/material";
 import CallMadeTwoToneIcon from "@mui/icons-material/CallMadeTwoTone";
 import WebDevIcon from "/assets/pngs/services/WebDevelopment.png";
 import MobileAppIcon from "/assets/pngs/services/MobileApp.png";
@@ -13,15 +13,13 @@ import UIUXImage from "/assets/pngs/services/UIImage1.png";
 import BlockchainImage from "/assets/pngs/services/BlockchainImage.png";
 import { motion } from 'framer-motion';
 import { useMediaQuery } from "@mui/material";
-
-
+import { useNavigate } from 'react-router-dom';
 const styles = {
   mainContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     padding: { xs: "20px 15px", lg: "60px 80px" },
-    // backgroundColor: "#ffffff",
     width: "100%",
     alignItems: "center",
     position: "relative",
@@ -36,6 +34,7 @@ const styles = {
     },
     "&:hover": {
       transform: "translateY(-10px)",
+      cursor: "pointer"
     },
   },
   heading: {
@@ -114,6 +113,7 @@ const styles = {
     minHeight: "unset",
     width: "auto",
     height: "auto",
+    cursor: "default"
   },
 
   cardHeading: {
@@ -122,6 +122,12 @@ const styles = {
     fontFamily: "Barlow",
     fontWeight: "500",
     color: "#ffffff",
+    borderBottom: "1px solid transparent",
+    transition: 'all 0.1s ease',
+    "&:hover": {
+      fontWeight: "700",
+      lineHeight: "1.5"
+    }
   },
   cardContent: {
     fontSize: "12px",
@@ -129,6 +135,7 @@ const styles = {
     fontWeight: "400",
     color: "#ffffff",
     mt: "1rem",
+    cursor: "text"
   },
 
   headingContainer: {
@@ -201,6 +208,7 @@ const Services = () => {
   const arrowIconRef = useRef(null);
   const contentRef = useRef(null);
   const isMobile = useMediaQuery("(max-width: 600px)");
+  const navigate = useNavigate();
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -219,6 +227,7 @@ const Services = () => {
       content:
         "Craft interactive and dynamic websites tailored to your business needs. Our expert developers leverage the latest technologies to deliver high-performance web solutions that drive results.",
       backgroundImage: WebDevImage,
+      url: "/services/web-development"
     },
     {
       icon: MobileAppIcon,
@@ -226,6 +235,7 @@ const Services = () => {
       content:
         "Transform your ideas into powerful mobile applications. From conceptualization to deployment, our skilled team specializes in creating intuitive and feature-rich mobile apps across platforms.",
       backgroundImage: MobileDevImage,
+      url: "/services/mobile-application"
     },
     {
       icon: UIUX,
@@ -233,6 +243,7 @@ const Services = () => {
       content:
         "Enhance user engagement and satisfaction with captivating UI/UX designs. We focus on creating seamless user experiences through intuitive interfaces and visually appealing designs.",
       backgroundImage: UIUXImage,
+      url: "/services/ui-design"
     },
     {
       icon: SoftwareInnovation,
@@ -240,8 +251,17 @@ const Services = () => {
       content:
         "Explore the potential of blockchain technology for secure and transparent transactions. Our blockchain experts provide innovative solutions for decentralized applications and smart contracts.",
       backgroundImage: BlockchainImage,
+      url: "/services/blockchain"
     },
   ];
+
+  const handleNavigation = (e, url) => {
+    console.log("URL --- ", url);
+    // e.stopPropagation();
+    navigate(url);
+  }
+
+  const handlePropagation = (e) => e.stopPropagation();
 
   return (
     <Box sx={{
@@ -268,7 +288,7 @@ const Services = () => {
                   transition={{ type: "spring", stiffness: 100 }}
                 >
 
-                  <Box sx={{ ...styles.cardParent }}>
+                  <Box sx={{ ...styles.cardParent }} onClick={() => handleNavigation(card.url)}>
                     <Box
                       key={index}
                       sx={{
@@ -276,6 +296,7 @@ const Services = () => {
                         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
                         justifyContent:
                           hoveredIndex === index ? "space-between" : "flex-end",
+
                       }}
                       onMouseEnter={() => handleHover(index)}
                       onMouseLeave={handleMouseLeave}
@@ -295,11 +316,12 @@ const Services = () => {
                               timeout={500}
                               container={mainIconRef.current}
                             >
-                              <Box sx={styles.icon}>
+                              <Box sx={styles.icon} onClick={(e) => handlePropagation(e)}>
                                 <img
                                   src={card.icon}
                                   alt="icon"
                                   style={{ width: "50px", height: "45px" }}
+                                  loading="lazy"
                                 />
                               </Box>
                             </Slide>
@@ -346,7 +368,7 @@ const Services = () => {
                             timeout={500}
                             container={contentRef.current}
                           >
-                            <Typography sx={styles.cardContent}>
+                            <Typography sx={styles.cardContent} onClick={(e) => handlePropagation(e)}>
                               {card.content}
                             </Typography>
                           </Slide>
@@ -375,7 +397,8 @@ const Services = () => {
                   transition={{ type: "spring", stiffness: 100 }}
                   custom={index}
                 >
-                  <Box sx={{ ...styles.cardParent, mt: index % 2 == 0 ? "0rem" : "5rem" }}>
+                  <Box sx={{ ...styles.cardParent, mt: index % 2 == 0 ? "0rem" : "5rem" }}
+                    onClick={(e) => handleNavigation(e, card.url)}>
                     <Box
                       key={index}
                       sx={{
@@ -402,11 +425,12 @@ const Services = () => {
                               timeout={500}
                               container={mainIconRef.current}
                             >
-                              <Box sx={styles.icon}>
+                              <Box sx={styles.icon} onClick={(e) => handlePropagation(e)}>
                                 <img
                                   src={card.icon}
                                   alt="icon"
                                   style={{ width: "50px", height: "45px" }}
+                                  loading="lazy"
                                 />
                               </Box>
                             </Slide>
@@ -453,7 +477,7 @@ const Services = () => {
                             timeout={500}
                             container={contentRef.current}
                           >
-                            <Typography sx={styles.cardContent}>
+                            <Typography sx={styles.cardContent} onClick={(e) => handlePropagation(e)}>
                               {card.content}
                             </Typography>
                           </Slide>
@@ -481,7 +505,7 @@ const Services = () => {
         top: "37px",
         right: "-125px"
       }}>
-        <img src="/assets/pngs/shape3.png" alt="bgImg" style={{
+        <img src="/assets/pngs/shape3.png" alt="bgImg" loading="lazy" style={{
           objectFit: "contain",
           width: "450px",
           height: "450px",

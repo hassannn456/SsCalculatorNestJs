@@ -93,12 +93,11 @@ const TechnologyIndex = () => {
               loop={true}
               navigation={true}
               autoplay={{
-                // delay: 0,
                 disableOnInteraction: false,
                 reverseDirection: true,
               }}
               cssMode={true}
-              autoplayDisableOnInteraction={false}
+              autoplaydisableoninteraction={"false"}
               modules={[Pagination, Navigation, Autoplay]}
               breakpoints={{
                 0: {

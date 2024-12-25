@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import InsightData from "./insightData";
 
 const categories = [
-  // "All Insights",
   "Artificial Intelligence",
   "Blockchain",
   "Cloud",
@@ -27,8 +26,11 @@ const styles = {
   mainContainer: {
     backgroundColor: "#ffffff",
     marginLeft: 0,
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
-    width: { xs: "100%", lg: "70%" },
+    justifyContent: "space-between",
+    width: { xs: "100%", lg: "70%" }
   },
   heading: {
     fontSize: "20px",
@@ -55,7 +57,6 @@ const styles = {
     flexWrap: "wrap",
     gap: "3.3rem",
     width: "100%",
-    margin: "auto",
   },
   card: {
     display: "flex",
@@ -126,9 +127,6 @@ const styles = {
     color: "#313431",
     width: "80%",
     cursor: "pointer",
-    "&&:hover": {
-      color: "#378C92",
-    },
   },
 };
 
@@ -150,6 +148,7 @@ const InsightCards = () => {
   };
 
   const handleSearchChange = (event) => {
+    setPage(0);
     const query = event.target.value.toLowerCase();
     setCurrentCategory(null);
     const filteredData = InsightData.filter(
@@ -161,7 +160,7 @@ const InsightCards = () => {
     setBlogsData(filteredData);
   };
 
-  const handlePagination = (e, value) => {
+  const handlePagination = (e) => {
     const val = +e.target.textContent;
     setPage(val - 1);
   };
@@ -186,7 +185,6 @@ const InsightCards = () => {
       <Box
         sx={{
           ...styles.mainContainer,
-          justifyContent: blogsData.length === 0 ? "flex-start" : "center",
         }}
       >
         {blogsData.length === 0 ? (
@@ -297,6 +295,10 @@ const InsightCards = () => {
       <Box
         sx={{
           width: { xs: "100%", lg: "30%" },
+          height: "fit-content",
+          position: "sticky",
+          top: "-20%",
+          overflowY: "auto"
         }}
       >
         <TextField
@@ -362,11 +364,6 @@ const InsightCards = () => {
                   return item.category == data;
                 });
                 setPage(0);
-                // {
-                //   data == "All Insights"
-                //     ? setBlogsData(InsightData)
-                //     : setBlogsData(filter);
-                // }
                 setBlogsData(filter);
                 window.scrollTo({
                   top: 300,
@@ -383,9 +380,9 @@ const InsightCards = () => {
               {data == currentCategory ? (
                 <Box
                   sx={{
-                    color: "green",
+                    color: "white",
+                    backgroundColor: "#378C92",
                     width: "fit-content",
-                    border: "1px solid green",
                     padding: "2px 5px",
                     borderRadius: "5px",
                     display: "flex",
@@ -393,7 +390,7 @@ const InsightCards = () => {
                   }}
                 >
                   <Typography
-                    sx={{ ...styles.blogHeadingRecent, width: "fit-content" }}
+                    sx={{ ...styles.blogHeadingRecent, width: "fit-content", color: "white", fontWeight: "bold" }}
                   >
                     {data}
                   </Typography>

@@ -155,10 +155,10 @@ function CarouselContent() {
                     boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
                     transition: "transform 0.2s, box-shadow 0.2s",
                     perspective: "1400px",
-                    transform: rotation,
-                    // index ? 'transform: "rotateY(65deg)",' : 'transform: "rotateY(65deg)",',
+                    transform: { sm: "none", md: rotation },
+                  
+                    mx: "10px",
                     "&:hover": {
-                      // transform: "scale(1.03)",
                       boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
                     },
                   }}
@@ -173,11 +173,11 @@ function CarouselContent() {
             </SwiperSlide>
           })}
         </Swiper>
-        <div ref={prevRef} className="city-custom-prev">
-          <ArrowBackIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)" }} />
+        <div ref={prevRef} className="city-custom-prev" >
+          <ArrowBackIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)", mt: { xs: "120px", sm: "40px", md: "0px" }, mr: { xs: "20px", md: "0px" } }} />
         </div>
         <div ref={nextRef} className="city-custom-next">
-          <ArrowForwardIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)" }} />
+          <ArrowForwardIosIcon sx={{ color: "rgba(28, 154, 192, 0.85)", mt: { xs: "120px", sm: "40px", md: "0px" }, ml: { xs: "30px", md: "0px" } }} />
         </div>
         <style>
           {`

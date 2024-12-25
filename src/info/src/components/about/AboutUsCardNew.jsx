@@ -110,9 +110,6 @@ const AboutUsCardNew = () => {
               textAlign: "left",
               fontFamily: "Barlow",
               textTransform: "capitalize",
-              // fontSize: "16px",
-              // fontWeight: "600",
-              // lineHeight: "18px",
               color: "#378C92",
               letterSpacing: "3px",
             }}

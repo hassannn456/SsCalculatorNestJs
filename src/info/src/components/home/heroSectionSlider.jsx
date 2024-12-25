@@ -88,7 +88,6 @@ const HeroSectionSlider = () => {
                 alignItems: "center",
                 height: "3.8rem",
                 willChange: "transform",
-                // m: "auto",
               }}
             >
               <img

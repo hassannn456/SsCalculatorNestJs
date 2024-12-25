@@ -37,7 +37,7 @@ const CardBox = ({ url, description, title }) => {
       <Typography sx={{ fontWeight: 600, mb: 1.5 }} color="black">
         {title}
       </Typography>
-      <Typography variant="body2" align="center" sx={{ color: "#666" }}>
+      <Typography variant="body2" align="center" sx={{ color: "#666", px: { sm: "5px", md: "0px" } }}>
         {description}
       </Typography>
     </Box>
@@ -46,7 +46,7 @@ const CardBox = ({ url, description, title }) => {
 
 export default function CustomCard({ url, description, title }) {
   return (
-    <Box sx={{ borderRadius: "12px", overflow: "hidden", minWidth: 300 }}>
+    <Box sx={{ borderRadius: "12px", overflow: "hidden", minWidth: 150 }}>
       <Card>
         <CardBox url={url} description={description} title={title} />
       </Card>

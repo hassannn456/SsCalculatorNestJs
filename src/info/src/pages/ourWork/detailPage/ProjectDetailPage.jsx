@@ -22,6 +22,8 @@ const ProjectDetailPage = () => {
         logo={filterdata[0].LogoPath}
         description={filterdata[0].description}
         double={true}
+        industry={filterdata[0].industry}
+        platformType={filterdata[0].platformType}
       />
 
       <TechnologyBar images={filterdata[0].technologies} />

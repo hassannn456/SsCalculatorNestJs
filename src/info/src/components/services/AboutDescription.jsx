@@ -32,11 +32,11 @@ const AboutDescription = ({
   bgColor,
 }) => {
   return (
-    <Box sx={{ backgroundColor: bgColor ? bgColor : "white" }}>
+    <Box sx={{ backgroundColor: bgColor ? bgColor : "white", position: "relative" }}>
       <Box
         sx={{
-          px: { xs: "2rem", md: "2rem" },
-          py: { xs: "2rem", md: "4rem" },
+          px: { xs: "1rem", md: "2rem" },
+          py: { xs: "1rem", md: "4rem" },
           display: "flex",
           flexDirection: {
             md: inverted ? "row-reverse" : "row",
@@ -66,6 +66,7 @@ const AboutDescription = ({
             variants={cardVariants}
             transition={{ type: "spring", stiffness: 100 }}
             custom={2}
+            style={{ zIndex: 5 }}
           >
             <img
               src={image}
@@ -73,8 +74,7 @@ const AboutDescription = ({
                 width: "100%",
                 height: "auto",
                 objectFit: "fill",
-                paddingLeft: "50px",
-                paddingRight: "50px",
+                px: { xs: "10px", md: "50px" }
               }}
             />
           </motion.div>

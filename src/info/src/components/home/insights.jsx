@@ -97,12 +97,10 @@ const styles = {
 
 const cardVariantsLeft = {
   offscreen: {
-    // x: "100px",
     scale: 0.9,
     opacity: 0,
   },
   onscreen: {
-    // x: "0px",
     scale: 1,
     opacity: 1,
     transition: {
@@ -116,7 +114,6 @@ const cardVariantsLeft = {
 };
 const cardVariantsRight = {
   offscreen: {
-    // x: "-100px",
     scale: 0.9,
     opacity: 0,
   },

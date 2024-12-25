@@ -5,7 +5,7 @@ const tabsdata = [
     label:
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
-      "Starting the thrilling adve­nture of creating your ideal house­ in Amityville, NY? Picking the proper building firm is a ke­y initial move to make your dream house­ come true. In",
+      "ConceptAI is a tech company focusing on AI-driven solutions to drive economic growth and transform industries, including room design tools, personalized chatbots, dating profile generators, and online presence enhancement services.",
     path: "/assets/pngs/heroSecionSlider/Concept Ai.png",
     logo1: "/assets/pngs/TechCardPngs/nextJs.png",
     logo2: "/assets/pngs/TechCardPngs/nodeJs.png",
@@ -33,7 +33,7 @@ const tabsdata = [
     label:
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
-      "An app offering investment products and services for companies, featuring an AI chatbot for seamless assistance and support.",
+      "Mainstay, an AI-enhanced platform, improves student outcomes and fosters connections between learners, staff, and leadership through personalized success coaching, conversation co-pilot, and actionable insights.",
     path: "/assets/pngs/heroSecionSlider/MainStay.png",
     logo1: "/assets/pngs/TechCardPngs/typescript.png",
     logo2: "/assets/pngs/TechCardPngs/react.png",
@@ -112,7 +112,7 @@ const tabsdata = [
     label:
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
-      "Starting the thrilling adve­nture of creating your ideal house­ in Amityville, NY? Picking the proper building firm is a ke­y initial move to make your dream house­ come true. In",
+      "Spiritual Data is a non-profit advancing scientific understanding and decision-making by providing transparent, reliable truth for spiritual and metaphysical questions, using AI-first strategies for scalability and collaboration.",
     path: "/assets/pngs/heroSecionSlider/Spiritual Data.png",
     logo1: "/assets/pngs/TechCardPngs/nodeJs.png",
     logo2: "/assets/pngs/TechCardPngs/nextJs.png",

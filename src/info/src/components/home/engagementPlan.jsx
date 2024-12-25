@@ -19,10 +19,6 @@ const styles = {
     alignItems: "center",
     margin: "auto",
     width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
-    // background: "url('/assets/pngs/shape4.png')",
-    // backgroundRepeat: "no-repeat",
-    // backgroundPosition: "top left",
-    // backgroundSize: "496px 450px",
   },
 
   heading: {
@@ -221,7 +217,6 @@ const EngagementPlan = ({ projectIndex = true }) => {
       sx={{
         backgroundColor: "#ffffff",
         paddingTop: projectIndex ? { xs: "3rem", md: 0 } : 0,
-        // overflow: "hidden",
         width: "100%",
 
       }}

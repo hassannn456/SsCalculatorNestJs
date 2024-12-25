@@ -1,16 +1,14 @@
 import React from "react";
-import BusinessIcon from "@mui/icons-material/Business";
 import { Typography, Box } from "@mui/material";
-const ProjectContentDetail = () => {
+const ProjectContentDetail = ({ title, description, icon }) => {
   return (
     <Box sx={{ width: "100%", display: "flex", gap: 2 }}>
-      <Box>
-        <BusinessIcon sx={{ color: "#378C92" }} />
+      <Box sx={{ color: "#378C92" }}>
+        {icon}
       </Box>
       <Box>
-        <Typography sx={{ fontSize: 20 }}>Industry</Typography>
-        <Typography sx={{ color: "gray" }}>Media &</Typography>
-        <Typography sx={{ color: "gray" }}>Entertaiment</Typography>
+        <Typography sx={{ fontSize: 16, mb: "5px" }}>{title}</Typography>
+        <Typography sx={{ color: "gray", fontSize: 12 }}>{description}</Typography>
       </Box>
     </Box>
   );

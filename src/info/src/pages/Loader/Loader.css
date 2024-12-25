@@ -7,6 +7,9 @@
 }
 
 .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
   font-size: 40px;
   line-height: 1.5;
@@ -22,13 +25,28 @@
       calc(50% - 1.6em) 0/3.2em 100% text,
     radial-gradient(1.13em at 50% -0.8em, #0000 99%, rgb(55, 140, 146) 101%) 50%
       0.8em/3.2em 100% repeat-x text;
-  animation: l9 2s linear infinite;
+  animation: expandAndShrink 1s ease-out forwards,
+    l9Background 2s linear infinite;
 }
-.loader:before {
+.loader::after {
   content: "Techietribe";
 }
-@keyframes l9 {
+@keyframes l9Background {
   to {
     background-position: calc(50% + 1.6em) 0, calc(50% + 3.2em) 0.8em;
+  }
+}
+@keyframes expandAndShrink {
+  0% {
+    transform: scale(9.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(4.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

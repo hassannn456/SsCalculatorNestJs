@@ -68,7 +68,7 @@ const HeaderText = () => {
       >
         <Typography
           sx={{
-            fontSize: "46px",
+            fontSize: { xs: "30px", md: "42px" },
             fontWeight: "800",
             lineHeight: "1",
             color: "#161c26",
@@ -91,11 +91,11 @@ const HeaderText = () => {
       >
         <Typography
           sx={{
-            fontSize: "16px",
+            fontSize: { xs: "13px", md: "16px" },
             fontWeight: "500",
             color: "grey",
             textAlign: "center",
-            lineHeight: "1.8",
+            lineHeight: { xs: "17px", md: "22px" },
           }}
         >
           TechieTribe sparks a revolution in technology by streamlining the

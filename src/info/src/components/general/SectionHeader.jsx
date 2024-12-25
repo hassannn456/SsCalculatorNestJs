@@ -72,9 +72,9 @@ const SectionIntro = ({
         >
           <Typography
             sx={{
-              fontSize: "42px",
+              fontSize: { xs: "30px", md: "42px" },
               fontWeight: "700",
-              lineHeight: { xs: "44px", md: "45px" },
+              lineHeight: { xs: "35px", md: "45px" },
               fontFamily: "Barlow",
               color: subtitleColor ? subtitleColor : "#161c26",
               textAlign: justify ? "left" : "center",
@@ -97,9 +97,9 @@ const SectionIntro = ({
           <Typography
             variant="body2"
             sx={{
-              fontSize: justify ? "16px" : "15px",
+              fontSize: { xs: "13px", md: "16px" },
               fontWeight: "400",
-              lineHeight: "22px",
+              lineHeight: { xs: "17px", md: "22px" },
               fontFamily: "sans-serif",
               color: "#797f89",
               textAlign: justify ? "left" : "center",

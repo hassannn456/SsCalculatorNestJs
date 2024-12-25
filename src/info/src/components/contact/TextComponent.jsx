@@ -6,10 +6,13 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import { Link } from "react-router-dom";
 const TextComponent = () => {
   const handleIconClick = (url) => {
     window.open(url, "_blank");
+  };
+  const handleAddressClick = () => {
+    window.open("https://maps.app.goo.gl/G2MNu77hjGQVJpkLA", "_blank");
   };
   return (
     <Box
@@ -19,9 +22,8 @@ const TextComponent = () => {
         paddingX: "2rem",
         background: "linear-gradient(to top, #378c92, #536cb7)",
         width: "100%",
-        height: "100%",
         borderRadius: "8px",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         paddingTop: { xs: "1rem", md: 0 },
         minHeight: { xs: "35rem", md: "100%" },
       }}
@@ -45,8 +47,7 @@ const TextComponent = () => {
             fontWeight: "200",
           }}
         >
-          After you submit the form, out team will get back to you withn 24
-          hours
+          Once you submit the form, our team will respond to you within 24 hours.
         </Typography>
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -80,7 +81,9 @@ const TextComponent = () => {
                   fontWeight: "200",
                 }}
               >
-                info@techietribe.com
+                <Link to="mailto:example@gmail.com" target="_blank" >
+                  info@techietribe.com
+                </Link>
               </Typography>
             </Box>
           </Box>
@@ -115,7 +118,9 @@ const TextComponent = () => {
                   fontWeight: "200",
                 }}
               >
-                +92 300 456 1126
+                <Link to="tel:+92300456 1126" target="_blank" >
+                  +92 300 456 1126
+                </Link>
               </Typography>
             </Box>
           </Box>
@@ -142,15 +147,18 @@ const TextComponent = () => {
               >
                 Visit us
               </Typography>
-              <Typography
-                sx={{
-                  color: "#ffffff",
-                  fontSize: "1rem",
-                  fontFamily: "Barlow",
-                  fontWeight: "200",
-                }}
-              >
-                Office#718, Siddique Trade Center, Gulberg 2, Lahore, Pakistan
+              <Typography sx={{
+                color: "#ffffff",
+                fontSize: "1rem",
+                fontFamily: "Barlow",
+                fontWeight: "200",
+                "&&:hover": {
+                  color: '#e0e0e0',
+                  cursor: "pointer"
+                },
+              }} onClick={handleAddressClick}>
+                Office No. 718, 7th Floor, Siddique Trade Center, Block H, Gulberg
+                2, Lahore, Punjab
               </Typography>
             </Box>
           </Box>
@@ -170,6 +178,7 @@ const TextComponent = () => {
             fontFamily: "Barlow",
             fontSize: "1.1rem",
             fontWeight: "600",
+
           }}
         >
           Social Media
@@ -195,6 +204,7 @@ const TextComponent = () => {
               border: "2px solid #ffffff",
               "&:hover": {
                 backgroundColor: "#f0f0f0",
+                cursor: "pointer"
               },
             }}
             onClick={() =>
@@ -203,7 +213,9 @@ const TextComponent = () => {
               )
             }
           >
-            <FacebookIcon sx={{ color: "#378c92" }} />
+            <FacebookIcon sx={{
+              color: "#378c92",
+            }} />
           </Box>
           <Box
             sx={{
@@ -217,6 +229,7 @@ const TextComponent = () => {
               border: "2px solid #ffffff",
               "&:hover": {
                 backgroundColor: "#f0f0f0",
+                cursor: "pointer"
               },
             }}
             onClick={() =>
@@ -225,7 +238,9 @@ const TextComponent = () => {
               )
             }
           >
-            <InstagramIcon sx={{ color: "#378c92" }} />
+            <InstagramIcon sx={{
+              color: "#378c92",
+            }} />
           </Box>
           <Box
             sx={{
@@ -239,13 +254,17 @@ const TextComponent = () => {
               border: "2px solid #ffffff",
               "&:hover": {
                 backgroundColor: "#f0f0f0",
+                cursor: "pointer"
               },
             }}
             onClick={() =>
               handleIconClick("https://www.linkedin.com/company/techietribe")
             }
           >
-            <LinkedInIcon sx={{ color: "#378c92" }} />
+            <LinkedInIcon sx={{
+              color: "#378c92",
+
+            }} />
           </Box>
         </Box>
       </Box>

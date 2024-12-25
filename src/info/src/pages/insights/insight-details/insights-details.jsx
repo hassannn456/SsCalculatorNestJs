@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Typography,
@@ -79,28 +79,123 @@ const scaleInStyle = (delay) => ({
 });
 
 const InsightDetails = () => {
+  const [articleData, setArticleData] = useState({
+    id: null,
+    image: webDevelopment,
+    title: "AI in Modern Web Development",
+    description: "Discover how artificial intelligence is transforming the landscape of web development. ",
+    headings: []
+  });
+  const [cardData, setCardData] = useState({
+    id: null,
+    img: webDevelopment,
+    title: "AI in Modern Web Development",
+    description: "Discover how artificial intelligence is transforming the landscape of web development. "
+  });
   const { id } = useParams();
   const data = InsightData.find((item) => item.id === id);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const data = InsightData.find((item) => item.id === id);
+    if (!data) {
+      return;
+    }
+    let obj = {
+      id: data.id,
+      image: data.image,
+      title: data.title,
+      description: data.description,
+      headings: data.headings
+    }
+    setArticleData({ ...obj });
+  }, [id]);
+
+  useEffect(() => {
+    const currentIndex = InsightData.findIndex((item) => item.id === id);
+    const data = InsightData.find((item, index) => index === currentIndex + 1);
+    if (currentIndex == InsightData.length - 1) {
+      const obj = {
+        id: InsightData[0].id,
+        img: InsightData[0].image,
+        title: InsightData[0].heading,
+        description: InsightData[0].content,
+      }
+      setCardData({ ...obj });
+    } else {
+      const obj = {
+        id: data.id,
+        img: data.image,
+        title: data.heading,
+        description: data.content,
+      }
+      setCardData({ ...obj });
+    }
+  }, [articleData.id])
+
   if (!data) {
     return (
-      <Typography variant="h6" color="textSecondary">
-        Article not found
-      </Typography>
+      <Box sx={{
+        height: "100vh",
+        backgroundColor: "black",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        color: "white",
+        padding: "20px"
+      }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 700,
+            textAlign: "center",
+            lineHeight: "1.4",
+            letterSpacing: "1px",
+            marginBottom: 2
+          }}
+        >
+          Article Not Found
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: "center",
+            maxWidth: "500px",
+            marginTop: 1,
+            fontSize: "1.1rem",
+            opacity: 0.7
+          }}
+        >
+          We're sorry, but the article you're looking for doesn't exist. Please check the URL or go back to the homepage.
+        </Typography>
+      </Box>
+
     );
   }
 
-  const handlePrevious = () => {
-    if (id > 1) {
-      navigate(`/insight-details/${Number(id) - 1}`);
+  const handlePrevious = (id) => {
+    const currentIndex = InsightData.findIndex((item) => item.id === id);
+    if (currentIndex == 0) {
+      return;
+    } else {
+      const data = InsightData.find((item, index) => index === currentIndex - 1);
+      navigate(`/insight-details/${data.id}`);
     }
   };
 
-  const handleNext = () => {
-    if (Number(id) < InsightData.length) {
-      navigate(`/insight-details/${Number(id) + 1}`);
+  const handleNext = (id) => {
+    const currentIndex = InsightData.findIndex((item) => item.id === id);
+    if (currentIndex == InsightData.length - 1) {
+      return;
+    } else {
+      const data = InsightData.find((item, index) => index === currentIndex + 1);
+      navigate(`/insight-details/${data.id}`);
     }
+  };
+
+  const handleCard = (id) => {
+    navigate(`/insight-details/${id}`);
   };
 
   return (
@@ -119,14 +214,14 @@ const InsightDetails = () => {
           <Grid item xs={12} md={8}>
             <Box sx={{ width: "100%", height: { xs: "auto", md: "500px" } }}>
               <img
-                src={data.image || BlogImage1}
+                src={articleData.image || BlogImage1}
                 style={{
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
                   borderRadius: "8px",
                 }}
-                alt={data.title}
+                alt={articleData.title}
               />
             </Box>
             <Box sx={{ mt: "1rem", marginBottom: "1rem" }}>
@@ -144,11 +239,13 @@ const InsightDetails = () => {
               >
                 {data.heading}
               </Typography>
-              <Typography paragraph>{data.description}</Typography>
+              <Typography paragraph>
+                {articleData.description}
+              </Typography>
             </div>
             <Box>
-              {data.headings &&
-                data.headings.map((item, index) => (
+              {articleData.headings &&
+                articleData.headings.map((item, index) => (
                   <div key={index} style={slideInLeftStyle(1)}>
                     <Typography
                       variant="h6"
@@ -178,7 +275,7 @@ const InsightDetails = () => {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={handlePrevious}
+                onClick={() => handlePrevious(articleData.id)}
                 startIcon={<ArrowBackIcon />}
                 disabled={id <= 1}
                 sx={{
@@ -198,7 +295,7 @@ const InsightDetails = () => {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={handleNext}
+                onClick={() => handleNext(articleData.id)}
                 disabled={id >= InsightData.length}
                 endIcon={<ArrowForwardIcon />}
                 sx={{
@@ -218,11 +315,15 @@ const InsightDetails = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={4}>
-            <Card sx={{ marginBottom: "2rem", ...scaleInStyle(1) }}>
+          <Grid item xs={12} md={4} sx={{
+            ":hover": {
+              "cursor": "pointer"
+            }
+          }} onClick={() => handleCard(cardData.id)} >
+            <Card sx={{ marginBottom: "2rem", ...scaleInStyle(1), position: "sticky", top: 100 }}>
               <CardMedia
                 component="img"
-                image={webDevelopment}
+                image={cardData.img}
                 alt="Web Development Image"
                 sx={{ height: 200 }}
               />
@@ -234,11 +335,10 @@ const InsightDetails = () => {
                   fontWeight={600}
                   color={"#378c92"}
                 >
-                  AI in Modern Web Development
+                  {cardData.title}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  Discover how artificial intelligence is transforming the
-                  landscape of web development.
+                  {cardData.description}
                 </Typography>{" "}
                 <Button
                   variant="contained"
@@ -254,6 +354,7 @@ const InsightDetails = () => {
                     },
                     textTransform: "none",
                   }}
+                  onClick={() => handleCard(cardData.id)}
                 >
                   Read More
                 </Button>

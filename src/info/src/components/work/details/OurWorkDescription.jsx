@@ -1,12 +1,16 @@
 import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import ProjectContentDetail from "./ProjectContentDetail";
+import BusinessIcon from '@mui/icons-material/Business';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 const OurWorkDescription = ({
   logo,
   description,
   reverse = false,
   double = false,
+  industry,
+  platformType
 }) => {
   return (
     <Box
@@ -59,18 +63,18 @@ const OurWorkDescription = ({
             <Box
               sx={{
                 display: "flex",
-                width: "70%",
                 justifyContent: { xs: "space-between", md: "space-between" },
+                gap: "15px"
               }}
             >
               <Box>
-                <ProjectContentDetail />
+                <ProjectContentDetail title="Industry" description={industry} icon={<BusinessIcon />} />
               </Box>
               <Box>
                 <Divider orientation="vertical" />
               </Box>
               <Box>
-                <ProjectContentDetail />
+                <ProjectContentDetail title="Platform Type" description={platformType} icon={<LibraryBooksIcon />} />
               </Box>
             </Box>
           )}

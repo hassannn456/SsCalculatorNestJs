@@ -1,10 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import Video2 from "/assets/video/video4.mp4";
+import heroSectionVideo from "/assets/video/heroSectionVideo.mp4";
 import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {
@@ -108,13 +105,13 @@ const styles = {
   },
 };
 
-// eslint-disable-next-line react/prop-types
 const HeroSection = ({ scrollToBottom }) => {
+
   return (
     <Box sx={styles.mainContainer}>
       <Box sx={styles.videoContainer}>
         <video playsInline autoPlay muted loop style={styles.video}>
-          <source type="video/mp4" src={Video2} />
+          <source type="video/mp4" src={heroSectionVideo} />
         </video>
       </Box>
       <div style={styles.overlay}></div>

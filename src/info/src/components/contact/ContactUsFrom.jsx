@@ -108,6 +108,7 @@ const ContactUsFrom = () => {
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [err, setErr] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -144,14 +145,15 @@ const ContactUsFrom = () => {
         import.meta.env.VITE_KEY
       )
       .then(() => {
+        setErr(false)
         setSnackbarMessage("Email successfully sent!");
         setSnackbarOpen(true);
-
         sendAutoReply(params.email, params.first_name);
         formik.resetForm();
       })
       .catch((err) => {
-        console.log(err);
+        console.log("EmIL JS REPSONE ", err);
+        setErr(true);
         setSnackbarMessage("Email sending failed!");
         setSnackbarOpen(true);
       })
@@ -200,7 +202,6 @@ const ContactUsFrom = () => {
         onSubmit={formik.handleSubmit}
         sx={{
           height: "100%",
-
           width: { xs: "100%", md: "100%" },
           display: "flex",
           flexDirection: "column",
@@ -211,13 +212,14 @@ const ContactUsFrom = () => {
             display: "flex",
             justifyContent: "space-between",
             width: "100%",
-            mt: "1rem",
             flexDirection: { xs: "column", md: "row" },
+            gap: "14px",
+            mt: "1rem"
           }}
         >
-          <Box>
-            <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem" }}>
-              First name
+          <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+            <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem", mb: "3px", fontWeight: "500" }}>
+              First Name:
             </Typography>
             <TextField
               size="small"
@@ -251,9 +253,9 @@ const ContactUsFrom = () => {
               }}
             />
           </Box>
-          <Box>
-            <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem" }}>
-              Last name
+          <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+            <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem", mb: "3px", fontWeight: "500" }}>
+              Last Name:
             </Typography>
             <TextField
               type=""
@@ -288,12 +290,12 @@ const ContactUsFrom = () => {
           sx={{
             display: "flex",
             width: "100%",
-            mt: "1.5rem",
+            mt: "0.5rem",
             flexDirection: "column",
           }}
         >
-          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem" }}>
-            Email
+          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem", mb: "3px", fontWeight: "500" }}>
+            Email Address:
           </Typography>
           <TextField
             size="small"
@@ -323,12 +325,12 @@ const ContactUsFrom = () => {
           sx={{
             display: "flex",
             width: "100%",
-            mt: "1.5rem",
+            mt: "0.5rem",
             flexDirection: "column",
           }}
         >
-          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem" }}>
-            Number
+          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem", mb: "3px", fontWeight: "500" }}>
+            Phone Number:
           </Typography>
           <MuiTelInput
             size="small"
@@ -358,12 +360,12 @@ const ContactUsFrom = () => {
           sx={{
             display: "flex",
             width: "100%",
-            mt: "1.5rem",
+            mt: "0.5rem",
             flexDirection: "column",
           }}
         >
-          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem" }}>
-            Info
+          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem", mb: "7px", fontWeight: "500" }}>
+            Referral Source:
           </Typography>
           <TextField
             size="small"
@@ -388,21 +390,27 @@ const ContactUsFrom = () => {
               },
             }}
           >
-            <MenuItem value="facebook">Facebook</MenuItem>
-            <MenuItem value="instagram">Instagram</MenuItem>
-            <MenuItem value="linkedin">LinkedIn</MenuItem>
+            <MenuItem value="facebook">
+              Facebook
+            </MenuItem>
+            <MenuItem value="instagram">
+              Instagram
+            </MenuItem>
+            <MenuItem value="linkedin">
+              LinkedIn
+            </MenuItem>
           </TextField>
         </Box>
         <Box
           sx={{
             display: "flex",
             width: "100%",
-            mt: "1.5rem",
+            mt: "0.5rem",
             flexDirection: "column",
           }}
         >
-          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem" }}>
-            Message
+          <Typography sx={{ fontFamily: "Barlow", fontSize: "1rem", mb: "3px", fontWeight: "500" }}>
+            Message:
           </Typography>
           <TextField
             name="message"
@@ -449,7 +457,15 @@ const ContactUsFrom = () => {
         }}
         onClose={() => setSnackbarOpen(false)}
       >
-        <Alert severity="success">{snackbarMessage}</Alert>
+        {
+          !err ? (
+            <Alert severity="success"
+            >{snackbarMessage}</Alert>
+          ) : (
+            <Alert severity="error"
+            >{snackbarMessage}</Alert>
+          )
+        }
       </Snackbar>
     </Box>
   );
