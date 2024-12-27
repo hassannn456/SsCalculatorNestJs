@@ -19,29 +19,32 @@ import firebase from "/assets/pngs/TechCardPngs/firebase.png";
 import python from "/assets/pngs/TechCardPngs/python.webp";
 import fastapi from "/assets/pngs/TechCardPngs/FastAPI.png";
 import js from "/assets/pngs/TechCardPngs/js.png";
+
 const ProjectDetailData = [
   {
     id: 1,
     description:
-      "We prioritize accuracy and reliability in our AI systems, recognizing their critical importance. While speed may be sacrificed, our flexible approach allows for informed tradeoffs. Our solution systematically reviews all relevant data, supported by a prompt engineering framework that empowers domain experts to contribute and run experiments. We also automate key principles from epistemology, intellectual humility, and statistics to enhance decision-making.",
+      "ConceptAI is an innovative company dedicated to developing AI-powered solutions and launching new ventures. Their goal is to leverage AI to drive economic growth and transform industries. Some of their key projects include AI tools for designing rooms, personalised chatbots, dating profile generators, and services to boost your online presence.",
     LogoPath: ConceptAi,
     technologies: [next, node, aws],
-    overview: `
-Our AI solution is designed with a strong emphasis on accuracy and reliability, recognizing their critical importance in high-stakes situations. While speed can be adjusted, we ensure that any tradeoffs between speed and accuracy are informed and deliberate. The system systematically reviews all relevant data, leveraging a prompt engineering framework that allows domain experts to contribute and conduct experiments. Additionally, our approach incorporates automated principles from epistemology, intellectual humility, and statistics to strengthen the decision-making process.`,
+    overview: `ConceptAI focuses on providing AI solutions that prioritize accuracy and reliability, particularly in high-stakes scenarios. Their systems are designed to adjust speed, ensuring intentional trade-offs between speed and accuracy. The core of their system is a data-driven approach, analyzing relevant information for optimal outcomes. They employ a prompt engineering framework, allowing domain experts to collaborate and experiment, refining the AI's decision-making capabilities. They also integrate automated principles from fields like epistemology, intellectual humility, and statistics, strengthening the decision-making process. ConceptAI's AI solutions meet high standards of accuracy, reliability, and trustworthiness.`,
     screen1: ConceptAi,
     screen2: ConceptAi,
     screen3: ConceptAi,
+    industry: "Artificial Intelligence Technology",
+    platformType: "AI-Powered Innovation Hub",
   },
   {
     id: 2,
-    description: `At Mainstay, we harness the power of conversation to propel student success through our innovative coaching approach. Our platform is meticulously designed to help colleges initiate and sustain impactful dialogues that drive actionable outcomes at scale. By integrating rigorous research methodologies with a unique coaching framework, we provide educational institutions with the tools they need to engage students effectively, addressing their individual needs and fostering a supportive environment conducive to academic and personal growth.`,
-
+    description: `Mainstay is a cutting-edge platform that supports student achievement at scale by utilizing human-centered, AI-enhanced technology. Mainstay enables institutions to enhance student performance, promote belonging, and establish deep connections between students, staff, and leadership by fusing cutting-edge conversational AI with coaching concepts supported by research. Personalized success coaching for students, a conversation co-pilot for staff to improve efficiency and empathy, and actionable conversation insights for institutional executives are some of the platform's primary features.`,
     LogoPath: MainStay,
     technologies: [typescript, react, mui],
-    overview: `Mainstay's mission is to ignite progress through meaningful conversations, transforming how colleges interact with their students. Our approach combines advanced research techniques with a bespoke coaching model to create an environment where conversations are not only initiated but also cultivated to drive significant action. By focusing on scalability and effectiveness, Mainstay ensures that every interaction contributes to a brighter future for students, ultimately enhancing their overall success and experience within the educational system.`,
+    overview: `Mainstay is dedicated to improving student achievement by tackling important issues including equality, engagement, and retention. Its distinctive SPARK coaching technique creates individualized, powerful communications by combining behavioral economics, emotional intelligence, and cultural relevance. Measurable increases in student engagement and retention rates are anticipated by institutions who collaborate with Mainstay. Staff members may concentrate on meaningful interactions by using AI to automate repetitive chores, while leadership can use real-time information to inform decisions. Mainstay has established itself as a pioneer in educational technology, having assisted universities such as Georgia State and Cal Poly Pomona in achieving noteworthy results.`,
     screen1: MainStay,
     screen2: MainStay,
     screen3: MainStay,
+    industry: "Educational Analytics",
+    platformType: "Student Success Coaching Platform",
   },
   {
     id: 3,
@@ -53,6 +56,8 @@ Our AI solution is designed with a strong emphasis on accuracy and reliability, 
     screen1: MulaX,
     screen2: MulaX,
     screen3: MulaX,
+    industry: "Financial Education Technology",
+    platformType: "Gamified Financial Literacy Platform",
   },
   {
     id: 4,
@@ -63,17 +68,21 @@ Our AI solution is designed with a strong emphasis on accuracy and reliability, 
     screen1: Neufluence,
     screen2: Neufluence,
     screen3: Neufluence,
+    industry: "Multicultural Marketing Technology",
+    platformType: "Diversity-Focused Campaign Management Platform",
   },
   {
     id: 5,
-    overview:
-      "Spiritual Data is a non-profit project focused on delivering a transparent, reliable platform for spiritual and metaphysical inquiries. We emphasize openness by making our data and processes publicly available. Our approach disrupts traditional research by focusing on evidence-reliability and aggregating information to form unbiased, evolving insights into reality. Using an AI-driven model, we automate research while incorporating human contributions, aiming to scale and support global collaboration in the quest for understanding the nature of existence.",
+    description: `Spiritual Data is a global non-profit dedicated to advancing scientific understanding and empowering decision-making by providing a transparent, reliable source of truth for spiritual and metaphysical questions. Founded with the mission to create a collaborative and accessible repository of knowledge, we prioritize openness by making our data, methods, and communication channels public. Our innovative approach includes disrupting traditional research review processes and focusing on evidence-reliability to establish unbiased “current best guesses” about reality. Leveraging an AI-first strategy, we aim to automate research while incorporating human insights, ensuring scalability and global collaboration in the pursuit of truth.`,
     LogoPath: Spiritual,
     technologies: [node, next, aws],
-    description: `Spiritual Data is a global non-profit dedicated to advancing scientific understanding and empowering decision-making by providing a transparent, reliable source of truth for spiritual and metaphysical questions. Founded with the mission to create a collaborative and accessible repository of knowledge, we prioritize openness by making our data, methods, and communication channels public. Our innovative approach includes disrupting traditional research review processes and focusing on evidence-reliability to establish unbiased “current best guesses” about reality. Leveraging an AI-first strategy, we aim to automate research while incorporating human insights, ensuring scalability and global collaboration in the pursuit of truth.`,
+    overview:
+      "Spiritual Data is a non-profit project focused on delivering a transparent, reliable platform for spiritual and metaphysical inquiries. We emphasize openness by making our data and processes publicly available. Our approach disrupts traditional research by focusing on evidence-reliability and aggregating information to form unbiased, evolving insights into reality. Using an AI-driven model, we automate research while incorporating human contributions, aiming to scale and support global collaboration in the quest for understanding the nature of existence.",
     screen1: Spiritual,
     screen2: Spiritual,
     screen3: Spiritual,
+    industry: "Metaphysical Research Technology",
+    platformType: "AI-Powered Spiritual Knowledge Repository",
   },
   {
     id: 6,
@@ -85,19 +94,22 @@ Our AI solution is designed with a strong emphasis on accuracy and reliability, 
     screen1: SyntricAI,
     screen2: SyntricAI,
     screen3: SyntricAI,
+    industry: "Biometric Data Solutions",
+    platformType: "Synthetic Data Generation Platform",
   },
   {
     id: 7,
-    description: `Prismx LLC leverages its 15 years of industry expertise to implement highly effective strategies that propel million-dollar businesses toward their goals. Our skilled team specializes in a range of services including brand development, optimization, and marketing, delivering proven results tailored to both established enterprises and aspiring entrepreneurs. As a USA-based agency, we are committed to providing result-oriented solutions that drive success across various business sectors nationwide.
-
-`,
+    description: `Prismx LLC leverages its 15 years of industry expertise to implement highly effective strategies that propel million-dollar businesses toward their goals. Our skilled team specializes in a range of services including brand development, optimization, and marketing, delivering proven results tailored to both established enterprises and aspiring entrepreneurs. As a USA-based agency, we are committed to providing result-oriented solutions that drive success across various business sectors nationwide.`,
     LogoPath: PrismX,
     technologies: [react, node, mui],
     overview: `Prismx LLC is dedicated to advancing businesses by deploying strategic solutions honed through 15 years of experience. Our comprehensive approach encompasses brand development, optimization, and marketing to ensure substantial growth and success. Serving clients across the nation, we offer a complimentary consultation session to explore how our expertise can boost your business performance and achieve your strategic objectives.`,
     screen1: PrismX,
     screen2: PrismX,
     screen3: PrismX,
+    industry: "Business Growth Consulting",
+    platformType: "Strategic Marketing and Optimization Platform",
   },
 ];
+
 
 export default ProjectDetailData;
