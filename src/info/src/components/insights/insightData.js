@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 import BlogImage1 from "/assets/pngs/insights/blog01.jpg";
 import BlogImage2 from "/assets/pngs/insights/blog-2.jpg";
 import BlogImage3 from "/assets/pngs/insights/blog-3.jpg";
@@ -21,7 +19,7 @@ import BlogImage18 from "/assets/pngs/insights/blog-18.jpg";
 
 const InsightData = [
   {
-    id: uuidv4(),
+    id: "1e153729-bcda-4f7a-9590-2498fe83f11d",
     image: BlogImage1,
     category: "Artificial Intelligence",
     heading:
@@ -66,7 +64,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "d2271e23-5f23-41aa-8fc2-177190d2f055",
     image: BlogImage2,
     heading: "Impact of Chat GPT on the Telecom Industry",
     category: "Miscellaneous",
@@ -105,7 +103,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "80c93bea-c94b-4744-9eed-e10021b9b0bd",
     image: BlogImage3,
     heading: "The Power of E-Commerce Cloud Computing – An Insight",
     category: "Cloud",
@@ -166,7 +164,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "eeb93329-53d5-48e9-ad91-f9d20fdfa580",
     image: BlogImage4,
     heading: "How Mobile App Development is Shaping E-Commerce",
     category: "Artificial Intelligence",
@@ -208,7 +206,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "212efe34-98c2-4eb9-8b48-235285b6f506",
     image: BlogImage5,
     heading: "An Insight into New Opportunities in e-Mobility",
     category: "Miscellaneous",
@@ -267,7 +265,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "23a6c81d-b218-4ed5-b312-d657b08854f8",
     image: BlogImage6,
     heading: "Benefits of Smart Parking – An Insight!",
     category: "Artificial Intelligence",
@@ -317,7 +315,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "90443e28-1996-4dae-9d56-4132a3ac4d10",
     image: BlogImage7,
     category: "Transportation",
     heading:
@@ -380,9 +378,8 @@ const InsightData = [
       },
     ],
   },
-
   {
-    id: uuidv4(),
+    id: "adda2446-9f9b-4057-a7ce-f422325944bf",
     image: BlogImage8,
     heading: "Tips to Use Drones for Insurance Inspections",
     category: "Digital Technology",
@@ -447,7 +444,7 @@ const InsightData = [
   },
 
   {
-    id: uuidv4(),
+    id: "adaaedb6-7736-423a-821f-4456e86e1947",
     image: BlogImage9,
     heading: "AI in Telecommunications: Challenges and Opportunities",
     content:
@@ -512,9 +509,8 @@ const InsightData = [
       },
     ],
   },
-
   {
-    id: uuidv4(),
+    id: "716d901f-3b06-4b59-adda-c4633d700165",
     image: BlogImage10,
     category: "Transportation",
     heading: "Latest Trends in Shipping Decarbonization",
@@ -569,7 +565,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "610472b7-462a-49ff-8b39-6e9b5969935b",
     image: BlogImage11,
     heading: "Understanding Blockchain technology – The Basic",
     category: "Blockchain",
@@ -621,9 +617,8 @@ const InsightData = [
       },
     ],
   },
-
   {
-    id: uuidv4(),
+    id: "63f9d5d9-e33f-408e-b9ed-de7e36f0e79d",
     image: BlogImage12,
     heading:
       "Six Principles for Developing and Operating Electric Vehicle Charging Infrastructure",
@@ -678,7 +673,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "d91ac614-6df8-4385-a6f7-f365bb65229d",
     image: BlogImage13,
     heading: "What is Cybersecurity?",
     category: "Digital Technology",
@@ -733,7 +728,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "92148a36-f5f9-45e8-a530-25ed7ceedfb5",
     image: BlogImage14,
     heading: "Driving the Future of Cities with IoT-Powered Innovation",
     category: "Digital Technology",
@@ -773,7 +768,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "490a5432-1258-4e30-9269-0e895b2fc4fc",
     image: BlogImage15,
     heading: "The Transformative Potential of Quantum Computing",
     category: "Digital Technology",
@@ -808,7 +803,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "761f3e05-b12e-463e-b231-41b29f53aa9b",
     image: BlogImage16,
     heading: "The Impact of Green Technology",
     category: "Sustainability",
@@ -840,7 +835,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "a775dd7a-8ae6-4c02-af9d-e02f022e7ab2",
     image: BlogImage18,
     heading: "Navigating New Tech Regulations",
     category: "Digital Technology",
@@ -875,7 +870,7 @@ const InsightData = [
     ],
   },
   {
-    id: uuidv4(),
+    id: "03cb9e9c-6371-4c50-bc96-36329133a9fc",
     image: BlogImage17,
     heading: "The Rise of Cloud Computing and XaaS",
     category: "Cloud",
