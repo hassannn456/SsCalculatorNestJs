@@ -19,7 +19,7 @@ import CareersPage from "./pages/careers/careers";
 import ProjectDetailPage from "./pages/ourWork/detailPage/ProjectDetailPage";
 import NotFound from "../src/pages/NotFound";
 import Loader from "./pages/Loader/Loader";
-const videoUrl = '/assets/video/heroSectionVideo.mp4';
+const videoUrl = '/assets/video/HeroSectionVideo.mp4';
 
 const preloadVideo = (src) => {
   return new Promise((resolve, reject) => {
