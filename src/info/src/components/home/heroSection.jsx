@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import heroSectionVideo from "/assets/video/heroSectionVideo.mp4";
+import heroSectionVideo from "/assets/video/HeroSectionDisplay.mp4";
 import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {
