@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useRef, useState } from "react";
-
 import { Box, Slide, Typography } from "@mui/material";
 import CallMadeTwoToneIcon from "@mui/icons-material/CallMadeTwoTone";
 import WebDevIcon from "/assets/pngs/services/WebDevelopment.png";
@@ -256,8 +255,6 @@ const Services = () => {
   ];
 
   const handleNavigation = (e, url) => {
-    console.log("URL --- ", url);
-    // e.stopPropagation();
     navigate(url);
   }
 
@@ -496,8 +493,6 @@ const Services = () => {
               ))
             )
           }
-
-
         </Box>
       </Box>
       <Box sx={{

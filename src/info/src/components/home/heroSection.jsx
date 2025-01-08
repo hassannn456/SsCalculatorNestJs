@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import heroSectionVideo from "/assets/video/HeroSectionVideo.mp4";
+import heroSectionVideo from "/assets/video/heroSectionVideo.mp4";
 import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {
@@ -40,7 +40,7 @@ const styles = {
   heading: {
     color: "#fff",
     textAlign: "center",
-    fontSize: { xs: "30px", md: "60px" },
+    fontSize: { xs: "20px", sm: "30px", md: "40px", lg: "50px", xl: "100px" },
     margin: "0",
     fontWeight: "700",
     lineHeight: "1.2",
@@ -60,8 +60,8 @@ const styles = {
     color: "#ffffff",
     textTransform: "none",
     backgroundColor: "#378C92",
-    fontSize: { xs: "14px", sm: "20px" },
-    height: { xs: "40px", lg: "60px" },
+    fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "20px", xl: "35px" },
+    height: { xs: "40px", sm: "45px", md: "50px", lg: "60px", xl: "90px" },
     borderRadius: "8px",
     padding: { xs: "0px 10px", sm: "0px 30px" },
     transition: "background-color 0.3s ease",

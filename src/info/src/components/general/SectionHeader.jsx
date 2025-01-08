@@ -35,7 +35,7 @@ const SectionIntro = ({
         component="section"
         sx={{
           width: "100%",
-          my: 3
+          my: 3,
         }}
       >
         <motion.div

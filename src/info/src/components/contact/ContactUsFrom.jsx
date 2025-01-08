@@ -127,7 +127,6 @@ const ContactUsFrom = () => {
 
   const sendEmail = (values) => {
     setLoading(true);
-    console.log(values);
     const params = {
       first_name: values.first_name,
       last_name: values.last_name,

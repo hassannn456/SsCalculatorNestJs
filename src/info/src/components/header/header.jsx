@@ -14,6 +14,7 @@ import {
   Drawer,
   Typography,
   Collapse,
+  CardMedia
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MainLogo from "/assets/pngs/header/Header_Logo.png";
@@ -283,7 +284,7 @@ const DrawerAppBar = () => {
                 {item.subItems && (
                   <KeyboardArrowDownIcon
                     sx={{
-                      fontSize: "20px",
+                      fontSize: { xs: "12px", sm: "14px", md: "16px", xl: "20px" },
                       transform: mobileServicesOpen
                         ? "rotate(180deg)"
                         : "rotate(0deg)",
@@ -351,9 +352,9 @@ const DrawerAppBar = () => {
       <AppBar
         sx={{
           backgroundColor: scrolled ? "black" : "transparent",
-          paddingTop: { xs: "2px 10px", lg: "5px 20px", md: "5px 0px" },
+          padding: { xs: "2px 10px", lg: "5px 20px", md: "5px 0px", xl: "25px 0px" },
           display: mobileOpen && "none",
-          height: "60px",
+          height: { xs: "60px", md: "70px", xl: "100px" },
           alignItems: "center",
           boxShadow: "none",
           zIndex: 10000,
@@ -387,8 +388,7 @@ const DrawerAppBar = () => {
             sx={{
               flex: 1,
               display: "flex",
-              justifyContent: { lg: "space-between", xs: "center" },
-              gap: 40,
+              justifyContent: { xs: "center", md: "space-between" },
             }}
           >
             <Box
@@ -397,14 +397,15 @@ const DrawerAppBar = () => {
               }}
               onMouseEnter={closeDrawers}
             >
-              <img
+              <CardMedia
+                component="img"
                 src={WhiteLogo}
-                width={170}
-                height={"auto"}
-                style={{
-                  display: "flex",
-                  transition: " display 0.5s ease",
+                alt="Logo"
+                sx={{
+                  width: { xs: "150px", sm: "170px", md: "180px", lg: "200px", xl: "320px" },
+                  height: "auto",
                   cursor: "pointer",
+                  transition: "display 0.5s ease",
                 }}
               />
             </Box>
@@ -423,7 +424,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("About") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -440,7 +441,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Services") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -453,7 +454,9 @@ const DrawerAppBar = () => {
                 onMouseEnter={serviceDrawer(true)}
               >
                 Services
-                <KeyboardArrowDownIcon sx={{ fontSize: "18px" }} />
+                <KeyboardArrowDownIcon sx={{
+                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                }} />
               </Button>
               <SwipeableTemporaryDrawer
                 state={service}
@@ -466,7 +469,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Portfolio") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -488,7 +491,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Insights") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -515,7 +518,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Careers") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   mr: "1rem",
@@ -539,7 +542,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Contact") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: "15px",
+                  fontSize: { xs: "12px", sm: "14px", md: "16px", xl: "30px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",

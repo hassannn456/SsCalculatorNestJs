@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  font-size: 40px;
+  font-size: 50px;
   line-height: 1.5;
   font-family: system-ui, sans-serif;
   font-weight: bold;
@@ -25,8 +25,8 @@
       calc(50% - 1.6em) 0/3.2em 100% text,
     radial-gradient(1.13em at 50% -0.8em, #0000 99%, rgb(55, 140, 146) 101%) 50%
       0.8em/3.2em 100% repeat-x text;
-  animation: expandAndShrink 1s ease-out forwards,
-    l9Background 2s linear infinite;
+  animation: expandAndShrink 1s linear forwards,
+    l9Background 2s linear 1s infinite;
 }
 .loader::after {
   content: "Techietribe";

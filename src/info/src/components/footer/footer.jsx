@@ -372,10 +372,22 @@ const Footer = () => {
             >
               Ready to collaborate with us
             </Typography>
-            <Typography sx={styles.email}>
+            <Typography sx={{
+              ...styles.email,
+              color: "rgb(55, 140, 146)",
+              transition: 'all 0.3s linear',
+              ":hover": {
+                color: "rgba(55, 140, 146,0.7)",
+              }
+            }}>
               <a
                 href="mailto:info@thetechietribe.com"
-                style={{ textDecoration: "none", color: "#378C92" }}
+                style={{
+                  textDecoration: "none",
+                  // color: "#378C92" 
+
+
+                }}
               >
                 info@thetechietribe.com
               </a>
@@ -443,7 +455,7 @@ const Footer = () => {
             </Typography>
           </Box>
         </Box>
-      </Box>
+      </Box >
       <Box
         sx={{
           backgroundColor: "#378C92",

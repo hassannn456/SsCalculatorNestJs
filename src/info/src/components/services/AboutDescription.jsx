@@ -32,11 +32,16 @@ const AboutDescription = ({
   bgColor,
 }) => {
   return (
-    <Box sx={{ backgroundColor: bgColor ? bgColor : "white", position: "relative" }}>
+    <Box sx={{
+      backgroundColor: bgColor ? bgColor : "white",
+      position: "relative",
+      height: { xs: "auto", md: "85vh" },
+      py: { xs: "20px", md: 0 }
+    }}>
       <Box
         sx={{
           px: { xs: "1rem", md: "2rem" },
-          py: { xs: "1rem", md: "4rem" },
+          height: "100%",
           display: "flex",
           flexDirection: {
             md: inverted ? "row-reverse" : "row",
@@ -54,8 +59,8 @@ const AboutDescription = ({
             justifyContent: "center",
             alignItems: "center",
             width: { xs: "100%", md: "50%" },
-            height: "30%",
-            maxHeight: "20%",
+            height: "70vh",
+            overflow: "hidden",
           }}
         >
           <motion.div
@@ -72,8 +77,8 @@ const AboutDescription = ({
               src={image}
               style={{
                 width: "100%",
-                height: "auto",
-                objectFit: "fill",
+                height: "100%",
+                objectFit: "contain",
                 px: { xs: "10px", md: "50px" }
               }}
             />

@@ -66,7 +66,7 @@ export default function SwipeableTemporaryDrawer({
         onOpen={toggleDrawer(true)}
         PaperProps={{
           sx: {
-            top: "60px",
+            top: { xs: "60px", md: "70px", xl: "100px" },
           },
         }}
       >
