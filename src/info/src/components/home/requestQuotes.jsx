@@ -24,7 +24,7 @@ const styles = {
     justifyContent: "center",
     padding: { xs: "40px 15px", lg: "80px 0px" },
     margin: "auto",
-    width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
+    width: { xs: "100%", md: "59rem", lg: "80rem", xl: "90rem" },
     position: "relative",
     zIndex: 100
   },

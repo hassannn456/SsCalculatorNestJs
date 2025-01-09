@@ -240,7 +240,7 @@ const TermsAndConditions = () => {
           <strong>Contact Us</strong>
           <br />
           Feel free to contact us for any inquiries or concerns at
-          info@techietribe.com.
+          info@thetechietribe.com.
         </Typography>
       </Box>
     </Box>

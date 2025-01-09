@@ -82,7 +82,7 @@ const TextComponent = () => {
                 }}
               >
                 <Link to="mailto:example@gmail.com" target="_blank" >
-                  info@techietribe.com
+                  info@thetechietribe.com
                 </Link>
               </Typography>
             </Box>
@@ -251,7 +251,6 @@ const TextComponent = () => {
               alignItems: "center",
               borderRadius: "50%",
               backgroundColor: "#ffffff",
-              border: "2px solid #ffffff",
               "&:hover": {
                 backgroundColor: "#f0f0f0",
                 cursor: "pointer"
@@ -263,7 +262,9 @@ const TextComponent = () => {
           >
             <LinkedInIcon sx={{
               color: "#378c92",
-
+              "&:hover": {
+                color: 'rgba(55, 140, 146,0.5)'
+              },
             }} />
           </Box>
         </Box>

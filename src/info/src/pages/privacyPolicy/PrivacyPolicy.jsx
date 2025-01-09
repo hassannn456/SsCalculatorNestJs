@@ -131,7 +131,7 @@ const PrivacyPolicy = () => {
           <br />
           You have the right to access, correct, or delete your personal
           information. If you wish to exercise these rights or have any
-          questions about your data, please contact us at info@techietribe.com.
+          questions about your data, please contact us at info@thetechietribe.com.
         </Typography>
 
         <Typography
@@ -180,7 +180,7 @@ const PrivacyPolicy = () => {
           <strong>Contact Us</strong>
           <br />
           If you have any questions or concerns about this Privacy Policy,
-          please contact us at info@techietribe.com.
+          please contact us at info@thetechietribe.com.
         </Typography>
       </Box>
     </Box>

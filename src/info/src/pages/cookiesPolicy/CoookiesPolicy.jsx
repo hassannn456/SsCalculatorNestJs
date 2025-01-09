@@ -21,7 +21,7 @@ const CookiesPolicy = () => {
           borderRadius: "8px",
           boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
           maxWidth: "1200px",
-          margin: "auto", 
+          margin: "auto",
         }}
       >
         <Typography
@@ -31,7 +31,7 @@ const CookiesPolicy = () => {
             fontFamily: "Barlow",
             fontWeight: "600",
             mb: { xs: "1rem", md: "2rem" },
-            textAlign: "center", 
+            textAlign: "center",
           }}
         >
           Cookies Policy
@@ -167,7 +167,7 @@ const CookiesPolicy = () => {
         >
           <strong>Contact Us</strong>
           <br />
-          If you have any questions, please contact us at info@techietribe.com.
+          If you have any questions, please contact us at info@thetechietribe.com.
         </Typography>
       </Box>
     </Box>

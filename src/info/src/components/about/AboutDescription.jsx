@@ -27,7 +27,6 @@ const AboutDescription = () => {
             />
           </Box>
           <Box sx={styles.textContainer}>
-
             <SectionHeader
               title={"About Us"}
               subtitle={"We are increasing Business Success"}
@@ -39,7 +38,6 @@ const AboutDescription = () => {
                 efficient and effective.`}
               justify={true}
             />
-
             <Box sx={styles.descriptionTextContainer}>
             </Box>
           </Box>

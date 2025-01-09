@@ -30,7 +30,7 @@ const styles = {
     backgroundColor: "#ffffff",
     margin: "auto",
     overflow: "hidden",
-    width: { xs: "95%", md: "60rem", lg: "80rem", xl: "90rem" },
+    width: { xs: "95%", md: "50rem", lg: "80rem", xl: "90rem" },
     gap: "1rem",
     borderRadius: "20px",
     border: "1px solid lightgray",

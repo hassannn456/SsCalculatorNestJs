@@ -18,7 +18,7 @@ const styles = {
     padding: { xs: "40px 15px", lg: "80px 0px" },
     alignItems: "center",
     margin: "auto",
-    width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
+    width: { xs: "100%", md: "59rem", lg: "80rem", xl: "90rem" },
   },
 
   heading: {
@@ -408,8 +408,8 @@ const EngagementPlan = ({ projectIndex = true }) => {
                 sx={{
                   display: "flex",
                   gap: { xs: "0rem", lg: "2rem" },
-                  width: "100%",
-                  flexDirection: { xs: "column", md: "row" },
+                  width: { xs: "80%", lg: "100%" },
+                  flexDirection: { xs: "column", lg: "row" },
                 }}
               >
                 {" "}

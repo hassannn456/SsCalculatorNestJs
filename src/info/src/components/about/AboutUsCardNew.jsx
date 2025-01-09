@@ -1,7 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import image from "/assets/pngs/about/mk-5-removebg-preview.png";
 import { motion } from 'framer-motion';
-
+import AboutDescription from "../services/AboutDescription";
 
 const cardVariantsBottom = {
   offscreen: {
@@ -56,43 +56,25 @@ const AboutUsCardNew = () => {
         justifyContent: "left",
         overflow: "hidden",
         position: "relative",
-        px: { lg: 10, md: 5, sm: 3, xs: 2 },
-        py: { lg: 2, md: 10, sm: 8, xs: 5 },
-        pb: { lg: 2, xs: 0 },
+        // px: { lg: 10, md: 5, sm: 3, xs: 2 },
+        // py: { lg: 2, md: 10, sm: 8, xs: 5 },
+        // pb: { lg: 2, xs: 0 },
       }}
       rowSpacing={1}
     >
-      <Grid item xs={12} sm={12} md={6} sx={{ position: "relative" }}>
-        <motion.div
-          className="card-container"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={cardVariants}
-          transition={{ type: "spring", stiffness: 100 }}
-          custom={1}
-        >
-          <CardMedia
-            component="img"
-            height="auto"
-            image={image}
-            alt="ok"
-            sx={{
-              cursor: "pointer",
-              maxWidth: "100%",
-              borderRadius: "5px",
-            }}
-          />
-        </motion.div>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        md={6}
-        sx={{ position: "relative", my: "auto" }}
-      >
-        <motion.div
+      <AboutDescription
+        image={image}
+        title={"WHO WE ARE"}
+        subtitle={"We are increasing Business Success"}
+        description={`TechieTribe is a leading software house that specializes in
+                providing customized solutions for businesses seeking to drive
+                digital transformation. With its innovative approach and focus
+                on engineering excellence, TechieTribe is helping companies to
+                achieve their digital transformation goals in a way that is both
+                efficient and effective.`}
+        bgColor={"rgb(240, 243, 246)"}
+      />
+      {/* <motion.div
           className="card-container"
           initial="offscreen"
           whileInView="onscreen"
@@ -170,8 +152,7 @@ const AboutUsCardNew = () => {
             top-notch digital solutions, ensuring your business stands out in a
             competitive market.
           </Typography>
-        </motion.div>
-      </Grid>
+        </motion.div> */}
     </Grid>
   );
 };

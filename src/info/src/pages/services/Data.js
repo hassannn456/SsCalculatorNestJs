@@ -55,6 +55,9 @@ const servicesData = [
     ],
     extraImage: WebDevExtraImage,
     extraImage1: WebDevExtraImage1,
+    scaleOne: 1.5,
+    scaleTwo: 1.3,
+    scaleThree: 1.2,
   },
   {
     title: "Mobile Application Development",
@@ -72,6 +75,9 @@ const servicesData = [
     ],
     extraImage: MobileDevExtraImage,
     extraImage1: MobileDevExtraImage1,
+    scaleOne: 1.1,
+    scaleTwo: 1.1,
+    scaleThree: 1.3,
   },
   {
     title: "UI/UX Design",
@@ -89,6 +95,9 @@ const servicesData = [
     ],
     extraImage: UIDesignExtraImage,
     extraImage1: UIDesignExtraImage1,
+    scaleOne: 1.2,
+    scaleTwo: 1.1,
+    scaleThree: 1.2,
   },
   {
     title: "Blockchain Development",
@@ -106,6 +115,9 @@ const servicesData = [
     ],
     extraImage: BlockchainExtraImage,
     extraImage1: BlockchainExtraImage1,
+    scaleOne: 2.2,
+    scaleTwo: 1.3,
+    scaleThree: 1.4,
   },
   {
     title: "Search Engine Optimization (SEO)",
@@ -123,6 +135,9 @@ const servicesData = [
     ],
     extraImage: SEO2,
     extraImage1: SEO3,
+    scaleOne: 1.1,
+    scaleTwo: 0.8,
+    scaleThree: 2.3,
   },
   {
     title: "Content Marketing",
@@ -140,6 +155,9 @@ const servicesData = [
     ],
     extraImage: Content2,
     extraImage1: Content3,
+    scaleOne: 1.4,
+    scaleTwo: 0.9,
+    scaleThree: 2,
   },
   {
     title: "Social Media Marketing",
@@ -157,6 +175,9 @@ const servicesData = [
     ],
     extraImage: Social2,
     extraImage1: Social3,
+    scaleOne: 1.2,
+    scaleTwo: 1,
+    scaleThree: 2.2,
   },
   {
     title: "Email Marketing",
@@ -174,7 +195,11 @@ const servicesData = [
     ],
     extraImage: Email2,
     extraImage1: Email3,
+    scaleOne: 0.9,
+    scaleTwo: 1,
+    scaleThree: 2.2,
   },
 ];
+
 
 export default servicesData;

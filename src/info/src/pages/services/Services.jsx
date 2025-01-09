@@ -55,6 +55,7 @@ const Services = () => {
               ? "UI/UX Design"
               : filteredData.title1
           }
+          scale={filteredData.scaleOne}
           bgColor={"rgb(240, 243, 246)"}
         />
         <Box sx={{ position: "absolute", top: -10, left: 0 }}>
@@ -78,6 +79,7 @@ const Services = () => {
             ? "UI/UX Design"
             : filteredData.title2
         }
+        scale={filteredData.scaleTwo}
       />
       <Box sx={{ position: "relative", overflow: "hidden" }}>
         <AboutDescription
@@ -89,6 +91,7 @@ const Services = () => {
               ? "UI/UX Design"
               : filteredData.title3
           }
+          scale={filteredData.scaleThree}
           bgColor={"rgb(240, 243, 246)"}
         />
         <Box sx={{ position: "absolute", top: -200, right: 0, zIndex: 2 }}>

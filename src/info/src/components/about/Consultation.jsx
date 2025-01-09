@@ -20,11 +20,12 @@ const styles = {
     color: "#ffffff",
     textTransform: "none",
     backgroundColor: "#378C92",
-    width: { xs: "40%", md: "160px" },
+    width: { xs: "50%", md: "160px" },
     fontSize: "17px",
-    height: { xs: "60px", md: "55px" },
+    height: { xs: "50px", md: "55px" },
     borderRadius: "12px",
     padding: { xs: "0px 10px", md: "0px 30px" },
+    margin: { xs: "20px 0px", md: "0px 0px" },
     transition: "background-color 0.3s ease",
     "&&:hover": {
       backgroundColor: "#ffffff",
@@ -38,7 +39,7 @@ const Consultation = () => {
   const navigate = useNavigate();
   return (
     <Box sx={styles.mainContainer}>
-      <Typography sx={{ fontSize: "1.5rem", fontWeight: 700 }}>
+      <Typography sx={{ fontSize: "1.5rem", fontWeight: 700, textAlign: { xs: "center", md: "left" } }}>
         Request a free Consultation
       </Typography>
       <Button

@@ -6,9 +6,7 @@ const Loader = () => {
         <div className='load'
         >
             <div className="loader">
-                <img src="/assets/pngs/techietribe_logo.png" alt="LogoImg" width="50px" height="50px" loading='lazy' style={{
-                    margin: "0px 5px 0px 0px"
-                }} />
+                <img src="/assets/pngs/techietribe_logo.png" alt="LogoImg" width="60px" height="60px" loading='lazy' />
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -284,7 +284,7 @@ const DrawerAppBar = () => {
                 {item.subItems && (
                   <KeyboardArrowDownIcon
                     sx={{
-                      fontSize: { xs: "12px", sm: "14px", md: "16px", xl: "20px" },
+                      fontSize: { xs: "15px", xl: "25px" },
                       transform: mobileServicesOpen
                         ? "rotate(180deg)"
                         : "rotate(0deg)",
@@ -352,9 +352,9 @@ const DrawerAppBar = () => {
       <AppBar
         sx={{
           backgroundColor: scrolled ? "black" : "transparent",
-          padding: { xs: "2px 10px", lg: "5px 20px", md: "5px 0px", xl: "25px 0px" },
+          padding: { xs: "2px 10px", md: "5px 0px", lg: "5px 20px", xl: "5px 10px" },
           display: mobileOpen && "none",
-          height: { xs: "60px", md: "70px", xl: "100px" },
+          height: { xs: "60px", xl: "90px" },
           alignItems: "center",
           boxShadow: "none",
           zIndex: 10000,
@@ -372,6 +372,7 @@ const DrawerAppBar = () => {
             alignItems: "center",
             width: "100%",
             margin: "auto",
+            minHeight: "unset !important"
           }}
         >
           <IconButton
@@ -413,6 +414,7 @@ const DrawerAppBar = () => {
             <Box
               sx={{
                 display: { xs: "none", md: "flex", lg: "flex" },
+                alignItems: "center",
               }}
             >
               <Button
@@ -424,7 +426,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("About") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -441,7 +443,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Services") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -455,7 +457,7 @@ const DrawerAppBar = () => {
               >
                 Services
                 <KeyboardArrowDownIcon sx={{
-                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                 }} />
               </Button>
               <SwipeableTemporaryDrawer
@@ -469,7 +471,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Portfolio") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -491,7 +493,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Insights") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",
@@ -518,7 +520,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Careers") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: { xs: "12px", sm: "14px", md: "15px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   mr: "1rem",
@@ -542,7 +544,7 @@ const DrawerAppBar = () => {
                 sx={{
                   color: isActive("Contact") ? "#378C92" : "#ffffff",
                   fontWeight: "400",
-                  fontSize: { xs: "12px", sm: "14px", md: "16px", xl: "30px" },
+                  fontSize: { xs: "15px", xl: "25px" },
                   textTransform: "none",
                   fontFamily: "DM Sans, Sans-serif",
                   height: "40px",

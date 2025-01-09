@@ -26,7 +26,7 @@ const styles = {
     flexDirection: "column",
     padding: { xs: "40px 15px", lg: "80px 0px 60px 0px" },
     margin: "auto",
-    width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
+    width: { xs: "100%", md: "59rem", lg: "80rem", xl: "90rem" },
     backgroundColor: "black",
   },
 
@@ -156,7 +156,7 @@ const styles = {
     fontSize: "30px",
     cursor: "pointer",
     "&&:hover": {
-      color: "#378C92",
+      color: "rgba(55, 140, 146)",
     },
   },
 
@@ -194,7 +194,7 @@ const styles = {
     padding: { xs: "4px 10px", lg: "4px 0px" },
     margin: "auto",
     borderTop: "1px solid gray",
-    width: { xs: "100%", md: "63rem", lg: "100%" },
+    width: { xs: "100%", md: "59rem", lg: "100%" },
   },
 
   topHeaderContainer: {
@@ -384,9 +384,6 @@ const Footer = () => {
                 href="mailto:info@thetechietribe.com"
                 style={{
                   textDecoration: "none",
-                  // color: "#378C92" 
-
-
                 }}
               >
                 info@thetechietribe.com
@@ -430,7 +427,6 @@ const Footer = () => {
           </Box>
           <Box sx={styles.quickLinksContainer}>
             <Typography sx={styles.quickLinksHeading}>Resources</Typography>
-
             {forumSupportArray.map((data, index) => (
               <Typography
                 sx={styles.quickLinks}
@@ -455,7 +451,7 @@ const Footer = () => {
             </Typography>
           </Box>
         </Box>
-      </Box >
+      </Box>
       <Box
         sx={{
           backgroundColor: "#378C92",

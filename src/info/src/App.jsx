@@ -19,7 +19,9 @@ import CareersPage from "./pages/careers/careers";
 import ProjectDetailPage from "./pages/ourWork/detailPage/ProjectDetailPage";
 import NotFound from "../src/pages/NotFound";
 import Loader from "./pages/Loader/Loader";
-const videoUrl = '/assets/video/HeroSectionDisplay.mp4';
+import GoogleAnalyticsTracker from "../src/utils/commons/GoogleAnalyticsTracker";
+
+const videoUrl = "/assets/video/HeroSectionDisplay.mp4";
 
 const preloadVideo = (src) => {
   return new Promise((resolve, reject) => {
@@ -29,8 +31,10 @@ const preloadVideo = (src) => {
     video.onerror = () => reject(new Error(`Failed to load video: ${src}`));
   });
 };
+
 function App({ video }) {
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     let timeoutId;
 
@@ -52,8 +56,11 @@ function App({ video }) {
   if (loading) {
     return <Loader />;
   }
+
   return (
     <Router>
+      <GoogleAnalyticsTracker /> {/* Add the component here */}
+
       <div
         style={{
           display: "flex",
@@ -74,18 +81,12 @@ function App({ video }) {
             <Route path="/services/:serviceName" element={<Services />} />
             <Route path="/insight-details/:id" element={<InsightDetails />} />
             <Route path="/insights" element={<InsightsPage />} />
-            <Route
-              path="/terms-and-conditions"
-              element={<TermsAndConditions />}
-            />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiesPolicy />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/careers" element={<CareersPage />} />
-            <Route
-              path="/projectDetail/:id/:name"
-              element={<ProjectDetailPage />}
-            />
+            <Route path="/projectDetail/:id/:name" element={<ProjectDetailPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

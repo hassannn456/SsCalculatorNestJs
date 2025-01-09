@@ -30,6 +30,7 @@ const AboutDescription = ({
   inverted = false,
   subtitle,
   bgColor,
+  scale = 1
 }) => {
   return (
     <Box sx={{
@@ -59,7 +60,7 @@ const AboutDescription = ({
             justifyContent: "center",
             alignItems: "center",
             width: { xs: "100%", md: "50%" },
-            height: "70vh",
+            height: { xs: "auto", md: "70vh" },
             overflow: "hidden",
           }}
         >
@@ -78,8 +79,9 @@ const AboutDescription = ({
               style={{
                 width: "100%",
                 height: "100%",
+                transform: `scale(${scale})`,
                 objectFit: "contain",
-                px: { xs: "10px", md: "50px" }
+                padding: "0px 10px",
               }}
             />
           </motion.div>
@@ -89,7 +91,6 @@ const AboutDescription = ({
             title={title}
             description={description}
             subtitle={subtitle}
-            justify={true}
           />
         </Box>
       </Box>

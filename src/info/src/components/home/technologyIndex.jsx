@@ -77,7 +77,7 @@ const TechnologyIndex = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: { xs: "100%", md: "63rem", lg: "82rem", xl: "90rem" },
+            width: { xs: "100%", md: "59rem", lg: "82rem", xl: "90rem" },
             padding: { xs: "40px 0px", lg: "30px 0px 0px" },
             justifyContent: "center",
             backgroundColor: "#ffffff",

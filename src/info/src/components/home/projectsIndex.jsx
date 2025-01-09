@@ -18,7 +18,7 @@ const styles = {
     backgroundColor: "#ffffff",
     margin: "auto",
     marginTop: { md: "70px", sm: "60px", xs: "60px" },
-    width: { sm: "97%", xs: "96%", md: "60rem", lg: "80rem" },
+    width: { sm: "97%", xs: "96%", md: "55rem", lg: "80rem" },
     gap: "1rem",
     borderRadius: "20px",
     border: "1px solid lightgray",
