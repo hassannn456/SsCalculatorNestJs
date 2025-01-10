@@ -21,7 +21,7 @@ import NotFound from "../src/pages/NotFound";
 import Loader from "./pages/Loader/Loader";
 import GoogleAnalyticsTracker from "../src/utils/commons/GoogleAnalyticsTracker";
 
-const videoUrl = "/assets/video/HeroSectionDisplay.mp4";
+const videoUrl = "/assets/video/HeroSectionDisplayHighQuality.mp4";
 
 const preloadVideo = (src) => {
   return new Promise((resolve, reject) => {
