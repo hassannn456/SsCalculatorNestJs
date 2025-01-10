@@ -12,50 +12,50 @@ import InsightDetails from "./pages/insights/insight-details/insights-details";
 import ScrollToTopButton from "./components/general/scrollToTopBtn";
 import { Box } from "@mui/material";
 import TermsAndConditions from "./pages/termsAndConditions/TermsAndConditions";
-// import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
+import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/cookiesPolicy/CoookiesPolicy";
 import Faq from "./pages/faq/Faq";
 import CareersPage from "./pages/careers/careers";
 import ProjectDetailPage from "./pages/ourWork/detailPage/ProjectDetailPage";
 import NotFound from "../src/pages/NotFound";
-// import Loader from "./pages/Loader/Loader";
+import Loader from "./pages/Loader/Loader";
 import GoogleAnalyticsTracker from "../src/utils/commons/GoogleAnalyticsTracker";
 
-// const videoUrl = "/assets/video/HeroSectionDisplay.mp4";
+const videoUrl = "/assets/video/HeroSectionDisplay.mp4";
 
-// const preloadVideo = (src) => {
-//   return new Promise((resolve, reject) => {
-//     const video = document.createElement("video");
-//     video.src = src;
-//     video.onloadeddata = () => resolve(video);
-//     video.onerror = () => reject(new Error(`Failed to load video: ${src}`));
-//   });
-// };
+const preloadVideo = (src) => {
+  return new Promise((resolve, reject) => {
+    const video = document.createElement("video");
+    video.src = src;
+    video.onloadeddata = () => resolve(video);
+    video.onerror = () => reject(new Error(`Failed to load video: ${src}`));
+  });
+};
 
 function App({ video }) {
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   let timeoutId;
+  useEffect(() => {
+    let timeoutId;
 
-  //   preloadVideo(videoUrl)
-  //     .then((video) => {
-  //       timeoutId = setTimeout(() => {
-  //         setLoading(false);
-  //       }, 1200);
-  //     })
-  //     .catch((error) => console.error(error.message));
+    preloadVideo(videoUrl)
+      .then((video) => {
+        timeoutId = setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+      })
+      .catch((error) => console.error(error.message));
 
-  //   return () => {
-  //     if (timeoutId) {
-  //       clearTimeout(timeoutId);
-  //     }
-  //   };
-  // }, [videoUrl]);
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [videoUrl]);
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <Router>
@@ -81,7 +81,7 @@ function App({ video }) {
             <Route path="/insight-details/:id" element={<InsightDetails />} />
             <Route path="/insights" element={<InsightsPage />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            {/* <Route path="/privacy-policy" element={<PrivacyPolicy />} /> */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiesPolicy />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/careers" element={<CareersPage />} />

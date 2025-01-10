@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import heroSectionVideo from "/assets/video/HeroSectionDisplay.mp4";
 import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {
@@ -117,7 +116,7 @@ const HeroSection = ({ scrollToBottom }) => {
     <Box sx={styles.mainContainer}>
       <Box sx={styles.videoContainer}>
         <video playsInline autoPlay muted loop style={styles.video}>
-          <source type="video/mp4" src={heroSectionVideo} />
+          <source type="video/mp4" src={"/assets/video/HeroSectionDisplay.mp4"} />
         </video>
       </Box>
       <div style={styles.overlay}></div>
