@@ -153,6 +153,7 @@ const Insights = () => {
           subtitle="News And Articles"
           description="Explore our latest insights, uncovering how technology transforms industries—from AI fairness to innovations in e-commerce and telecom."
           width={true}
+          justify={true}
         />
         <Box sx={styles.cardContainer}>
           {InsightData?.slice(0, 4)?.map((card, index) => (

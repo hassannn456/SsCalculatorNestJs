@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import IconButton from "@mui/material/IconButton";
@@ -14,7 +14,15 @@ export default function SwipeableTemporaryDrawer({
   closeDrawers,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [drawerHeight, setDrawerHeight] = useState("1500px");
 
+  useEffect(() => {
+    if (state) {
+      setDrawerHeight("fit-content");
+    } else {
+      setDrawerHeight(0);
+    }
+  }, [state]);
   const toggleDrawer = (open) => (event) => {
     if (
       event &&
@@ -66,9 +74,12 @@ export default function SwipeableTemporaryDrawer({
         onOpen={toggleDrawer(true)}
         PaperProps={{
           sx: {
-            top: "60px"
+            top: { xs: "60px", xl: "70px" },
+            height: drawerHeight,
+            transition: "width 0.5s ease-in-out",
           },
         }}
+        transitionDuration={{ enter: 500, exit: 500 }}
       >
         {list()}
       </SwipeableDrawer>

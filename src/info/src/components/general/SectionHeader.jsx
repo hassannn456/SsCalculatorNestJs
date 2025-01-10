@@ -55,7 +55,7 @@ const SectionIntro = ({
               fontFamily: "Barlow",
               color: "#378C92",
               letterSpacing: "3px",
-              textAlign: justify ? "left" : { xs: "center", md: "left" },
+              textAlign: justify ? "center" : { xs: "center", md: "left" },
             }}
           >
             {title}
@@ -77,7 +77,7 @@ const SectionIntro = ({
               lineHeight: { xs: "35px", md: "45px" },
               fontFamily: "Barlow",
               color: subtitleColor ? subtitleColor : "#161c26",
-              textAlign: justify ? "left" : { xs: "center", md: "left" },
+              textAlign: justify ? "center" : { xs: "center", md: "left" },
               letterSpacing: "-1px",
               my: 3
             }}
@@ -102,7 +102,7 @@ const SectionIntro = ({
               lineHeight: { xs: "17px", md: "22px" },
               fontFamily: "sans-serif",
               color: "#797f89",
-              textAlign: justify ? "left" : { xs: "center", md: "left" },
+              textAlign: justify ? "center" : { xs: "center", md: "left" },
               marginTop: "18px",
               m: "auto",
               width: width ? { xs: "100%", sm: "90%", md: "70%" } : "100%",

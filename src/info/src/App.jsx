@@ -59,8 +59,7 @@ function App({ video }) {
 
   return (
     <Router>
-      <GoogleAnalyticsTracker /> {/* Add the component here */}
-
+      <GoogleAnalyticsTracker />
       <div
         style={{
           display: "flex",

@@ -31,16 +31,19 @@ const styles = {
   },
 
   textContainer: {
-    width: "100%",
-    position: "absolute",
-    top: { xs: "35%", md: "30%", lg: "30%" },
-    left: "50%",
-    transform: "translate(-50%, 0)",
+    position: "relative",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    height: "100%",
+    paddingTop: { xs: "60px", xl: "70px" },
+    paddingBottom: { xs: "3.8rem", md: "4.2rem", lg: "4.9rem", xl: "5.8rem" },
   },
   heading: {
     color: "#fff",
     textAlign: "center",
-    fontSize: { xs: "27px", md: "55px", xl: "70px" },
+    fontSize: { xs: "27px", md: "38px", lg: "52px", xl: "62px" },
     margin: "0",
     fontWeight: "700",
     lineHeight: "1.1",
@@ -60,9 +63,9 @@ const styles = {
     color: "#ffffff",
     textTransform: "none",
     backgroundColor: "#378C92",
-    fontSize: { xs: "13px", md: "17px", xl: "23px" },
-    padding: { xs: "22px 12px", md: "0px 25px", xl: "0px 35px" },
-    height: { xs: "40px", md: "60px" },
+    fontSize: { xs: "13px", md: "12px", lg: "15px", xl: "20px" },
+    padding: { xs: "22px 12px", md: "0px 14px", lg: "0px 16px", xl: "0px 30px" },
+    height: { xs: "40px", md: "40px", lg: "50px" },
     borderRadius: "8px",
     transition: "background-color 0.3s ease",
     letterSpacing: "2px",
@@ -74,8 +77,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    mt: "2rem",
-    mb: { xs: "5rem", lg: "10rem", xl: "40rem" },
+    mt: "1.4rem",
   },
 
   links: {
@@ -106,7 +108,6 @@ const styles = {
 };
 
 const HeroSection = ({ scrollToBottom }) => {
-
   return (
     <Box sx={styles.mainContainer}>
       <Box sx={styles.videoContainer}>

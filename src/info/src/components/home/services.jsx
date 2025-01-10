@@ -284,7 +284,6 @@ const Services = () => {
                   variants={index % 2 == 0 ? cardVariantsRight : cardVariantsLeft}
                   transition={{ type: "spring", stiffness: 100 }}
                 >
-
                   <Box sx={{ ...styles.cardParent }} onClick={() => handleNavigation(card.url)}>
                     <Box
                       key={index}
@@ -293,7 +292,6 @@ const Services = () => {
                         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%), url(${card.backgroundImage})`,
                         justifyContent:
                           hoveredIndex === index ? "space-between" : "flex-end",
-
                       }}
                       onMouseEnter={() => handleHover(index)}
                       onMouseLeave={handleMouseLeave}

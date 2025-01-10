@@ -44,6 +44,7 @@ const HiringProcess = () => {
       <SectionHeader
         title="OUR HIRING PROCESS"
         subtitle="As simple as it could be"
+        justify={true}
       />
       <Grid
         container
