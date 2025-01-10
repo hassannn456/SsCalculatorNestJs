@@ -12,7 +12,7 @@ import InsightDetails from "./pages/insights/insight-details/insights-details";
 import ScrollToTopButton from "./components/general/scrollToTopBtn";
 import { Box } from "@mui/material";
 import TermsAndConditions from "./pages/termsAndConditions/TermsAndConditions";
-// import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
+import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/cookiesPolicy/CoookiesPolicy";
 import Faq from "./pages/faq/Faq";
 import CareersPage from "./pages/careers/careers";
@@ -81,7 +81,7 @@ function App({ video }) {
             <Route path="/insight-details/:id" element={<InsightDetails />} />
             <Route path="/insights" element={<InsightsPage />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            {/* <Route path="/privacy-policy" element={<PrivacyPolicy />} /> */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiesPolicy />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/careers" element={<CareersPage />} />
