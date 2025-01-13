@@ -10,12 +10,12 @@ import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import Support from "/assets/pngs/services/carousel/Support.png";
-import Frontend from "/assets/pngs/services/carousel/Frontend.png";
-import Backend from "/assets/pngs/services/carousel/Backend.png";
-import FullStack from "/assets/pngs/services/carousel/fullstack.png";
-import Experience from "/assets/pngs/services/carousel/Experience.png";
-import QA from "/assets/pngs/services/carousel/QA.png";
+import Support from "/assets/pngs/services/carousel/Support.webp";
+import Frontend from "/assets/pngs/services/carousel/Frontend.webp";
+import Backend from "/assets/pngs/services/carousel/Backend.webp";
+import FullStack from "/assets/pngs/services/carousel/fullstack.webp";
+import Experience from "/assets/pngs/services/carousel/Experience.webp";
+import QA from "/assets/pngs/services/carousel/QA.webp";
 import CustomCard from "./CustomCard";
 import SectionIntro from "../general/SectionHeader";
 
@@ -66,7 +66,7 @@ function CarouselContent() {
     <Container
       sx={{
         backgroundImage:
-          "url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.png)",
+          "url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.webp)",
         backgroundPosition: "100% -10%",
         backgroundRepeat: "no-repeat",
         backgroundColor: "rgb(240, 243, 246)",
@@ -81,7 +81,7 @@ function CarouselContent() {
       }}
       maxWidth={"100%"}
     >
-      <SectionIntro title={"Area of Expertise"} subtitle={"Why Choose Us"} />
+      <SectionIntro title={"Area of Expertise"} subtitle={"Why Choose Us"} justify={true} />
       <div className="city-swiper-container">
         <Swiper
           slidesPerView={3}

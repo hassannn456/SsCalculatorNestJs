@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import FAQAccordion from "../../components/faq/FAQAccordion";
 import HeroImageSection from "../../components/general/heroImageSection";
-import FAQ from "/assets/pngs/FooterResources/FAQ.jpeg";
+import FAQ from "/assets/pngs/FooterResources/FAQ.webp";
 import faqImage from "/assets/pngs/FooterResources/faqImage.svg";
 
 const Faq = () => {

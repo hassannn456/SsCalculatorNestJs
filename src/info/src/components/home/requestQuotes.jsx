@@ -741,7 +741,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
         <Alert severity="success">{snackbarMessage}</Alert>
       </Snackbar>
       <Box sx={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}>
-        <img src="/assets/pngs/bg-shape1.png" alt="" style={{
+        <img src="/assets/pngs/bg-shape1.webp" alt="" style={{
           height: "auto",
           width: "100%",
           opacity: 0.15,

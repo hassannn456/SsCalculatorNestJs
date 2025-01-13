@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import HeroImageSection from "../../../components/general/heroImageSection";
 import webDevelopment from "/assets/pngs/webdevelopment.avif";
-import BlogImage1 from "/assets/pngs/insights/blog01.jpg";
+import BlogImage1 from "/assets/pngs/insights/blog01.webp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate, useParams } from "react-router-dom";

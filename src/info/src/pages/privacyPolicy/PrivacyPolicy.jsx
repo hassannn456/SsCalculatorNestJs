@@ -2,6 +2,7 @@ import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
 import PrivacyPolicyImage from "/assets/pngs/FooterResources/privacyPolicy.webp";
+import companyData from "../../utils/data/companyData";
 
 const PrivacyPolicy = () => {
   return (
@@ -131,7 +132,7 @@ const PrivacyPolicy = () => {
           <br />
           You have the right to access, correct, or delete your personal
           information. If you wish to exercise these rights or have any
-          questions about your data, please contact us at info@thetechietribe.com.
+          questions about your data, please contact us at  {companyData.officialEmail}.
         </Typography>
 
         <Typography
@@ -180,7 +181,7 @@ const PrivacyPolicy = () => {
           <strong>Contact Us</strong>
           <br />
           If you have any questions or concerns about this Privacy Policy,
-          please contact us at info@thetechietribe.com.
+          please contact us at {companyData.officialEmail}.
         </Typography>
       </Box>
     </Box>

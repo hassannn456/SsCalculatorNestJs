@@ -3,13 +3,13 @@ import React, { useRef, useState } from "react";
 import { Box, Slide, Typography } from "@mui/material";
 import CallMadeTwoToneIcon from "@mui/icons-material/CallMadeTwoTone";
 import WebDevIcon from "/assets/pngs/services/WebDevelopment.png";
-import MobileAppIcon from "/assets/pngs/services/MobileApp.png";
-import UIUX from "/assets/pngs/services/UIUX.png";
-import SoftwareInnovation from "/assets/pngs/services/SoftwareInnovation.png";
-import WebDevImage from "/assets/pngs/services/WebDevImage.png";
-import MobileDevImage from "/assets/pngs/services/MobileDevImage.png";
-import UIUXImage from "/assets/pngs/services/UIImage1.png";
-import BlockchainImage from "/assets/pngs/services/BlockchainImage.png";
+import MobileAppIcon from "/assets/pngs/services/MobileApp.webp";
+import UIUX from "/assets/pngs/services/UIUX.webp";
+import SoftwareInnovation from "/assets/pngs/services/SoftwareInnovation.webp";
+import WebDevImage from "/assets/pngs/services/WebDevImage.webp";
+import MobileDevImage from "/assets/pngs/services/MobileDevImage.webp";
+import UIUXImage from "/assets/pngs/services/UIImage1.webp";
+import BlockchainImage from "/assets/pngs/services/BlockchainImage.webp";
 import { motion } from 'framer-motion';
 import { useMediaQuery } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
@@ -498,7 +498,7 @@ const Services = () => {
         top: "37px",
         right: "-125px"
       }}>
-        <img src="/assets/pngs/shape3.png" alt="bgImg" loading="lazy" style={{
+        <img src="/assets/pngs/shape3.webp" alt="bgImg" loading="lazy" style={{
           objectFit: "contain",
           width: "450px",
           height: "450px",

@@ -12,11 +12,11 @@ import {
 } from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import EastIcon from "@mui/icons-material/East";
-import MainStay from "/assets/pngs/portfolio/MainStay.png";
-import MulaX from "/assets/pngs/heroSecionSlider/MulaX.png";
-import Neufluence from "/assets/pngs/portfolio/Neufluence.png";
-import SpiritualData from "/assets/pngs/portfolio/Spiritual Data.png";
-import SyntricAi from "/assets/pngs/portfolio/SyntricAI.png";
+import MainStay from "/assets/pngs/portfolio/MainStay.webp";
+import MulaX from "/assets/pngs/heroSecionSlider/MulaX.webp";
+import Neufluence from "/assets/pngs/portfolio/Neufluence.webp";
+import SpiritualData from "/assets/pngs/portfolio/Spiritual Data.webp";
+import SyntricAi from "/assets/pngs/portfolio/SyntricAI.webp";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';

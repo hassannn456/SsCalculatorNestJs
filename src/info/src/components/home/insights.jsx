@@ -140,7 +140,7 @@ const Insights = () => {
     <Box
       sx={{
         backgroundColor: "transparent",
-        backgroundImage: 'url("/assets/pngs/bg-map.png")',
+        backgroundImage: 'url("/assets/pngs/bg-map.webp")',
         backgroundSize: "contain",
         backgroundPosition: "right",
         backgroundRepeat: "no-repeat",

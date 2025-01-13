@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MediaCard from "./MediaCard";
 import InteractiveList from "./InteractiveList";
-import BlogImage1 from "/assets/pngs/insights/blog01.jpeg";
+import BlogImage1 from "/assets/pngs/insights/blog01.webp";
 
 export default function SwipeableTemporaryDrawer({
   state,

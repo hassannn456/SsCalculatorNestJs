@@ -6,10 +6,10 @@ const tabsdata = [
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
       "ConceptAI is a tech company focusing on AI-driven solutions to drive economic growth and transform industries, including room design tools, personalized chatbots, dating profile generators, and online presence enhancement services.",
-    path: "/assets/pngs/heroSecionSlider/Concept Ai.png",
-    logo1: "/assets/pngs/TechCardPngs/nextJs.png",
-    logo2: "/assets/pngs/TechCardPngs/nodeJs.png",
-    logo3: "/assets/pngs/TechCardPngs/aws.png",
+    path: "/assets/pngs/heroSecionSlider/Concept Ai.webp",
+    logo1: "/assets/pngs/TechCardPngs/nextJs.webp",
+    logo2: "/assets/pngs/TechCardPngs/nodeJs.webp",
+    logo3: "/assets/pngs/TechCardPngs/aws.webp",
 
     tags: [
       "Retail & E-Commerce",
@@ -34,10 +34,10 @@ const tabsdata = [
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
       "Mainstay, an AI-enhanced platform, improves student outcomes and fosters connections between learners, staff, and leadership through personalized success coaching, conversation co-pilot, and actionable insights.",
-    path: "/assets/pngs/heroSecionSlider/MainStay.png",
-    logo1: "/assets/pngs/TechCardPngs/typescript.png",
-    logo2: "/assets/pngs/TechCardPngs/react.png",
-    logo3: "/assets/pngs/TechCardPngs/mui.png",
+    path: "/assets/pngs/heroSecionSlider/MainStay.webp",
+    logo1: "/assets/pngs/TechCardPngs/typescript.webp",
+    logo2: "/assets/pngs/TechCardPngs/react.webp",
+    logo3: "/assets/pngs/TechCardPngs/mui.webp",
     tags: [
       "Retail & E-Commerce",
       "Finance & Fintech",
@@ -62,10 +62,10 @@ const tabsdata = [
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
       "A fintech customer management app featuring role-based functionalities for the internal team.",
-    path: "/assets/pngs/heroSecionSlider/MulaX.png",
-    logo1: "/assets/pngs/TechCardPngs/graphql.png",
-    logo2: "/assets/pngs/TechCardPngs/elephant.png",
-    logo3: "/assets/pngs/TechCardPngs/express.png",
+    path: "/assets/pngs/heroSecionSlider/MulaX.webp",
+    logo1: "/assets/pngs/TechCardPngs/graphql.webp",
+    logo2: "/assets/pngs/TechCardPngs/elephant.webp",
+    logo3: "/assets/pngs/TechCardPngs/express.webp",
     tags: [
       "Education & E-learning",
       "Real-Estate & Hospitality",
@@ -89,10 +89,10 @@ const tabsdata = [
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
       "A micro-creator platform designed to help you reach multicultural customers at scale.",
-    path: "/assets/pngs/heroSecionSlider/Neufluence.png",
-    logo1: "/assets/pngs/TechCardPngs/firebase.png",
-    logo2: "/assets/pngs/TechCardPngs/nextJs.png",
-    logo3: "/assets/pngs/TechCardPngs/aws.png",
+    path: "/assets/pngs/heroSecionSlider/Neufluence.webp",
+    logo1: "/assets/pngs/TechCardPngs/firebase.webp",
+    logo2: "/assets/pngs/TechCardPngs/nextJs.webp",
+    logo3: "/assets/pngs/TechCardPngs/aws.webp",
     tags: [
       "Retail & E-Commerce",
       "Finance & Fintech",
@@ -113,10 +113,10 @@ const tabsdata = [
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
       "Spiritual Data is a non-profit advancing scientific understanding and decision-making by providing transparent, reliable truth for spiritual and metaphysical questions, using AI-first strategies for scalability and collaboration.",
-    path: "/assets/pngs/heroSecionSlider/Spiritual Data.png",
-    logo1: "/assets/pngs/TechCardPngs/nodeJs.png",
-    logo2: "/assets/pngs/TechCardPngs/nextJs.png",
-    logo3: "/assets/pngs/TechCardPngs/aws.png",
+    path: "/assets/pngs/heroSecionSlider/Spiritual Data.webp",
+    logo1: "/assets/pngs/TechCardPngs/nodeJs.webp",
+    logo2: "/assets/pngs/TechCardPngs/nextJs.webp",
+    logo3: "/assets/pngs/TechCardPngs/aws.webp",
     tags: ["Retail & E-Commerce", "Real-Estate & Hospitality"],
     expert: [
       "Web Development",
@@ -133,10 +133,10 @@ const tabsdata = [
       "Guide to Selecting the Best House Construction Company in Amityville, NY",
     description:
       "An AI tool designed to create pictures with a diverse range of skin tone variations.",
-    path: "/assets/pngs/heroSecionSlider/SyntricAI.png",
+    path: "/assets/pngs/heroSecionSlider/SyntricAI.webp",
     logo1: "/assets/pngs/TechCardPngs/python.webp",
-    logo2: "/assets/pngs/TechCardPngs/FastAPI.png",
-    logo3: "/assets/pngs/TechCardPngs/js.png",
+    logo2: "/assets/pngs/TechCardPngs/FastAPI.webp",
+    logo3: "/assets/pngs/TechCardPngs/js.webp",
     tags: ["Retail & E-Commerce", "Education & E-learning"],
     expert: [
       "Web Development",
@@ -153,9 +153,9 @@ const tabsdata = [
     description: `Prism X is a dynamic marketplace in the USA, featuring real feedback and advanced, user-friendly search capabilities. We cultivate a thriving community where businesses thrive through genuine connections, and consumers make informed choices.`,
 
     path: "/assets/pngs/heroSecionSlider/prismx.webp",
-    logo1: "/assets/pngs/TechCardPngs/react.png",
-    logo2: "/assets/pngs/TechCardPngs/nodeJs.png",
-    logo3: "/assets/pngs/TechCardPngs/mui.png",
+    logo1: "/assets/pngs/TechCardPngs/react.webp",
+    logo2: "/assets/pngs/TechCardPngs/nodeJs.webp",
+    logo3: "/assets/pngs/TechCardPngs/mui.webp",
 
     tags: [
       "Retail & E-Commerce",

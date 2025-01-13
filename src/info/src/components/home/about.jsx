@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Box, Divider, Tooltip, Typography, Slide, Zoom } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { useInView } from "react-intersection-observer";
-import AboutImage from "/assets/pngs/about/About1.jpeg";
-import AboutImage_1 from "/assets/pngs/about/About2.jpeg";
-import Signature from "/assets/pngs/about/Signature.png";
+import AboutImage from "/assets/pngs/about/About1.webp";
+import AboutImage_1 from "/assets/pngs/about/About2.webp";
+import Signature from "/assets/pngs/about/Signature.webp";
 import { useMediaQuery } from "@mui/material";
 import { delay, motion } from 'framer-motion';
+import companyData from "../../utils/data/companyData";
 
 const styles = {
   mainContainer: {
@@ -167,7 +168,7 @@ const About = () => {
       backgroundColor: "#ffffff",
       pt: { xs: "40px", md: "0px" },
       overflow: "hidden",
-      background: "url('/assets/pngs/bg-shape.png')",
+      background: "url('/assets/pngs/bg-shape.webp')",
       backgroundRepeat: "no-repeat"
     }}>
       <Zoom in={slideIn} timeout={1000}>
@@ -215,7 +216,7 @@ const About = () => {
                         alt="signature"
                       />
                       <Typography sx={styles.ceoName}>
-                        Hassan Chaudhary
+                        {companyData.ownerName}
                       </Typography>
                       <Typography sx={styles.ceoRole}>
                         CEO, Techietribe
@@ -381,8 +382,7 @@ const About = () => {
                           alt="signature"
                         />
                         <Typography sx={styles.ceoName}>
-                          Hassan Chaudhary
-                        </Typography>
+                          {companyData.ownerName}                        </Typography>
                         <Typography sx={styles.ceoRole}>
                           CEO, Techietribe
                         </Typography>

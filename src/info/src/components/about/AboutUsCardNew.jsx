@@ -1,5 +1,5 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import image from "/assets/pngs/about/mk-5-removebg-preview.png";
+import image from "/assets/pngs/about/mk-5-removebg-preview.webp";
 import { motion } from 'framer-motion';
 import AboutDescription from "../services/AboutDescription";
 
@@ -48,7 +48,7 @@ const AboutUsCardNew = () => {
       container
       sx={{
         backgroundImage:
-          " url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.png)",
+          " url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.webp)",
         backgroundPosition: "100% -10%",
         backgroundRepeat: "no-repeat",
         backgroundColor: "rgb(240, 243, 246)",

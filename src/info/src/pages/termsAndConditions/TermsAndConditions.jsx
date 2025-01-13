@@ -2,6 +2,7 @@ import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
 import TermsAndConditionsHeader from "/assets/pngs/FooterResources/termsAndCondition1.webp";
+import companyData from "../../utils/data/companyData";
 
 const TermsAndConditions = () => {
   return (
@@ -240,7 +241,7 @@ const TermsAndConditions = () => {
           <strong>Contact Us</strong>
           <br />
           Feel free to contact us for any inquiries or concerns at
-          info@thetechietribe.com.
+          {companyData.officialEmail}.
         </Typography>
       </Box>
     </Box>

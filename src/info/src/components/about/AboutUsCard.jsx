@@ -1,5 +1,5 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import image from "/assets/pngs/about/smartmockups_m2cc99af.png";
+import image from "/assets/pngs/about/smartmockups_m2cc99af.webp";
 
 const AboutUsCard = () => {
   return (
@@ -7,7 +7,7 @@ const AboutUsCard = () => {
       container
       sx={{
         backgroundImage:
-          " url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.png)",
+          " url(https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.webp)",
         backgroundPosition: "100% -10%",
         backgroundRepeat: "no-repeat",
         backgroundColor: "rgb(240, 243, 246)",

@@ -12,12 +12,13 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 import fieldImage from "/assets/pngs/footer/footer-shape.png";
 import whiteLogo from "/assets/pngs/header/WhiteLogo.png";
 // import { RefContext } from "./../../context/RefContext";
 import { useNavigate } from "react-router-dom";
-
+import companyData from "../../utils/data/companyData";
 const styles = {
   mainContainer: {
     display: "flex",
@@ -322,7 +323,7 @@ const Footer = () => {
     if (error) setError("");
   };
   const handleAddressClick = () => {
-    window.open("https://maps.app.goo.gl/G2MNu77hjGQVJpkLA", "_blank");
+    window.open(`${companyData.googleMapAddress}`, "_blank");
   };
   return (
     <>
@@ -381,35 +382,49 @@ const Footer = () => {
               }
             }}>
               <a
-                href="mailto:info@thetechietribe.com"
+                href={`mailto:${companyData.officialEmail}`}
                 style={{
                   textDecoration: "none",
                 }}
               >
-                info@thetechietribe.com
+                {companyData.officialEmail}
               </a>
             </Typography>
             <Box sx={styles.socialMediaIcons}>
               <Link
                 color="#ffffff"
-                href="https://www.facebook.com/profile.php?id=61557054675828&mibextid=LQQJ4d"
+                href={`${companyData.socialMedia.facebook}`}
                 target="_blank"
               >
                 <FacebookIcon sx={styles.icon} />
               </Link>
               <Link
                 color="#ffffff"
-                href="https://www.instagram.com/thetechietribe_?igsh=ZTRodmlndWxrc3Jt"
+                href={`${companyData.socialMedia.instagram}`}
                 target="_blank"
               >
                 <InstagramIcon sx={styles.icon} />
               </Link>
               <Link
                 color="#ffffff"
-                href="https://www.linkedin.com/company/techietribe/"
+                href={`${companyData.socialMedia.linkedin}`}
                 target="_blank"
               >
                 <LinkedInIcon sx={styles.icon} />
+              </Link>
+              <Link
+                color="#ffffff"
+                href={`${companyData.socialMedia.youtube}`}
+                target="_blank"
+              >
+                <YouTubeIcon sx={styles.icon} />
+              </Link>
+              <Link
+                color="#ffffff"
+                href={`${companyData.socialMedia.pinterest}`}
+                target="_blank"
+              >
+                <PinterestIcon sx={styles.icon} />
               </Link>
             </Box>
           </Box>
@@ -440,14 +455,13 @@ const Footer = () => {
           <Box sx={styles.quickLinksContainer}>
             <Typography sx={styles.quickLinksHeading}>Address</Typography>
             <Typography sx={styles.quickLinks} onClick={handleAddressClick}>
-              Office No. 718, 7th Floor, Siddique Trade Center, Block H, Gulberg
-              2, Lahore, Punjab
+              {companyData.address}
             </Typography>
             <Typography sx={styles.quickLinksHeading}>Hours</Typography>
             <Typography sx={styles.hours}>
-              6:00pm - 3:00am
+              {companyData.workingTime}
               <br />
-              Monday to Friday
+              {companyData.workingDays}
             </Typography>
           </Box>
         </Box>

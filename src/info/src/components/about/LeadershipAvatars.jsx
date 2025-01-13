@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-import defaultAvatar from "/assets/pngs/about/avatar.png";
+import defaultAvatar from "/assets/pngs/about/avatar.webp";
 
 const styles = {
   mainContainer: {

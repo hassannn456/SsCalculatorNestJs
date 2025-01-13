@@ -59,7 +59,7 @@ const Services = () => {
           bgColor={"rgb(240, 243, 246)"}
         />
         <Box sx={{ position: "absolute", top: -10, left: 0 }}>
-          <img src="/assets/pngs/shape-8.png" alt="img" style={{ opacity: 0.4 }} />
+          <img src="/assets/pngs/shape-8.webp" alt="img" style={{ opacity: 0.4 }} />
         </Box>
       </Box>
 
@@ -95,10 +95,10 @@ const Services = () => {
           bgColor={"rgb(240, 243, 246)"}
         />
         <Box sx={{ position: "absolute", top: -200, right: 0, zIndex: 2 }}>
-          <img src="/assets/pngs/shape5.png" alt="img" style={{ objectFit: "contain" }} />
+          <img src="/assets/pngs/shape5.webp" alt="img" style={{ objectFit: "contain" }} />
         </Box>
         <Box sx={{ position: "absolute", top: 0, left: 0, rotate: "180deg", zIndex: 3 }}>
-          <img src="/assets/pngs/bg-pattern.png" alt="img" style={{ objectFit: "contain" }} />
+          <img src="/assets/pngs/bg-pattern.webp" alt="img" style={{ objectFit: "contain" }} />
         </Box>
       </Box>
       <ProcessInfo />

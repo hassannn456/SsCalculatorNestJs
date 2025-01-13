@@ -6,13 +6,17 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 import { Link } from "react-router-dom";
+import companyData from "../../utils/data/companyData";
+
 const TextComponent = () => {
   const handleIconClick = (url) => {
     window.open(url, "_blank");
   };
   const handleAddressClick = () => {
-    window.open("https://maps.app.goo.gl/G2MNu77hjGQVJpkLA", "_blank");
+    window.open(`${companyData.googleMapAddress}`, "_blank");
   };
   return (
     <Box
@@ -79,10 +83,14 @@ const TextComponent = () => {
                   fontSize: "1rem",
                   fontFamily: "Barlow",
                   fontWeight: "200",
+                  "&&:hover": {
+                    color: '#e0e0e0',
+                    cursor: "pointer"
+                  },
                 }}
               >
                 <Link to="mailto:example@gmail.com" target="_blank" >
-                  info@thetechietribe.com
+                  {companyData.officialEmail}
                 </Link>
               </Typography>
             </Box>
@@ -116,10 +124,14 @@ const TextComponent = () => {
                   fontSize: "1rem",
                   fontFamily: "Barlow",
                   fontWeight: "200",
+                  "&&:hover": {
+                    color: '#e0e0e0',
+                    cursor: "pointer"
+                  },
                 }}
               >
-                <Link to="tel:+92300456 1126" target="_blank" >
-                  +92 300 456 1126
+                <Link to={`tel:${companyData.phoneNumber}`} target="_blank" >
+                  {companyData.phoneNumber}
                 </Link>
               </Typography>
             </Box>
@@ -157,8 +169,7 @@ const TextComponent = () => {
                   cursor: "pointer"
                 },
               }} onClick={handleAddressClick}>
-                Office No. 718, 7th Floor, Siddique Trade Center, Block H, Gulberg
-                2, Lahore, Punjab
+                {companyData.address}
               </Typography>
             </Box>
           </Box>
@@ -178,7 +189,6 @@ const TextComponent = () => {
             fontFamily: "Barlow",
             fontSize: "1.1rem",
             fontWeight: "600",
-
           }}
         >
           Social Media
@@ -186,8 +196,7 @@ const TextComponent = () => {
         <Box
           sx={{
             display: "flex",
-            width: { xs: "100%", md: "40%" },
-            justifyContent: { xs: "space-around", md: "space-between" },
+            gap: 1.5,
             marginTop: "1rem",
           }}
         >
@@ -201,20 +210,22 @@ const TextComponent = () => {
               alignItems: "center",
               borderRadius: "50%",
               backgroundColor: "#ffffff",
-              border: "2px solid #ffffff",
+              transition: "all 0.2s linear",
+              color: "#378c92",
               "&:hover": {
-                backgroundColor: "#f0f0f0",
-                cursor: "pointer"
+                backgroundColor: "rgb(190,190,190)",
+                cursor: "pointer",
+                color: "white",
               },
             }}
             onClick={() =>
               handleIconClick(
-                "https://www.facebook.com/profile.php?id=61557054675828&mibextid=ZbWKwL"
+                `${companyData.socialMedia.facebook}`
               )
             }
           >
             <FacebookIcon sx={{
-              color: "#378c92",
+              color: "inherit",
             }} />
           </Box>
           <Box
@@ -226,20 +237,22 @@ const TextComponent = () => {
               alignItems: "center",
               borderRadius: "50%",
               backgroundColor: "#ffffff",
-              border: "2px solid #ffffff",
+              transition: "all 0.2s linear",
+              color: "#378c92",
               "&:hover": {
-                backgroundColor: "#f0f0f0",
-                cursor: "pointer"
+                backgroundColor: "rgb(190,190,190)",
+                cursor: "pointer",
+                color: "white",
               },
             }}
             onClick={() =>
               handleIconClick(
-                "https://www.instagram.com/thetechietribe_?igsh=MXAzY2d5NGtpdXJpcg=="
+                `${companyData.socialMedia.instagram}`
               )
             }
           >
             <InstagramIcon sx={{
-              color: "#378c92",
+              color: "inherit",
             }} />
           </Box>
           <Box
@@ -251,20 +264,71 @@ const TextComponent = () => {
               alignItems: "center",
               borderRadius: "50%",
               backgroundColor: "#ffffff",
+              transition: "all 0.2s linear",
+              color: "#378c92",
               "&:hover": {
-                backgroundColor: "#f0f0f0",
-                cursor: "pointer"
+                backgroundColor: "rgb(190,190,190)",
+                cursor: "pointer",
+                color: "white",
               },
             }}
             onClick={() =>
-              handleIconClick("https://www.linkedin.com/company/techietribe")
+              handleIconClick(`${companyData.socialMedia.linkedin}`)
             }
           >
             <LinkedInIcon sx={{
+              color: "inherit",
+
+            }} />
+          </Box>
+          <Box
+            sx={{
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+              transition: "all 0.2s linear",
               color: "#378c92",
               "&:hover": {
-                color: 'rgba(55, 140, 146,0.5)'
+                backgroundColor: "rgb(190,190,190)",
+                cursor: "pointer",
+                color: "white",
               },
+            }}
+            onClick={() =>
+              handleIconClick(`${companyData.socialMedia.youtube}`)
+            }
+          >
+            <YouTubeIcon sx={{
+              color: "inherit",
+            }} />
+          </Box>
+          <Box
+            sx={{
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+              transition: "all 0.2s linear",
+              color: "#378c92",
+              "&:hover": {
+                backgroundColor: "rgb(190,190,190)",
+                cursor: "pointer",
+                color: "white",
+              },
+            }}
+            onClick={() =>
+              handleIconClick(`${companyData.socialMedia.pinterest}`)
+            }
+          >
+            <PinterestIcon sx={{
+              color: "inherit",
             }} />
           </Box>
         </Box>

@@ -2,7 +2,7 @@ import React from "react";
 import ScrollToTopButton from "./../../components/general/scrollToTopBtn";
 import HeroImageSection from "./../../components/general/heroImageSection";
 import InsightCards from "../../components/insights/insightCards";
-import InsightsBG from "/assets/pngs/blogs-bg.jpg";
+import InsightsBG from "/assets/pngs/blogs-bg.webp";
 
 const InsightsPage = () => {
   return (

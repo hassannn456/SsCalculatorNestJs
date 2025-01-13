@@ -17,9 +17,18 @@ import {
   CardMedia
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import MainLogo from "/assets/pngs/header/Header_Logo.png";
+import MainLogo from "/assets/pngs/header/WhiteLogo.png";
 import WhiteLogo from "/assets/pngs/header/WhiteLogo.png";
-
+import Divider from '@mui/material/Divider';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'; // Bullet point icon
+import {
+  ContactMail,
+  Build,
+  Info,
+  Insights,
+  Work,
+  Folder,
+} from "@mui/icons-material";
 import SwipeableTemporaryDrawer from "../services/Blog";
 
 const drawerWidth = 240;
@@ -49,6 +58,7 @@ const DrawerAppBar = () => {
   const navItems = [
     {
       name: "Contact",
+      icon: <ContactMail />,
       onClick: () => {
         setActiveTab("Contact");
         navigate("/contact-us");
@@ -57,6 +67,7 @@ const DrawerAppBar = () => {
     },
     {
       name: "Services",
+      icon: <Build />,
       onClick: () => {
         setMobileServicesOpen((prev) => !prev);
         setActiveTab("Service");
@@ -67,7 +78,6 @@ const DrawerAppBar = () => {
           onClick: () => {
             navigate("/services/web-development");
             setMobileServicesOpen((prev) => !prev);
-
             setMobileOpen(false);
           },
         },
@@ -133,6 +143,7 @@ const DrawerAppBar = () => {
     },
     {
       name: "About",
+      icon: <Info />,
       onClick: () => {
         setActiveTab("About");
         navigate("/about");
@@ -141,6 +152,7 @@ const DrawerAppBar = () => {
     },
     {
       name: "Insights",
+      icon: <Insights />,
       onClick: () => {
         setActiveTab("Insights");
         navigate("/insights");
@@ -149,6 +161,7 @@ const DrawerAppBar = () => {
     },
     {
       name: "Careers",
+      icon: <Work />,
       onClick: () => {
         setActiveTab("Careers");
         navigate("/careers");
@@ -157,6 +170,7 @@ const DrawerAppBar = () => {
     },
     {
       name: "Portfolio",
+      icon: <Folder />,
       onClick: () => {
         setActiveTab("Portfolio");
         navigate("/our-work");
@@ -223,24 +237,31 @@ const DrawerAppBar = () => {
   const drawerContent = (
     <Box
       sx={{
+        minHeight: mobileServicesOpen ? "auto" : "100%",
         textAlign: "center",
-        backgroundColor: "#f5f5f5",
-        height: "100%",
+        backgroundColor: "#000000",
         width: "100%",
         padding: "16px",
+        color: "#ffffff",
+        paddingTop: "30px"
       }}
     >
       <Box
         sx={{
           top: 0,
-          backgroundColor: "#f5f5f5",
           zIndex: 1,
           paddingBottom: "16px",
         }}
       >
-        <img src={MainLogo} width={180} alt="Main Logo" />
+        <img src={MainLogo} width={180} alt="Main Logo"
+          onClick={() => {
+            navigate("/");
+            setMobileServicesOpen((prev) => !prev);
+            setMobileOpen(false);
+          }}
+        />
       </Box>
-
+      <Divider sx={{ border: "0.5px solid grey", margin: "auto", marginY: "10px" }} />
       <List
         sx={{
           display: "flex",
@@ -248,7 +269,7 @@ const DrawerAppBar = () => {
           alignItems: "center",
           padding: "0",
           width: "100%",
-          marginTop: "20px",
+          marginTop: "50px",
         }}
       >
         {navItems.map((item) => (
@@ -266,25 +287,29 @@ const DrawerAppBar = () => {
                   width: "100%",
                   borderRadius: "8px",
                   padding: "12px 24px",
-                  color: isActive(item.name) ? "#00695c" : "#333",
+                  paddingLeft: "23px",
+                  color: "#ffffff",
                   textTransform: "none",
                   fontWeight: isActive(item.name) ? "bold" : "normal",
                   backgroundColor: isActive(item.name)
-                    ? "#e0f2f1"
+                    ? "#378C92"
                     : "transparent",
                   "&:hover": {
-                    backgroundColor: "#e0f2f1",
+                    backgroundColor: "#333333",
                   },
-                  justifyContent: "space-between",
+                  justifyContent: "flex-start",
                   alignItems: "center",
+                  gap: "33px",
                 }}
                 onClick={item.onClick}
               >
-                <Typography variant="body1">{item.name}</Typography>
+                {item.icon && item.icon}
+
+                <Typography variant="body1" sx={{ fontSize: "17px" }}>{item.name}</Typography>
                 {item.subItems && (
                   <KeyboardArrowDownIcon
                     sx={{
-                      fontSize: "15px",
+                      fontSize: "22px",
                       transform: mobileServicesOpen
                         ? "rotate(180deg)"
                         : "rotate(0deg)",
@@ -301,7 +326,6 @@ const DrawerAppBar = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-
                     padding: "0",
                     width: "100%",
                   }}
@@ -321,7 +345,7 @@ const DrawerAppBar = () => {
                           width: "100%",
                           borderRadius: "8px",
                           padding: "8px 24px",
-                          color: isActive(subItem.name) ? "#004d40" : "#555",
+                          color: isActive(item.name) ? "#00e676" : "#ffffff",
                           textTransform: "none",
                           backgroundColor: isActive(subItem.name)
                             ? "#b9fbc0"
@@ -334,6 +358,7 @@ const DrawerAppBar = () => {
                         }}
                         onClick={subItem.onClick}
                       >
+                        <RadioButtonCheckedIcon sx={{ marginRight: "13px", fontSize: "11px" }} />
                         <Typography variant="body2">{subItem.name}</Typography>
                       </ListItemButton>
                     </ListItem>

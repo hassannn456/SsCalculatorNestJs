@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import HeroImageSection from "./../../components/general/heroImageSection";
-import AboutBg from "/assets/pngs/work-header.jpeg";
+import AboutBg from "/assets/pngs/work-header.webp";
 import AboutDescription1 from "./../../components/services/AboutDescription";
 import Process from "./../../components/about/Process";
 import EngagementPlan from "./../../components/home/engagementPlan";
@@ -9,10 +9,10 @@ import HeaderText from "../../components/general/HeaderText";
 import AboutUsCardNew from "../../components/about/AboutUsCardNew";
 import RequestQuote from "../../components/home/requestQuotes";
 import Testimonials from "../../components/services/Testimonials";
-import Header from "/assets/pngs/about/AboutHeaderSec.png";
-import ExtraHeader from "/assets/pngs/about/businessSuccess.png";
-import AboutBG from "/assets/pngs/about/About-Us.jpg";
-import image from "/public/assets/pngs/about/mk-5-removebg-preview.png";
+import Header from "/assets/pngs/about/AboutHeaderSec.webp";
+import ExtraHeader from "/assets/pngs/about/businessSuccess.webp";
+import AboutBG from "/assets/pngs/about/About-Us.webp";
+import image from "/public/assets/pngs/about/mk-5-removebg-preview.webp";
 const About = () => {
   return (
     <Box>
@@ -32,7 +32,7 @@ const About = () => {
           bgColor={"rgb(240, 243, 246)"}
         />
         <Box sx={{ position: "absolute", top: 0, left: 0 }}>
-          <img src="/assets/pngs/blog-shape-1.png" alt="" style={{
+          <img src="/assets/pngs/blog-shape-1.webp" alt="" style={{
             height: "auto",
             width: "100%",
             objectFit: "contain",
@@ -50,7 +50,7 @@ const About = () => {
           inverted={true}
         />
         <Box sx={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}>
-          <img src="/assets/pngs/bg-about1.png" alt="" style={{
+          <img src="/assets/pngs/bg-about1.webp" alt="" style={{
             height: "auto",
             width: "100%",
             opacity: 0.1,
@@ -71,10 +71,10 @@ const About = () => {
         `}
           scale={1.2}
           bgColor={"rgb(240, 243, 246)"}
-          
+
         />
         <Box sx={{ position: "absolute", top: 0, right: 0 }}>
-          <img src="https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.png" alt="" style={{
+          <img src="https://redvisionexperts.com/wp-content/uploads/2020/10/bg-map-3.webp" alt="" style={{
             height: "auto",
             width: "100%",
             objectFit: "contain",

@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
 import LeadershipAvatars from "./LeadershipAvatars";
-import Planning1 from "/assets/pngs/about/Planning1.jpg";
-import Planning2 from "/assets/pngs/about/Planning2.jpg";
+import Planning1 from "/assets/pngs/about/Planning1.webp";
+import Planning2 from "/assets/pngs/about/Planning2.webp";
 import Planning3 from "/assets/pngs/about/Planning3.svg";
 import SectionHeader from "../general/SectionHeader";
 import { motion } from 'framer-motion';
@@ -33,6 +33,7 @@ const Process = () => {
       <SectionHeader
         title={"PROCESS"}
         subtitle={"Together, we make change happen!"}
+        justify={true}
       />
       <Box sx={styles.avatars}>
         <motion.div

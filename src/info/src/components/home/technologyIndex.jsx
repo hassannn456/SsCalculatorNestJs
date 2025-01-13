@@ -11,14 +11,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ReactIcon from "/assets/pngs/technologies/React.png";
+import ReactIcon from "/assets/pngs/technologies/React.webp";
 import Angular from "/assets/pngs/technologies/Angular.png";
-import NextIcon from "/assets/pngs/technologies/Next.png";
-import Vue from "/assets/pngs/technologies/Vue.png";
-import AWS from "/assets/pngs/technologies/AWS.png";
-import AWSAmplify from "/assets/pngs/technologies/AWS-Amplify.png";
-import Rails from "/assets/pngs/technologies/Rails.png";
-import GoogleCloud from "/assets/pngs/technologies/Google-Cloud.png";
+import NextIcon from "/assets/pngs/technologies/Next.webp";
+import Vue from "/assets/pngs/technologies/Vue.webp";
+import AWS from "/assets/pngs/technologies/AWS.webp";
+import AWSAmplify from "/assets/pngs/technologies/AWS-Amplify.webp";
+import Rails from "/assets/pngs/technologies/Rails.webp";
+import GoogleCloud from "/assets/pngs/technologies/Google-Cloud.webp";
 import Laravel from "/assets/pngs/technologies/Laravel.png";
 import PostGres from "/assets/pngs/technologies/PostGres.png";
 

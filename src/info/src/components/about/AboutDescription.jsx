@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
-import Header from "/assets/pngs/about/AboutHeader.jpg";
+import Header from "/assets/pngs/about/AboutHeader.webp";
 import SectionHeader from "../general/SectionHeader";
 
 const AboutDescription = () => {
@@ -29,7 +29,7 @@ const AboutDescription = () => {
           <Box sx={styles.textContainer}>
             <SectionHeader
               title={"About Us"}
-              subtitle={"We are increasing Business Success"}
+              subtitle={"We aare increasing Business Success"}
               description={`TechieTribe is a leading software house that specializes in
                 providing customized solutions for businesses seeking to drive
                 digital transformation. With its innovative approach and focus

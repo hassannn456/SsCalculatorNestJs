@@ -8,7 +8,7 @@ import "swiper/css/autoplay";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import bgArrow from "/assets/pngs/bg-arrow.png";
+import bgArrow from "/assets/pngs/bg-arrow.webp";
 import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
 
 const testimonials = [

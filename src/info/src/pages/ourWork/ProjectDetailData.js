@@ -1,24 +1,24 @@
-import ConceptAi from "/assets/pngs/heroSecionSlider/Concept Ai.png";
-import MainStay from "/assets/pngs/heroSecionSlider/MainStay.png";
-import MulaX from "/assets/pngs/heroSecionSlider/MulaX.png";
-import Neufluence from "/assets/pngs/heroSecionSlider/Neufluence.png";
-import Spiritual from "/assets/pngs/heroSecionSlider/Spiritual Data.png";
-import SyntricAI from "/assets/pngs/heroSecionSlider/SyntricAI.png";
+import ConceptAi from "/assets/pngs/heroSecionSlider/Concept Ai.webp";
+import MainStay from "/assets/pngs/heroSecionSlider/MainStay.webp";
+import MulaX from "/assets/pngs/heroSecionSlider/MulaX.webp";
+import Neufluence from "/assets/pngs/heroSecionSlider/Neufluence.webp";
+import Spiritual from "/assets/pngs/heroSecionSlider/Spiritual Data.webp";
+import SyntricAI from "/assets/pngs/heroSecionSlider/SyntricAI.webp";
 import PrismX from "/assets/pngs/heroSecionSlider/prismx.webp";
 
-import next from "/assets/pngs/TechCardPngs/nextJs.png";
-import node from "/assets/pngs/TechCardPngs/nodeJs.png";
-import aws from "/assets/pngs/TechCardPngs/aws.png";
-import typescript from "/assets/pngs/TechCardPngs/typescript.png";
-import react from "/assets/pngs/TechCardPngs/react.png";
+import next from "/assets/pngs/TechCardPngs/nextJs.webp";
+import node from "/assets/pngs/TechCardPngs/nodeJs.webp";
+import aws from "/assets/pngs/TechCardPngs/aws.webp";
+import typescript from "/assets/pngs/TechCardPngs/typescript.webp";
+import react from "/assets/pngs/TechCardPngs/react.webp";
 import mui from "/assets/pngs/TechCardPngs/mui.png";
 import graphql from "/assets/pngs/TechCardPngs/graphql.png";
-import elephant from "/assets/pngs/TechCardPngs/elephant.png";
+import elephant from "/assets/pngs/TechCardPngs/elephant.webp";
 import express from "/assets/pngs/TechCardPngs/express.png";
 import firebase from "/assets/pngs/TechCardPngs/firebase.png";
 import python from "/assets/pngs/TechCardPngs/python.webp";
-import fastapi from "/assets/pngs/TechCardPngs/FastAPI.png";
-import js from "/assets/pngs/TechCardPngs/js.png";
+import fastapi from "/assets/pngs/TechCardPngs/FastAPI.webp";
+import js from "/assets/pngs/TechCardPngs/js.webp";
 
 const ProjectDetailData = [
   {

@@ -1,3 +1,4 @@
+import companyData from "../../utils/data/companyData";
 const faqData = [
   {
     question: "What services does Techietribe offer?",
@@ -7,7 +8,7 @@ const faqData = [
   {
     question: "How can I get a quote for a project?",
     answer:
-      "To get a quote, you can contact us through our website or email us at info@thetechietribe.com with details about your project requirements.",
+      `To get a quote, you can contact us through our website or email us at ${companyData.officialEmail} with details about your project requirements.`,
   },
   {
     question: "What is the typical project timeline?",

@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import SectionIntro from "../general/SectionHeader";
 import TestimonialSlider from "./TestimonialSlider";
-import bgMap2 from "/assets/pngs/bg-map.png";
+import bgMap2 from "/assets/pngs/bg-map.webp";
 
 const Testimonials = () => {
   return (
@@ -21,6 +21,7 @@ const Testimonials = () => {
           title="OUR TESTIMONIALS"
           subtitle="What They Say"
           description="At TechieTribe, we pride ourselves on transforming ideas into cutting-edge software solutions. Our dedicated team ensures every project exceeds expectations, blending innovation with precision. Partner with us to turn your vision into impactful technology."
+        justify={true}
         />
         <TestimonialSlider />
       </Box>

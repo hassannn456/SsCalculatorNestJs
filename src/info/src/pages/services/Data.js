@@ -1,41 +1,41 @@
-import WebDevelopmentImage from "/assets/pngs/services/WebDev.png";
-import WebDevExtraImage from "/assets/pngs/services/WebDevExtraImage.png";
+import WebDevelopmentImage from "/assets/pngs/services/WebDev.webp";
+import WebDevExtraImage from "/assets/pngs/services/WebDevExtraImage.webp";
 import webDevelopment from "/assets/pngs/webdevelopment.avif";
-import WebDevExtraImage1 from "/assets/pngs/services/webExtraImage1.png";
+import WebDevExtraImage1 from "/assets/pngs/services/webExtraImage1.webp";
 
-import MobileDevelopmentImage from "/assets/pngs/services/MobileAppDevelopment.png";
+import MobileDevelopmentImage from "/assets/pngs/services/MobileAppDevelopment.webp";
 import mobileDevelopment from "/assets/pngs/services/mobileDevelopment.webp";
-import MobileDevExtraImage from "/assets/pngs/services/MobileDevImage2.png";
-import MobileDevExtraImage1 from "/assets/pngs/services/mobileExtraImage1.png";
+import MobileDevExtraImage from "/assets/pngs/services/MobileDevImage2.webp";
+import MobileDevExtraImage1 from "/assets/pngs/services/mobileExtraImage1.webp";
 
 import UIHeaderImage from "/assets/pngs/services/UIHeaderImage.avif";
-import UIDesignImage from "/assets/pngs/services/UIDesignImage.png";
-import UIDesignExtraImage from "/assets/pngs/services/UIDesignExtraImage.png";
-import UIDesignExtraImage1 from "/assets/pngs/services/UIExtraImage1.png";
+import UIDesignImage from "/assets/pngs/services/UIDesignImage.webp";
+import UIDesignExtraImage from "/assets/pngs/services/UIDesignExtraImage.webp";
+import UIDesignExtraImage1 from "/assets/pngs/services/UIExtraImage1.webp";
 
-import BlockchainHeaderImage from "/assets/pngs/services/BlockchainHeaderImage.jpg";
+import BlockchainHeaderImage from "/assets/pngs/services/BlockchainHeaderImage.webp";
 import BlockchainImage from "/assets/pngs/services/BlockchainImage.svg";
-import BlockchainExtraImage from "/assets/pngs/services/BlockchainExtraImage.png";
-import BlockchainExtraImage1 from "/assets/pngs/services/blockchainExtraImage1.png";
+import BlockchainExtraImage from "/assets/pngs/services/BlockchainExtraImage.webp";
+import BlockchainExtraImage1 from "/assets/pngs/services/blockchainExtraImage1.webp";
 
 import SEO from "/assets/pngs/services/seo.avif";
-import SEO1 from "/assets/pngs/services/seo1.png";
-import SEO2 from "/assets/pngs/services/seo2.png";
+import SEO1 from "/assets/pngs/services/seo1.webp";
+import SEO2 from "/assets/pngs/services/seo2.webp";
 import SEO3 from "/assets/pngs/services/seo3.svg";
 
 import Content from "/assets/pngs/services/content.webp";
-import Content1 from "/assets/pngs/services/content1.png";
-import Content2 from "/assets/pngs/services/content2.png";
+import Content1 from "/assets/pngs/services/content1.webp";
+import Content2 from "/assets/pngs/services/content2.webp";
 import Content3 from "/assets/pngs/services/content3.svg";
 
 import Social from "/assets/pngs/services/social.webp";
-import Social1 from "/assets/pngs/services/social1.png";
-import Social2 from "/assets/pngs/services/social2.png";
+import Social1 from "/assets/pngs/services/social1.webp";
+import Social2 from "/assets/pngs/services/social2.webp";
 import Social3 from "/assets/pngs/services/social3.svg";
 
 import Email from "/assets/pngs/services/email.avif";
-import Email1 from "/assets/pngs/services/email1.png";
-import Email2 from "/assets/pngs/services/email2.png";
+import Email1 from "/assets/pngs/services/email1.webp";
+import Email2 from "/assets/pngs/services/email2.webp";
 import Email3 from "/assets/pngs/services/email3.svg";
 
 const servicesData = [

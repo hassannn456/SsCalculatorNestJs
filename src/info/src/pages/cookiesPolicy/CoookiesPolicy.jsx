@@ -1,8 +1,8 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import HeroImageSection from "../../components/general/heroImageSection";
-import CookiesImage from "/assets/pngs/FooterResources/cookies.jpg";
-
+import CookiesImage from "/assets/pngs/FooterResources/cookies.webp";
+import companyData from "../../utils/data/companyData";
 const CookiesPolicy = () => {
   return (
     <Box>
@@ -167,7 +167,7 @@ const CookiesPolicy = () => {
         >
           <strong>Contact Us</strong>
           <br />
-          If you have any questions, please contact us at info@thetechietribe.com.
+          If you have any questions, please contact us at {companyData.officialEmail}.
         </Typography>
       </Box>
     </Box>

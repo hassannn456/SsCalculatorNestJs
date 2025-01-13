@@ -549,7 +549,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
           )}
         </Box>
         <Box sx={{ position: "absolute", top: 0, right: 0, zIndex: -1 }}>
-          <img src="/assets/pngs/bg-pattern.png" alt="arrow" height="100%" width="100%" style={{ objectFit: "contain" }} />
+          <img src="/assets/pngs/bg-pattern.webp" alt="arrow" height="100%" width="100%" style={{ objectFit: "contain" }} />
         </Box>
       </Box>
     </Box>

@@ -8,7 +8,7 @@ import {
   Box,
 } from "@mui/material";
 import React from "react";
-import backgroundImage from "/assets/pngs/about/About-Us.jpg";
+import backgroundImage from "/assets/pngs/about/About-Us.webp";
 import { Link, useNavigate } from "react-router-dom";
 
 const fadeInBottom = keyframes`
