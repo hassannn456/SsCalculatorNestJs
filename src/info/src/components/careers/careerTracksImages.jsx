@@ -1,16 +1,16 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 
-import Experienced from "/assets/pngs/careers/experienced-professionals.webp";
-import Internship from "/assets/pngs/careers/internship.webp";
-import Graduates from "/assets/pngs/careers/graduates.webp";
+import Experienced from "/assets/images/careers/experienced-professionals.webp";
+import Internship from "/assets/images/careers/internship.webp";
+import Graduates from "/assets/images/careers/graduates.webp";
 
 const CareerTracksImages = () => {
   return (
     <Grid
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", lg: "row" },
+        flexDirection: { xs: "column", md: "row" },
         gap: "2rem",
         backgroundColor: "#ffffff",
         paddingBottom: "4rem",

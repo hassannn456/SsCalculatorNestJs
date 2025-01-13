@@ -212,7 +212,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
       last_name: values.last_name,
       email: values.email,
       number: parseInt(values.number.replace(/\D/g, "")),
-      org: "TechieTribe",
+      org: "Techietribe",
       message: values.message,
     };
 
@@ -241,7 +241,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
 
   const sendAutoReply = (recipientEmail, firstName) => {
     const autoReplyParams = {
-      from_name: "TechieTribe",
+      from_name: "Techietribe",
       to_name: `${firstName}`,
       reply_to: recipientEmail,
       message: `Hello ${firstName},\n\nThank you for reaching out. Your inquiry has been received, and we appreciate your interest in our services. Our team is currently reviewing your message and will get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our solutions: www.thetechietribe.com\n\nBest Regards,\nTeam Techietribe`,
@@ -741,7 +741,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
         <Alert severity="success">{snackbarMessage}</Alert>
       </Snackbar>
       <Box sx={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}>
-        <img src="/assets/pngs/bg-shape1.webp" alt="" style={{
+        <img src="/assets/images/bg-shape1.webp" alt="" style={{
           height: "auto",
           width: "100%",
           opacity: 0.15,

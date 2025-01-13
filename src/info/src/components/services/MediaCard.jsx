@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import InsightData from "../insights/insightData";
+import InsightData from "../../utils/data/Insights";
 
 export default function MediaCard({ image, closeDrawers }) {
   const navigate = useNavigate();

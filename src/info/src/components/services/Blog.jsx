@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MediaCard from "./MediaCard";
 import InteractiveList from "./InteractiveList";
-import BlogImage1 from "/assets/pngs/insights/blog01.webp";
+import BlogImage1 from "/assets/images/insights/blog01.webp";
 
 export default function SwipeableTemporaryDrawer({
   state,
@@ -13,7 +13,6 @@ export default function SwipeableTemporaryDrawer({
   activeTab,
   closeDrawers,
 }) {
-  const [isHovered, setIsHovered] = useState(false);
   const [drawerHeight, setDrawerHeight] = useState("1500px");
 
   useEffect(() => {
@@ -34,13 +33,8 @@ export default function SwipeableTemporaryDrawer({
     setState(open);
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    setState(true);
-  };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     setState(false);
   };
 

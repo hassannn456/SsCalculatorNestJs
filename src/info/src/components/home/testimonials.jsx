@@ -1,26 +1,5 @@
 import React from "react";
-import companyData from "../../utils/data/companyData";
 import { Stack, Typography } from "@mui/material";
-
-import TestimonialImage1 from "/assets/pngs/testimonials/Testimonial1.webp";
-import TestimonialImage2 from "/assets/pngs/testimonials/Testimonial2.webp";
-
-const data = [
-  {
-    name: "Minhaj Alvi",
-    designation: "Senior Software Engineer",
-    testimonial:
-      "I engaged Techietribe to develop a web application for both internal (admin work) and external purposes, including client onboarding, generating product quotes, obtaining approvals, and integrating APIs. Led by a skilled tech lead, they effectively manage a diverse team comprising project managers, frontend and backend developers. Their attentive listening and problem-solving prowess make them invaluable partners, highly recommended for any project. Their dedication to meeting deadlines and delivering high-quality results.",
-    image: TestimonialImage1,
-  },
-  {
-    name: `${companyData.ownerName}`,
-    designation: "Founder",
-    testimonial:
-      "I engaged Techietribe to develop a web application for both internal (admin work) and external purposes, including client onboarding, generating product quotes, obtaining approvals, and integrating APIs. Led by a skilled tech lead, they effectively manage a diverse team comprising project managers, frontend and backend developers. Their attentive listening and problem-solving prowess make them invaluable partners, highly recommended for any project. Their dedication to meeting deadlines and delivering high-quality results.",
-    image: TestimonialImage2,
-  },
-];
 
 const styles = {
   mainContainer: {

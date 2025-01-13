@@ -14,7 +14,7 @@ const CareerTracks = () => {
         justifyContent: "center",
         backgroundColor: "#ffffff",
         py: 7,
-        px: { md: 44, sm: 20, xs: 5 },
+        px: { md: '18vw', sm: 20, xs: 5 },
       }}
     >
       <Typography

@@ -1,26 +1,23 @@
 import React from "react";
 import { Box } from "@mui/material";
-import SectionHeader from "../general/SectionHeader";
-import { motion } from 'framer-motion';
+import SectionHeader from "../../utils/commons/SectionHeader";
+import { motion } from "framer-motion";
 
 const cardVariants = {
   offscreen: {
     scale: 1.1,
     opacity: 0,
   },
-
-  onscreen: (index) => (
-    {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 50,
-        stiffness: 100,
-        delay: index * 0.3,
-      },
-    }
-  ),
+  onscreen: (index) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      damping: 40,
+      stiffness: 80,
+      delay: index * 0.2,
+    },
+  }),
 };
 
 const AboutDescription = ({
@@ -30,15 +27,17 @@ const AboutDescription = ({
   inverted = false,
   subtitle,
   bgColor,
-  scale = 1
+  scale = 1,
 }) => {
   return (
-    <Box sx={{
-      backgroundColor: bgColor ? bgColor : "white",
-      position: "relative",
-      height: { xs: "auto", md: "85vh" },
-      py: { xs: "20px", md: 0 }
-    }}>
+    <Box
+      sx={{
+        backgroundColor: bgColor ? bgColor : "white",
+        position: "relative",
+        height: { xs: "auto", md: "85vh" },
+        py: { xs: "20px", md: 0 },
+      }}
+    >
       <Box
         sx={{
           px: { xs: "1rem", md: "2rem" },
@@ -51,7 +50,7 @@ const AboutDescription = ({
           justifyContent: "space-between",
           width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
           alignItems: "center",
-          margin: "auto"
+          margin: "auto",
         }}
       >
         <Box

@@ -132,7 +132,7 @@ const ContactUsFrom = () => {
       last_name: values.last_name,
       email: values.email,
       number: parseInt(values.number.replace(/\D/g, "")),
-      org: "TechieTribe",
+      org: "Techietribe",
       message: values.message,
     };
 
@@ -187,11 +187,11 @@ const ContactUsFrom = () => {
   return (
     <Box
       sx={{
-        width: { xs: "100%", md: "100%" },
+        width: { xs: "100%", md: "40%" },
         height: "100%",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-between",
         minHeight: "100%",
         minWidth: { xs: "100%", md: "35rem" },
       }}

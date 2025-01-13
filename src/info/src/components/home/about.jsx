@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Box, Divider, Tooltip, Typography, Slide, Zoom } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { useInView } from "react-intersection-observer";
-import AboutImage from "/assets/pngs/about/About1.webp";
-import AboutImage_1 from "/assets/pngs/about/About2.webp";
-import Signature from "/assets/pngs/about/Signature.webp";
+import AboutImage from "/assets/images/about/About1.webp";
+import AboutImage_1 from "/assets/images/about/About2.webp";
+import Signature from "/assets/images/about/Signature.webp";
 import { useMediaQuery } from "@mui/material";
-import { delay, motion } from 'framer-motion';
-import companyData from "../../utils/data/companyData";
+import { motion } from 'framer-motion';
+import companyData from "../../utils/data/CompanyInfo";
 
 const styles = {
   mainContainer: {
@@ -44,7 +44,6 @@ const styles = {
     mt: "2rem",
     lineHeight: "2",
   },
-
   signatureContainer: {
     display: "flex",
     mt: "2rem",
@@ -119,23 +118,6 @@ const cardVariants = {
   }),
 };
 
-const cardVariantsLeft = {
-  offscreen: {
-    marginLeft: "-100px",
-    opacity: 0,
-  },
-  onscreen: {
-    marginLeft: "0px",
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 50,
-      duration: 0.5,
-      ease: "easeOut"
-    },
-  },
-};
 const cardVariantsRight = {
   offscreen: {
     marginLeft: "100px",
@@ -168,7 +150,7 @@ const About = () => {
       backgroundColor: "#ffffff",
       pt: { xs: "40px", md: "0px" },
       overflow: "hidden",
-      background: "url('/assets/pngs/bg-shape.webp')",
+      background: "url('/assets/images/bg-shape.webp')",
       backgroundRepeat: "no-repeat"
     }}>
       <Zoom in={slideIn} timeout={1000}>

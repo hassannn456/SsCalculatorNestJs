@@ -8,21 +8,21 @@ import "swiper/css/autoplay";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import bgArrow from "/assets/pngs/bg-arrow.webp";
+import bgArrow from "/assets/images/bg-arrow.webp";
 import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
 
 const testimonials = [
   {
     image:
       "https://img.freepik.com/free-photo/medium-shot-male-flight-attendant-posing_23-2150312701.jpg?t=st=1722977165~exp=1722980765~hmac=9238d998b56f4b36eb39b70c43f77e39202122bd02bc75966558a96bdef0645f&w=360",
-    text: "Partnering with TechieTribe was a game-changer for us. Their innovative approach and seamless execution brought our software vision to life with remarkable efficiency.",
+    text: "Partnering with Techietribe was a game-changer for us. Their innovative approach and seamless execution brought our software vision to life with remarkable efficiency.",
     name: "Lemaire Stewart",
     role: "Client",
   },
   {
     image:
       "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg",
-    text: "TechieTribe transformed our digital presence with their cutting-edge solutions and exceptional service. Their expertise and commitment to innovation have elevated our business to new heights.",
+    text: "Techietribe transformed our digital presence with their cutting-edge solutions and exceptional service. Their expertise and commitment to innovation have elevated our business to new heights.",
     name: "Donald Ross",
     role: "Client",
   },
@@ -37,7 +37,7 @@ const testimonials = [
   {
     image:
       "https://img.freepik.com/free-photo/portrait-man-looking-front-him_23-2148422271.jpg?t=st=1719865070~exp=1719868670~hmac=41ddbe1558d351126ea76b5725905c6b432019c91eb971dc902da31c5eb9c6b2&w=996",
-    text: "TechieTribe delivered top-notch software solutions that exceeded our expectations. Their dedication to quality and timely delivery truly sets them apart in the industry.",
+    text: "Techietribe delivered top-notch software solutions that exceeded our expectations. Their dedication to quality and timely delivery truly sets them apart in the industry.",
     name: "David Wilson",
     role: "Customer",
   },

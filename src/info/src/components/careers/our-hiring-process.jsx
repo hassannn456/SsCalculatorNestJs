@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 
-import SectionHeader from "../general/SectionHeader";
-import Apply from "/assets/pngs/careers/hiring-process1.svg";
-import Review from "/assets/pngs/careers/hiring-process2.svg";
-import Interviews from "/assets/pngs/careers/hiring-process3.svg";
-import Onboarding from "/assets/pngs/careers/hiring-process4.svg";
+import SectionHeader from "../../utils/commons/SectionHeader";
+import Apply from "/assets/images/careers/hiring-process1.svg";
+import Review from "/assets/images/careers/hiring-process2.svg";
+import Interviews from "/assets/images/careers/hiring-process3.svg";
+import Onboarding from "/assets/images/careers/hiring-process4.svg";
 
 const HiringProcess = () => {
   const steps = [
@@ -59,8 +59,9 @@ const HiringProcess = () => {
             item
             xs={12}
             sm={6}
-            md={3}
+            md={2.6}
             lg={2.8}
+            xl={2.2}
             sx={{
               mt: "3rem",
               border: "1px solid lightgray",

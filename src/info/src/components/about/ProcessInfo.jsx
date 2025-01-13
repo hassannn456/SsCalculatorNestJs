@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Grid, Typography, CardMedia, Container } from "@mui/material";
-import selectIcon from "/assets/pngs/about/select (2).svg";
-import TargetIcon from "/assets/pngs/about/target.svg";
-import ChooseIcon from "/assets/pngs/about/choose.svg";
-import worldIcon from "/assets/pngs/about/earth-asia.svg";
+import selectIcon from "/assets/images/about/select (2).svg";
+import TargetIcon from "/assets/images/about/target.svg";
+import ChooseIcon from "/assets/images/about/choose.svg";
+import worldIcon from "/assets/images/about/earth-asia.svg";
 
 const ProcessInfo = () => {
   const gridItems = [

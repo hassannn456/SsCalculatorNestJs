@@ -52,9 +52,9 @@ const styles = {
     display: "flex",
     flexDirection: { xs: "column", md: "row" },
     justifyContent: "center",
-    padding: { xs: "20px 15px", lg: "80px 0px" },
+    padding: { xs: "20px 15px", md: "80px 0px" },
     margin: "auto",
-    width: { xs: "100%", md: "63rem", lg: "80rem", xl: "90rem" },
+    width: { xs: "100%", md: "62rem", lg: "78rem", xl: "90rem" },
   },
   heading: {
     fontSize: "20px",
@@ -87,7 +87,7 @@ const styles = {
     fontFamily: "Barlow",
     fontWeight: "600",
     color: "#378C92",
-    textAlign: { xs: "center", lg: "start" },
+    textAlign: "start",
     mt: { xs: "1rem", lg: "4rem" },
   },
 
@@ -96,7 +96,7 @@ const styles = {
     display: "flex",
     gap: "0.5rem",
     alignItems: "center",
-    justifyContent: { xs: "center", lg: "flex-start" },
+    justifyContent: "flex-start",
   },
 
   contact: {
@@ -216,7 +216,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
       last_name: values.last_name,
       email: values.email,
       number: parseInt(values.number.replace(/\D/g, "")),
-      org: "TechieTribe",
+      org: "Techietribe",
       message: values.message,
     };
 
@@ -245,7 +245,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
 
   const sendAutoReply = (recipientEmail, firstName) => {
     const autoReplyParams = {
-      from_name: "TechieTribe",
+      from_name: "Techietribe",
       to_name: `${firstName}`,
       reply_to: recipientEmail,
       message: `Hello ${firstName},\n\nThank you for reaching us out, your inquiry has been received and we sincerely appreciate your interest in our services. Our team is currently reviewing your message and we will get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our solutions and capabilities: www.thetechietribe.com\n\nBest Regards,\nTeam Techietribe`,
@@ -287,7 +287,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "50%" },
+            width: { xs: "100%", md: "46%" },
             mt: { xs: "2rem", md: "0rem" },
           }}
         >
@@ -296,14 +296,14 @@ const CareerForm = ({ bgColor, inPage = false }) => {
             Shape the Future with Our Innovative Solutions
           </Typography>
           <Typography sx={styles.aboutContent}>
-            At TechieTribe, we are dedicated to leveraging the latest
+            At Techietribe, we are dedicated to leveraging the latest
             technologies to provide customized solutions that address your
             specific needs. Our team excels in a diverse range of programming
             languages and tools, ensuring the delivery of robust and dynamic
             systems, websites, and applications that drive your business
             forward.
           </Typography>
-          <Box sx={{ mt: { xs: 0, md: "-1rem" } }}>
+          <Box sx={{ mt: { xs: 0 } }}>
             <Typography sx={styles.hqHeading}>Headquarters</Typography>
             <Box sx={styles.hqContent}>
               <LocalPhoneRoundedIcon
@@ -335,6 +335,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
             borderRadius: "1rem",
             width: { xs: "100%", md: "50%" },
             mt: { xs: "2rem", md: "0rem" },
+            ml: {xs: 0, md: 4},
             padding: "20px",
             backgroundColor: "#ffffff",
           }}

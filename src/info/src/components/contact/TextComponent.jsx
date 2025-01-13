@@ -9,7 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import { Link } from "react-router-dom";
-import companyData from "../../utils/data/companyData";
+import companyData from "../../utils/data/CompanyInfo";
 
 const TextComponent = () => {
   const handleIconClick = (url) => {

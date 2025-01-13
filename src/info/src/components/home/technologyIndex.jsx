@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-// eslint-disable-next-line no-unused-vars
 import * as React from "react";
 
 import { Box, CardMedia, Typography } from "@mui/material";
@@ -11,16 +9,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ReactIcon from "/assets/pngs/technologies/React.webp";
-import Angular from "/assets/pngs/technologies/Angular.png";
-import NextIcon from "/assets/pngs/technologies/Next.webp";
-import Vue from "/assets/pngs/technologies/Vue.webp";
-import AWS from "/assets/pngs/technologies/AWS.webp";
-import AWSAmplify from "/assets/pngs/technologies/AWS-Amplify.webp";
-import Rails from "/assets/pngs/technologies/Rails.webp";
-import GoogleCloud from "/assets/pngs/technologies/Google-Cloud.webp";
-import Laravel from "/assets/pngs/technologies/Laravel.png";
-import PostGres from "/assets/pngs/technologies/PostGres.png";
+import ReactIcon from "/assets/images/technologies/React.webp";
+import Angular from "/assets/images/technologies/Angular.png";
+import NextIcon from "/assets/images/technologies/Next.webp";
+import Vue from "/assets/images/technologies/Vue.webp";
+import AWS from "/assets/images/technologies/AWS.webp";
+import AWSAmplify from "/assets/images/technologies/AWS-Amplify.webp";
+import Rails from "/assets/images/technologies/Rails.webp";
+import GoogleCloud from "/assets/images/technologies/Google-Cloud.webp";
+import Laravel from "/assets/images/technologies/Laravel.png";
+import PostGres from "/assets/images/technologies/PostGres.png";
 
 const icons = [
   ReactIcon,

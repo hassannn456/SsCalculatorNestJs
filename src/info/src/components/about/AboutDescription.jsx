@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Typography, Divider } from "@mui/material";
-import Header from "/assets/pngs/about/AboutHeader.webp";
-import SectionHeader from "../general/SectionHeader";
+import { Box } from "@mui/material";
+import Header from "/assets/images/about/AboutHeader.webp";
+import SectionHeader from "../../utils/commons/SectionHeader";
 
 const AboutDescription = () => {
   return (
@@ -30,10 +30,10 @@ const AboutDescription = () => {
             <SectionHeader
               title={"About Us"}
               subtitle={"We aare increasing Business Success"}
-              description={`TechieTribe is a leading software house that specializes in
+              description={`Techietribe is a leading software house that specializes in
                 providing customized solutions for businesses seeking to drive
                 digital transformation. With its innovative approach and focus
-                on engineering excellence, TechieTribe is helping companies to
+                on engineering excellence, Techietribe is helping companies to
                 achieve their digital transformation goals in a way that is both
                 efficient and effective.`}
               justify={true}

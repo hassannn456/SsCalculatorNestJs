@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { Box, Divider, Typography } from "@mui/material";
 
-import Counter1 from "/assets/pngs/projectsIndex/counter-1.png";
-import Counter2 from "/assets/pngs/projectsIndex/counter-2.png";
-import Counter3 from "/assets/pngs/projectsIndex/counter-3.png";
-import zIndex from "@mui/material/styles/zIndex";
+import Counter1 from "/assets/images/projectsIndex/counter-1.png";
+import Counter2 from "/assets/images/projectsIndex/counter-2.png";
+import Counter3 from "/assets/images/projectsIndex/counter-3.png";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 

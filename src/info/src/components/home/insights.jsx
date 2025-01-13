@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import SectionHeader from "../general/SectionHeader";
-import InsightData from "../insights/insightData";
+import SectionHeader from "../../utils/commons/SectionHeader";
+import InsightData from "../../utils/data/Insights";
 import { motion } from 'framer-motion';
 
 const styles = {
@@ -140,7 +140,7 @@ const Insights = () => {
     <Box
       sx={{
         backgroundColor: "transparent",
-        backgroundImage: 'url("/assets/pngs/bg-map.webp")',
+        backgroundImage: 'url("/assets/images/bg-map.webp")',
         backgroundSize: "contain",
         backgroundPosition: "right",
         backgroundRepeat: "no-repeat",

@@ -1,18 +1,18 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-import consultationBg from "/assets/pngs/about/consultationBg.webp";
+import consultationBg from "/assets/images/about/consultationBg.webp";
 import { useNavigate } from "react-router-dom";
 
 const styles = {
   mainContainer: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
     backgroundImage: `url(${consultationBg})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    padding: { xs: "30px 15px", lg: "30px 0px" },
+    padding: { xs: "30px 15px", md: "30px 14vw" },
     color: "#f0f3f6",
     flexDirection: { xs: "column", md: "row" },
   },
@@ -39,7 +39,13 @@ const Consultation = () => {
   const navigate = useNavigate();
   return (
     <Box sx={styles.mainContainer}>
-      <Typography sx={{ fontSize: "1.5rem", fontWeight: 700, textAlign: { xs: "center", md: "left" } }}>
+      <Typography
+        sx={{
+          fontSize: "1.5rem",
+          fontWeight: 700,
+          textAlign: { xs: "center", md: "left" },
+        }}
+      >
         Request a free Consultation
       </Typography>
       <Button

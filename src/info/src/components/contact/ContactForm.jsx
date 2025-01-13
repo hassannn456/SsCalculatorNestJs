@@ -128,7 +128,7 @@ const ContactForm = () => {
       last_name: values.last_name,
       email: values.email,
       number: parseInt(values.number.replace(/\D/g, "")),
-      org: "TechieTribe",
+      org: "Techietribe",
       message: values.message,
     };
 
@@ -157,7 +157,7 @@ const ContactForm = () => {
   };
   const sendAutoReply = (recipientEmail, firstName) => {
     const autoReplyParams = {
-      from_name: "TechieTribe",
+      from_name: "Techietribe",
       to_name: `${firstName}`,
       reply_to: recipientEmail,
       message: `Hello ${firstName},\n\nThank you for reaching out. Your inquiry has been received, and we sincerely appreciate your interest in our services. Our team is currently reviewing your message and will get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our solutions and capabilities: www.thetechietribe.com\n\nBest Regards,\nTeam Techietribe`,

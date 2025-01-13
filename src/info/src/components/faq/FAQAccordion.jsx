@@ -6,7 +6,7 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import faqData from "./FAQData";
+import faqData from "../../utils/data/FAQs";
 
 const FAQAccordion = () => {
   const [expanded, setExpanded] = useState(false);

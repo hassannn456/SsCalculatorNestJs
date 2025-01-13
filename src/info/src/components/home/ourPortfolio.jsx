@@ -1,23 +1,19 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Box,
   Button,
   Divider,
-  duration,
-  Fade,
   Tooltip,
   Typography,
-  Zoom,
 } from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import EastIcon from "@mui/icons-material/East";
-import MainStay from "/assets/pngs/portfolio/MainStay.webp";
-import MulaX from "/assets/pngs/heroSecionSlider/MulaX.webp";
-import Neufluence from "/assets/pngs/portfolio/Neufluence.webp";
-import SpiritualData from "/assets/pngs/portfolio/Spiritual Data.webp";
-import SyntricAi from "/assets/pngs/portfolio/SyntricAI.webp";
-import { useInView } from "react-intersection-observer";
+import MainStay from "/assets/images/portfolio/MainStay.webp";
+import MulaX from "/assets/images/heroSecionSlider/MulaX.webp";
+import Neufluence from "/assets/images/portfolio/Neufluence.webp";
+import SpiritualData from "/assets/images/portfolio/Spiritual Data.webp";
+import SyntricAi from "/assets/images/portfolio/SyntricAI.webp";
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 
@@ -102,20 +98,12 @@ const cardVariant = {
 };
 
 // eslint-disable-next-line react/prop-types
-const OurPortfolio = ({ scrollToBottom }) => {
+const OurPortfolio = () => {
   const navigate = useNavigate();
-  const [slideIn, setSlideIn] = useState(false);
-  useEffect(() => {
-    setSlideIn(true);
-  }, []);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 1,
-  });
+
   return (
     <Box
       sx={{ backgroundColor: "#ffffff", p: { xs: "40px 0px", lg: "0px 0px" } }}
-      ref={ref}
     >
       <Box sx={styles.mainContainer}>
         <Box sx={styles.ourPortfolioSection}>

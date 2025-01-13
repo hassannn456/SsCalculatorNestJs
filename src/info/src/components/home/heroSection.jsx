@@ -1,14 +1,16 @@
+import React, { Suspense } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+const HeroSectionSlider = React.lazy(() => import("./heroSectionSlider"));
 import heroSectionVideo from "/assets/video/HeroSectionDisplay.mp4";
-import HeroSectionSlider from "./heroSectionSlider";
 
 const styles = {
   mainContainer: {
     width: "100%",
     height: { xs: "90vh", md: "100vh" },
     position: "relative",
+    overflow: "hidden",
   },
   videoContainer: {
     width: "100%",
@@ -27,9 +29,8 @@ const styles = {
     width: "100%",
     height: "100%",
     background:
-      "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%)",
+      "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%)",
   },
-
   textContainer: {
     position: "relative",
     display: "flex",
@@ -37,8 +38,7 @@ const styles = {
     alignItems: "center",
     flexDirection: "column",
     height: "100%",
-    paddingTop: { xs: "60px", xl: "70px" },
-    paddingBottom: { xs: "3.8rem", md: "4.2rem", lg: "4.9rem", xl: "5.8rem" },
+    padding: { xs: "60px 16px", xl: "70px 32px" },
   },
   heading: {
     color: "#fff",
@@ -50,65 +50,25 @@ const styles = {
     fontFamily: "Barlow",
     letterSpacing: "2px",
   },
-
-  linkArray: {
-    display: { xs: "column", md: "flex" },
-    gap: "15px",
-    mt: "1rem",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  tellUsBtn: {
-    color: "#ffffff",
-    textTransform: "none",
-    backgroundColor: "#378C92",
-    fontSize: { xs: "13px", sm: "18px" },
-    height: { xs: "40px", md: "40px", lg: "50px" },
-    padding: {
-      xs: "22px 12px",
-      md: "0px 14px",
-      lg: "0px 16px",
-      xl: "0px 30px",
-    },
-    borderRadius: "8px",
-    transition: "background-color 0.3s ease",
-    letterSpacing: "2px",
-    "&&:hover": {
-      backgroundColor: "#313431",
-    },
-  },
   btnContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     mt: "1.4rem",
   },
-
-  links: {
-    display: "flex",
-    color: "#fff",
-    textAlign: "center",
-    fontSize: { xs: "15px", md: "22px" },
-    margin: "0",
-    fontFamily: "Barlow",
-    fontWeight: "200",
+  tellUsBtn: {
+    color: "#ffffff",
+    textTransform: "none",
+    backgroundColor: "#378C92",
+    fontSize: { xs: "13px", sm: "18px" },
+    height: "40px",
+    padding: "12px 30px",
+    borderRadius: "8px",
+    transition: "background-color 0.3s ease",
     letterSpacing: "2px",
-    textDecoration: "none",
-    alignItems: "center",
-    gap: "10px",
-    justifyContent: "center",
-  },
-
-  linksIcon: {
-    display: {
-      xs: "none",
-      md: "flex",
+    "&:hover": {
+      backgroundColor: "#313431",
     },
-    color: "#fff",
-    fontSize: { xs: "10px", md: "10px" },
-    margin: "0 5px",
-    textAlign: "center",
   },
 };
 
@@ -116,7 +76,14 @@ const HeroSection = ({ scrollToBottom }) => {
   return (
     <Box sx={styles.mainContainer}>
       <Box sx={styles.videoContainer}>
-        <video playsInline autoPlay muted loop style={styles.video}>
+        <video
+          playsInline
+          autoPlay
+          muted
+          loop
+          style={styles.video}
+          poster="/assets/images/hero-fallback.jpg"
+        >
           <source type="video/mp4" src={heroSectionVideo} />
         </video>
       </Box>
@@ -124,7 +91,7 @@ const HeroSection = ({ scrollToBottom }) => {
       <Box sx={styles.textContainer}>
         <Typography sx={styles.heading}>
           We Engineer
-          <br></br>
+          <br />
           Software Solutions
         </Typography>
         <Box sx={styles.btnContainer}>
@@ -143,7 +110,9 @@ const HeroSection = ({ scrollToBottom }) => {
           transform: "translate(-50%, 0)",
         }}
       >
-        <HeroSectionSlider />
+        <Suspense fallback={<div style={{ height: "100px" }} />}>
+          <HeroSectionSlider />
+        </Suspense>
       </Box>
     </Box>
   );

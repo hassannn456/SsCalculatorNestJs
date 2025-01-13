@@ -4,13 +4,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import ConceptAi from "/assets/pngs/heroSecionSlider/Concept Ai.svg";
-import MainStay from "/assets/pngs/heroSecionSlider/MainStay.svg";
-import MulaX from "/assets/pngs/heroSecionSlider/MulaX.svg";
-import Neufluence from "/assets/pngs/heroSecionSlider/Neufluence.svg";
-import SpiritualData from "/assets/pngs/heroSecionSlider/Spiritual Data.svg";
-import SyntricAi from "/assets/pngs/heroSecionSlider/SyntricAI.svg";
-import PrismX from "/assets/pngs/heroSecionSlider/PrismX.svg";
+import ConceptAi from "/assets/images/heroSecionSlider/Concept Ai.svg";
+import MainStay from "/assets/images/heroSecionSlider/MainStay.svg";
+import MulaX from "/assets/images/heroSecionSlider/MulaX.svg";
+import Neufluence from "/assets/images/heroSecionSlider/Neufluence.svg";
+import SpiritualData from "/assets/images/heroSecionSlider/Spiritual Data.svg";
+import SyntricAi from "/assets/images/heroSecionSlider/SyntricAI.svg";
+import PrismX from "/assets/images/heroSecionSlider/PrismX.svg";
 
 const icons = [
   { title: MainStay, width: 130, height: 60 },

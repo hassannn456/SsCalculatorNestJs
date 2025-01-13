@@ -1,4 +1,4 @@
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
@@ -10,14 +10,14 @@ import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import Support from "/assets/pngs/services/carousel/Support.webp";
-import Frontend from "/assets/pngs/services/carousel/Frontend.webp";
-import Backend from "/assets/pngs/services/carousel/Backend.webp";
-import FullStack from "/assets/pngs/services/carousel/fullstack.webp";
-import Experience from "/assets/pngs/services/carousel/Experience.webp";
-import QA from "/assets/pngs/services/carousel/QA.webp";
+import Support from "/assets/images/services/carousel/Support.webp";
+import Frontend from "/assets/images/services/carousel/Frontend.webp";
+import Backend from "/assets/images/services/carousel/Backend.webp";
+import FullStack from "/assets/images/services/carousel/fullstack.webp";
+import Experience from "/assets/images/services/carousel/Experience.webp";
+import QA from "/assets/images/services/carousel/QA.webp";
 import CustomCard from "./CustomCard";
-import SectionIntro from "../general/SectionHeader";
+import SectionIntro from "../../utils/commons/SectionHeader";
 
 function CarouselContent() {
   const list = [

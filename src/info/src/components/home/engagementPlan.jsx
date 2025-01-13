@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Box, Button, Card, Typography, Slide } from "@mui/material";
 import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
-import { CheckBox, Translate } from "@mui/icons-material";
+import { CheckBox } from "@mui/icons-material";
 import ProjectsIndex from "./projectsIndex";
 import { useNavigate } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { useMediaQuery } from "@mui/material";
 import { motion } from 'framer-motion';
+import engagementPlans from "../../utils/data/EngagementPlans";
 
 const styles = {
   mainContainer: {
@@ -129,42 +130,6 @@ const styles = {
     },
   },
 };
-
-const data = [
-  {
-    id: 1,
-    content: "Assess specs to cover all the if’s but’s and what if's",
-  },
-  {
-    id: 2,
-    content: "Visualize your end product without spending money on development",
-  },
-  {
-    id: 3,
-    content:
-      "Focus on your core business while we take care of the technicalities",
-  },
-  {
-    id: 4,
-    content: "Support via E-mail and Phone",
-  },
-  {
-    id: 5,
-    content: "Augment your existing in-house / external team",
-  },
-  {
-    id: 6,
-    content: "Develop a product - working in a true agile fashion",
-  },
-  {
-    id: 7,
-    content: "Maintain & support your existing product",
-  },
-  {
-    id: 8,
-    content: "Visualize your end product without spending money on development",
-  },
-];
 
 const cardVariantsLeft = {
   offscreen: {
@@ -289,7 +254,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
                       On time. Within budget. As per expectations
                     </Typography>
 
-                    {data.slice(0, 4).map((item) => (
+                    {engagementPlans.slice(0, 4).map((item) => (
                       <Box
                         key={item.id}
                         sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
@@ -372,7 +337,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
                       High-performing, on-demand teams of IT Experts
                     </Typography>
 
-                    {data.slice(4, 8).map((item) => (
+                    {engagementPlans.slice(4, 8).map((item) => (
                       <Box
                         key={item.id}
                         sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
@@ -441,7 +406,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
                       On time. Within budget. As per expectations
                     </Typography>
 
-                    {data.slice(0, 4).map((item) => (
+                    {engagementPlans.slice(0, 4).map((item) => (
                       <Box
                         key={item.id}
                         sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
@@ -516,7 +481,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
                       High-performing, on-demand teams of IT Experts
                     </Typography>
 
-                    {data.slice(4, 8).map((item) => (
+                    {engagementPlans.slice(4, 8).map((item) => (
                       <Box
                         key={item.id}
                         sx={{ display: "flex", gap: "0.5rem", mt: "1rem" }}
@@ -549,7 +514,7 @@ const EngagementPlan = ({ projectIndex = true }) => {
           )}
         </Box>
         <Box sx={{ position: "absolute", top: 0, right: 0, zIndex: -1 }}>
-          <img src="/assets/pngs/bg-pattern.webp" alt="arrow" height="100%" width="100%" style={{ objectFit: "contain" }} />
+          <img src="/assets/images/bg-pattern.webp" alt="arrow" height="100%" width="100%" style={{ objectFit: "contain" }} />
         </Box>
       </Box>
     </Box>

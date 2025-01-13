@@ -8,9 +8,13 @@ import {
   Pagination,
   Stack,
   PaginationItem,
+  InputAdornment,
+  useMediaQuery,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import InsightData from "./insightData";
+import InsightData from "../../utils/data/Insights";
+import { Search } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
 
 const categories = [
   "Artificial Intelligence",
@@ -30,7 +34,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    width: { xs: "100%", lg: "70%" }
+    width: { xs: "100%", md: "70%" },
   },
   heading: {
     fontSize: "20px",
@@ -52,19 +56,23 @@ const styles = {
   cardContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
-    gap: "3.3rem",
+    gap: "2rem",
     width: "100%",
   },
   card: {
     display: "flex",
     flexDirection: "column",
-    width: { sm: "calc(50% - 1.65rem)", md: "400px" },
+    width: {
+      sm: "calc(50% - 1.65rem)",
+      lg: "calc(48% - 1.65rem)",
+      xl: "calc(33% - 1.65rem)",
+    },
     height: "360px",
     border: "1px solid #E5E5E5",
-    borderRadius: "0.5rem",
+    borderRadius: "0.3rem",
     cursor: "pointer",
     overflow: "hidden",
     "&:hover": {
@@ -105,11 +113,9 @@ const styles = {
     },
   },
   textField: {
-    width: "300px",
     backgroundColor: "#ffffff",
     "& label.Mui-focused": {
       color: "#378C92",
-      width: "300px",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
@@ -131,6 +137,10 @@ const styles = {
 };
 
 const InsightCards = () => {
+  const theme = useTheme();
+  const isMediumOrSmaller = useMediaQuery(theme.breakpoints.down("xl"));
+  const itemsPerPage = isMediumOrSmaller ? 8 : 9;
+
   const [page, setPage] = useState(0);
   const [currentCategory, setCurrentCategory] = useState(null);
   const navigate = useNavigate();
@@ -177,9 +187,9 @@ const InsightCards = () => {
         backgroundColor: "#ffffff",
         width: "100%",
         display: "flex",
-        flexDirection: { xs: "column-reverse", lg: "row" },
+        flexDirection: { xs: "column-reverse", md: "row" },
         justifyContent: "center",
-        padding: { xs: "20px 15px", lg: "80px" },
+        padding: { xs: "20px 15px", md: "40px", lg: "80px" },
       }}
     >
       <Box
@@ -207,54 +217,56 @@ const InsightCards = () => {
                 ...styles.cardContainer,
               }}
             >
-              {blogsData.slice(page * 8, page * 8 + 8)?.map((card, index) => (
-                <Box
-                  key={index}
-                  sx={styles.card}
-                  onClick={() => handleCardClick(card.id)}
-                >
+              {blogsData
+                .slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
+                ?.map((card, index) => (
                   <Box
-                    sx={{
-                      width: "100%",
-                      height: "250px",
-                      overflow: "hidden",
-                      borderRadius: { xs: "0", md: "0rem 0rem 0 0" },
-                    }}
+                    key={index}
+                    sx={styles.card}
+                    onClick={() => handleCardClick(card.id)}
                   >
-                    <img
-                      src={card.image}
-                      alt={`blog-image-${index}`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </Box>
-                  <Divider
-                    sx={{ width: "100%", backgroundColor: "lightgray" }}
-                  />
-                  <Box sx={styles.blogContentContainer}>
-                    <Typography sx={styles.blogHeading}>
-                      {card.heading}
-                    </Typography>
-                    <Typography sx={styles.blogContent}>
-                      {card.content}
-                    </Typography>
-                    <Typography
+                    <Box
                       sx={{
-                        fontSize: "20px",
-                        fontFamily: "Barlow",
-                        fontWeight: "500",
-                        color: "#378C92",
-                        cursor: "pointer",
+                        width: "100%",
+                        height: "250px",
+                        overflow: "hidden",
+                        borderRadius: { xs: "0", md: "0rem 0rem 0 0" },
                       }}
                     >
-                      Read More
-                    </Typography>
+                      <img
+                        src={card.image}
+                        alt={`blog-image-${index}`}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
+                    <Divider
+                      sx={{ width: "100%", backgroundColor: "lightgray" }}
+                    />
+                    <Box sx={styles.blogContentContainer}>
+                      <Typography sx={styles.blogHeading}>
+                        {card.heading}
+                      </Typography>
+                      <Typography sx={styles.blogContent}>
+                        {card.content}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: "20px",
+                          fontFamily: "Barlow",
+                          fontWeight: "500",
+                          color: "#378C92",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Read More
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-              ))}
+                ))}
             </Box>
             <Box
               sx={{
@@ -294,23 +306,34 @@ const InsightCards = () => {
 
       <Box
         sx={{
-          width: { xs: "100%", lg: "30%" },
+          width: { xs: "100%", md: "30%", lg: "30%" },
+          ml: { xs: 0, md: 3 },
           height: "fit-content",
-          position: "sticky",
+          position: { xs: "static", md: "sticky" },
           top: "-20%",
-          overflowY: "auto"
+          overflowY: "auto",
         }}
       >
         <TextField
           size="medium"
           placeholder="Search"
-          sx={styles.textField}
+          sx={{
+            ...styles.textField,
+            width: { xs: "100%", md: "260px", lg: "300px" },
+          }}
           onChange={handleSearchChange}
-          inputProps={{
-            sx: {
-              "&::placeholder": {
-                color: "gray",
-                opacity: 0.4,
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search sx={{ color: "gray" }} />
+              </InputAdornment>
+            ),
+            inputProps: {
+              sx: {
+                "&::placeholder": {
+                  color: "gray",
+                  opacity: 0.4,
+                },
               },
             },
           }}
@@ -343,8 +366,7 @@ const InsightCards = () => {
             </Box>
           ))}
         </Box>
-
-        <Box sx={{ mt: "2rem" }}>
+        <Box sx={{ my: "2rem" }}>
           <Typography
             sx={{
               fontSize: "20px",
@@ -390,7 +412,12 @@ const InsightCards = () => {
                   }}
                 >
                   <Typography
-                    sx={{ ...styles.blogHeadingRecent, width: "fit-content", color: "white", fontWeight: "bold" }}
+                    sx={{
+                      ...styles.blogHeadingRecent,
+                      width: "fit-content",
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
                   >
                     {data}
                   </Typography>

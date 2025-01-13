@@ -1,5 +1,5 @@
-import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import image from "/assets/pngs/about/smartmockups_m2cc99af.webp";
+import { CardMedia, Grid, Typography } from "@mui/material";
+import image from "/assets/images/about/smartmockups_m2cc99af.webp";
 
 const AboutUsCard = () => {
   return (
