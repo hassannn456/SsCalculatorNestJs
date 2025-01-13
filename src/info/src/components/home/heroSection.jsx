@@ -3,6 +3,8 @@ import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const HeroSectionSlider = React.lazy(() => import("./heroSectionSlider"));
+
+import HeroSectionPoster from "/assets/images/HeroSectionPoster.webp";
 import heroSectionVideo from "/assets/video/HeroSectionDisplay.mp4";
 
 const styles = {
@@ -81,8 +83,8 @@ const HeroSection = ({ scrollToBottom }) => {
           autoPlay
           muted
           loop
+          poster={HeroSectionPoster}
           style={styles.video}
-          poster="/assets/images/hero-fallback.jpg"
         >
           <source type="video/mp4" src={heroSectionVideo} />
         </video>

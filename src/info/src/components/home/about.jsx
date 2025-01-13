@@ -7,7 +7,7 @@ import AboutImage from "/assets/images/about/About1.webp";
 import AboutImage_1 from "/assets/images/about/About2.webp";
 import Signature from "/assets/images/about/Signature.webp";
 import { useMediaQuery } from "@mui/material";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import companyData from "../../utils/data/CompanyInfo";
 
 const styles = {
@@ -113,7 +113,7 @@ const cardVariants = {
       damping: 50,
       duration: 2.5,
       ease: "easeOut",
-      delay: index * 0.1
+      delay: index * 0.1,
     },
   }),
 };
@@ -146,13 +146,15 @@ const About = () => {
     threshold: 0.5,
   });
   return (
-    <Box sx={{
-      backgroundColor: "#ffffff",
-      pt: { xs: "40px", md: "0px" },
-      overflow: "hidden",
-      background: "url('/assets/images/bg-shape.webp')",
-      backgroundRepeat: "no-repeat"
-    }}>
+    <Box
+      sx={{
+        backgroundColor: "#ffffff",
+        pt: { xs: "40px", md: "0px" },
+        overflow: "hidden",
+        background: "url('/assets/images/bg-shape.webp')",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Zoom in={slideIn} timeout={1000}>
         <Box sx={styles.mainContainer} ref={ref}>
           {isMobile ? (
@@ -196,6 +198,7 @@ const About = () => {
                         }}
                         src={Signature}
                         alt="signature"
+                        loading="lazy"
                       />
                       <Typography sx={styles.ceoName}>
                         {companyData.ownerName}
@@ -259,10 +262,11 @@ const About = () => {
                       style={{
                         borderRadius: "10px",
                       }}
+                      loading="lazy"
                     />
                   </Box>
 
-                  <img src={AboutImage} alt="about" />
+                  <img src={AboutImage} alt="about" loading="lazy" />
                 </Box>
               </Box>
               <motion.div
@@ -286,12 +290,13 @@ const About = () => {
                       width: "100%",
                       height: "100%",
                     }}
+                    loading="lazy"
                   />
                 </Box>
               </motion.div>
             </>
-          ) :
-            (inView && (
+          ) : (
+            inView && (
               <>
                 <Box
                   sx={{
@@ -360,11 +365,13 @@ const About = () => {
                             marginTop: "-2rem",
                             width: "350px",
                           }}
+                          loading="lazy"
                           src={Signature}
                           alt="signature"
                         />
                         <Typography sx={styles.ceoName}>
-                          {companyData.ownerName}                        </Typography>
+                          {companyData.ownerName}{" "}
+                        </Typography>
                         <Typography sx={styles.ceoRole}>
                           CEO, Techietribe
                         </Typography>
@@ -424,10 +431,11 @@ const About = () => {
                         style={{
                           borderRadius: "10px",
                         }}
+                        loading="lazy"
                       />
                     </Box>
 
-                    <img src={AboutImage} alt="about" />
+                    <img src={AboutImage} alt="about" loading="lazy" />
                   </Box>
                 </Box>
                 <Slide in={slideIn} direction="right" timeout={1800}>
@@ -444,11 +452,13 @@ const About = () => {
                         width: "100%",
                         height: "100%",
                       }}
+                      loading="lazy"
                     />
                   </Box>
                 </Slide>
               </>
-            ))}
+            )
+          )}
         </Box>
       </Zoom>
     </Box>

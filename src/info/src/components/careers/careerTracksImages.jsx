@@ -24,6 +24,7 @@ const CareerTracksImages = () => {
           width="300px"
           height="300px"
           style={{ borderRadius: "10px" }}
+          loading="lazy"
         />
         <Typography
           sx={{
@@ -46,6 +47,7 @@ const CareerTracksImages = () => {
           width="300px"
           height="300px"
           style={{ borderRadius: "10px" }}
+          loading="lazy"
         />
         <Typography
           sx={{
@@ -68,6 +70,7 @@ const CareerTracksImages = () => {
           width="300px"
           height="300px"
           style={{ borderRadius: "10px" }}
+          loading="lazy"
         />
         <Typography
           sx={{

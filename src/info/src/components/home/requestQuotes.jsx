@@ -2,12 +2,22 @@ import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Box, TextField, Typography, MenuItem, Button, CircularProgress, Snackbar, Alert, Slide, } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Typography,
+  MenuItem,
+  Button,
+  CircularProgress,
+  Snackbar,
+  Alert,
+  Slide,
+} from "@mui/material";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import RoomIcon from "@mui/icons-material/Room";
 import { MuiTelInput } from "mui-tel-input";
 import { useMediaQuery } from "@mui/material";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
@@ -26,7 +36,7 @@ const styles = {
     margin: "auto",
     width: { xs: "100%", md: "59rem", lg: "80rem", xl: "90rem" },
     position: "relative",
-    zIndex: 100
+    zIndex: 100,
   },
   heading: {
     fontSize: "20px",
@@ -45,7 +55,7 @@ const styles = {
     color: "#313431",
     width: "85%",
     lineHeight: "50px",
-    my: 2
+    my: 2,
   },
   aboutContent: {
     fontSize: "14px",
@@ -145,7 +155,7 @@ const cardVariants = {
       damping: 50,
       duration: 2,
       ease: "easeOut",
-      delay: index * 0.1
+      delay: index * 0.1,
     },
   }),
 };
@@ -163,7 +173,7 @@ const cardVariantsLeft = {
       stiffness: 100,
       damping: 50,
       duration: 0.5,
-      ease: "easeOut"
+      ease: "easeOut",
     },
   },
 };
@@ -196,7 +206,12 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
 
   const formik = useFormik({
     initialValues: {
-      first_name: "", last_name: "", email: "", number: "", select: "", message: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      number: "",
+      select: "",
+      message: "",
     },
     validationSchema,
     onSubmit: (values) => {
@@ -267,13 +282,13 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
       sx={{
         backgroundColor: bgColor ? bgColor : "rgb(240, 243, 246)",
         overflow: "hidden",
-        position: "relative"
+        position: "relative",
       }}
     >
       <Box
         sx={{
           ...(inPage
-            ? { ...styles.mainContainer, padding: "2rem", }
+            ? { ...styles.mainContainer, padding: "2rem" }
             : styles.mainContainer),
         }}
       >
@@ -286,12 +301,14 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               viewport={{ once: true, amount: 0.3 }}
               variants={cardVariantsLeft}
               transition={{ type: "spring", stiffness: 100 }}
-            >                <Box
-              sx={{
-                width: { xs: "100%", md: "50%" },
-                mt: { xs: "0rem", md: "0rem" },
-              }}
             >
+              {" "}
+              <Box
+                sx={{
+                  width: { xs: "100%", md: "50%" },
+                  mt: { xs: "0rem", md: "0rem" },
+                }}
+              >
                 <Typography sx={styles.heading}>REQUEST A QUOTE</Typography>
                 <Typography sx={styles.subHeading}>
                   Unlock Innovation with Advanced Technologies
@@ -336,18 +353,20 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
               viewport={{ once: true, amount: 0.8 }}
               variants={cardVariantsRight}
               transition={{ type: "spring", stiffness: 100 }}
-            >                <Box
-              component="form"
-              onSubmit={formik.handleSubmit}
-              sx={{
-                border: "1px solid lightgray",
-                borderRadius: "1rem",
-                width: { xs: "100%", md: "50%" },
-                mt: { xs: "2rem", md: "0rem" },
-                padding: "20px",
-                backgroundColor: "#ffffff",
-              }}
             >
+              {" "}
+              <Box
+                component="form"
+                onSubmit={formik.handleSubmit}
+                sx={{
+                  border: "1px solid lightgray",
+                  borderRadius: "1rem",
+                  width: { xs: "100%", md: "50%" },
+                  mt: { xs: "2rem", md: "0rem" },
+                  padding: "20px",
+                  backgroundColor: "#ffffff",
+                }}
+              >
                 <Typography sx={styles.formHeading}>
                   Get in touch with us
                 </Typography>
@@ -489,7 +508,6 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
             </motion.div>
           </>
         ) : (
-
           <>
             <Box
               sx={{
@@ -741,11 +759,16 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
         <Alert severity="success">{snackbarMessage}</Alert>
       </Snackbar>
       <Box sx={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}>
-        <img src="/assets/images/bg-shape1.webp" alt="" style={{
-          height: "auto",
-          width: "100%",
-          opacity: 0.15,
-        }} />
+        <img
+          src="/assets/images/bg-shape1.webp"
+          alt=""
+          style={{
+            height: "auto",
+            width: "100%",
+            opacity: 0.15,
+          }}
+          loading="lazy"
+        />
       </Box>
     </Box>
   );

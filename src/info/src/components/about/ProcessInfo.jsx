@@ -64,6 +64,7 @@ const ProcessInfo = () => {
                   margin: "auto",
                   animation: "beat 1.5s ease 0s infinite",
                 }}
+                loading="lazy"
               />
               <Typography
                 variant="body1"

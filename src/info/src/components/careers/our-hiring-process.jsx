@@ -80,6 +80,7 @@ const HiringProcess = () => {
               src={step.imgSrc}
               alt={step.title}
               style={{ width: "30%", height: "30%" }}
+              loading="lazy"
             />
             <Typography
               sx={{

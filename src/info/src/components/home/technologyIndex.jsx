@@ -129,6 +129,7 @@ const TechnologyIndex = () => {
                     {icon === NextIcon ? (
                       <CardMedia
                         component="img"
+                        loading="lazy"
                         image={icon}
                         alt={`Technology icon ${index}`}
                         sx={{ height: { xs: "30px", lg: "50px" }, width: { xs: "30px", lg: "50px" }, objectFit: "contain" }}
@@ -136,6 +137,7 @@ const TechnologyIndex = () => {
                     ) : (
                       <CardMedia
                         component="img"
+                        loading="lazy"
                         image={icon}
                         alt={`Technology icon ${index}`}
                         sx={{ height: { xs: "30px", lg: "50px" }, width: { xs: "30px", lg: "50px" }, objectFit: "contain" }}

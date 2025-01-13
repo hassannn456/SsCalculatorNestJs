@@ -10,9 +10,9 @@ import WebDevImage from "/assets/images/services/WebDevImage.webp";
 import MobileDevImage from "/assets/images/services/MobileDevImage.webp";
 import UIUXImage from "/assets/images/services/UIImage1.webp";
 import BlockchainImage from "/assets/images/services/BlockchainImage.webp";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { useMediaQuery } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 const styles = {
   mainContainer: {
     display: "flex",
@@ -22,7 +22,7 @@ const styles = {
     width: "100%",
     alignItems: "center",
     position: "relative",
-    zIndex: 100
+    zIndex: 100,
   },
   cardParent: {
     "&:nth-of-type(2n)": {
@@ -33,7 +33,7 @@ const styles = {
     },
     "&:hover": {
       transform: "translateY(-10px)",
-      cursor: "pointer"
+      cursor: "pointer",
     },
   },
   heading: {
@@ -112,7 +112,7 @@ const styles = {
     minHeight: "unset",
     width: "auto",
     height: "auto",
-    cursor: "default"
+    cursor: "default",
   },
 
   cardHeading: {
@@ -122,11 +122,11 @@ const styles = {
     fontWeight: "500",
     color: "#ffffff",
     borderBottom: "1px solid transparent",
-    transition: 'all 0.1s ease',
+    transition: "all 0.1s ease",
     "&:hover": {
       fontWeight: "700",
-      lineHeight: "1.5"
-    }
+      lineHeight: "1.5",
+    },
   },
   cardContent: {
     fontSize: "12px",
@@ -134,7 +134,7 @@ const styles = {
     fontWeight: "400",
     color: "#ffffff",
     mt: "1rem",
-    cursor: "text"
+    cursor: "text",
   },
 
   headingContainer: {
@@ -162,7 +162,7 @@ const cardVariantsLeft = {
       stiffness: 100,
       damping: 50,
       duration: 0.5,
-      ease: "easeOut"
+      ease: "easeOut",
     },
   },
 };
@@ -189,18 +189,16 @@ const cardVariantsBottom = {
     opacity: 0,
   },
 
-  onscreen: (index) => (
-    {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 50,
-        stiffness: 100,
-        delay: index * 0.3,
-      },
-    }
-  ),
+  onscreen: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 50,
+      stiffness: 100,
+      delay: index * 0.3,
+    },
+  }),
 };
 const Services = () => {
   const mainIconRef = useRef(null);
@@ -226,7 +224,7 @@ const Services = () => {
       content:
         "Craft interactive and dynamic websites tailored to your business needs. Our expert developers leverage the latest technologies to deliver high-performance web solutions that drive results.",
       backgroundImage: WebDevImage,
-      url: "/services/web-development"
+      url: "/services/web-development",
     },
     {
       icon: MobileAppIcon,
@@ -234,7 +232,7 @@ const Services = () => {
       content:
         "Transform your ideas into powerful mobile applications. From conceptualization to deployment, our skilled team specializes in creating intuitive and feature-rich mobile apps across platforms.",
       backgroundImage: MobileDevImage,
-      url: "/services/mobile-application"
+      url: "/services/mobile-application",
     },
     {
       icon: UIUX,
@@ -242,7 +240,7 @@ const Services = () => {
       content:
         "Enhance user engagement and satisfaction with captivating UI/UX designs. We focus on creating seamless user experiences through intuitive interfaces and visually appealing designs.",
       backgroundImage: UIUXImage,
-      url: "/services/ui-design"
+      url: "/services/ui-design",
     },
     {
       icon: SoftwareInnovation,
@@ -250,41 +248,46 @@ const Services = () => {
       content:
         "Explore the potential of blockchain technology for secure and transparent transactions. Our blockchain experts provide innovative solutions for decentralized applications and smart contracts.",
       backgroundImage: BlockchainImage,
-      url: "/services/blockchain"
+      url: "/services/blockchain",
     },
   ];
 
   const handleNavigation = (e, url) => {
     navigate(url);
-  }
+  };
 
   const handlePropagation = (e) => e.stopPropagation();
 
   return (
-    <Box sx={{
-      overflow: "hidden",
-      position: "relative"
-    }}>
+    <Box
+      sx={{
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
       <Box sx={styles.mainContainer}>
         <Typography sx={styles.heading}>REASON TO CHOOSE US</Typography>
         <Typography sx={styles.subHeading}>
           We provide truly prominent IT solutions.
-        </Typography>
-        {" "}
+        </Typography>{" "}
         <Box sx={styles.cardContainer}>
-          {
-            isMobile ? (
-              cardData.map((card, index) => (
+          {isMobile
+            ? cardData.map((card, index) => (
                 <motion.div
                   key={index}
                   className="card-container"
                   initial="offscreen"
                   whileInView="onscreen"
                   viewport={{ once: true, amount: 0.4 }}
-                  variants={index % 2 == 0 ? cardVariantsRight : cardVariantsLeft}
+                  variants={
+                    index % 2 == 0 ? cardVariantsRight : cardVariantsLeft
+                  }
                   transition={{ type: "spring", stiffness: 100 }}
                 >
-                  <Box sx={{ ...styles.cardParent }} onClick={() => handleNavigation(card.url)}>
+                  <Box
+                    sx={{ ...styles.cardParent }}
+                    onClick={() => handleNavigation(card.url)}
+                  >
                     <Box
                       key={index}
                       sx={{
@@ -311,7 +314,10 @@ const Services = () => {
                               timeout={500}
                               container={mainIconRef.current}
                             >
-                              <Box sx={styles.icon} onClick={(e) => handlePropagation(e)}>
+                              <Box
+                                sx={styles.icon}
+                                onClick={(e) => handlePropagation(e)}
+                              >
                                 <img
                                   src={card.icon}
                                   alt="icon"
@@ -363,7 +369,10 @@ const Services = () => {
                             timeout={500}
                             container={contentRef.current}
                           >
-                            <Typography sx={styles.cardContent} onClick={(e) => handlePropagation(e)}>
+                            <Typography
+                              sx={styles.cardContent}
+                              onClick={(e) => handlePropagation(e)}
+                            >
                               {card.content}
                             </Typography>
                           </Slide>
@@ -380,8 +389,7 @@ const Services = () => {
                   </Box>
                 </motion.div>
               ))
-            ) : (
-              cardData.map((card, index) => (
+            : cardData.map((card, index) => (
                 <motion.div
                   key={index}
                   className="card-container"
@@ -392,8 +400,13 @@ const Services = () => {
                   transition={{ type: "spring", stiffness: 100 }}
                   custom={index}
                 >
-                  <Box sx={{ ...styles.cardParent, mt: index % 2 == 0 ? "0rem" : "5rem" }}
-                    onClick={(e) => handleNavigation(e, card.url)}>
+                  <Box
+                    sx={{
+                      ...styles.cardParent,
+                      mt: index % 2 == 0 ? "0rem" : "5rem",
+                    }}
+                    onClick={(e) => handleNavigation(e, card.url)}
+                  >
                     <Box
                       key={index}
                       sx={{
@@ -420,7 +433,10 @@ const Services = () => {
                               timeout={500}
                               container={mainIconRef.current}
                             >
-                              <Box sx={styles.icon} onClick={(e) => handlePropagation(e)}>
+                              <Box
+                                sx={styles.icon}
+                                onClick={(e) => handlePropagation(e)}
+                              >
                                 <img
                                   src={card.icon}
                                   alt="icon"
@@ -472,7 +488,10 @@ const Services = () => {
                             timeout={500}
                             container={contentRef.current}
                           >
-                            <Typography sx={styles.cardContent} onClick={(e) => handlePropagation(e)}>
+                            <Typography
+                              sx={styles.cardContent}
+                              onClick={(e) => handlePropagation(e)}
+                            >
                               {card.content}
                             </Typography>
                           </Slide>
@@ -488,22 +507,27 @@ const Services = () => {
                     </Box>
                   </Box>
                 </motion.div>
-              ))
-            )
-          }
+              ))}
         </Box>
       </Box>
-      <Box sx={{
-        position: "absolute",
-        top: "37px",
-        right: "-125px"
-      }}>
-        <img src="/assets/images/shape3.webp" alt="bgImg" loading="lazy" style={{
-          objectFit: "contain",
-          width: "450px",
-          height: "450px",
-          opacity: 0.5
-        }} />
+      <Box
+        sx={{
+          position: "absolute",
+          top: "37px",
+          right: "-125px",
+        }}
+      >
+        <img
+          src="/assets/images/shape3.webp"
+          alt="bgImg"
+          loading="lazy"
+          style={{
+            objectFit: "contain",
+            width: "450px",
+            height: "450px",
+            opacity: 0.5,
+          }}
+        />
       </Box>
     </Box>
   );
