@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import FAQAccordion from "../components/faq/FaqAccordion";
+import FAQAccordion from "../components/faq/FAQAccordion";
 import HeroImageSection from "../utils/commons/heroImageSection";
 import FAQ from "/assets/images/FooterResources/FAQ.webp";
 import faqImage from "/assets/images/FooterResources/faqImage.svg";
