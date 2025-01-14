@@ -63,8 +63,8 @@ const styles = {
     textTransform: "none",
     backgroundColor: "#378C92",
     fontSize: { xs: "13px", sm: "18px" },
-    height: "40px",
-    padding: "12px 30px",
+    height: "44px",
+    padding: "12px 26px",
     borderRadius: "8px",
     transition: "background-color 0.3s ease",
     letterSpacing: "2px",
@@ -83,6 +83,7 @@ const HeroSection = ({ scrollToBottom }) => {
           autoPlay
           muted
           loop
+          preload="metadata"
           poster={HeroSectionPoster}
           style={styles.video}
         >
