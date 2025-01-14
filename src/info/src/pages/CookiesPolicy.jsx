@@ -3,6 +3,7 @@ import React from "react";
 import HeroImageSection from "../utils/commons/heroImageSection";
 import CookiesImage from "/assets/images/FooterResources/cookies.webp";
 import companyData from "../utils/data/CompanyInfo";
+
 const CookiesPolicy = () => {
   return (
     <Box>
@@ -167,7 +168,8 @@ const CookiesPolicy = () => {
         >
           <strong>Contact Us</strong>
           <br />
-          If you have any questions, please contact us at {companyData.officialEmail}.
+          If you have any questions, please contact us at{" "}
+          {companyData.officialEmail}.
         </Typography>
       </Box>
     </Box>

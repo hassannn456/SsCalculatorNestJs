@@ -187,7 +187,6 @@ const Insights = () => {
                       height: "100%",
                       objectFit: "cover",
                     }}
-                    loading="lazy"
                   />
                 </Box>
                 <Box sx={styles.blogContentContainer}>

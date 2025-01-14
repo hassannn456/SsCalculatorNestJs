@@ -767,7 +767,6 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
             width: "100%",
             opacity: 0.15,
           }}
-          loading="lazy"
         />
       </Box>
     </Box>

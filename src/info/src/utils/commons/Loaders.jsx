@@ -10,7 +10,6 @@ const PageLoader = () => {
           alt="LogoImg"
           width="60px"
           height="60px"
-          loading="lazy"
         />
       </div>
     </div>
@@ -28,7 +27,6 @@ export const SectionLoader = ({ bg = "#ffffff", minHeight = "600px" }) => {
           alt="LogoImg"
           width="60px"
           height="60px"
-          loading="lazy"
         />
       </div>
     </div>

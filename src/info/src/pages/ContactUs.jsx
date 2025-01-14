@@ -1,21 +1,16 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Box } from "@mui/material";
 import HeroSectionConatct from "../components/contact/HeroSectionConatct";
-import { SectionLoader } from "../utils/commons/Loaders";
-
-// Lazy-loaded components
-const TextComponent = lazy(() => import("../components/contact/TextComponent"));
-const ContactUsForm = lazy(() => import("../components/contact/ContactUsFrom.jsx"));
+import TextComponent from "../components/contact/TextComponent";
+import ContactUsForm from "../components/contact/ContactUsFrom.jsx";
 
 import ContactHeader from "/assets/images/ContactUs/ContactHeader.webp";
 
 const ContactUs = () => {
   return (
-    <Box>
-      {/* Eagerly Loaded Section */}
+    <>
       <HeroSectionConatct imageSrc={ContactHeader} />
 
-      {/* Lazy-loaded Sections */}
       <Box
         sx={{
           display: "flex",
@@ -26,16 +21,12 @@ const ContactUs = () => {
         }}
       >
         <Box sx={{ width: { xs: "100%", md: "35%" } }}>
-          <Suspense fallback={<SectionLoader />}>
-            <TextComponent />
-          </Suspense>
+          <TextComponent />
         </Box>
 
-        <Suspense fallback={<SectionLoader />}>
-          <ContactUsForm />
-        </Suspense>
+        <ContactUsForm />
       </Box>
-    </Box>
+    </>
   );
 };
 

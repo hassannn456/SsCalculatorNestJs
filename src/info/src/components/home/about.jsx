@@ -198,7 +198,7 @@ const About = () => {
                         }}
                         src={Signature}
                         alt="signature"
-                        loading="lazy"
+
                       />
                       <Typography sx={styles.ceoName}>
                         {companyData.ownerName}
@@ -262,11 +262,10 @@ const About = () => {
                       style={{
                         borderRadius: "10px",
                       }}
-                      loading="lazy"
                     />
                   </Box>
 
-                  <img src={AboutImage} alt="about" loading="lazy" />
+                  <img src={AboutImage} alt="about"/>
                 </Box>
               </Box>
               <motion.div
@@ -290,7 +289,6 @@ const About = () => {
                       width: "100%",
                       height: "100%",
                     }}
-                    loading="lazy"
                   />
                 </Box>
               </motion.div>
@@ -365,7 +363,6 @@ const About = () => {
                             marginTop: "-2rem",
                             width: "350px",
                           }}
-                          loading="lazy"
                           src={Signature}
                           alt="signature"
                         />
@@ -431,11 +428,10 @@ const About = () => {
                         style={{
                           borderRadius: "10px",
                         }}
-                        loading="lazy"
                       />
                     </Box>
 
-                    <img src={AboutImage} alt="about" loading="lazy" />
+                    <img src={AboutImage} alt="about"/>
                   </Box>
                 </Box>
                 <Slide in={slideIn} direction="right" timeout={1800}>
@@ -452,7 +448,6 @@ const About = () => {
                         width: "100%",
                         height: "100%",
                       }}
-                      loading="lazy"
                     />
                   </Box>
                 </Slide>

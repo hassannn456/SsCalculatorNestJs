@@ -5,7 +5,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const HeroSectionSlider = React.lazy(() => import("./heroSectionSlider"));
 
 import HeroSectionPoster from "/assets/images/HeroSectionPoster.webp";
-import heroSectionVideo from "/assets/video/HeroSectionDisplay.mp4";
+import heroSectionVideo from "/assets/video/HeroSectionDisplayCompressed.mp4";
 
 const styles = {
   mainContainer: {

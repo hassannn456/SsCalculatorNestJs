@@ -534,7 +534,6 @@ const EngagementPlan = ({ projectIndex = true }) => {
             height="100%"
             width="100%"
             style={{ objectFit: "contain" }}
-            loading="lazy"
           />
         </Box>
       </Box>

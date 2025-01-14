@@ -1,22 +1,14 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import HeroImageSection from "../utils/commons/heroImageSection";
-import { SectionLoader } from "../utils/commons/Loaders";
+import CategoriesTabs from "../components/ourWork/categoriesTabs";
 
 import PortfolioBG from "/assets/images/portfolio-bg.webp";
-
-// Lazy-loaded component
-const CategoriesTabs = lazy(() => import("../components/ourWork/categoriesTabs"));
 
 const OurWork = () => {
   return (
     <>
-      {/* Eagerly loaded HeroImageSection */}
       <HeroImageSection title={"Our Work"} imageSrc={PortfolioBG} />
-
-      {/* Lazy-loaded CategoriesTabs */}
-      <Suspense fallback={<SectionLoader />}>
-        <CategoriesTabs />
-      </Suspense>
+      <CategoriesTabs />
     </>
   );
 };

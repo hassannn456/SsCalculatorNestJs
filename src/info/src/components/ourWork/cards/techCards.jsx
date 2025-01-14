@@ -69,7 +69,6 @@ const TechCard = () => {
                     height: "40px",
                     objectFit: "scale-down",
                   }}
-                  loading="lazy"
                 />
               </Grid>
               <CardContent sx={{ flexGrow: 1, pb: 1 }}>
@@ -137,20 +136,17 @@ const TechCard = () => {
                     src={item.logo1}
                     alt={item.label}
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
-                    loading="lazy"
-                  />
+                    />
                   <img
                     src={item.logo2}
                     alt={item.label}
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
-                    loading="lazy"
-                  />
+                    />
                   <img
                     src={item.logo3}
                     alt={item.label}
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
-                    loading="lazy"
-                  />
+                    />
                 </Grid>
               </CardContent>
             </Card>

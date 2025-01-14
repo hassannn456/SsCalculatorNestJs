@@ -241,7 +241,6 @@ const InsightCards = () => {
                           height: "100%",
                           objectFit: "cover",
                         }}
-                        loading="lazy"
                       />
                     </Box>
                     <Divider

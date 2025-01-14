@@ -94,7 +94,6 @@ const CareerDescription = () => {
                 transition: "transform 0.5s ease",
                 transform: isHovered ? "scale(1.1)" : "scale(1)",
               }}
-              loading="lazy"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             />

@@ -82,7 +82,6 @@ const AboutDescription = ({
                 objectFit: "contain",
                 padding: "0px 10px",
               }}
-              loading="lazy"
             />
           </motion.div>
         </Box>

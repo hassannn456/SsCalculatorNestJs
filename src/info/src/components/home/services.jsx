@@ -322,7 +322,6 @@ const Services = () => {
                                   src={card.icon}
                                   alt="icon"
                                   style={{ width: "50px", height: "45px" }}
-                                  loading="lazy"
                                 />
                               </Box>
                             </Slide>
@@ -441,7 +440,6 @@ const Services = () => {
                                   src={card.icon}
                                   alt="icon"
                                   style={{ width: "50px", height: "45px" }}
-                                  loading="lazy"
                                 />
                               </Box>
                             </Slide>
@@ -520,7 +518,6 @@ const Services = () => {
         <img
           src="/assets/images/shape3.webp"
           alt="bgImg"
-          loading="lazy"
           style={{
             objectFit: "contain",
             width: "450px",

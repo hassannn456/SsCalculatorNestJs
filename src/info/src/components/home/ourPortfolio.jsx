@@ -172,7 +172,6 @@ const OurPortfolio = () => {
                     width: "150px",
                     height: "40px",
                   }}
-                  loading="lazy"
                 />
               </motion.div>
             </Tooltip>
@@ -219,7 +218,6 @@ const OurPortfolio = () => {
                     width: "150px",
                     height: "40px",
                   }}
-                loading="lazy"
                 />
               </motion.div>
             </Tooltip>
@@ -266,7 +264,6 @@ const OurPortfolio = () => {
                     width: "150px",
                     height: "40px",
                   }}
-                  loading="lazy"
                 />
               </motion.div>
             </Tooltip>
@@ -351,7 +348,6 @@ const OurPortfolio = () => {
                     width: "150px",
                     height: "40px",
                   }}
-                  loading="lazy"
                 />
               </motion.div>
             </Tooltip>
@@ -398,7 +394,6 @@ const OurPortfolio = () => {
                     width: "150px",
                     height: "40px",
                   }}
-                  loading="lazy"
                 />
               </motion.div>
             </Tooltip>
