@@ -83,7 +83,6 @@ const HeroSection = ({ scrollToBottom }) => {
           autoPlay
           muted
           loop
-          preload="metadata"
           poster={HeroSectionPoster}
           style={styles.video}
         >
