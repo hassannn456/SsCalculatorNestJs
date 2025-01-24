@@ -131,7 +131,7 @@ const TextComponent = () => {
                 }}
               >
                 <Link to={`tel:${companyData.phoneNumber}`} target="_blank" >
-                  {companyData.phoneNumber}
+                  {companyData.phoneNumberDisplay}
                 </Link>
               </Typography>
             </Box>

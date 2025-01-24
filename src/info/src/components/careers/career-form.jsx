@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { styled } from '@mui/material/styles';
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { styled } from "@mui/material/styles";
 import {
   Box,
   TextField,
@@ -17,6 +17,7 @@ import {
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import RoomIcon from "@mui/icons-material/Room";
 import { MuiTelInput } from "mui-tel-input";
+import companyDetails from "../../utils/data/CompanyInfo";
 
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
@@ -34,18 +35,17 @@ const validationSchema = Yup.object().shape({
       return true;
     }),
 });
-const VisuallyHiddenInput = styled('input')({
-  clip: 'rect(0 0 0 0)',
-  clipPath: 'inset(50%)',
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
   height: 1,
-  overflow: 'hidden',
-  position: 'absolute',
+  overflow: "hidden",
+  position: "absolute",
   bottom: 0,
   left: 0,
-  whiteSpace: 'nowrap',
+  whiteSpace: "nowrap",
   width: 1,
 });
-
 
 const styles = {
   mainContainer: {
@@ -310,7 +310,9 @@ const CareerForm = ({ bgColor, inPage = false }) => {
                 sx={{ color: "#313431", fontSize: "16px" }}
               />
               <Typography sx={styles.contact}>
-                <a href="tel:+923004561162">+92 300 456 1162</a>
+                <a href={`tel:${companyDetails.phoneNumber}`}>
+                  {companyDetails.phoneNumberDisplay}
+                </a>
               </Typography>
             </Box>
             <Box sx={styles.hqContent}>
@@ -335,7 +337,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
             borderRadius: "1rem",
             width: { xs: "100%", md: "50%" },
             mt: { xs: "2rem", md: "0rem" },
-            ml: {xs: 0, md: 4},
+            ml: { xs: 0, md: 4 },
             padding: "20px",
             backgroundColor: "#ffffff",
           }}
@@ -486,7 +488,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
               fontWeight: "500",
               color: formik.errors.resume ? "#d32f2f" : "#313431",
               mt: "1.5rem",
-              mb: "0.5rem"
+              mb: "0.5rem",
             }}
           >
             Attach Resume (PDF Only)
@@ -500,16 +502,18 @@ const CareerForm = ({ bgColor, inPage = false }) => {
               borderRadius: "4px",
               backgroundColor: "#ffffff",
               color: "#000000",
-              border: formik.errors.resume ? "1px solid #d32f2f" : "1px solid lightgray",
+              border: formik.errors.resume
+                ? "1px solid #d32f2f"
+                : "1px solid lightgray",
               boxShadow: "none",
               width: { xs: "100%", sm: "50%", md: "40%", lg: "25%" },
               "&:hover": {
                 backgroundColor: "transparent",
                 border: "1px solid #646464",
-                boxShadow: "none"
+                boxShadow: "none",
               },
               fontSize: "10px",
-              fontWeight: "600"
+              fontWeight: "600",
             }}
             startIcon={<CloudUploadIcon />}
           >

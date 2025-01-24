@@ -9,6 +9,7 @@ import Signature from "/assets/images/about/Signature.webp";
 import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import companyData from "../../utils/data/CompanyInfo";
+import companyDetails from "../../utils/data/CompanyInfo";
 
 const styles = {
   mainContainer: {
@@ -55,7 +56,8 @@ const styles = {
     fontFamily: "Barlow",
     fontWeight: "600",
     color: "#313431",
-    mt: "-2.5rem",
+    width: "200px",
+    mt: { xs: "-1rem", md: "0.8rem" },
   },
 
   ceoRole: {
@@ -190,7 +192,7 @@ const About = () => {
                   <Divider sx={{ mt: "2rem" }} />
                   <Box sx={styles.signatureContainer}>
                     <Box>
-                      <img
+                      {/* <img
                         style={{
                           marginLeft: "-7.5rem",
                           marginTop: "-2rem",
@@ -199,9 +201,10 @@ const About = () => {
                         src={Signature}
                         alt="signature"
 
-                      />
+                      /> */}
                       <Typography sx={styles.ceoName}>
-                        {companyData.ownerName}
+                        {/* {companyData.ownerName} */}
+                        Get in touch with
                       </Typography>
                       <Typography sx={styles.ceoRole}>
                         CEO, Techietribe
@@ -221,7 +224,9 @@ const About = () => {
                         Call to ask any question
                       </Typography>
                       <Typography sx={styles.number}>
-                        <a href="tel:+923004561162">+92 300 456 1162</a>
+                        <a href={`tel:${companyDetails.phoneNumber}`}>
+                          {companyDetails.phoneNumberDisplay}
+                        </a>
                       </Typography>
                     </Box>
                   </Box>
@@ -265,7 +270,7 @@ const About = () => {
                     />
                   </Box>
 
-                  <img src={AboutImage} alt="about"/>
+                  <img src={AboutImage} alt="about" />
                 </Box>
               </Box>
               <motion.div
@@ -357,7 +362,7 @@ const About = () => {
                     <Divider sx={{ mt: "2rem" }} />
                     <Box sx={styles.signatureContainer}>
                       <Box>
-                        <img
+                        {/* <img
                           style={{
                             marginLeft: "-7.5rem",
                             marginTop: "-2rem",
@@ -365,9 +370,10 @@ const About = () => {
                           }}
                           src={Signature}
                           alt="signature"
-                        />
+                        /> */}
                         <Typography sx={styles.ceoName}>
-                          {companyData.ownerName}{" "}
+                          {/* {companyData.ownerName}{" "} */}
+                          Get in touch with
                         </Typography>
                         <Typography sx={styles.ceoRole}>
                           CEO, Techietribe
@@ -387,7 +393,9 @@ const About = () => {
                           Call to ask any question
                         </Typography>
                         <Typography sx={styles.number}>
-                          <a href="tel:+923004561162">+92 300 456 1162</a>
+                          <a href={`tel:${companyDetails.phoneNumber}`}>
+                            {companyDetails.phoneNumberDisplay}
+                          </a>
                         </Typography>
                       </Box>
                     </Box>
@@ -431,7 +439,7 @@ const About = () => {
                       />
                     </Box>
 
-                    <img src={AboutImage} alt="about"/>
+                    <img src={AboutImage} alt="about" />
                   </Box>
                 </Box>
                 <Slide in={slideIn} direction="right" timeout={1800}>

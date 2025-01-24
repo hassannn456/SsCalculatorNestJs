@@ -18,6 +18,7 @@ import RoomIcon from "@mui/icons-material/Room";
 import { MuiTelInput } from "mui-tel-input";
 import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
+import companyDetails from "../../utils/data/CompanyInfo";
 
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
@@ -328,7 +329,9 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                       sx={{ color: "#313431", fontSize: "16px" }}
                     />
                     <Typography sx={styles.contact}>
-                      <a href="tel:+923004561162">+92 300 456 1162</a>
+                      <a href={`tel:${companyDetails.phoneNumber}`}>
+                        {companyDetails.phoneNumberDisplay}
+                      </a>
                     </Typography>
                   </Box>
                   <Box sx={styles.hqContent}>
@@ -573,7 +576,9 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                       sx={{ color: "#313431", fontSize: "16px" }}
                     />
                     <Typography sx={styles.contact}>
-                      <a href="tel:+923004561162">+92 300 456 1162</a>
+                      <a href={`tel:${companyDetails.phoneNumber}`}>
+                        {companyDetails.phoneNumberDisplay}
+                      </a>
                     </Typography>
                   </Box>
                   <Box sx={styles.hqContent}>
