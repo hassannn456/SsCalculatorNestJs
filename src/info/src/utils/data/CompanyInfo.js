@@ -34,7 +34,7 @@ const companyDetails = {
   phoneNumber: "+12513732325",
   phoneNumberDisplay: "(251) 373-2325",
   workingTime: convertToCST(
-    "6:00pm - 3:00am",
+    "6:00pm - 4:00am",
     "Asia/Karachi",
     "America/Chicago"
   ),
