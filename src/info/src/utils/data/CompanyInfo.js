@@ -26,7 +26,7 @@ const companyDetails = {
     facebook: "https://www.facebook.com/thetechietribe.official",
     pinterest: "https://www.pinterest.com/thetechietribe_/",
     instagram: "https://www.instagram.com/thetechietribe_/",
-    linkedin: "https://www.linkedin.com/company/techietribe",
+    linkedin: "https://www.linkedin.com/company/techietribe/",
     youtube: "https://www.youtube.com/@thetechietribe.official",
   },
   address: "12828 Willow Centre Dr Ste D # 363 Houston TX 77066",
