@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://thetechietribe.com/</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Core Pages -->
+  <url>
+    <loc>https://thetechietribe.com/about</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/contact-us</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/careers</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/faq</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://thetechietribe.com/services/web-development</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/mobile-application</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/ui-design</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/blockchain</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/seo</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/content-marketing</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/social-media</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/services/email-marketing</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.65</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://thetechietribe.com/terms-and-conditions</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/privacy-policy</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://thetechietribe.com/cookie-policy</loc>
+    <lastmod>2025-12-11</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- Insight / Blog Pages -->
+  <url><loc>https://thetechietribe.com/insight-details/1e153729-bcda-4f7a-9590-2498fe83f11d</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/d2271e23-5f23-41aa-8fc2-177190d2f055</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/80c93bea-c94b-4744-9eed-e10021b9b0bd</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/eeb93329-53d5-48e9-ad91-f9d20fdfa580</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/212efe34-98c2-4eb9-8b48-235285b6f506</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/23a6c81d-b218-4ed5-b312-d657b08854f8</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/90443e28-1996-4dae-9d56-4132a3ac4d10</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/adda2446-9f9b-4057-a7ce-f422325944bf</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/adaaedb6-7736-423a-821f-4456e86e1947</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/716d901f-3b06-4b59-adda-c4633d700165</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/610472b7-462a-49ff-8b39-6e9b5969935b</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/63f9d5d9-e33f-408e-b9ed-de7e36f0e79d</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/d91ac614-6df8-4385-a6f7-f365bb65229d</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/92148a36-f5f9-45e8-a530-25ed7ceedfb5</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/490a5432-1258-4e30-9269-0e895b2fc4fc</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/761f3e05-b12e-463e-b231-41b29f53aa9b</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/a775dd7a-8ae6-4c02-af9d-e02f022e7ab2</loc></url>
+  <url><loc>https://thetechietribe.com/insight-details/03cb9e9c-6371-4c50-bc96-36329133a9fc</loc></url>
+
+</urlset>
