@@ -7,6 +7,10 @@ import {
   CircularProgress,
   Snackbar,
   Alert,
+  Checkbox,
+  FormControlLabel,
+  Tooltip,
+  Typography,
 } from "@mui/material";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
@@ -19,6 +23,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
   number: Yup.string().required("Phone Number is required"),
   message: Yup.string().required("Message is required"),
+  smsConsent: Yup.boolean().oneOf([true], "You must agree to receive SMS messages"),
 });
 
 const customStyles = {
@@ -112,6 +117,7 @@ const ContactForm = () => {
       number: "",
       select: "",
       message: "",
+      smsConsent: false,
     },
     validationSchema,
     onSubmit: (values) => {
@@ -305,6 +311,39 @@ const ContactForm = () => {
               },
             }}
           />
+        </Box>
+        <Box sx={{ display: "flex", width: "100%", mt: "1rem" }}>
+          <Tooltip
+            title="By providing your phone number and clicking submit, you agree to receive SMS messages from Techietribe regarding your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time."
+            placement="top"
+            arrow
+          >
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="smsConsent"
+                  checked={formik.values.smsConsent}
+                  onChange={formik.handleChange}
+                  sx={{
+                    color: formik.touched.smsConsent && formik.errors.smsConsent ? "#d32f2f" : "#378C92",
+                    "&.Mui-checked": {
+                      color: "#378C92",
+                    },
+                  }}
+                />
+              }
+              label={
+                <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431" }}>
+                  I agree to receive SMS messages
+                </Typography>
+              }
+            />
+          </Tooltip>
+          {formik.touched.smsConsent && formik.errors.smsConsent && (
+            <Typography sx={{ color: "#d32f2f", fontSize: "0.75rem", ml: "14px", mt: "3px" }}>
+              {formik.errors.smsConsent}
+            </Typography>
+          )}
         </Box>
         <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
           <TextField

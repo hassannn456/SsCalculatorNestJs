@@ -113,10 +113,7 @@ const PrivacyPolicy = () => {
         >
           <strong>Sharing Your Information</strong>
           <br />
-          We do not sell or rent your personal information to third parties. We
-          may share your data with trusted partners who assist us in operating
-          our website and conducting our business, provided they agree to keep
-          this information confidential.
+          We do not sell or rent your personal information to third partiesor any affiliates. No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
         </Typography>
 
         <Typography
