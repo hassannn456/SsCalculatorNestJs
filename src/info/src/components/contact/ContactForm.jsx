@@ -11,6 +11,7 @@ import {
   FormControlLabel,
   Tooltip,
   Typography,
+  Link,
 } from "@mui/material";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
@@ -108,6 +109,8 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const smsDisclosureText =
+    "By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message & data rates may apply. Message frequency may vary. Reply HELP for more information. Reply STOP to opt out.";
 
   const formik = useFormik({
     initialValues: {
@@ -313,11 +316,7 @@ const ContactForm = () => {
           />
         </Box>
         <Box sx={{ display: "flex", width: "100%", mt: "1rem" }}>
-          <Tooltip
-            title="By providing your phone number and clicking submit, you agree to receive SMS messages from Techietribe regarding your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time."
-            placement="top"
-            arrow
-          >
+          <Tooltip title={smsDisclosureText} placement="top" arrow>
             <FormControlLabel
               control={
                 <Checkbox
@@ -334,7 +333,7 @@ const ContactForm = () => {
               }
               label={
                 <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431" }}>
-                  I agree to receive SMS messages
+                  I agree to receive SMS messages from TechieTribe at the number provided.
                 </Typography>
               }
             />
@@ -392,6 +391,12 @@ const ContactForm = () => {
             }}
           />
         </Box>
+        <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431", mt: "0.75rem" }}>
+          {smsDisclosureText}{" "}
+          <Link href="/privacy-policy" sx={styles.contact}>
+            Privacy Policy
+          </Link>
+        </Typography>
         <Box sx={styles.aboutBtnContainer}>
           <Button type="submit" sx={styles.aboutBtn}>
             {loading ? (
