@@ -12,6 +12,10 @@ import {
   Snackbar,
   Alert,
   Slide,
+  Checkbox,
+  FormControlLabel,
+  Tooltip,
+  Link,
 } from "@mui/material";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import RoomIcon from "@mui/icons-material/Room";
@@ -26,6 +30,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
   number: Yup.string().required("Phone Number is required"),
   message: Yup.string().required("Message is required"),
+  smsConsent: Yup.boolean().oneOf([true], "You must agree to receive SMS messages"),
 });
 
 const styles = {
@@ -201,6 +206,9 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [slideIn, setSlideIn] = useState(false);
+  const smsDisclosureText =
+    "By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message & data rates may apply. Message frequency may vary. Reply HELP for more information. Reply STOP to opt out.";
+
   useEffect(() => {
     setSlideIn(true);
   }, []);
@@ -213,6 +221,7 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
       number: "",
       select: "",
       message: "",
+      smsConsent: false,
     },
     validationSchema,
     onSubmit: (values) => {
@@ -453,6 +462,35 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                     defaultCountry="PK"
                   />
                 </Box>
+                <Box sx={{ display: "flex", width: "100%", mt: "1rem" }}>
+                  <Tooltip title={smsDisclosureText} placement="top" arrow>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="smsConsent"
+                          checked={formik.values.smsConsent}
+                          onChange={formik.handleChange}
+                          sx={{
+                            color: formik.touched.smsConsent && formik.errors.smsConsent ? "#d32f2f" : "#378C92",
+                            "&.Mui-checked": {
+                              color: "#378C92",
+                            },
+                          }}
+                        />
+                      }
+                      label={
+                        <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431" }}>
+                          I agree to receive SMS messages from TechieTribe at the number provided.
+                        </Typography>
+                      }
+                    />
+                  </Tooltip>
+                  {formik.touched.smsConsent && formik.errors.smsConsent && (
+                    <Typography sx={{ color: "#d32f2f", fontSize: "0.75rem", ml: "14px", mt: "3px" }}>
+                      {formik.errors.smsConsent}
+                    </Typography>
+                  )}
+                </Box>
                 <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
                   <TextField
                     size="small"
@@ -497,6 +535,12 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                     sx={styles.textField}
                   />
                 </Box>
+                <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431", mt: "0.75rem" }}>
+                  {smsDisclosureText}{" "}
+                  <Link href="/privacy-policy" sx={styles.contact}>
+                    Privacy Policy
+                  </Link>
+                </Typography>
 
                 <Box sx={styles.aboutBtnContainer}>
                   <Button type="submit" sx={styles.aboutBtn}>
@@ -692,6 +736,35 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                     defaultCountry="PK"
                   />
                 </Box>
+                <Box sx={{ display: "flex", width: "100%", mt: "1rem" }}>
+                  <Tooltip title={smsDisclosureText} placement="top" arrow>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="smsConsent"
+                          checked={formik.values.smsConsent}
+                          onChange={formik.handleChange}
+                          sx={{
+                            color: formik.touched.smsConsent && formik.errors.smsConsent ? "#d32f2f" : "#378C92",
+                            "&.Mui-checked": {
+                              color: "#378C92",
+                            },
+                          }}
+                        />
+                      }
+                      label={
+                        <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431" }}>
+                          I agree to receive SMS messages from TechieTribe at the number provided.
+                        </Typography>
+                      }
+                    />
+                  </Tooltip>
+                  {formik.touched.smsConsent && formik.errors.smsConsent && (
+                    <Typography sx={{ color: "#d32f2f", fontSize: "0.75rem", ml: "14px", mt: "3px" }}>
+                      {formik.errors.smsConsent}
+                    </Typography>
+                  )}
+                </Box>
                 <Box sx={{ display: "flex", width: "100%", mt: "1.5rem" }}>
                   <TextField
                     size="small"
@@ -736,6 +809,12 @@ const RequestQuote = ({ bgColor, inPage = false }) => {
                     sx={styles.textField}
                   />
                 </Box>
+                <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431", mt: "0.75rem" }}>
+                  {smsDisclosureText}{" "}
+                  <Link href="/privacy-policy" sx={styles.contact}>
+                    Privacy Policy
+                  </Link>
+                </Typography>
 
                 <Box sx={styles.aboutBtnContainer}>
                   <Button type="submit" sx={styles.aboutBtn}>

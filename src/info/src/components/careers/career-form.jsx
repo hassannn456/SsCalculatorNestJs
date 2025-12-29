@@ -13,6 +13,10 @@ import {
   CircularProgress,
   Snackbar,
   Alert,
+  Checkbox,
+  FormControlLabel,
+  Tooltip,
+  Link,
 } from "@mui/material";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import RoomIcon from "@mui/icons-material/Room";
@@ -34,6 +38,7 @@ const validationSchema = Yup.object().shape({
       }
       return true;
     }),
+  smsConsent: Yup.boolean().oneOf([true], "You must agree to receive SMS messages"),
 });
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -187,6 +192,8 @@ const CareerForm = ({ bgColor, inPage = false }) => {
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const smsDisclosureText =
+    "By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message & data rates may apply. Message frequency may vary. Reply HELP for more information. Reply STOP to opt out.";
 
   const formik = useFormik({
     initialValues: {
@@ -197,6 +204,7 @@ const CareerForm = ({ bgColor, inPage = false }) => {
       select: "",
       message: "",
       resume: null,
+      smsConsent: false,
     },
     validationSchema,
     onSubmit: (values) => {
@@ -449,6 +457,35 @@ const CareerForm = ({ bgColor, inPage = false }) => {
               }}
             />
           </Box>
+          <Box sx={{ display: "flex", width: "100%", mt: "1rem" }}>
+            <Tooltip title={smsDisclosureText} placement="top" arrow>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="smsConsent"
+                    checked={formik.values.smsConsent}
+                    onChange={formik.handleChange}
+                    sx={{
+                      color: formik.touched.smsConsent && formik.errors.smsConsent ? "#d32f2f" : "#378C92",
+                      "&.Mui-checked": {
+                        color: "#378C92",
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431" }}>
+                    I agree to receive SMS messages from TechieTribe at the number provided.
+                  </Typography>
+                }
+              />
+            </Tooltip>
+            {formik.touched.smsConsent && formik.errors.smsConsent && (
+              <Typography sx={{ color: "#d32f2f", fontSize: "0.75rem", ml: "14px", mt: "3px" }}>
+                {formik.errors.smsConsent}
+              </Typography>
+            )}
+          </Box>
           <TextField
             size="small"
             name="select"
@@ -549,6 +586,12 @@ const CareerForm = ({ bgColor, inPage = false }) => {
               }}
             />
           </Box>
+          <Typography sx={{ fontFamily: "Barlow", fontSize: "0.875rem", color: "#313431", mt: "0.75rem" }}>
+            {smsDisclosureText}{" "}
+            <Link href="/privacy-policy" sx={styles.contact}>
+              Privacy Policy
+            </Link>
+          </Typography>
 
           <Box sx={styles.aboutBtnContainer}>
             <Button type="submit" sx={styles.aboutBtn}>
